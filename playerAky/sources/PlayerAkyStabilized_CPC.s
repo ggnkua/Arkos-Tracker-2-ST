@@ -18,6 +18,9 @@
 ;       SIZE: If you don't play a song twice, all the code in PLY_AKYst_Init can be removed, except the first lines that skip the header.
 ;       SIZE: The header is only needed for players that want to load any song. Most of the time, you don't need it. Erase both the init code and the header bytes in the song.
 
+; Port by George Nakos (GGN of pick-your-favorite-group - KUA software productions/D-Bug/Paradize/Reboot/Bello games)
+; (yes, crews are becoming pointless :))
+
 ;PLY_AKYst_OPCODE_OR_A: equ #b7                        ;Opcode for "or a".
 ;PLY_AKYst_OPCODE_SCF: equ #37                         ;Opcode for "scf".
 PLY_AKYst_OPCODE_OR_A: equ $00000000                  ;Opcode for "ori.b #0,d0".
@@ -88,7 +91,7 @@ PLY_AKYst_Play:
 PLY_AKYst_PatternFrameCounter: move.w #1,d0             ;How many frames left before reading the next Pattern.
 * NOTE: the above is actually SMCd for now, so probably not a good idea to optimise it to moveq ;)
 ;        dec hl
-        subq.w #1,d0                                    ;assuming that hl/l=d0
+        subq.w #1,d0                                    ;assuming that h/l=d0
 ;        ld a,l
         move.w d0,d1                                    ;assuming that a=d1
 ;        or h
@@ -214,7 +217,7 @@ PLY_AKYst_Channel1_PtTrack: lea 0,a0                   ;Points on the Track.
         move.w (a0)+,d0
 
 ;        ld (PLY_AKYst_Channel1_PtTrack + 1),sp
-        move.l a0,PLY_AKYst_Channel1_PtTrack
+        move.l a0,PLY_AKYst_Channel1_PtTrack + 2
 ;        ld (PLY_AKYst_Channel1_PtRegisterBlock + 1),hl
         move.w d0,PLY_AKYst_Channel1_PtRegisterBlock + 2
 
@@ -228,58 +231,84 @@ PLY_AKYst_Channel1_RegisterBlock_Process:
 
 ;Reading the Track - channel 2.
 ;----------------------------------------
-PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock: ld a,1        ;Frames to wait before reading the next RegisterBlock. 0 = finished.
-        dec a
-        jr z,PLY_AKYst_Channel2_RegisterBlock_Finished
-                ld b,6                  ;26 cycles.
-                djnz $
-                nop
-        jr PLY_AKYst_Channel2_RegisterBlock_Process
+;PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock: ld a,1        ;Frames to wait before reading the next RegisterBlock. 0 = finished.
+PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock: move.b #1,d1    ;Frames to wait before reading the next RegisterBlock. 0 = finished.
+;        dec a
+        subq.b #1,d1       
+;        jr z,PLY_AKYst_Channel2_RegisterBlock_Finished
+        blt.s PLY_AKYst_Channel2_RegisterBlock_Finished
+;                ld b,6                  ;26 cycles.
+;                djnz $
+;                nop
+;        jr PLY_AKYst_Channel2_RegisterBlock_Process
+        bra.s PLY_AKYst_Channel2_RegisterBlock_Process
 PLY_AKYst_Channel2_RegisterBlock_Finished:
         ;This RegisterBlock is finished. Reads the next one from the Track.
         ;Obviously, starts at the initial state.
-        ld a,PLY_AKYst_OPCODE_OR_A
-        ld (PLY_AKYst_Channel2_RegisterBlockLineState_Opcode),a
-PLY_AKYst_Channel2_PtTrack: ld sp,0                   ;Points on the Track.
-        dec sp                                  ;Only one byte is read. Compensate.
-        pop af                                  ;Gets the duration (b1-7). b0 = silence block?
-        pop hl                                  ;Reads the RegisterBlock address.
+;        ld a,PLY_AKYst_OPCODE_OR_A
+        move.l #PLY_AKYst_OPCODE_OR_A
+;        ld (PLY_AKYst_Channel2_RegisterBlockLineState_Opcode),a
+        move.l d1,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
+;PLY_AKYst_Channel2_PtTrack: ld sp,0                   ;Points on the Track.
+PLY_AKYst_Channel2_PtTrack: lea 0,sp                    ;Points on the Track.
+;        dec sp                                  ;Only one byte is read. Compensate.
+        subq.w #1,d0
+;        pop af                                  ;Gets the duration (b1-7). b0 = silence block?
+        move.w (a0)+,d3
+;        pop hl                                  ;Reads the RegisterBlock address.
+        move.w (a0)+,d0
 
-        ld (PLY_AKYst_Channel2_PtTrack + 1),sp
-        ld (PLY_AKYst_Channel2_PtRegisterBlock + 1),hl
+;        ld (PLY_AKYst_Channel2_PtTrack + 1),sp
+        move.l a0,(PLY_AKYst_Channel2_PtTrack + 2)
+;        ld (PLY_AKYst_Channel2_PtRegisterBlock + 1),hl
+        move.w d0,(PLY_AKYst_Channel2_PtRegisterBlock + 2)
         ;A is the duration of the block.
 PLY_AKYst_Channel2_RegisterBlock_Process:
         ;Processes the RegisterBlock, whether it is the current one or a new one.
-        ld (PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock + 1),a
+;        ld (PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock + 1),a
+        move.b d1, (PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock + 3),a
 
 
 
 
 ;Reading the Track - channel 3.
 ;----------------------------------------
-PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock: ld a,1        ;Frames to wait before reading the next RegisterBlock. 0 = finished.
-        dec a
+;PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock: ld a,1        ;Frames to wait before reading the next RegisterBlock. 0 = finished.
+PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock: move.b #1,d1    ;Frames to wait before reading the next RegisterBlock. 0 = finished.
+;        dec a
+        subq.w #1,d1
         jr z,PLY_AKYst_Channel3_RegisterBlock_Finished
-                ld b,6                  ;26 cycles.
-                djnz $
-                nop
-        jr PLY_AKYst_Channel3_RegisterBlock_Process
+        blt.s PLY_AKYst_Channel3_RegisterBlock_Finished
+;                ld b,6                  ;26 cycles.
+;                djnz $
+;                nop
+;        jr PLY_AKYst_Channel3_RegisterBlock_Process
+        bra.s PLY_AKYst_Channel3_RegisterBlock_Process
 PLY_AKYst_Channel3_RegisterBlock_Finished:
         ;This RegisterBlock is finished. Reads the next one from the Track.
         ;Obviously, starts at the initial state.
-        ld a,PLY_AKYst_OPCODE_OR_A
-        ld (PLY_AKYst_Channel3_RegisterBlockLineState_Opcode),a
-PLY_AKYst_Channel3_PtTrack: ld sp,0                   ;Points on the Track.
-        dec sp                                  ;Only one byte is read. Compensate.
-        pop af                                  ;Gets the duration (b1-7). b0 = silence block?
-        pop hl                                  ;Reads the RegisterBlock address.
+;        ld a,PLY_AKYst_OPCODE_OR_A
+        move.l #PLY_AKYst_OPCODE_OR_A,d1
+;        ld (PLY_AKYst_Channel3_RegisterBlockLineState_Opcode),a
+        move.l d1,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
+;PLY_AKYst_Channel3_PtTrack: ld sp,0                   ;Points on the Track.
+PLY_AKYst_Channel3_PtTrack: lea 0,a0                    ;Points on the Track.
+;        dec sp                                  ;Only one byte is read. Compensate.
+        subq.w #1,a0
+;        pop af                                  ;Gets the duration (b1-7). b0 = silence block?
+        move.w (a0)+,d3
+;        pop hl                                  ;Reads the RegisterBlock address.
+        move.w (a0)+,d0
 
-        ld (PLY_AKYst_Channel3_PtTrack + 1),sp
-        ld (PLY_AKYst_Channel3_PtRegisterBlock + 1),hl
+;        ld (PLY_AKYst_Channel3_PtTrack + 1),sp
+        move.l a0,(PLY_AKYst_Channel3_PtTrack + 2)
+;        ld (PLY_AKYst_Channel3_PtRegisterBlock + 1),hl
+        move.w d0,(PLY_AKYst_Channel3_PtRegisterBlock + 2)
         ;A is the duration of the block.
 PLY_AKYst_Channel3_RegisterBlock_Process:
         ;Processes the RegisterBlock, whether it is the current one or a new one.
-        ld (PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock + 1),a
+        ;ld (PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock + 1),a
+        move.b d1,(PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock + 3)
 
 
 
@@ -297,44 +326,69 @@ PLY_AKYst_Channel3_RegisterBlock_Process:
 ;Reading the RegisterBlock - Channel 1
 ;----------------------------------------
 
-                ld hl,0 * 256 + 8                       ;H = first frequency register, L = first volume register.
-                ld de,#f4f6
-                ld bc,#f690                             ;#90 used for both #80 for the PSG, and volume 16!
+                ;ld hl,0 * 256 + 8                       ;H = first frequency register, L = first volume register.
+                move.w #0 * 256 + 8,d1                       ;H = first frequency register, L = first volume register.
+                ;ld de,#f4f6
+                move.w #$f4f6,d2                         ;assuming that d/e=d2
+                ;ld bc,#f690                             ;#90 used for both #80 for the PSG, and volume 16!
+                move.w #$f690,d3                         ;assuming that b/c=d3
         
-                ld a,#c0                                ;Used for PSG.
-                out (c),a                               ;f6c0. Madram's trick requires to start with this. out (c),b works, but will activate K7's relay! Not clean.
-        ex af,af'
-        exx
+                ;ld a,#c0                                ;Used for PSG.
+                move.w #$c0,d1                          ;Used for PSG.
+                ;out (c),a                               ;f6c0. Madram's trick requires to start with this. out (c),b works, but will activate K7's relay! Not clean.
+* From what I understand on the amstrad one has to write to a port to first enable writing to the psg. We don't need this since we have direct memory map                
+        ;ex af,af'
+        ;exx
+* So the 2 instructions above seem to swap internal registers (z80 apparently has af/af', bc/bc', de/de', hf/hf')
+* which means that we'll simply use different 68k registers below)
 
         ;In B, R7 with default values: fully sound-open but noise-close.
         ;R7 has been shift twice to the left, it will be shifted back as the channels are treated.
-        ld bc,%11100000 * 256 + 255                     ;C is 255 to prevent the following LDIs to decrease B.
+;        ld bc,%11100000 * 256 + 255                     ;C is 255 to prevent the following LDIs to decrease B.
+        move.w #%11100000 * 256 + 255,d4                 ;assuming that b/c'=d4
 
-        ld sp,PLY_AKYst_RetTable_ReadRegisterBlock
+;        ld sp,PLY_AKYst_RetTable_ReadRegisterBlock
+        move.l #PLY_AKYst_Channel1_RegisterBlock_Return,a0  ;so the above sets the return address to the label we have here by modifying the stack. Let's not use that thing for now (or ever)
 
-PLY_AKYst_Channel1_PtRegisterBlock: ld hl,0                   ;Points on the data of the RegisterBlock to read.
-PLY_AKYst_Channel1_RegisterBlockLineState_Opcode: or a        ;"or a" if initial state, "scf" (#37) if non-initial state.
-        jp PLY_AKYst_ReadRegisterBlock
+;PLY_AKYst_Channel1_PtRegisterBlock: ld hl,0                   ;Points on the data of the RegisterBlock to read.
+PLY_AKYst_Channel1_PtRegisterBlock: move.w #0,d0               ;Points on the data of the RegisterBlock to read.
+;PLY_AKYst_Channel1_RegisterBlockLineState_Opcode: or a        ;"or a" if initial state, "scf" (#37) if non-initial state.
+PLY_AKYst_Channel1_RegisterBlockLineState_Opcode: ori.b #0,d0  ;yeah well, the best substitution I can think of right now is ori.b #0,d0 / ori #1,ccr
+;        jp PLY_AKYst_ReadRegisterBlock
+        bra PLY_AKYst_ReadRegisterBlock
 PLY_AKYst_Channel1_RegisterBlock_Return:
-        ld a,PLY_AKYst_OPCODE_SCF
-        ld (PLY_AKYst_Channel1_RegisterBlockLineState_Opcode),a
-        ld (PLY_AKYst_Channel1_PtRegisterBlock + 1),hl        ;This is new pointer on the RegisterBlock.
-
+;        ld a,PLY_AKYst_OPCODE_SCF
+        move.l #PLY_AKYst_OPCODE_SCF,d1
+;        ld (PLY_AKYst_Channel1_RegisterBlockLineState_Opcode),a
+        move.l d1,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
+;        ld (PLY_AKYst_Channel1_PtRegisterBlock + 1),hl        ;This is new pointer on the RegisterBlock.
+        move.w d0,PLY_AKYst_Channel1_PtRegisterBlock + 2
 
 
 ;Reading the RegisterBlock - Channel 2
 ;----------------------------------------
 
         ;Shifts the R7 for the next channels.
-        srl b           ;Not RR, because we have to make sure the b6 is 0, else no more keyboard (on CPC)!
+;        srl b           ;Not RR, because we have to make sure the b6 is 0, else no more keyboard (on CPC)!
+        move.w d3,d7     ;well, that's what we get for putting b into the high word
+        lsr.w #1,d7
+        move.b d3,d7
+        move.w d7,d3    ;yeah this definitely could be done faster :)
+        
 
-PLY_AKYst_Channel2_PtRegisterBlock: ld hl,0                   ;Points on the data of the RegisterBlock to read.
-PLY_AKYst_Channel2_RegisterBlockLineState_Opcode: or a        ;"or a" if initial state, "scf" (#37) if non-initial state.
-        jp PLY_AKYst_ReadRegisterBlock
+;PLY_AKYst_Channel2_PtRegisterBlock: ld hl,0                   ;Points on the data of the RegisterBlock to read.
+PLY_AKYst_Channel2_PtRegisterBlock: move.w #0,d0                ;Points on the data of the RegisterBlock to read.
+;PLY_AKYst_Channel2_RegisterBlockLineState_Opcode: or a        ;"or a" if initial state, "scf" (#37) if non-initial state.
+PLY_AKYst_Channel2_RegisterBlockLineState_Opcode: ori.b #0,d0
+;        jp PLY_AKYst_ReadRegisterBlock
+       bra PLY_AKYst_ReadRegisterBlock 
 PLY_AKYst_Channel2_RegisterBlock_Return:
-        ld a,PLY_AKYst_OPCODE_SCF
-        ld (PLY_AKYst_Channel2_RegisterBlockLineState_Opcode),a
-        ld (PLY_AKYst_Channel2_PtRegisterBlock + 1),hl        ;This is new pointer on the RegisterBlock.
+;        ld a,PLY_AKYst_OPCODE_SCF
+        move.l #PLY_AKYst_OPCODE_SCF,d1
+;        ld (PLY_AKYst_Channel2_RegisterBlockLineState_Opcode),a
+        move.l d1,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
+;        ld (PLY_AKYst_Channel2_PtRegisterBlock + 1),hl        ;This is new pointer on the RegisterBlock.
+        move.w d0,PLY_AKYst_Channel2_PtRegisterBlock + 2        ;This is new pointer on the RegisterBlock.
 
 
 ;Reading the RegisterBlock - Channel 3
@@ -343,115 +397,147 @@ PLY_AKYst_Channel2_RegisterBlock_Return:
         ;Shifts the R7 for the next channels.
         rr b            ;Safe to use RR, we don't care if b7 of R7 is 0 or 1.
 
-PLY_AKYst_Channel3_PtRegisterBlock: ld hl,0                   ;Points on the data of the RegisterBlock to read.
-PLY_AKYst_Channel3_RegisterBlockLineState_Opcode: or a        ;"or a" if initial state, "scf" (#37) if non-initial state.
-        jp PLY_AKYst_ReadRegisterBlock
+;PLY_AKYst_Channel3_PtRegisterBlock: ld hl,0                   ;Points on the data of the RegisterBlock to read.
+PLY_AKYst_Channel3_PtRegisterBlock: move.w #0,d0                ;Points on the data of the RegisterBlock to read.
+;PLY_AKYst_Channel3_RegisterBlockLineState_Opcode: or a        ;"or a" if initial state, "scf" (#37) if non-initial state.
+PLY_AKYst_Channel3_RegisterBlockLineState_Opcode: ori.b #0,d0
+;        jp PLY_AKYst_ReadRegisterBlock
+        bra PLY_AKYst_ReadRegisterBlock
 PLY_AKYst_Channel3_RegisterBlock_Return:
-        ld a,PLY_AKYst_OPCODE_SCF
-        ld (PLY_AKYst_Channel3_RegisterBlockLineState_Opcode),a
-        ld (PLY_AKYst_Channel3_PtRegisterBlock + 1),hl        ;This is new pointer on the RegisterBlock.
+        ;ld a,PLY_AKYst_OPCODE_SCF
+        move.l #PLY_AKYst_OPCODE_SCF,d1
+;        ld (PLY_AKYst_Channel3_RegisterBlockLineState_Opcode),a
+        move.l d1,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
+;        ld (PLY_AKYst_Channel3_PtRegisterBlock + 1),hl        ;This is new pointer on the RegisterBlock.
+        move.w d0,(PLY_AKYst_Channel3_PtRegisterBlock + 2        ;This is new pointer on the RegisterBlock.
 
         ;Register 7 to A.
-        ld a,b
+;        ld a,b
+        move.w d3,d1
+        lsr.w #8,d1
 
 ;Almost all the channel specific registers have been sent. Now sends the remaining registers (6, 7, 11, 12, 13).
 
 ;Register 7. Note that managing register 7 before 6/11/12 is done on purpose (the 6/11/12 registers are filled using OUTI).
-        exx
+;        exx
 
-                inc h           ;Was 6, so now 7!
+;                inc h           ;Was 6, so now 7!
+                add.w #1<<8,d0
 
-                ld b,d
-                out (c),h       ;f400 + register.
-                ld b,e
-                out (c),0       ;f600.
-                ld b,d
-                out (c),a       ;f400 + value.
-                ld b,e
-                out (c),c       ;f680
-                ex af,af'
-                out (c),a       ;f6c0.
-                ex af,af'
+
+;                ld b,d
+;                out (c),h       ;f400 + register.
+;                ld b,e
+;                out (c),0       ;f600.
+;                ld b,d
+;                out (c),a       ;f400 + value.
+;                ld b,e
+;                out (c),c       ;f680
+;                ex af,af'
+;                out (c),a       ;f6c0.
+;                ex af,af'
+* I really think the above boils down to:
+                move.b #7,$ffff8800.w
+                move.b d1,$ffff8802.w
 
 ;Register 6
-                dec h
+;                dec h
+                sub.w #1<<8,d0
 
-                ld b,d
-                out (c),h       ;f400 + register.
-                ld b,e
-                out (c),0       ;f600.
-
-                ld hl,PLY_AKYst_PsgRegister6
-                dec b           ; -1, not -2 because of OUTI does -1 before doing the out.
-                outi            ;f400 + value
-                ld b,e
-                out (c),c       ;f680
-                ex af,af'
-                out (c),a       ;f6c0.
-                ex af,af'
+;                ld b,d
+;                out (c),h       ;f400 + register.
+;                ld b,e
+;                out (c),0       ;f600.
+;
+;                ld hl,PLY_AKYst_PsgRegister6
+;                dec b           ; -1, not -2 because of OUTI does -1 before doing the out.
+;                outi            ;f400 + value
+;                ld b,e
+;                out (c),c       ;f680
+;                ex af,af'
+;                out (c),a       ;f6c0.
+;                ex af,af'
+* and again...
+                move.b #6,$ffff8800.w
+                move.b PLY_AKYst_PsgRegister6,$ffff8802.w
 
 ;Register 11
-                ld a,11         ;Next regiser
-
-                ld b,d
-                out (c),a       ;f400 + register.
-                ld b,e
-                out (c),0       ;f600.
-                dec b
-                outi            ;f400 + value.
-                ld b,e
-                out (c),c       ;f680
-                ex af,af'
-                out (c),a       ;f6c0.
-                ex af,af'
+;                ld a,11         ;Next regiser
+;
+;                ld b,d
+;                out (c),a       ;f400 + register.
+;                ld b,e
+;                out (c),0       ;f600.
+;                dec b
+;                outi            ;f400 + value.
+;                ld b,e
+;                out (c),c       ;f680
+;                ex af,af'
+;                out (c),a       ;f6c0.
+;                ex af,af'
+                move.b #11,$ffff8800.w
+                move.b PLY_AKYst_PsgRegister11,$ffff8802.w
+                
 
 ;Register 12
-                inc a           ;Next regiser
-
-                ld b,d
-                out (c),a       ;f400 + register.
-                ld b,e
-                out (c),0       ;f600.
-                dec b
-                outi            ;f400 + value.
-                ld b,e
-                out (c),c       ;f680
-                ex af,af'
-                out (c),a       ;f6c0.
-                ex af,af'
-
+;                inc a           ;Next regiser
+;
+;                ld b,d
+;                out (c),a       ;f400 + register.
+;                ld b,e
+;                out (c),0       ;f600.
+;                dec b
+;                outi            ;f400 + value.
+;                ld b,e
+;                out (c),c       ;f680
+;                ex af,af'
+;                out (c),a       ;f6c0.
+;                ex af,af'
+                move.b #12,$ffff8800.w
+                move.b PLY_AKYst_PsgRegister12,$ffff8802.w
 
 
 ;Register 13
-PLY_AKYst_PsgRegister13_Code
-                ld a,(hl)
-PLY_AKYst_PsgRegister13_Retrig cp 255                         ;If IsRetrig?, force the R13 to be triggered.
-                jr nz,PLY_AKYst_PsgRegister13_Change
-                        ld b,7                  ;30 cycles.
-                        djnz $
-                        nop
-                jr PLY_AKYst_PsgRegister13_End
+PLY_AKYst_PsgRegister13_Code:
+;                ld a,(hl)
+                move.b PLY_AKYst_PsgRegister13,d1
+;PLY_AKYst_PsgRegister13_Retrig: cp 255                         ;If IsRetrig?, force the R13 to be triggered.
+PLY_AKYst_PsgRegister13_Retrig: cmp #255,d1
+;                jr nz,PLY_AKYst_PsgRegister13_Change
+                blt.s PLY_AKYst_PsgRegister13_Change
+;                        ld b,7                  ;30 cycles.
+;                        djnz $
+;                        nop
+                moveq #7,d7
+.waitloop:      dbra d6,.waitloop
+;                jr PLY_AKYst_PsgRegister13_End
+                bra PLY_AKYst_PsgRegister13_End
 PLY_AKYst_PsgRegister13_Change:
-                ld (PLY_AKYst_PsgRegister13_Retrig + 1),a
+;                ld (PLY_AKYst_PsgRegister13_Retrig + 1),a
+                move.b PLY_AKYst_PsgRegister13_Retrig + 1,d1
 
-                ld b,d
-                ld l,13
-                out (c),l       ;f400 + register.
-                ld b,e
-                out (c),0       ;f600.
-                ld b,d
-                out (c),a       ;f400 + value.
-                ld b,e
-                out (c),c       ;f680
-                ex af,af'
-                out (c),a       ;f6c0.
-                ex af,af'
+;                ld b,d
+;                ld l,13
+;                out (c),l       ;f400 + register.
+;                ld b,e
+;                out (c),0       ;f600.
+;                ld b,d
+;                out (c),a       ;f400 + value.
+;                ld b,e
+;                out (c),c       ;f680
+;                ex af,af'
+;                out (c),a       ;f6c0.
+;                ex af,af'
+                move.b #12,$ffff8800.w
+                move.b d1,$ffff8802.w
 PLY_AKYst_PsgRegister13_End:
 
 
 
-PLY_AKYst_Exit: ld sp,0
-        ret
+;PLY_AKYst_Exit: ld sp,0
+PLY_AKYst_Exit: ;ld sp,0
+;        ret
+        rts
 
 
 
@@ -467,39 +553,52 @@ PLY_AKYst_Exit: ld sp,0
 
 PLY_AKYst_ReadRegisterBlock:
         ;Gets the first byte of the line. What type? Jump to the matching code thanks to the carry.
-        ld a,(hl)
-        inc hl
-        jp c,PLY_AKYst_RRB_NonInitialState
+;        ld a,(hl)
+        move.w d0,a0
+        move.b (a0),d1             * Yeah, that definitely won't work - that needs to be a valid address
+;        inc hl
+        addq.w #1,d0
+;        jp c,PLY_AKYst_RRB_NonInitialState
+        bcs PLY_AKYst_RRB_NonInitialState
         
                 ;Compensate once and for all the loop for the NIS (not present here in the IS).
                 ;ds PLY_AKYst_NOP_Loop, 0                                
-        	ld d,8                     ;Waits for 35 cycles.
-                dec d
-                jr nz,$ - 1
-                cp (hl)
+;        	ld d,8                     ;Waits for 35 cycles.
+;                dec d
+;                jr nz,$ - 1
+;                cp (hl)
         
         ;Not in the original code, but simplifies the stabilization.
-        ld d,a                  ;A must be saved!        
-        and %00000011
-        add a,a
-        add a,a
-        ld e,a
-        ld a,d                  ;Retrieves A, which is supposed to be shifted in the original code.
-        rra
-        rra
-        ld d,0
-        ld ix,PLY_AKYst_IS_JPTable
-        add ix,de
-        jp (ix)
+;        ld d,a                  ;A must be saved!        
+;        and %00000011
+;        add a,a
+;        add a,a
+;        ld e,a
+;        ld a,d                  ;Retrieves A, which is supposed to be shifted in the original code.
+;        rra
+;        rra
+;        ld d,0
+;        ld ix,PLY_AKYst_IS_JPTable
+;        add ix,de
+;        jp (ix)
+;PLY_AKYst_IS_JPTable:
+;        jp PLY_AKYst_RRB_IS_NoSoftwareNoHardware          ;%00
+;        nop
+;        jp PLY_AKYst_RRB_IS_SoftwareOnly                  ;%01
+;        nop
+;        jp PLY_AKYst_RRB_IS_HardwareOnly                  ;%10
+;        nop
+;        jp PLY_AKYst_RRB_IS_SoftwareAndHardware           ;%11
+        move.b d1,d7
+        ext.w d7
+        add.w d7,d7
+        lea PLY_AKYst_IS_JPTable(pc),a6
+        jmp (a6,d7.w)
 PLY_AKYst_IS_JPTable:
-        jp PLY_AKYst_RRB_IS_NoSoftwareNoHardware          ;%00
-        nop
-        jp PLY_AKYst_RRB_IS_SoftwareOnly                  ;%01
-        nop
-        jp PLY_AKYst_RRB_IS_HardwareOnly                  ;%10
-        nop
-        jp PLY_AKYst_RRB_IS_SoftwareAndHardware           ;%11
-        
+        dc.w PLY_AKYst_RRB_IS_NoSoftwareNoHardware-PLY_AKYse_IS_JPTable
+        dc.w PLY_AKYst_RRB_IS_SoftwareOnly-PLY_AKYse_IS_JPTable
+        dc.w PLY_AKYst_RRB_IS_HardwareOnly-PLY_AKYse_IS_JPTable
+        dc.w PLY_AKYst_RRB_IS_SoftwareAndHardware-PLY_AKYse_IS_JPTable
 
 ;Generic code interpreting the RegisterBlock - Initial state.
 ;----------------------------------------------------------------
@@ -532,26 +631,35 @@ PLY_AKYst_RRB_SoundChannelBit: equ 2          ;Bit to modify to set/reset the so
 PLY_AKYst_RRB_IS_NoSoftwareNoHardware:          ;50 cycles.
 
                 ;ds PLY_AKYst_NOP_LongestInState - 50, 0         ;For all the IS/NIS subcodes to spend the same amount of time.
-        	ld d,32                     ;Waits for 182 - 50 = 132 cycles.
-                dec d
-                jr nz,$ - 1
-                cp (hl)
-                nop
+;        	ld d,32                     ;Waits for 182 - 50 = 132 cycles.
+;                dec d
+;                jr nz,$ - 1
+;                cp (hl)
+;                nop
 
         ;No software no hardware.
-        rra                     ;Noise?
-        jr c,PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise
-                jr $ + 2                 ;Waits for 8 cycles
-                jr $ + 2
-                cp (hl)
-        jr PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise_End
+;        rra                     ;Noise?
+        lsr.b #1,d1
+;        jr c,PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise
+        bcs.s PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise
+;                jr $ + 2                 ;Waits for 8 cycles
+;                jr $ + 2
+;                cp (hl)
+        move.w d0,a1                    * yes, this is going to explode
+        cmp.b (a1),d1
+;        jr PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise_End
+        bra.s PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise_End
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise:
         ;There is a noise. Reads it.
-        ld de,PLY_AKYst_PsgRegister6
-        ldi                     ;Safe for B, C is not 0. Preserves A.
+;        ld de,PLY_AKYst_PsgRegister6
+;        ldi                     ;Safe for B, C is not 0. Preserves A.
+        ;TODO increment hl, de and decrement bc
+        move.w d0,a1                    * moar assplosions ahoy!
+        move.b (a1),PLY_AKYst_PsgRegister6
 
         ;Opens the noise channel.
-        res PLY_AKYst_RRB_NoiseChannelBit, b
+        ;res PLY_AKYst_RRB_NoiseChannelBit, b
+        bclr #PLY_AKYst_RRB_NoiseChannelBit,d4  ;need to double check this! (as anything else I suppose) 
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise_End:
         
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolume:
