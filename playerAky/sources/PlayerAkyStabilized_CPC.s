@@ -20,11 +20,19 @@
 
 ; Port by George Nakos (GGN of pick-your-favorite-group - KUA software productions/D-Bug/Paradize/Reboot/Bello games)
 ; (yes, crews are becoming pointless :))
+        
+
+;assuming that hl=d0
+;assuming that a=d1
+;assuming that af=d3
+;assuming that de=d2
+;assuming that bc=d3
+;assuming that bc'=d4
 
 ;PLY_AKYst_OPCODE_OR_A: equ #b7                        ;Opcode for "or a".
 ;PLY_AKYst_OPCODE_SCF: equ #37                         ;Opcode for "scf".
-PLY_AKYst_OPCODE_OR_A: equ $00000000                  ;Opcode for "ori.b #0,d0".
-PLY_AKYst_OPCODE_SCF:  equ $003c0001                         ;Opcode for "ori #1,d0".
+PLY_AKYst_OPCODE_OR_A equ $00000000                  ;Opcode for "ori.b #0,d0".
+PLY_AKYst_OPCODE_SCF  equ $003c0001                         ;Opcode for "ori #1,d0".
 
 ;PLY_AKYst_NOP_Loop: equ 35                           ;How much is spent because of the looping.
 ;PLY_AKYst_NOP_LongestInState: equ 182                ;The longest CPU sent in an IS/NIS subcode.
@@ -92,17 +100,17 @@ PLY_AKYst_Play:
 PLY_AKYst_PatternFrameCounter: move.w #1,d0             ;How many frames left before reading the next Pattern.
 * NOTE: the above is actually SMCd for now, so probably not a good idea to optimise it to moveq ;)
 ;        dec hl
-        subq.w #1,d0                                    ;assuming that h/l=d0
+        subq.w #1,d0                                    ;assuming that hl=d0
 ;        ld a,l
         move.w d0,d1                                    ;assuming that a=d1
 ;        or h
         move.w d0,d2
         lsr.w #8,d2
-        or.b d1,d1                                      *holy moly! this CAN be optimised!
+        or.b d1,d1                                      ;*holy moly! this CAN be optimised!
 ;        jr z,PLY_AKYst_PatternFrameCounter_Over
         blt.s PLY_AKYst_PatternFrameCounter_Over
 ;        ld (PLY_AKYst_PatternFrameCounter + 1),hl
-        move.w d0,PLY_AKYst_PatternFrameCounter+2       *SMC galore!
+        move.w d0,PLY_AKYst_PatternFrameCounter+2       ;*SMC galore!
         ;The pattern is not over.
 ;                ld b,15                     ;Waits for 80 - 17 = 63 cycles.
 ;                djnz $
@@ -116,7 +124,7 @@ PLY_AKYst_PatternFrameCounter_Over:
 ;The pattern is over. Reads the next one.
 ;PLY_AKYst_PtLinker: ld sp,0                             ;Points on the Pattern of the linker.
 PLY_AKYst_PtLinker: lea 0,a0                        ;Points on the Pattern of the linker.
-                                                        *assuming sp=a0
+                                                        ;*assuming sp=a0
 ;        pop hl                                          ;Gets the duration of the Pattern, or 0 if end of the song.
         move.w (a0)+,d0
 ;        ld a,l
@@ -124,7 +132,7 @@ PLY_AKYst_PtLinker: lea 0,a0                        ;Points on the Pattern of th
 ;        or h
         move.w d0,d2
         lsr.w #8,d2
-        or.b d1,d1                                      *holy moly! this CAN be optimised!
+        or.b d1,d1                                      ;*holy moly! this CAN be optimised!
 ;        jr nz,PLY_AKYst_LinkerNotEndSong
         blt.s PLY_AKYst_LinkerNotEndSong
         ;End of the song. Where to loop?
@@ -143,7 +151,7 @@ PLY_AKYst_PtLinker: lea 0,a0                        ;Points on the Pattern of th
 ;        pop hl
         move.w (a0)+,d0
 ;        jr PLY_AKYst_LinkerNotEndSong_After
-        bra.s PLY_AKYst_LinkerNotEndSong_After
+        ;bra.s PLY_AKYst_LinkerNotEndSong_After
 PLY_AKYst_LinkerNotEndSong:
 ;                jr $ + 2         ;Waits for 10 cycles.
 ;                jr $ + 2
@@ -239,7 +247,7 @@ PLY_AKYst_Channel2_RegisterBlock_Finished:
         ;This RegisterBlock is finished. Reads the next one from the Track.
         ;Obviously, starts at the initial state.
 ;        ld a,PLY_AKYst_OPCODE_OR_A
-        move.l #PLY_AKYst_OPCODE_OR_A
+        move.l #PLY_AKYst_OPCODE_OR_A,d1
 ;        ld (PLY_AKYst_Channel2_RegisterBlockLineState_Opcode),a
         move.l d1,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
 ;PLY_AKYst_Channel2_PtTrack: ld sp,0                   ;Points on the Track.
@@ -259,7 +267,7 @@ PLY_AKYst_Channel2_PtTrack: lea 0,sp                    ;Points on the Track.
 PLY_AKYst_Channel2_RegisterBlock_Process:
         ;Processes the RegisterBlock, whether it is the current one or a new one.
 ;        ld (PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock + 1),a
-        move.b d1, (PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock + 3),a
+        move.b d1, (PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock + 3)
 
 
 
@@ -270,7 +278,7 @@ PLY_AKYst_Channel2_RegisterBlock_Process:
 PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock: move.b #1,d1    ;Frames to wait before reading the next RegisterBlock. 0 = finished.
 ;        dec a
         subq.w #1,d1
-        jr z,PLY_AKYst_Channel3_RegisterBlock_Finished
+;        jr z,PLY_AKYst_Channel3_RegisterBlock_Finished
         blt.s PLY_AKYst_Channel3_RegisterBlock_Finished
 ;                ld b,6                  ;26 cycles.
 ;                djnz $
@@ -322,9 +330,9 @@ PLY_AKYst_Channel3_RegisterBlock_Process:
                 ;ld hl,0 * 256 + 8                       ;H = first frequency register, L = first volume register.
                 move.w #0 * 256 + 8,d1                       ;H = first frequency register, L = first volume register.
                 ;ld de,#f4f6
-                move.w #$f4f6,d2                         ;assuming that d/e=d2
+                move.w #$f4f6,d2                         ;assuming that de=d2
                 ;ld bc,#f690                             ;#90 used for both #80 for the PSG, and volume 16!
-                move.w #$f690,d3                         ;assuming that b/c=d3
+                move.w #$f690,d3                         ;assuming that bc=d3
         
                 ;ld a,#c0                                ;Used for PSG.
                 move.w #$c0,d1                          ;Used for PSG.
@@ -338,7 +346,7 @@ PLY_AKYst_Channel3_RegisterBlock_Process:
         ;In B, R7 with default values: fully sound-open but noise-close.
         ;R7 has been shift twice to the left, it will be shifted back as the channels are treated.
 ;        ld bc,%11100000 * 256 + 255                     ;C is 255 to prevent the following LDIs to decrease B.
-        move.w #%11100000 * 256 + 255,d4                 ;assuming that b/c'=d4
+        move.w #%11100000 * 256 + 255,d4                 ;assuming that bc'=d4
 
 ;        ld sp,PLY_AKYst_RetTable_ReadRegisterBlock
         move.l #PLY_AKYst_Channel1_RegisterBlock_Return,a0  ;so the above sets the return address to the label we have here by modifying the stack. Let's not use that thing for now (or ever)
@@ -388,7 +396,13 @@ PLY_AKYst_Channel2_RegisterBlock_Return:
 ;----------------------------------------
 
         ;Shifts the R7 for the next channels.
-        rr b            ;Safe to use RR, we don't care if b7 of R7 is 0 or 1.
+;        rr b            ;Safe to use RR, we don't care if b7 of R7 is 0 or 1.
+        move.w d3,d7
+        lsr.w #8,d7
+        ror.b #1,d7
+        lsl.w #8,d7
+        and.w #$ff,d3
+        or.w d7,d3          ;*lolololol
 
 ;PLY_AKYst_Channel3_PtRegisterBlock: ld hl,0                   ;Points on the data of the RegisterBlock to read.
 PLY_AKYst_Channel3_PtRegisterBlock: move.w #0,d0                ;Points on the data of the RegisterBlock to read.
@@ -402,7 +416,7 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
 ;        ld (PLY_AKYst_Channel3_RegisterBlockLineState_Opcode),a
         move.l d1,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
 ;        ld (PLY_AKYst_Channel3_PtRegisterBlock + 1),hl        ;This is new pointer on the RegisterBlock.
-        move.w d0,(PLY_AKYst_Channel3_PtRegisterBlock + 2        ;This is new pointer on the RegisterBlock.
+        move.w d0,PLY_AKYst_Channel3_PtRegisterBlock + 2        ;This is new pointer on the RegisterBlock.
 
         ;Register 7 to A.
 ;        ld a,b
@@ -546,7 +560,7 @@ PLY_AKYst_ReadRegisterBlock:
         ;Gets the first byte of the line. What type? Jump to the matching code thanks to the carry.
 ;        ld a,(hl)
         move.w d0,a0
-        move.b (a0),d1             * Yeah, that definitely won't work - that needs to be a valid address
+        move.b (a0),d1             ;* Yeah, that definitely won't work - that needs to be a valid address
 ;        inc hl
         addq.w #1,d0
 ;        jp c,PLY_AKYst_RRB_NonInitialState
@@ -586,10 +600,10 @@ PLY_AKYst_ReadRegisterBlock:
         lea PLY_AKYst_IS_JPTable(pc),a6
         jmp (a6,d7.w)
 PLY_AKYst_IS_JPTable:
-        dc.w PLY_AKYst_RRB_IS_NoSoftwareNoHardware-PLY_AKYse_IS_JPTable
-        dc.w PLY_AKYst_RRB_IS_SoftwareOnly-PLY_AKYse_IS_JPTable
-        dc.w PLY_AKYst_RRB_IS_HardwareOnly-PLY_AKYse_IS_JPTable
-        dc.w PLY_AKYst_RRB_IS_SoftwareAndHardware-PLY_AKYse_IS_JPTable
+        dc.w PLY_AKYst_RRB_IS_NoSoftwareNoHardware-PLY_AKYst_IS_JPTable
+        dc.w PLY_AKYst_RRB_IS_SoftwareOnly-PLY_AKYst_IS_JPTable
+        dc.w PLY_AKYst_RRB_IS_HardwareOnly-PLY_AKYst_IS_JPTable
+        dc.w PLY_AKYst_RRB_IS_SoftwareAndHardware-PLY_AKYst_IS_JPTable
 
 ;Generic code interpreting the RegisterBlock - Initial state.
 ;----------------------------------------------------------------
@@ -615,8 +629,8 @@ PLY_AKYst_IS_JPTable:
 ;       DE' = unmodified (f4f6)
 ;       BC' = unmodified (f680)
 
-PLY_AKYst_RRB_NoiseChannelBit: equ 5          ;Bit to modify to set/reset the noise channel.
-PLY_AKYst_RRB_SoundChannelBit: equ 2          ;Bit to modify to set/reset the sound channel.
+PLY_AKYst_RRB_NoiseChannelBit equ 5          ;Bit to modify to set/reset the noise channel.
+PLY_AKYst_RRB_SoundChannelBit equ 2          ;Bit to modify to set/reset the sound channel.
 
 
 PLY_AKYst_RRB_IS_NoSoftwareNoHardware:          ;50 cycles.
@@ -636,7 +650,7 @@ PLY_AKYst_RRB_IS_NoSoftwareNoHardware:          ;50 cycles.
 ;                jr $ + 2                 ;Waits for 8 cycles
 ;                jr $ + 2
 ;                cp (hl)
-        move.w d0,a1                    * yes, this is going to explode
+        move.w d0,a1                    ;* yes, this is going to explode
         cmp.b (a1),d1
 ;        jr PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise_End
         bra.s PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise_End
@@ -645,7 +659,7 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise:
 ;        ld de,PLY_AKYst_PsgRegister6
 ;        ldi                     ;Safe for B, C is not 0. Preserves A.
         ;TODO increment hl, de and decrement bc
-        move.w d0,a1                    * moar assplosions ahoy!
+        move.w d0,a1                    ;* moar assplosions ahoy!
         move.b (a1),PLY_AKYst_PsgRegister6
 
         ;Opens the noise channel.
@@ -676,9 +690,9 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolume:
 ;                inc h
         move.w d4,d7
         lsr.w #8,d7
-        move.b d0,$ffff8800.w   *these are probably wrong because of the exx
+        move.b d0,$ffff8800.w   ;*these are probably wrong because of the exx
         move.b d1,$ffff8802.w
-        add.w #(2<<16)+1,d0
+        add.w #(2<<8)+1,d0
 ;        exx
         ;Closes the sound channel.
 ;        set PLY_AKYst_RRB_SoundChannelBit, b
@@ -700,7 +714,7 @@ PLY_AKYst_RRB_IS_HardwareOnly:                          ;79 cycles.
 ;        rra
         lsr.b #1,d1
 ;        jr c,PLY_AKYst_RRB_IS_HO_Retrig
-        jcs.s PLY_AKYst_RRB_IS_HO_Retrig
+        bcs.s PLY_AKYst_RRB_IS_HO_Retrig
 ;                jr $ + 2         ;Wait for 4 cycles.
 ;                nop
 ;        jr PLY_AKYst_RRB_IS_HO_AfterRetrig
@@ -721,12 +735,12 @@ PLY_AKYst_RRB_IS_HO_AfterRetrig:
 ;                jr $ + 2
 ;                cp (hl)
         move.w d0,a1
-        cmp.b (a1),d1           * explody stuff
+        cmp.b (a1),d1           ;* explody stuff
 ;        jr PLY_AKYst_RRB_IS_HO_AfterNoise
         bra.s PLY_AKYst_RRB_IS_HO_AfterNoise
 PLY_AKYst_RRB_IS_HO_Noise:        ;Reads the noise.
 ;        ld de,PLY_AKYst_PsgRegister6
-        move.w #PLY_AKYst_PsgRegister6,d2 *bogus bogus bogus bogus
+        move.w #PLY_AKYst_PsgRegister6,d2 ;*bogus bogus bogus bogus
 ;        ldi                     ;Safe for B, C is not 0. Preserves A.
         move.w d0,a1
         move.b (a1),PLY_AKYst_PsgRegister6
@@ -803,7 +817,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly:                  ;112 cycles.
 ;                jr $ + 2
 ;                cp (hl)
         move.w d0,a1
-        cmp.b (a1),d1   *yeah at this point we know that hl should probably be on an address register, roit?
+        cmp.b (a1),d1   ;*yeah at this point we know that hl should probably be on an address register, roit?
 ;        jr PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise
         bra.s PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise
 PLY_AKYst_RRB_IS_SoftwareOnly_Noise:
@@ -832,10 +846,10 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
 ;                ex af,af'
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
-        move.b d0,$ffff8800.w   *wrong because of the exx
+        move.b d0,$ffff8800.w   ;*wrong because of the exx
         move.b d1,$ffff8802.w
 ;                inc l           ;Increases the volume register.
-        addq.b #1,d0            *wrong because of the exx
+        addq.b #1,d0            ;*wrong because of the exx
 ;        exx
 
         ;Reads the software period.
@@ -857,12 +871,12 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
 ;                ex af,af'
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
-                move.w d0,d7  *wrong because of the exx
+                move.w d0,d7  ;*wrong because of the exx
                 lsr.w #8,d7
                 move.b d7,$ffff8800.w
                 move.b d1,$ffff8802.w
 ;                inc h           ;Increases the frequency register.
-                add.w #1<<8,d0  *wrong because of the exx
+                add.w #1<<8,d0  ;*wrong because of the exx
 ;        exx
 
 ;        ld a,(hl)
@@ -936,7 +950,7 @@ PLY_AKYst_RRB_IS_SAH_Noise:
         ;Reads the noise.
 ;        ld de,PLY_AKYst_PsgRegister6
 ;        ldi                     ;Safe for B, C is not 0. Preserves A.
-        move.w d0,a1        *lolol
+        move.w d0,a1        ;*lolol
         move.w (a1),PLY_AKYst_PsgRegister6 
         ;Opens the noise channel.
 ;        res PLY_AKYst_RRB_NoiseChannelBit, b
@@ -1031,8 +1045,8 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
         addq.w #1,d0
         addq.w #1,d2
         addq.w #1,d3
-        ret
-
+;        ret
+        rts
 
 
 
@@ -1043,168 +1057,237 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
 PLY_AKYst_RRB_NonInitialState:
 
         ;Not in the original code, but simplifies the stabilization.
-        ld d,a                          ;A must be saved!
-        and %00001111                   ;Keeps 4 bits to be able to detect the loop. (%1000)
-        add a,a
-        add a,a
-        ld e,a
+;        ld d,a                          ;A must be saved!
+        move.b d1,d7
+;        and %00001111                   ;Keeps 4 bits to be able to detect the loop. (%1000)
+        and.b #%00001111,d7
+;        add a,a
+        add.b d7,d7
+;        add a,a
+        add.b d7,d7
+;        ld e,a
+        move.b d7,d2
 
-        ld a,d                          ;Retrieves A, which is supposed to be shifted in the original code.
-        rra
-        rra
-        ld d,0
-        ld ix,PLY_AKYst_NIS_JPTable
-        add ix,de
-        jp (ix)
+;        ld a,d                          ;Retrieves A, which is supposed to be shifted in the original code.
+;        rra
+;        rra
+        lsr.b #2,d1
+;        ld d,0
+        and.w #$ff00,d2
+;        ld ix,PLY_AKYst_NIS_JPTable
+;        add ix,de
+        lea PLY_AKYst_NIS_JPTable(pc),a6
+        add.w PLY_AKYst_NIS_JPTable(pc,d2.w),a6
+;        jp (ix)
+        jmp (a6)
         ;All these codes consider there is no loop, so have a "wait" at the beginning. Except the "loop" code in %1000, which manages the loop...
 PLY_AKYst_NIS_JPTable:
-        jp PLY_AKYst_RRB_NIS_NoSoftwareNoHardware          ;%0000
-        nop
-        jp PLY_AKYst_RRB_NIS_SoftwareOnly                  ;%0001
-        nop
-        jp PLY_AKYst_RRB_NIS_HardwareOnly                  ;%0010
-        nop
-        jp PLY_AKYst_RRB_NIS_SoftwareAndHardware           ;%0011
-        nop
+;        jp PLY_AKYst_RRB_NIS_NoSoftwareNoHardware          ;%0000
+;        nop
+;        jp PLY_AKYst_RRB_NIS_SoftwareOnly                  ;%0001
+;        nop
+;        jp PLY_AKYst_RRB_NIS_HardwareOnly                  ;%0010
+;        nop
+;        jp PLY_AKYst_RRB_NIS_SoftwareAndHardware           ;%0011
+;        nop
+;
+;        jp PLY_AKYst_RRB_NIS_NoSoftwareNoHardware          ;%0100
+;        nop
+;        jp PLY_AKYst_RRB_NIS_SoftwareOnly                  ;%0101
+;        nop
+;        jp PLY_AKYst_RRB_NIS_HardwareOnly                  ;%0110
+;        nop
+;        jp PLY_AKYst_RRB_NIS_SoftwareAndHardware           ;%0111
+;        nop
+;        
+;        jp PLY_AKYst_RRB_NIS_ManageLoop                    ;%1000. Loop!
+;        nop
+;        jp PLY_AKYst_RRB_NIS_SoftwareOnly                  ;%1001
+;        nop
+;        jp PLY_AKYst_RRB_NIS_HardwareOnly                  ;%1010
+;        nop
+;        jp PLY_AKYst_RRB_NIS_SoftwareAndHardware           ;%1011
+;        nop
+;        
+;        jp PLY_AKYst_RRB_NIS_NoSoftwareNoHardware          ;%1100
+;        nop
+;        jp PLY_AKYst_RRB_NIS_SoftwareOnly                  ;%1101
+;        nop
+;        jp PLY_AKYst_RRB_NIS_HardwareOnly                  ;%1110
+;        nop
+;        jp PLY_AKYst_RRB_NIS_SoftwareAndHardware           ;%1111
 
-        jp PLY_AKYst_RRB_NIS_NoSoftwareNoHardware          ;%0100
-        nop
-        jp PLY_AKYst_RRB_NIS_SoftwareOnly                  ;%0101
-        nop
-        jp PLY_AKYst_RRB_NIS_HardwareOnly                  ;%0110
-        nop
-        jp PLY_AKYst_RRB_NIS_SoftwareAndHardware           ;%0111
-        nop
+        dc.w PLY_AKYst_RRB_NIS_NoSoftwareNoHardware-PLY_AKYst_NIS_JPTable          ;%0000
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnly-PLY_AKYst_NIS_JPTable                  ;%0001
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnly-PLY_AKYst_NIS_JPTable                  ;%0010
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardware-PLY_AKYst_NIS_JPTable           ;%0011
+
+        dc.w PLY_AKYst_RRB_NIS_NoSoftwareNoHardware-PLY_AKYst_NIS_JPTable          ;%0100
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnly-PLY_AKYst_NIS_JPTable                  ;%0101
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnly-PLY_AKYst_NIS_JPTable                  ;%0110
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardware-PLY_AKYst_NIS_JPTable           ;%0111
         
-        jp PLY_AKYst_RRB_NIS_ManageLoop                    ;%1000. Loop!
-        nop
-        jp PLY_AKYst_RRB_NIS_SoftwareOnly                  ;%1001
-        nop
-        jp PLY_AKYst_RRB_NIS_HardwareOnly                  ;%1010
-        nop
-        jp PLY_AKYst_RRB_NIS_SoftwareAndHardware           ;%1011
-        nop
+        dc.w PLY_AKYst_RRB_NIS_ManageLoop-PLY_AKYst_NIS_JPTable                    ;%1000. Loop!
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnly-PLY_AKYst_NIS_JPTable                  ;%1001
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnly-PLY_AKYst_NIS_JPTable                  ;%1010
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardware-PLY_AKYst_NIS_JPTable           ;%1011
         
-        jp PLY_AKYst_RRB_NIS_NoSoftwareNoHardware          ;%1100
-        nop
-        jp PLY_AKYst_RRB_NIS_SoftwareOnly                  ;%1101
-        nop
-        jp PLY_AKYst_RRB_NIS_HardwareOnly                  ;%1110
-        nop
-        jp PLY_AKYst_RRB_NIS_SoftwareAndHardware           ;%1111
+        dc.w PLY_AKYst_RRB_NIS_NoSoftwareNoHardware-PLY_AKYst_NIS_JPTable          ;%1100
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnly-PLY_AKYst_NIS_JPTable                  ;%1101
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnly-PLY_AKYst_NIS_JPTable                  ;%1110
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardware-PLY_AKYst_NIS_JPTable           ;%1111
         
 
 PLY_AKYst_RRB_NIS_ManageLoop:
         ;Loops. Reads the next pointer to this RegisterBlock.
-        ld a,(hl)
-        inc hl
-        ld h,(hl)
-        ld l,a
+;        ld a,(hl)
+;        inc hl
+;        ld h,(hl)
+;        ld l,a
+        move.w d0,a1
+        move.w (a1),d0 ;*yup, bogus for now
 
         ;Makes another iteration to read the new data.
         ;Since we KNOW it is not an initial state (because no jump goes to an initial state), we can directly go to the right branching.
         ;Reads the first byte.
-        ld a,(hl)
-        inc hl
+;        ld a,(hl)
+;        inc hl
+        move.w d0,a1
+        move.b (a1),d1
+        addq.w #1,d0
         
         ;Reads the next NIS state. We know there won't be any loop.
-        ld d,a                          ;A must be saved!
-        and %00000011                   ;Keeps 4 bits to be able to detect the loop. (%1000)
-        add a,a
-        add a,a
-        ld e,a
+;        ld d,a                          ;A must be saved!
+        move.b d1,d2
+        lsl.w #8,d2
+;        and %00000011                   ;Keeps 4 bits to be able to detect the loop. (%1000)
+        and.w #%0000001111111111,d2
+;        add a,a
+        add.w d2,d2
+;        add a,a
+        add.w d2,d2
+;        ld e,a
+        move.b d1,d2
 
-        ld a,d                          ;Retrieves A, which is supposed to be shifted in the original code.
-        rra
-        rra
-        ld d,0
-        ld ix,PLY_AKYst_NIS_JPTable_NoLoop
-        add ix,de
-        jp (ix)
+;        ld a,d                          ;Retrieves A, which is supposed to be shifted in the original code.
+        move.b d7,d0
+;        rra
+;        rra
+        lsr.b #2,d0
+;        ld d,0
+        andi.w #$ff,d2
+;        ld ix,PLY_AKYst_NIS_JPTable_NoLoop
+        lea PLY_AKYst_NIS_JPTable_NoLoop,a6
+;        add ix,de
+        add.w d2,a6
+;        jp (ix)
+        jmp (a6)
         ;This table jumps at each state, but AFTER the loop compensation.
 PLY_AKYst_NIS_JPTable_NoLoop:
-        jp PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_Loop     ;%00
-        nop
-        jp PLY_AKYst_RRB_NIS_SoftwareOnly_Loop             ;%01
-        nop
-        jp PLY_AKYst_RRB_NIS_HardwareOnly_Loop             ;%10
-        nop
-        jp PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop      ;%11
+;        jp PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_Loop     ;%00
+;        nop
+;        jp PLY_AKYst_RRB_NIS_SoftwareOnly_Loop             ;%01
+;        nop
+;        jp PLY_AKYst_RRB_NIS_HardwareOnly_Loop             ;%10
+;        nop
+;        jp PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop      ;%11
+        dc.w PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_Loop-PLY_AKYst_NIS_JPTable_NoLoop     ;%00
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnly_Loop-PLY_AKYst_NIS_JPTable_NoLoop             ;%01
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnly_Loop-PLY_AKYst_NIS_JPTable_NoLoop             ;%10
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop-PLY_AKYst_NIS_JPTable_NoLoop      ;%11
+        
         
 
 
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware:                 ;60 + LoopCompensation cycles.
                 ;Compensates the fact that there is no loop.
                 ;ds PLY_AKYst_NOP_Loop, 0                                
-        	ld d,8                     ;Waits for 35 cycles.
-                dec d
-                jr nz,$ - 1
-                cp (hl)
+;        	ld d,8                     ;Waits for 35 cycles.
+;                dec d
+;                jr nz,$ - 1
+;                cp (hl)
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_Loop:            ;60 cycles.
         ;No software, no hardware.
         ;NO NEED to test the loop! It has been tested before. We can optimize from the original code.
-        ld e,a                  ;Used below.
+;        ld e,a                  ;Used below.
+        move.b d1,d0
 
                 ;ds PLY_AKYst_NOP_LongestInState - 60, 0         ;For all the IS/NIS subcodes to spend the same amount of time.
-                ld d,30                     ;Waits for 182 - 60 = 122 cycles.
-                dec d
-                jr nz,$ - 1
-                nop
+;                ld d,30                     ;Waits for 182 - 60 = 122 cycles.
+;                dec d
+;                jr nz,$ - 1
+;                nop
 
         ;Closes the sound channel.
-        set PLY_AKYst_RRB_SoundChannelBit, b
+        ;set PLY_AKYst_RRB_SoundChannelBit, b
+        bset #PLY_AKYst_RRB_SoundChannelBit+8,d3
 
         ;Volume? bit 2 - 2.
-        rra
-        jr c,PLY_AKYst_RRB_NIS_Volume
-                ld d,6                     ;Waits for 28 cycles.
-                dec d
-                jr nz,$ - 1
-                cp (hl)
-                nop
-        jr PLY_AKYst_RRB_NIS_AfterVolume
+;        rra
+        lsr.b #1,d1
+;        jr c,PLY_AKYst_RRB_NIS_Volume
+        bcs.s PLY_AKYst_RRB_NIS_Volume
+;                ld d,6                     ;Waits for 28 cycles.
+;                dec d
+;                jr nz,$ - 1
+;                cp (hl)
+;                nop
+;        jr PLY_AKYst_RRB_NIS_AfterVolume
+        bra.s PLY_AKYst_RRB_NIS_AfterVolume
 PLY_AKYst_RRB_NIS_Volume:
-        and %1111
-        exx
-                ;Sends the volume.
-                ld b,d
-                out (c),l       ;f400 + register.
-                ld b,e
-                out (c),0       ;f600.
-                ld b,d
-                out (c),a       ;f400 + value.
-                ld b,e
-                out (c),c       ;f680
-                ex af,af'
-                out (c),a       ;f6c0.
-                ex af,af'
-        exx
+;        and %1111
+        and.b #%1111,d1
+;        exx
+;                ;Sends the volume.
+;                ld b,d
+;                out (c),l       ;f400 + register.
+;                ld b,e
+;                out (c),0       ;f600.
+;                ld b,d
+;                out (c),a       ;f400 + value.
+;                ld b,e
+;                out (c),c       ;f680
+;                ex af,af'
+;                out (c),a       ;f6c0.
+;                ex af,af'
+;        exx
+       move.b d0,$ffff8800.w
+       move.b d1,$ffff8802.w 
 PLY_AKYst_RRB_NIS_AfterVolume:
 
         ;Sadly, have to lose a bit of CPU here, as this must be done in all cases.
-        exx
-                inc l           ;Next volume register.
-                inc h           ;Next frequency registers.
-                inc h
-        exx
+;        exx
+;                inc l           ;Next volume register.
+;                inc h           ;Next frequency registers.
+;                inc h
+;        exx
+        add.w #$201,d0
 
         ;Noise? Was on bit 7, but there has been two shifts. We can't use A, it may have been modified by the volume AND.
-        bit 7 - 2, e
-        jr nz,PLY_AKYst_RRB_NIS_Noise
-                jr $ + 2         ;Wait for 11 cycles.
-                jr $ + 2
-                jr $ + 2
-                cp (hl)
-        ret
+        ;bit 7 - 2, e
+        btst #7 - 2,d2
+;        jr nz,PLY_AKYst_RRB_NIS_Noise
+        blt.s PLY_AKYst_RRB_NIS_Noise
+;                jr $ + 2         ;Wait for 11 cycles.
+;                jr $ + 2
+;                jr $ + 2
+;                cp (hl)
+;        ret
+        rts
 PLY_AKYst_RRB_NIS_Noise:
         ;Noise.
-        ld a,(hl)
-        ld (PLY_AKYst_PsgRegister6),a
-        inc hl
+;        ld a,(hl)
+        move.w d0,a1
+        move.b (a1),d1
+;        ld (PLY_AKYst_PsgRegister6),a
+        move.b d1,PLY_AKYst_PsgRegister6
+;        inc hl
+        addq.w #1,d0
         ;Opens the noise channel.
-        res PLY_AKYst_RRB_NoiseChannelBit, b
-        ret
-
+;        res PLY_AKYst_RRB_NoiseChannelBit, b
+        bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
+;        ret
+        rts
 
 
 
@@ -1215,221 +1298,281 @@ PLY_AKYst_RRB_NIS_Noise:
 PLY_AKYst_RRB_NIS_SoftwareOnly:
                 ;Compensates the fact that there is no loop.
                 ;ds PLY_AKYst_NOP_Loop, 0                                
-                ld d,8                     ;Waits for 35 cycles.
-                dec d
-                jr nz,$ - 1
-                cp (hl)
+;                ld d,8                     ;Waits for 35 cycles.
+;                dec d
+;                jr nz,$ - 1
+;                cp (hl)
 PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:                    ;129 cycles.
         
                 ;ds PLY_AKYst_NOP_LongestInState - 129, 0         ;For all the IS/NIS subcodes to spend the same amount of time.
-                ld d,13                     ;Waits for 182 - 129 = 53 cycles.
-                dec d
-                jr nz,$ - 1
+;                ld d,13                     ;Waits for 182 - 129 = 53 cycles.
+;                dec d
+;                jr nz,$ - 1
         
         ;Software only. Structure: mspnoise lsp v  v  v  v  (0  1).
-        ld e,a
+;        ld e,a
+        move.b d1,d2
         ;Gets the volume (already shifted).
-        and %1111
-        exx
-                ;Sends the volume.
-                ld b,d
-                out (c),l       ;f400 + register.
-                ld b,e
-                out (c),0       ;f600.
-                ld b,d
-                out (c),a       ;f400 + value.
-                ld b,e
-                out (c),c       ;f680
-                ex af,af'
-                out (c),a       ;f6c0.
-                ex af,af'
-
-                inc l           ;Increases the volume register.
-        exx
+;        and %1111
+        and.b #%1111,d1
+;        exx
+;                ;Sends the volume.
+;                ld b,d
+;                out (c),l       ;f400 + register.
+;                ld b,e
+;                out (c),0       ;f600.
+;                ld b,d
+;                out (c),a       ;f400 + value.
+;                ld b,e
+;                out (c),c       ;f680
+;                ex af,af'
+;                out (c),a       ;f6c0.
+;                ex af,af'
+        move.b d0,$ffff8800.w
+        move.b d1,$ffff8802.w
+;                inc l           ;Increases the volume register.
+               addq.b #1,d0
+;        exx
 
         ;LSP? (Least Significant byte of Period). Was bit 6, but now shifted.
-        bit 6 - 2, e
-        jr nz,PLY_AKYst_RRB_NIS_SoftwareOnly_LSP
-                ld d,7                     ;Waits for 30 cycles.
-                dec d
-                jr nz,$ - 1
-                nop
-        jr PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP
+;        bit 6 - 2, e
+        btst #6 - 2,d2
+;        jr nz,PLY_AKYst_RRB_NIS_SoftwareOnly_LSP
+        blt.s PLY_AKYst_RRB_NIS_SoftwareOnly_LSP
+;                ld d,7                     ;Waits for 30 cycles.
+;                dec d
+;                jr nz,$ - 1
+;                nop
+;        jr PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP
+        bra.s PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP
 PLY_AKYst_RRB_NIS_SoftwareOnly_LSP:
-        ld a,(hl)
-        inc hl
-        exx
-                ;Sends the LSB software frequency.
-                ld b,d
-                out (c),h       ;f400 + register.
-                ld b,e
-                out (c),0       ;f600.
-                ld b,d
-                out (c),a       ;f400 + value.
-                ld b,e
-                out (c),c       ;f680
-                ex af,af'
-                out (c),a       ;f6c0.
-                ex af,af'
-
+;        ld a,(hl)
+        move.w d0,a1
+        move.w (a1),d1
+;        inc hl
+        addq.w #1,d0
+;        exx
+;                ;Sends the LSB software frequency.
+;                ld b,d
+;                out (c),h       ;f400 + register.
+;                ld b,e
+;                out (c),0       ;f600.
+;                ld b,d
+;                out (c),a       ;f400 + value.
+;                ld b,e
+;                out (c),c       ;f680
+;                ex af,af'
+;                out (c),a       ;f6c0.
+;                ex af,af'
+        move.w d6,$ffff8800.w ;high byte (register h) to 8800, low byte (register l) to 8801
+        move.b d1,$ffff8802.w
                 ;H not incremented on purpose.
-        exx
+;        exx
 PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP:
 
         ;MSP AND/OR (Noise and/or new Noise)? (Most Significant byte of Period).
-        bit 7 - 2, e
-        jr nz,PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoise
+;        bit 7 - 2, e
+        btst #7 - 2,d2
+;        jr nz,PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoise
+        blt.s PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoise
         ;Bit of loss of CPU, but has to be done in all cases.
-        exx
-                inc h
-                inc h
-        exx
-                ld d,12                     ;Waits for 49 cycles.
-                dec d
-                jr nz,$ - 1
-        ret
+;        exx
+;                inc h
+;                inc h
+;        exx
+;                ld d,12                     ;Waits for 49 cycles.
+;                dec d
+;                jr nz,$ - 1
+;        ret
+        rts
         
 PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoise:   ;53 cycles.           
         ;MSP and noise?, in the next byte. nipppp (n = newNoise? i = isNoise? p = MSB period).
-        ld a,(hl)       ;Useless bits at the end, not a problem.
-        inc hl
-        exx
-                ;Sends the MSB software frequency.
-                inc h           ;Was not increased before.
+;        ld a,(hl)       ;Useless bits at the end, not a problem.
+        move.w d0,a1
+        move.b (a1),d1
+;        inc hl
+        addq.w #1,d0
+;        exx
+;                ;Sends the MSB software frequency.
+;                inc h           ;Was not increased before.
+        add.w #1<<8,d0
 
-                ld b,d
-                out (c),h       ;f400 + register.
-                ld b,e
-                out (c),0       ;f600.
-                ld b,d
-                out (c),a       ;f400 + value.
-                ld b,e
-                out (c),c       ;f680
-                ex af,af'
-                out (c),a       ;f6c0.
-                ex af,af'
+;                ld b,d
+;                out (c),h       ;f400 + register.
+;                ld b,e
+;                out (c),0       ;f600.
+;                ld b,d
+;                out (c),a       ;f400 + value.
+;                ld b,e
+;                out (c),c       ;f680
+;                ex af,af'
+;                out (c),a       ;f6c0.
+;                ex af,af'
+        move.w d0,$ffff8800.w
+        move.b d1,$ffff8802.w
 
-                inc h           ;Increases the frequency register.
-        exx
+;                inc h           ;Increases the frequency register.
+        add.w #1<<8,d0
+;        exx
         
-        rla     ;Carry is isNoise?
-        jr c,PLY_AKYst_RRB_NIS_SoftwareOnly_NoisePresent
-                ld d,3                     ;Waits for 15 cycles.
-                dec d
-                jr nz,$ - 1
-                cp (hl)
-        ret
+;        rla     ;Carry is isNoise?
+        rol.b #1,d1
+;        jr c,PLY_AKYst_RRB_NIS_SoftwareOnly_NoisePresent
+        bcs.s PLY_AKYst_RRB_NIS_SoftwareOnly_NoisePresent
+;                ld d,3                     ;Waits for 15 cycles.
+;                dec d
+;                jr nz,$ - 1
+;                cp (hl)
+;        ret
+        rts
 PLY_AKYst_RRB_NIS_SoftwareOnly_NoisePresent:
         ;Opens the noise channel.
-        res PLY_AKYst_RRB_NoiseChannelBit, b
+;        res PLY_AKYst_RRB_NoiseChannelBit, b
+        bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
        
         ;Is there a new noise value? If yes, gets the noise.
-        rla
-        jr c,PLY_AKYst_RRB_NIS_SoftwareOnly_Noise
-                jr $ + 2         ;Wait for 9 cycles.
-                jr $ + 2
-                jr $ + 2
-        ret
+;        rla
+        rol.b #1,d1
+;        jr c,PLY_AKYst_RRB_NIS_SoftwareOnly_Noise
+        bcs.s PLY_AKYst_RRB_NIS_SoftwareOnly_Noise
+;                jr $ + 2         ;Wait for 9 cycles.
+;                jr $ + 2
+;                jr $ + 2
+;        ret
+        rts
 PLY_AKYst_RRB_NIS_SoftwareOnly_Noise:
         ;Gets the noise.
-        ld de,PLY_AKYst_PsgRegister6
-        ldi
-        ret
-
+;        ld de,PLY_AKYst_PsgRegister6
+;        ldi
+        move.w d0,a1
+        move.b (a1),PLY_AKYst_PsgRegister6
+        addq.w #1,d0
+        addq.w #1,d2
+        subq.w #1,d3
+;        ret
+        rts
 
 
 ;---------------------
 PLY_AKYst_RRB_NIS_HardwareOnly:
                 ;Compensates the fact that there is no loop.
                 ;ds PLY_AKYst_NOP_Loop, 0                                
-                ld d,8                     ;Waits for 35 cycles.
-                dec d
-                jr nz,$ - 1
-                cp (hl)
+;                ld d,8                     ;Waits for 35 cycles.
+;                dec d
+;                jr nz,$ - 1
+;                cp (hl)
 
 PLY_AKYst_RRB_NIS_HardwareOnly_Loop:            ;102 cycles.
 
                 ;ds PLY_AKYst_NOP_LongestInState - 102, 0         ;For all the IS/NIS subcodes to spend the same amount of time.
-                ld d,19                     ;Waits for 182 - 102 = 80 cycles.
-                dec d
-                jr nz,$ - 1
-                cp (hl)
-                nop
+;                ld d,19                     ;Waits for 182 - 102 = 80 cycles.
+;                dec d
+;                jr nz,$ - 1
+;                cp (hl)
+;                nop
 
         ;Gets the envelope (initially on b2-b4, but currently on b0-b2). It is on 3 bits, must be encoded on 4. Bit 0 must be 0.
-        rla
-        ld e,a
-        and %1110
-        ld (PLY_AKYst_PsgRegister13),a
+;        rla
+        rol.b #1,d1
+;        ld e,a
+        move.b d1,d2
+;        and %1110
+        and.b #%1110,d1
+;        ld (PLY_AKYst_PsgRegister13),a
+        move.b d1,PLY_AKYst_PsgRegister13
 
         ;Closes the sound channel.
-        set PLY_AKYst_RRB_SoundChannelBit, b
+;        set PLY_AKYst_RRB_SoundChannelBit, b
+        bset #PLY_AKYst_RRB_SoundChannelBit+8,d3
 
         ;Hardware volume.
-        exx
-                ld b,d
-                out (c),h       ;f400 + register.
-                ld b,e
-                out (c),0       ;f600.
-                ld b,d
-                out (c),c       ;f400 + value (16, hardware volume).
-                ld b,e
-                out (c),c       ;f680
-                ex af,af'
-                out (c),a       ;f6c0.
-                ex af,af'
+;        exx
+;                ld b,d
+;                out (c),h       ;f400 + register.
+;                ld b,e
+;                out (c),0       ;f600.
+;                ld b,d
+;                out (c),c       ;f400 + value (16, hardware volume).
+;                ld b,e
+;                out (c),c       ;f680
+;                ex af,af'
+;                out (c),a       ;f6c0.
+;                ex af,af'
+        move.w d0,$ffff8800.w
+        move.b d3,$ffff8802.w
 
-                inc l           ;Increases the volume register.
+;                inc l           ;Increases the volume register.
 
-                inc h           ;Increases the frequency register.
-                inc h
-        exx
+;                inc h           ;Increases the frequency register.
+;                inc h
+        add.w #$201,d0
+;        exx
 
-        ld a,e
+;        ld a,e
+        move.b d2,d1
 
         ;LSB for hardware period? Currently on b6.
-        rla
-        rla
-        jr c,PLY_AKYst_RRB_NIS_HardwareOnly_LSB
-                jr $ + 2         ;Wait for 6 cycles.
-                jr $ + 2
-        jr PLY_AKYst_RRB_NIS_HardwareOnly_AfterLSB
+;        rla
+;        rla
+        rol.b #2,d1
+;        jr c,PLY_AKYst_RRB_NIS_HardwareOnly_LSB
+        bcc.s PLY_AKYst_RRB_NIS_HardwareOnly_LSB
+;                jr $ + 2         ;Wait for 6 cycles.
+;                jr $ + 2
+;        jr PLY_AKYst_RRB_NIS_HardwareOnly_AfterLSB
+        bra.s PLY_AKYst_RRB_NIS_HardwareOnly_AfterLSB
 PLY_AKYst_RRB_NIS_HardwareOnly_LSB:
-        ld de,PLY_AKYst_PsgRegister11
-        ldi
+;        ld de,PLY_AKYst_PsgRegister11
+;        ldi
+        move.w d0,a1
+        move.b (a1),PLY_AKYst_PsgRegister11
+        addq.w #1,d0
+        addq.w #1,d2
+        subq.w #1,d3
 PLY_AKYst_RRB_NIS_HardwareOnly_AfterLSB:
 
         ;MSB for hardware period?
-        rla
-        jr c,PLY_AKYst_RRB_NIS_HardwareOnly_MSB
-		jr $ + 2         ;Wait for 6 cycles.
-                jr $ + 2
-        jr PLY_AKYst_RRB_NIS_HardwareOnly_AfterMSB
+;        rla
+        rol.b #1,d1
+;        jr c,PLY_AKYst_RRB_NIS_HardwareOnly_MSB
+        bcs.s PLY_AKYst_RRB_NIS_HardwareOnly_MSB
+;		jr $ + 2         ;Wait for 6 cycles.
+;                jr $ + 2
+;        jr PLY_AKYst_RRB_NIS_HardwareOnly_AfterMSB
+        bra.s PLY_AKYst_RRB_NIS_HardwareOnly_AfterMSB
 PLY_AKYst_RRB_NIS_HardwareOnly_MSB:
-        ld de,PLY_AKYst_PsgRegister12
-        ldi
+;        ld de,PLY_AKYst_PsgRegister12
+;        ldi
+        move.w d0,a1
+        move.b (a1),PLY_AKYst_PsgRegister12
+        addq.w #1,d0
+        addq.w #1,d2
+        subq.w #1,d3
 PLY_AKYst_RRB_NIS_HardwareOnly_AfterMSB:
         
         ;Noise or retrig?
-        rla
-        jp c,PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStop          ;The retrig/noise code is shared.
-                ld d,6                     ;Waits for 28 cycles.
-                dec d
-                jr nz,$ - 1
-                cp (hl)
-                nop
-        ret
-
+;        rla
+        rol.b #1,d1
+;        jp c,PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStop          ;The retrig/noise code is shared.
+        bcc PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStop
+;                ld d,6                     ;Waits for 28 cycles.
+;                dec d
+;                jr nz,$ - 1
+;                cp (hl)
+;                nop
+;        ret
+        rts
 
 
 ;---------------------
 PLY_AKYst_RRB_NIS_SoftwareAndHardware:
         ;Compensates the fact that there is no loop.
                 ;ds PLY_AKYst_NOP_Loop, 0                                
-                ld d,8                     ;Waits for 35 cycles.
-                dec d
-                jr nz,$ - 1
-                cp (hl)
+;                ld d,8                     ;Waits for 35 cycles.
+;                dec d
+;                jr nz,$ - 1
+;                cp (hl)
 
 PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop:             ;182 cycles.
 
@@ -1438,187 +1581,258 @@ PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop:             ;182 cycles.
         
 
         ;Hardware volume.
-        exx
+;        exx
                 ;Sends the volume.
-                ld b,d
-                out (c),l       ;f400 + register.
-                ld b,e
-                out (c),0       ;f600.
-                ld b,d
-                out (c),c       ;f400 + value (16 = hardware volume).
-                ld b,e
-                out (c),c       ;f680
-                ex af,af'
-                out (c),a       ;f6c0.
-                ex af,af'
-
-                inc l           ;Increases the volume register.
-        exx
+;                ld b,d
+;                out (c),l       ;f400 + register.
+;                ld b,e
+;                out (c),0       ;f600.
+;                ld b,d
+;                out (c),c       ;f400 + value (16 = hardware volume).
+;                ld b,e
+;                out (c),c       ;f680
+;                ex af,af'
+;                out (c),a       ;f6c0.
+;                ex af,af'
+        move.b d0,$ffff8800.w
+        move.b d3,$ffff8802.w
+;                inc l           ;Increases the volume register.
+        addq.w #1,d0
+;        exx
 
         ;LSB of hardware period?
-        rra
-        jr c,PLY_AKYst_RRB_NIS_SAHH_LSBH
-		jr $ + 2         ;Wait for 6 cycles.
-                jr $ + 2
-        jr PLY_AKYst_RRB_NIS_SAHH_AfterLSBH
+;        rra
+        ror.b #1,d1
+;        jr c,PLY_AKYst_RRB_NIS_SAHH_LSBH
+        bcs.s PLY_AKYst_RRB_NIS_SAHH_LSBH
+;		jr $ + 2         ;Wait for 6 cycles.
+;                jr $ + 2
+;        jr PLY_AKYst_RRB_NIS_SAHH_AfterLSBH
+        bra.s PLY_AKYst_RRB_NIS_SAHH_AfterLSBH
 PLY_AKYst_RRB_NIS_SAHH_LSBH:
-        ld de,PLY_AKYst_PsgRegister11
-        ldi
+;        ld de,PLY_AKYst_PsgRegister11
+;        ldi
+        move.w d0,a1
+        move.b (a1),PLY_AKYst_PsgRegister11
+        addq.w #1,d0
+        addq.w #1,d2
+        subq.w #1,d3
 PLY_AKYst_RRB_NIS_SAHH_AfterLSBH:
 
         ;MSB of hardware period?
-        rra
-        jr c,PLY_AKYst_RRB_NIS_SAHH_MSBH
-                jr $ + 2         ;Wait for 6 cycles.
-                jr $ + 2
-        jr PLY_AKYst_RRB_NIS_SAHH_AfterMSBH
+;        rra
+        ror.b #1,d1
+;        jr c,PLY_AKYst_RRB_NIS_SAHH_MSBH
+        bcs.s PLY_AKYst_RRB_NIS_SAHH_MSBH
+;                jr $ + 2         ;Wait for 6 cycles.
+;                jr $ + 2
+;        jr PLY_AKYst_RRB_NIS_SAHH_AfterMSBH
+        bra.s PLY_AKYst_RRB_NIS_SAHH_AfterMSBH
 PLY_AKYst_RRB_NIS_SAHH_MSBH:
-        ld de,PLY_AKYst_PsgRegister12
-        ldi
+;        ld de,PLY_AKYst_PsgRegister12
+;        ldi
+        move.w d0,a1
+        move.b (a1),PLY_AKYst_PsgRegister12
+        addq.w #1,d0
+        addq.w #1,d2
+        subq.w #1,d3
 PLY_AKYst_RRB_NIS_SAHH_AfterMSBH:
         
         ;LSB of software period?
-        rra
-        jr c,PLY_AKYst_RRB_NIS_SAHH_LSBS
-                ld d,7                     ;Waits for 32 cycles.
-                dec d
-                jr nz,$ - 1
-                cp (hl)
-                nop
-        jr PLY_AKYst_RRB_NIS_SAHH_AfterLSBS
+;        rra
+        ror.b #1,d1
+;        jr c,PLY_AKYst_RRB_NIS_SAHH_LSBS
+        bcs.s PLY_AKYst_RRB_NIS_SAHH_LSBS
+;                ld d,7                     ;Waits for 32 cycles.
+;                dec d
+;                jr nz,$ - 1
+;                cp (hl)
+;                nop
+;        jr PLY_AKYst_RRB_NIS_SAHH_AfterLSBS
+        bra.s PLY_AKYst_RRB_NIS_SAHH_AfterLSBS
 PLY_AKYst_RRB_NIS_SAHH_LSBS:
-        ld e,a
-        ld a,(hl)
-        inc hl
-        exx
-                ;Sends the LSB software frequency.
-                ld b,d
-                out (c),h       ;f400 + register.
-                ld b,e
-                out (c),0       ;f600.
-                ld b,d
-                out (c),a       ;f400 + value.
-                ld b,e
-                out (c),c       ;f680
-                ex af,af'
-                out (c),a       ;f6c0.
-                ex af,af'
-
+;        ld e,a
+        move.b d1,d2
+;        ld a,(hl)
+        move.w d0,a1
+        move.b (a1),d1
+;        inc hl
+        addq.w #1,d0
+;        exx
+;                ;Sends the LSB software frequency.
+;                ld b,d
+;                out (c),h       ;f400 + register.
+;                ld b,e
+;                out (c),0       ;f600.
+;                ld b,d
+;                out (c),a       ;f400 + value.
+;                ld b,e
+;                out (c),c       ;f680
+;                ex af,af'
+;                out (c),a       ;f6c0.
+;                ex af,af'
+        move.w d0,$ffff8800.w
+        move.b d1,$ffff8802.w
                 ;H not increased on purpose.
-        exx
-        ld a,e
+;        exx
+;        ld a,e
+        move.b d2,d1
 PLY_AKYst_RRB_NIS_SAHH_AfterLSBS:
        
         ;MSB of software period?
-        rra
-        jr c,PLY_AKYst_RRB_NIS_SAHH_MSBS
-                ld d,8                     ;Waits for 34 cycles.
-                dec d
-                jr nz,$ - 1
-                nop
-        jr PLY_AKYst_RRB_NIS_SAHH_AfterMSBS
+;        rra
+        ror.b #1,d1
+;        jr c,PLY_AKYst_RRB_NIS_SAHH_MSBS
+        bcs.s PLY_AKYst_RRB_NIS_SAHH_MSBS
+;                ld d,8                     ;Waits for 34 cycles.
+;                dec d
+;                jr nz,$ - 1
+;                nop
+;        jr PLY_AKYst_RRB_NIS_SAHH_AfterMSBS
+        bra.s PLY_AKYst_RRB_NIS_SAHH_AfterMSBS
 PLY_AKYst_RRB_NIS_SAHH_MSBS:
-        ld e,a
-        ld a,(hl)
-        inc hl
-        exx
-                ;Sends the MSB software frequency.
-                inc h
+;        ld e,a
+        move.b d1,d2
+;        ld a,(hl)
+        move.w d0,a1
+        move.b (a1),d1
+;        inc hl
+        addq.w #1,d0
+;        exx
+;                ;Sends the MSB software frequency.
+;                inc h
+        add.w #1<<8,d0
 
-                ld b,d
-                out (c),h       ;f400 + register.
-                ld b,e
-                out (c),0       ;f600.
-                ld b,d
-                out (c),a       ;f400 + value.
-                ld b,e
-                out (c),c       ;f680
-                ex af,af'
-                out (c),a       ;f6c0.
-                ex af,af'
+;                ld b,d
+;                out (c),h       ;f400 + register.
+;                ld b,e
+;                out (c),0       ;f600.
+;                ld b,d
+;                out (c),a       ;f400 + value.
+;                ld b,e
+;                out (c),c       ;f680
+;                ex af,af'
+;                out (c),a       ;f6c0.
+;                ex af,af'
+        move.w d0,$ffff8800.w
+        move.b d1,$ffff8802.w
 
-                dec h           ;Yup. Will be compensated below.
-        exx
-        ld a,e
+;                dec h           ;Yup. Will be compensated below.
+        sub.w #1<<8,d0
+;        exx
+;        ld a,e
+        move.b d2,d1
 PLY_AKYst_RRB_NIS_SAHH_AfterMSBS:
         ;A bit of loss of CPU, but this has to be done every time!
-        exx
-                inc h
-                inc h
-        exx
+;        exx
+;                inc h
+;                inc h
+;        exx
 
         ;New hardware envelope?
-        rra
-        jr c,PLY_AKYst_RRB_NIS_SAHH_Envelope
-		jr $ + 2         ;Wait for 6 cycles.
-                jr $ + 2
-        jr PLY_AKYst_RRB_NIS_SAHH_AfterEnvelope
+;        rra
+        ror.b #1,d1
+;        jr c,PLY_AKYst_RRB_NIS_SAHH_Envelope
+        bcs.s PLY_AKYst_RRB_NIS_SAHH_Envelope
+;		jr $ + 2         ;Wait for 6 cycles.
+;                jr $ + 2
+;        jr PLY_AKYst_RRB_NIS_SAHH_AfterEnvelope
+        bra.s PLY_AKYst_RRB_NIS_SAHH_AfterEnvelope
 PLY_AKYst_RRB_NIS_SAHH_Envelope:
-        ld de,PLY_AKYst_PsgRegister13
-        ldi
+;        ld de,PLY_AKYst_PsgRegister13
+;        ldi
+        move.w d0,a1
+        move.b (a1),PLY_AKYst_PsgRegister13
+        addq.w #1,d0
+        addq.w #1,d2
+        subq.w #1,d3
 PLY_AKYst_RRB_NIS_SAHH_AfterEnvelope:
 
         ;Retrig and/or noise?
-        rra
-        jr c,PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStop
-                ld d,6                     ;Waits for 29 cycles.
-                dec d
-                jr nz,$ - 1
-                cp (hl)
-                cp (hl)
-        ret
+;        rra
+        ror.b #1,d1
+;        jr c,PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStop
+        bcs.s PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStop
+;                ld d,6                     ;Waits for 29 cycles.
+;                dec d
+;                jr nz,$ - 1
+;                cp (hl)
+;                cp (hl)
+;        ret
+        rts
 
         ;This code is shared with the HardwareOnly. It reads the Noise/Retrig byte, interprets it and exits.
         ;------------------------------------------
 PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStop:              ;31 cycles
         ;Noise or retrig. Reads the next byte.
-        ld a,(hl)
-        inc hl
+;        ld a,(hl)
+        move.w d0,a1
+        move.b (a1),d1
+;        inc hl
+        addq.w #1,d0
 
         ;Retrig?
-        rra
-        jr c,PLY_AKYst_RRB_NIS_S_NOR_Retrig
-                jr $ + 2         ;Wait for 4 cycles.
-                nop
-        jr PLY_AKYst_RRB_NIS_S_NOR_AfterRetrig
+;        rra
+        ror.b #1,d1
+;        jr c,PLY_AKYst_RRB_NIS_S_NOR_Retrig
+        bcs.s PLY_AKYst_RRB_NIS_S_NOR_Retrig
+;                jr $ + 2         ;Wait for 4 cycles.
+;                nop
+;        jr PLY_AKYst_RRB_NIS_S_NOR_AfterRetrig
+        bra.s PLY_AKYst_RRB_NIS_S_NOR_AfterRetrig
 PLY_AKYst_RRB_NIS_S_NOR_Retrig:
-        set 7,a                         ;A value to make sure the retrig is performed, yet A can still be use.
-        ld (PLY_AKYst_PsgRegister13_Retrig + 1),a
+;        set 7,a                         ;A value to make sure the retrig is performed, yet A can still be use.
+        bset #7,d1
+;        ld (PLY_AKYst_PsgRegister13_Retrig + 1),a
+        move.b d1,PLY_AKYst_PsgRegister13_Retrig + 3
 PLY_AKYst_RRB_NIS_S_NOR_AfterRetrig:
 
         ;Noise? If no, nothing more to do.
-        rra
-        jr c,PLY_AKYst_RRB_NIS_S_NOR_Noise
-                jr $ + 2         ;Wait for 11 cycles.
-                jr $ + 2
-                jr $ + 2
-		cp (hl)
-        ret
+;        rra
+        ror.b #1,d1
+;        jr c,PLY_AKYst_RRB_NIS_S_NOR_Noise
+        bcs.s PLY_AKYst_RRB_NIS_S_NOR_Noise
+;                jr $ + 2         ;Wait for 11 cycles.
+;                jr $ + 2
+;                jr $ + 2
+;		cp (hl)
+;        ret
+        rts
 PLY_AKYst_RRB_NIS_S_NOR_Noise:
         
         ;Noise. Opens the noise channel.
-        res PLY_AKYst_RRB_NoiseChannelBit, b
+;        res PLY_AKYst_RRB_NoiseChannelBit, b
+        bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
         ;Is there a new noise value? If yes, gets the noise.
-        rra
-        jr c,PLY_AKYst_RRB_NIS_S_NOR_SetNoise
-                jr $ + 2         ;Waits for 5 cycles.
-                cp (hl)
-        ret
+;        rra
+        ror.b #1,d1
+;        jr c,PLY_AKYst_RRB_NIS_S_NOR_SetNoise
+        bcs.s PLY_AKYst_RRB_NIS_S_NOR_SetNoise
+;                jr $ + 2         ;Waits for 5 cycles.
+;                cp (hl)
+;        ret
+        rts
 PLY_AKYst_RRB_NIS_S_NOR_SetNoise:
         ;Sets the noise.
-        ld (PLY_AKYst_PsgRegister6),a
-        ret
+;        ld (PLY_AKYst_PsgRegister6),a
+        move.b d1,PLY_AKYst_PsgRegister6
+;        ret
+        rts
 
 
 ;Some stored PSG registers.
-PLY_AKYst_PsgRegister6: db 0
-PLY_AKYst_PsgRegister11: db 0
-PLY_AKYst_PsgRegister12: db 0
-PLY_AKYst_PsgRegister13: db 0
+;PLY_AKYst_PsgRegister6: db 0
+;PLY_AKYst_PsgRegister11: db 0
+;PLY_AKYst_PsgRegister12: db 0
+;PLY_AKYst_PsgRegister13: db 0
+PLY_AKYst_PsgRegister6: dc.b 0
+PLY_AKYst_PsgRegister11: dc.b 0
+PLY_AKYst_PsgRegister12: dc.b 0
+PLY_AKYst_PsgRegister13: dc.b 0
 
 
 ;RET table for the Read RegisterBlock code to know where to return.
-PLY_AKYst_RetTable_ReadRegisterBlock:
-        dw PLY_AKYst_Channel1_RegisterBlock_Return
-        dw PLY_AKYst_Channel2_RegisterBlock_Return
-        dw PLY_AKYst_Channel3_RegisterBlock_Return
+;PLY_AKYst_RetTable_ReadRegisterBlock:
+;        dw PLY_AKYst_Channel1_RegisterBlock_Return
+;        dw PLY_AKYst_Channel2_RegisterBlock_Return
+;        dw PLY_AKYst_Channel3_RegisterBlock_Return
