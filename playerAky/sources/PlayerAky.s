@@ -21,9 +21,11 @@
 ; Port by George Nakos (GGN of pick-your-favorite-group - KUA software productions/D-Bug/Paradize/Reboot/Bello games)
 ; (yes, crews are becoming pointless :))
         
-
-;assuming that hl=d0
+;Global convetions for mapping of z80 registers
+;assuming that hl=a0
+;assuming that sp=a6
 ;assuming that a=d1
+
 ;assuming that af=d3
 ;assuming that de=d2
 ;assuming that bc=d3
@@ -42,8 +44,6 @@ PLY_AKYst_OPCODE_SCF  equ $003c0001                         ;Opcode for "ori #1,
 
 PLY_AKYst_Start:
         ;Hooks for external calls. Can be removed if not needed.
-;        jp PLY_AKYst_Init             ;Player + 0.
-;        jp PLY_AKYst_Play             ;Player + 3.
         bra.s PLY_AKYst_Init            ;Player + 0.
         bra.s PLY_AKYst_Play            ;Player + 2.
     
@@ -51,16 +51,16 @@ PLY_AKYst_Start:
 
 ;       Initializes the player.
 ;       HL = music address.
-*       a0 = music address
+*       a0.l = music address
 PLY_AKYst_Init:
         ;Skips the header.
 ;        inc hl                          ;Skips the format version.
         addq.l #1,a0                    ;Skips the format version.
 ;        ld a,(hl)                       ;Channel count.
 ;        inc hl
-        move.b (a0)+,d0                 ;Let's say that d0=accumulator
+        move.b (a0)+,d1                 ;Let's say that d1=accumulator
 ;        ld de,4
-        move.w #4,d1                    ;Let's say that d1=de
+        move.w #4,d2                    ;Let's say that d2=de
 PLY_AKYst_Init_SkipHeaderLoop:                ;There is always at least one PSG to skip.
 ;        add hl,de
         addq.l #4,a0
@@ -72,122 +72,97 @@ PLY_AKYst_Init_SkipHeaderLoop:                ;There is always at least one PSG 
         bcc.s PLY_AKYst_Init_SkipHeaderLoop
 PLY_AKYst_Init_SkipHeaderEnd:
 ;        ld (PLY_AKYst_PtLinker + 1),hl        ;HL now points on the Linker.
-        move.l  a0,PLY_AKYst_PtLinker + 2       ;HL now points on the Linker.
+        move.l  a0,PLY_AKYst_PtLinker       ;HL now points on the Linker.
 
 ;        ld a,PLY_AKYst_OPCODE_OR_A
-        move.l #PLY_AKYst_OPCODE_OR_A,d1
+        move.l #PLY_AKYst_OPCODE_OR_A,d0
 ;        ld (PLY_AKYst_Channel1_RegisterBlockLineState_Opcode),a
-        move.l d1,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
+        move.l d0,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
 ;        ld (PLY_AKYst_Channel2_RegisterBlockLineState_Opcode),a
-        move.l d1,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
+        move.l d0,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
 ;        ld (PLY_AKYst_Channel3_RegisterBlockLineState_Opcode),a
-        move.l d1,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
+        move.l d0,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
 ;        ld hl,1
 ;        ld (PLY_AKYst_PatternFrameCounter + 1),hl
-        move.w #2,PLY_AKYst_PatternFrameCounter       
+        move.w #2,PLY_AKYst_PatternFrameCounter
 
 ;        ret
         rts
 
 ;       Plays the music. It must have been initialized before.
 ;       The interruption SHOULD be disabled (DI), as the stack is heavily used.
-*       Yeah I'm guessing we probably won't be using the stack on the ST :)
+; a0=hl=start of tune - must be aligned to 64k for now!
+
 PLY_AKYst_Play:
+        move.l a0,a6                                ;copy the upper 16 bits to a6 - we'll need it later
 ;        ld (PLY_AKYst_Exit + 1),sp
-* (okay, so I guess this saves the stack into the restore instruction at the end of this routine)
-        
 
 ;Linker.
 ;----------------------------------------
 ;PLY_AKYst_PatternFrameCounter: ld hl,1                ;How many frames left before reading the next Pattern.
+* SMC - DO NOT OPTIMISE!
 PLY_AKYst_PatternFrameCounter: move.w #1,d0             ;How many frames left before reading the next Pattern.
-* NOTE: the above is actually SMCd for now, so probably not a good idea to optimise it to moveq ;)
 ;        dec hl
-        subq.w #1,d0                                    ;assuming that hl=d0
 ;        ld a,l
-        move.w d0,d1                                    ;assuming that a=d1
 ;        or h
-        move.w d0,d2
-        lsr.w #8,d2
-        or.b d1,d1                                      ;*holy moly! this CAN be optimised!
+        cmp.w #0,a0
 ;        jr z,PLY_AKYst_PatternFrameCounter_Over
-        blt.s PLY_AKYst_PatternFrameCounter_Over
+        beq.s PLY_AKYst_PatternFrameCounter_Over
 ;        ld (PLY_AKYst_PatternFrameCounter + 1),hl
-        move.w d0,PLY_AKYst_PatternFrameCounter+2       ;*SMC galore!
+        move.w a0,PLY_AKYst_PatternFrameCounter+2       ;*SMC galore!
         ;The pattern is not over.
-;                ld b,15                     ;Waits for 80 - 17 = 63 cycles.
-;                djnz $
-;                cp (hl)
-;                tst.w d0
 ;        jr PLY_AKYst_PatternFrameManagement_End
-                bra.s PLY_AKYst_PatternFrameManagement_End
+        bra.s PLY_AKYst_PatternFrameManagement_End
 
 PLY_AKYst_PatternFrameCounter_Over:
 
 ;The pattern is over. Reads the next one.
 ;PLY_AKYst_PtLinker: ld sp,0                             ;Points on the Pattern of the linker.
-PLY_AKYst_PtLinker: lea 0,a0                        ;Points on the Pattern of the linker.
+* SMC - DO NOT OPTIMISE!
+PLY_AKYst_PtLinker = * + 2
+                    move.w #0,a6                        ;Points on the Pattern of the linker.
                                                         ;*assuming sp=a0
 ;        pop hl                                          ;Gets the duration of the Pattern, or 0 if end of the song.
-        move.w (a0)+,d0
+        move.w (a6)+,a0
 ;        ld a,l
-        move.b d0,d1
 ;        or h
-        move.w d0,d2
-        lsr.w #8,d2
-        or.b d1,d1                                      ;*holy moly! this CAN be optimised!
+        cmp.w #0,a0
 ;        jr nz,PLY_AKYst_LinkerNotEndSong
-        blt.s PLY_AKYst_LinkerNotEndSong
+        bgt.s PLY_AKYst_LinkerNotEndSong
         ;End of the song. Where to loop?
 ;        pop hl
-        move.w (a0)+,d0
+        move.w (a6)+,a0
         ;We directly point on the frame counter of the pattern to loop to.
 ;        ld sp,hl
-        move.w d0,a0
-* Yeah this has serious ramifications here. The z80 version seems that is popping a value from
-* the stack and then sets it to the stack directly. This will have to be 4 bytes on 68k
-* unless we want the tune data to reside in the first 64k of RAM, which is a pregtty bad idea :)
-* (of course we could pre-set the high word of a0 to a 64k aligned block of RAM, but do we really
-* want to be _that_ liberal with resources? This is a design decision so punting for now)
+        move.w a0,a6
         ;Gets the duration again. No need to check the end of the song,
         ;we know it contains at least one pattern.
 ;        pop hl
-        move.w (a0)+,d0
+        move.w (a6)+,a0
 ;        jr PLY_AKYst_LinkerNotEndSong_After
-        ;bra.s PLY_AKYst_LinkerNotEndSong_After
 PLY_AKYst_LinkerNotEndSong:
-;                jr $ + 2         ;Waits for 10 cycles.
-;                jr $ + 2
-;                jr $ + 2
-;                nop
-PLY_AKYst_LinkerNotEndSong_After:
 ;        ld (PLY_AKYst_PatternFrameCounter + 1),hl
-        move.l d0,PLY_AKYst_PatternFrameCounter + 1
+        move.w a0,PLY_AKYst_PatternFrameCounter + 2
 
 ;        pop hl
-        move.w (a0)+,d0
 ;        ld (PLY_AKYst_Channel1_PtTrack + 1),hl
-        move.w d0,PLY_AKYst_Channel1_PtTrack+2
+        move.w (a6)+,PLY_AKYst_Channel1_PtTrack
 ;        pop hl
-        move.w (a0)+,d0
 ;        ld (PLY_AKYst_Channel2_PtTrack + 1),hl
-        move.w d0,PLY_AKYst_Channel1_PtTrack+2
+        move.w (a6)+,PLY_AKYst_Channel2_PtTrack+2
 ;        pop hl
-        move.w (a0)+,d0
 ;        ld (PLY_AKYst_Channel3_PtTrack + 1),hl
-        move.w d0,PLY_AKYst_Channel1_PtTrack+2
-*(yeah yeah there is a more efficient way to do this on 68k. Once this is fully ported and
-*proven to work, we can knock ourselves out :))
+        move.w (a6)+,PLY_AKYst_Channel3_PtTrack+2
 ;        ld (PLY_AKYst_PtLinker + 1),sp
-        move.l PLY_AKYst_PtLinker + 2, a0
+        move.l a6,PLY_AKYst_PtLinker
 
         ;Resets the RegisterBlocks of the channels.
 ;        ld a,1
         moveq #1,d1
 ;        ld (PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock + 1),a
-        move.b d1,PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock + 3
+        move.b d1,PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock
 ;        ld (PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock + 1),a
-        move.b d1,PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock + 3
+        move.b d1,PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock
 ;        ld (PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock + 1),a
         move.b d1,PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock + 3
 PLY_AKYst_PatternFrameManagement_End:
@@ -195,13 +170,13 @@ PLY_AKYst_PatternFrameManagement_End:
 ;Reading the Track - channel 1.
 ;----------------------------------------
 ;PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock: ld a,1        ;Frames to wait before reading the next RegisterBlock. 0 = finished.
-PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock: move.b #1,d1        ;Frames to wait before reading the next RegisterBlock. 0 = finished.
+* SMC - DO NOT OPTIMISE!
+PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock = * + 3
+        move.b #1,d1        ;Frames to wait before reading the next RegisterBlock. 0 = finished.
         ;dec a
         subq.b #1,d1
 ;        jr z,PLY_AKYst_Channel1_RegisterBlock_Finished
         blt.s PLY_AKYst_Channel1_RegisterBlock_Finished
-;                ld b,6                  ;26 cycles.
-;                djnz $
 ;        jr PLY_AKYst_Channel1_RegisterBlock_Process
         bra.s PLY_AKYst_Channel1_RegisterBlock_Process
 PLY_AKYst_Channel1_RegisterBlock_Finished:
@@ -212,31 +187,37 @@ PLY_AKYst_Channel1_RegisterBlock_Finished:
 ;        ld (PLY_AKYst_Channel1_RegisterBlockLineState_Opcode),a
         move.l d1,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
 ;PLY_AKYst_Channel1_PtTrack: ld sp,0                   ;Points on the Track.
-PLY_AKYst_Channel1_PtTrack: lea 0,a0                   ;Points on the Track.
+* SMC - DO NOT OPTIMISE!
+PLY_AKYst_Channel1_PtTrack = * + 4
+PLY_AKYst_Channel1_PtTrack: suba.w a6,a6                ;Clear lower word for the add to work properly
+                                                        ;(i.e. we don't want to sign extend the 16 high bits
+                            add.w #0,a6               ;Points on the Track.
 ;        dec sp                                  ;Only one byte is read. Compensate.
-        subq.w #1,a0
+        subq.w #1,a6
 ;        pop af                                  ;Gets the duration.
-        move.w (a0)+,d3                          ;assuming that af=d3
+        move.w (a6)+,d3                          ;assuming that af=d3
 ;        pop hl                                  ;Reads the RegisterBlock address.
-        move.w (a0)+,d0
+        move.w (a6)+,a0
 
 ;        ld (PLY_AKYst_Channel1_PtTrack + 1),sp
-        move.l a0,PLY_AKYst_Channel1_PtTrack + 2
+        move.w a6,PLY_AKYst_Channel1_PtTrack
 ;        ld (PLY_AKYst_Channel1_PtRegisterBlock + 1),hl
-        move.w d0,PLY_AKYst_Channel1_PtRegisterBlock + 2
+        move.w a0,PLY_AKYst_Channel1_PtRegisterBlock
 
         ;A is the duration of the block.
 PLY_AKYst_Channel1_RegisterBlock_Process:
         ;Processes the RegisterBlock, whether it is the current one or a new one.
 ;        ld (PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock + 1),a
-        move.b d0,PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock + 1
+        move.b d0,PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock
 
 
 
 ;Reading the Track - channel 2.
 ;----------------------------------------
 ;PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock: ld a,1        ;Frames to wait before reading the next RegisterBlock. 0 = finished.
-PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock: move.b #1,d1    ;Frames to wait before reading the next RegisterBlock. 0 = finished.
+* SMC - DO NOT OPTIMISE!
+PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock = * + 3
+        move.b #1,d1    ;Frames to wait before reading the next RegisterBlock. 0 = finished.
 ;        dec a
         subq.b #1,d1       
 ;        jr z,PLY_AKYst_Channel2_RegisterBlock_Finished
@@ -254,7 +235,7 @@ PLY_AKYst_Channel2_RegisterBlock_Finished:
 ;        ld (PLY_AKYst_Channel2_RegisterBlockLineState_Opcode),a
         move.l d1,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
 ;PLY_AKYst_Channel2_PtTrack: ld sp,0                   ;Points on the Track.
-PLY_AKYst_Channel2_PtTrack: lea 0,sp                    ;Points on the Track.
+PLY_AKYst_Channel2_PtTrack: suba.w a6,a6                    ;Points on the Track.
 ;        dec sp                                  ;Only one byte is read. Compensate.
         subq.w #1,d0
 ;        pop af                                  ;Gets the duration (b1-7). b0 = silence block?
@@ -270,7 +251,7 @@ PLY_AKYst_Channel2_PtTrack: lea 0,sp                    ;Points on the Track.
 PLY_AKYst_Channel2_RegisterBlock_Process:
         ;Processes the RegisterBlock, whether it is the current one or a new one.
 ;        ld (PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock + 1),a
-        move.b d1, (PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock + 3)
+        move.b d1,PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock
 
 
 
@@ -355,7 +336,9 @@ PLY_AKYst_Channel3_RegisterBlock_Process:
         move.l #PLY_AKYst_Channel1_RegisterBlock_Return,a0  ;so the above sets the return address to the label we have here by modifying the stack. Let's not use that thing for now (or ever)
 
 ;PLY_AKYst_Channel1_PtRegisterBlock: ld hl,0                   ;Points on the data of the RegisterBlock to read.
-PLY_AKYst_Channel1_PtRegisterBlock: move.w #0,d0               ;Points on the data of the RegisterBlock to read.
+* SMC - DO NOT OPTIMISE!
+PLY_AKYst_Channel1_PtRegisterBlock = * + 2
+        move.w #0,d0               ;Points on the data of the RegisterBlock to read.
 ;PLY_AKYst_Channel1_RegisterBlockLineState_Opcode: or a        ;"or a" if initial state, "scf" (#37) if non-initial state.
 PLY_AKYst_Channel1_RegisterBlockLineState_Opcode: ori.b #0,d0  ;yeah well, the best substitution I can think of right now is ori.b #0,d0 / ori #1,ccr
 ;        jp PLY_AKYst_ReadRegisterBlock
@@ -366,7 +349,7 @@ PLY_AKYst_Channel1_RegisterBlock_Return:
 ;        ld (PLY_AKYst_Channel1_RegisterBlockLineState_Opcode),a
         move.l d1,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
 ;        ld (PLY_AKYst_Channel1_PtRegisterBlock + 1),hl        ;This is new pointer on the RegisterBlock.
-        move.w d0,PLY_AKYst_Channel1_PtRegisterBlock + 2
+        move.w d0,PLY_AKYst_Channel1_PtRegisterBlock
 
 
 ;Reading the RegisterBlock - Channel 2
@@ -569,12 +552,6 @@ PLY_AKYst_ReadRegisterBlock:
 ;        jp c,PLY_AKYst_RRB_NonInitialState
         bcs PLY_AKYst_RRB_NonInitialState
         
-                ;Compensate once and for all the loop for the NIS (not present here in the IS).
-                ;ds PLY_AKYst_NOP_Loop, 0                                
-;        	ld d,8                     ;Waits for 35 cycles.
-;                dec d
-;                jr nz,$ - 1
-;                cp (hl)
         
         ;Not in the original code, but simplifies the stabilization.
 ;        ld d,a                  ;A must be saved!        
@@ -638,21 +615,11 @@ PLY_AKYst_RRB_SoundChannelBit equ 2          ;Bit to modify to set/reset the sou
 
 PLY_AKYst_RRB_IS_NoSoftwareNoHardware:          ;50 cycles.
 
-                ;ds PLY_AKYst_NOP_LongestInState - 50, 0         ;For all the IS/NIS subcodes to spend the same amount of time.
-;        	ld d,32                     ;Waits for 182 - 50 = 132 cycles.
-;                dec d
-;                jr nz,$ - 1
-;                cp (hl)
-;                nop
-
         ;No software no hardware.
 ;        rra                     ;Noise?
         lsr.b #1,d1
 ;        jr c,PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise
         bcs.s PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise
-;                jr $ + 2                 ;Waits for 8 cycles
-;                jr $ + 2
-;                cp (hl)
         move.w d0,a1                    ;* yes, this is going to explode
         cmp.b (a1),d1
 ;        jr PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise_End
@@ -707,19 +674,11 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolume:
 ;---------------------
 PLY_AKYst_RRB_IS_HardwareOnly:                          ;79 cycles.
 
-                ;ds PLY_AKYst_NOP_LongestInState - 79, 0         ;For all the IS/NIS subcodes to spend the same amount of time.
-;        	ld d,25                     ;Waits for 182 - 79 = 103 cycles.
-;                dec d
-;                jr nz,$ - 1
-;                cp (hl)
-
         ;Retrig?
 ;        rra
         lsr.b #1,d1
 ;        jr c,PLY_AKYst_RRB_IS_HO_Retrig
         bcs.s PLY_AKYst_RRB_IS_HO_Retrig
-;                jr $ + 2         ;Wait for 4 cycles.
-;                nop
 ;        jr PLY_AKYst_RRB_IS_HO_AfterRetrig
         bra.s PLY_AKYst_RRB_IS_HO_AfterRetrig
 PLY_AKYst_RRB_IS_HO_Retrig:
@@ -734,9 +693,6 @@ PLY_AKYst_RRB_IS_HO_AfterRetrig:
         lsr.b #1,d1
 ;        jr c,PLY_AKYst_RRB_IS_HO_Noise
         bcs.s PLY_AKYst_RRB_IS_HO_Noise 
-;                jr $ + 2         ;Wait for 8 cycles.
-;                jr $ + 2
-;                cp (hl)
         move.w d0,a1
         cmp.b (a1),d1           ;* explody stuff
 ;        jr PLY_AKYst_RRB_IS_HO_AfterNoise
@@ -804,21 +760,12 @@ PLY_AKYst_RRB_IS_HO_AfterNoise:
 ;---------------------
 PLY_AKYst_RRB_IS_SoftwareOnly:                  ;112 cycles.
 
-                ;ds PLY_AKYst_NOP_LongestInState - 112, 0         ;For all the IS/NIS subcodes to spend the same amount of time. 
-;        	ld d,17                     ;Waits for 182 - 112 = 70 cycles.
-;                dec d
-;                jr nz,$ - 1
-;                nop
-
         ;Software only. Structure: 0vvvvntt.
         ;Noise?
 ;        rra
         lsr.b #1,d1
 ;        jr c,PLY_AKYst_RRB_IS_SoftwareOnly_Noise
         bcs.s PLY_AKYst_RRB_IS_SoftwareOnly_Noise
-;                jr $ + 2         ;Wait for 8 cycles.
-;                jr $ + 2
-;                cp (hl)
         move.w d0,a1
         cmp.b (a1),d1   ;*yeah at this point we know that hl should probably be on an address register, roit?
 ;        jr PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise
@@ -917,19 +864,11 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
 ;---------------------
 PLY_AKYst_RRB_IS_SoftwareAndHardware:                   ;139 cycles.
         
-                ;ds PLY_AKYst_NOP_LongestInState - 139, 0         ;For all the IS/NIS subcodes to spend the same amount of time.
-;                ld d,10                     ;Waits for 182 - 139 = 43 cycles.
-;                dec d
-;                jr nz,$ - 1
-;                cp (hl)
-
         ;Retrig?
 ;        rra
         lsr.b #1,d1
 ;        jr c,PLY_AKYst_RRB_IS_SAH_Retrig
         bcs.s PLY_AKYst_RRB_IS_SAH_Retrig
-;                jr $ + 2         ;Wait for 4 cycles.
-;                nop
 ;        jr PLY_AKYst_RRB_IS_SAH_AfterRetrig
         bra.s PLY_AKYst_RRB_IS_SAH_AfterRetrig
 PLY_AKYst_RRB_IS_SAH_Retrig:
@@ -944,9 +883,6 @@ PLY_AKYst_RRB_IS_SAH_AfterRetrig:
         lsr.b #1,d1
 ;        jr c,PLY_AKYst_RRB_IS_SAH_Noise
         bcs.s PLY_AKYst_RRB_IS_SAH_Noise
-;                jr $ + 2         ;Wait for 8 cycles.
-;                jr $ + 2
-;                cp (hl)
 ;        jr PLY_AKYst_RRB_IS_SAH_AfterNoise
         bra.s PLY_AKYst_RRB_IS_SAH_AfterNoise
 PLY_AKYst_RRB_IS_SAH_Noise:
@@ -1203,23 +1139,11 @@ PLY_AKYst_NIS_JPTable_NoLoop:
 
 
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware:                 ;60 + LoopCompensation cycles.
-                ;Compensates the fact that there is no loop.
-                ;ds PLY_AKYst_NOP_Loop, 0                                
-;        	ld d,8                     ;Waits for 35 cycles.
-;                dec d
-;                jr nz,$ - 1
-;                cp (hl)
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_Loop:            ;60 cycles.
         ;No software, no hardware.
         ;NO NEED to test the loop! It has been tested before. We can optimize from the original code.
 ;        ld e,a                  ;Used below.
         move.b d1,d0
-
-                ;ds PLY_AKYst_NOP_LongestInState - 60, 0         ;For all the IS/NIS subcodes to spend the same amount of time.
-;                ld d,30                     ;Waits for 182 - 60 = 122 cycles.
-;                dec d
-;                jr nz,$ - 1
-;                nop
 
         ;Closes the sound channel.
         ;set PLY_AKYst_RRB_SoundChannelBit, b
@@ -1230,11 +1154,6 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_Loop:            ;60 cycles.
         lsr.b #1,d1
 ;        jr c,PLY_AKYst_RRB_NIS_Volume
         bcs.s PLY_AKYst_RRB_NIS_Volume
-;                ld d,6                     ;Waits for 28 cycles.
-;                dec d
-;                jr nz,$ - 1
-;                cp (hl)
-;                nop
 ;        jr PLY_AKYst_RRB_NIS_AfterVolume
         bra.s PLY_AKYst_RRB_NIS_AfterVolume
 PLY_AKYst_RRB_NIS_Volume:
@@ -1271,10 +1190,6 @@ PLY_AKYst_RRB_NIS_AfterVolume:
         btst #7 - 2,d2
 ;        jr nz,PLY_AKYst_RRB_NIS_Noise
         blt.s PLY_AKYst_RRB_NIS_Noise
-;                jr $ + 2         ;Wait for 11 cycles.
-;                jr $ + 2
-;                jr $ + 2
-;                cp (hl)
 ;        ret
         rts
 PLY_AKYst_RRB_NIS_Noise:
@@ -1299,18 +1214,7 @@ PLY_AKYst_RRB_NIS_Noise:
 
 ;---------------------
 PLY_AKYst_RRB_NIS_SoftwareOnly:
-                ;Compensates the fact that there is no loop.
-                ;ds PLY_AKYst_NOP_Loop, 0                                
-;                ld d,8                     ;Waits for 35 cycles.
-;                dec d
-;                jr nz,$ - 1
-;                cp (hl)
 PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:                    ;129 cycles.
-        
-                ;ds PLY_AKYst_NOP_LongestInState - 129, 0         ;For all the IS/NIS subcodes to spend the same amount of time.
-;                ld d,13                     ;Waits for 182 - 129 = 53 cycles.
-;                dec d
-;                jr nz,$ - 1
         
         ;Software only. Structure: mspnoise lsp v  v  v  v  (0  1).
 ;        ld e,a
@@ -1342,10 +1246,6 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:                    ;129 cycles.
         btst #6 - 2,d2
 ;        jr nz,PLY_AKYst_RRB_NIS_SoftwareOnly_LSP
         blt.s PLY_AKYst_RRB_NIS_SoftwareOnly_LSP
-;                ld d,7                     ;Waits for 30 cycles.
-;                dec d
-;                jr nz,$ - 1
-;                nop
 ;        jr PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP
         bra.s PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP
 PLY_AKYst_RRB_NIS_SoftwareOnly_LSP:
@@ -1383,9 +1283,6 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP:
 ;                inc h
 ;                inc h
 ;        exx
-;                ld d,12                     ;Waits for 49 cycles.
-;                dec d
-;                jr nz,$ - 1
 ;        ret
         rts
         
@@ -1423,10 +1320,6 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoise:   ;53 cycles.
         rol.b #1,d1
 ;        jr c,PLY_AKYst_RRB_NIS_SoftwareOnly_NoisePresent
         bcs.s PLY_AKYst_RRB_NIS_SoftwareOnly_NoisePresent
-;                ld d,3                     ;Waits for 15 cycles.
-;                dec d
-;                jr nz,$ - 1
-;                cp (hl)
 ;        ret
         rts
 PLY_AKYst_RRB_NIS_SoftwareOnly_NoisePresent:
@@ -1439,9 +1332,6 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_NoisePresent:
         rol.b #1,d1
 ;        jr c,PLY_AKYst_RRB_NIS_SoftwareOnly_Noise
         bcs.s PLY_AKYst_RRB_NIS_SoftwareOnly_Noise
-;                jr $ + 2         ;Wait for 9 cycles.
-;                jr $ + 2
-;                jr $ + 2
 ;        ret
         rts
 PLY_AKYst_RRB_NIS_SoftwareOnly_Noise:
@@ -1459,21 +1349,10 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Noise:
 
 ;---------------------
 PLY_AKYst_RRB_NIS_HardwareOnly:
-                ;Compensates the fact that there is no loop.
-                ;ds PLY_AKYst_NOP_Loop, 0                                
-;                ld d,8                     ;Waits for 35 cycles.
-;                dec d
-;                jr nz,$ - 1
-;                cp (hl)
 
 PLY_AKYst_RRB_NIS_HardwareOnly_Loop:            ;102 cycles.
 
                 ;ds PLY_AKYst_NOP_LongestInState - 102, 0         ;For all the IS/NIS subcodes to spend the same amount of time.
-;                ld d,19                     ;Waits for 182 - 102 = 80 cycles.
-;                dec d
-;                jr nz,$ - 1
-;                cp (hl)
-;                nop
 
         ;Gets the envelope (initially on b2-b4, but currently on b0-b2). It is on 3 bits, must be encoded on 4. Bit 0 must be 0.
 ;        rla
@@ -1521,8 +1400,6 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop:            ;102 cycles.
         rol.b #2,d1
 ;        jr c,PLY_AKYst_RRB_NIS_HardwareOnly_LSB
         bcc.s PLY_AKYst_RRB_NIS_HardwareOnly_LSB
-;                jr $ + 2         ;Wait for 6 cycles.
-;                jr $ + 2
 ;        jr PLY_AKYst_RRB_NIS_HardwareOnly_AfterLSB
         bra.s PLY_AKYst_RRB_NIS_HardwareOnly_AfterLSB
 PLY_AKYst_RRB_NIS_HardwareOnly_LSB:
@@ -1540,8 +1417,6 @@ PLY_AKYst_RRB_NIS_HardwareOnly_AfterLSB:
         rol.b #1,d1
 ;        jr c,PLY_AKYst_RRB_NIS_HardwareOnly_MSB
         bcs.s PLY_AKYst_RRB_NIS_HardwareOnly_MSB
-;		jr $ + 2         ;Wait for 6 cycles.
-;                jr $ + 2
 ;        jr PLY_AKYst_RRB_NIS_HardwareOnly_AfterMSB
         bra.s PLY_AKYst_RRB_NIS_HardwareOnly_AfterMSB
 PLY_AKYst_RRB_NIS_HardwareOnly_MSB:
@@ -1559,23 +1434,12 @@ PLY_AKYst_RRB_NIS_HardwareOnly_AfterMSB:
         rol.b #1,d1
 ;        jp c,PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStop          ;The retrig/noise code is shared.
         bcc PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStop
-;                ld d,6                     ;Waits for 28 cycles.
-;                dec d
-;                jr nz,$ - 1
-;                cp (hl)
-;                nop
 ;        ret
         rts
 
 
 ;---------------------
 PLY_AKYst_RRB_NIS_SoftwareAndHardware:
-        ;Compensates the fact that there is no loop.
-                ;ds PLY_AKYst_NOP_Loop, 0                                
-;                ld d,8                     ;Waits for 35 cycles.
-;                dec d
-;                jr nz,$ - 1
-;                cp (hl)
 
 PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop:             ;182 cycles.
 
@@ -1608,8 +1472,6 @@ PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop:             ;182 cycles.
         ror.b #1,d1
 ;        jr c,PLY_AKYst_RRB_NIS_SAHH_LSBH
         bcs.s PLY_AKYst_RRB_NIS_SAHH_LSBH
-;		jr $ + 2         ;Wait for 6 cycles.
-;                jr $ + 2
 ;        jr PLY_AKYst_RRB_NIS_SAHH_AfterLSBH
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterLSBH
 PLY_AKYst_RRB_NIS_SAHH_LSBH:
@@ -1627,8 +1489,6 @@ PLY_AKYst_RRB_NIS_SAHH_AfterLSBH:
         ror.b #1,d1
 ;        jr c,PLY_AKYst_RRB_NIS_SAHH_MSBH
         bcs.s PLY_AKYst_RRB_NIS_SAHH_MSBH
-;                jr $ + 2         ;Wait for 6 cycles.
-;                jr $ + 2
 ;        jr PLY_AKYst_RRB_NIS_SAHH_AfterMSBH
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterMSBH
 PLY_AKYst_RRB_NIS_SAHH_MSBH:
@@ -1646,11 +1506,6 @@ PLY_AKYst_RRB_NIS_SAHH_AfterMSBH:
         ror.b #1,d1
 ;        jr c,PLY_AKYst_RRB_NIS_SAHH_LSBS
         bcs.s PLY_AKYst_RRB_NIS_SAHH_LSBS
-;                ld d,7                     ;Waits for 32 cycles.
-;                dec d
-;                jr nz,$ - 1
-;                cp (hl)
-;                nop
 ;        jr PLY_AKYst_RRB_NIS_SAHH_AfterLSBS
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterLSBS
 PLY_AKYst_RRB_NIS_SAHH_LSBS:
@@ -1687,10 +1542,6 @@ PLY_AKYst_RRB_NIS_SAHH_AfterLSBS:
         ror.b #1,d1
 ;        jr c,PLY_AKYst_RRB_NIS_SAHH_MSBS
         bcs.s PLY_AKYst_RRB_NIS_SAHH_MSBS
-;                ld d,8                     ;Waits for 34 cycles.
-;                dec d
-;                jr nz,$ - 1
-;                nop
 ;        jr PLY_AKYst_RRB_NIS_SAHH_AfterMSBS
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterMSBS
 PLY_AKYst_RRB_NIS_SAHH_MSBS:
@@ -1737,8 +1588,6 @@ PLY_AKYst_RRB_NIS_SAHH_AfterMSBS:
         ror.b #1,d1
 ;        jr c,PLY_AKYst_RRB_NIS_SAHH_Envelope
         bcs.s PLY_AKYst_RRB_NIS_SAHH_Envelope
-;		jr $ + 2         ;Wait for 6 cycles.
-;                jr $ + 2
 ;        jr PLY_AKYst_RRB_NIS_SAHH_AfterEnvelope
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterEnvelope
 PLY_AKYst_RRB_NIS_SAHH_Envelope:
@@ -1756,11 +1605,6 @@ PLY_AKYst_RRB_NIS_SAHH_AfterEnvelope:
         ror.b #1,d1
 ;        jr c,PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStop
         bcs.s PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStop
-;                ld d,6                     ;Waits for 29 cycles.
-;                dec d
-;                jr nz,$ - 1
-;                cp (hl)
-;                cp (hl)
 ;        ret
         rts
 
@@ -1779,8 +1623,6 @@ PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStop:              ;31 cycles
         ror.b #1,d1
 ;        jr c,PLY_AKYst_RRB_NIS_S_NOR_Retrig
         bcs.s PLY_AKYst_RRB_NIS_S_NOR_Retrig
-;                jr $ + 2         ;Wait for 4 cycles.
-;                nop
 ;        jr PLY_AKYst_RRB_NIS_S_NOR_AfterRetrig
         bra.s PLY_AKYst_RRB_NIS_S_NOR_AfterRetrig
 PLY_AKYst_RRB_NIS_S_NOR_Retrig:
@@ -1795,10 +1637,6 @@ PLY_AKYst_RRB_NIS_S_NOR_AfterRetrig:
         ror.b #1,d1
 ;        jr c,PLY_AKYst_RRB_NIS_S_NOR_Noise
         bcs.s PLY_AKYst_RRB_NIS_S_NOR_Noise
-;                jr $ + 2         ;Wait for 11 cycles.
-;                jr $ + 2
-;                jr $ + 2
-;		cp (hl)
 ;        ret
         rts
 PLY_AKYst_RRB_NIS_S_NOR_Noise:
@@ -1811,8 +1649,6 @@ PLY_AKYst_RRB_NIS_S_NOR_Noise:
         ror.b #1,d1
 ;        jr c,PLY_AKYst_RRB_NIS_S_NOR_SetNoise
         bcs.s PLY_AKYst_RRB_NIS_S_NOR_SetNoise
-;                jr $ + 2         ;Waits for 5 cycles.
-;                cp (hl)
 ;        ret
         rts
 PLY_AKYst_RRB_NIS_S_NOR_SetNoise:
