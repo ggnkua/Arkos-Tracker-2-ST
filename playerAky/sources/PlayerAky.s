@@ -29,6 +29,9 @@
 ;assuming that bc=d3
 ;assuming that bc'=d4
 
+; Register mappings
+; 
+
 ;PLY_AKYst_OPCODE_OR_A: equ #b7                        ;Opcode for "or a".
 ;PLY_AKYst_OPCODE_SCF: equ #37                         ;Opcode for "scf".
 PLY_AKYst_OPCODE_OR_A equ $00000000                  ;Opcode for "ori.b #0,d0".
@@ -42,7 +45,7 @@ PLY_AKYst_Start:
 ;        jp PLY_AKYst_Init             ;Player + 0.
 ;        jp PLY_AKYst_Play             ;Player + 3.
         bra.s PLY_AKYst_Init            ;Player + 0.
-        bra.s PLY_AKYst_Play            ;Player + 3.
+        bra.s PLY_AKYst_Play            ;Player + 2.
     
 
 
@@ -115,7 +118,7 @@ PLY_AKYst_PatternFrameCounter: move.w #1,d0             ;How many frames left be
 ;                ld b,15                     ;Waits for 80 - 17 = 63 cycles.
 ;                djnz $
 ;                cp (hl)
-                tst.w d0
+;                tst.w d0
 ;        jr PLY_AKYst_PatternFrameManagement_End
                 bra.s PLY_AKYst_PatternFrameManagement_End
 
