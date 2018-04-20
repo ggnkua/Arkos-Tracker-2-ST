@@ -4,6 +4,8 @@
 ; Uses rmac for assembling (probably not a big problem converting to devpac/vasm format)
 ;
 
+tune_freq = 50             ;not sure if this will ever change
+
 	lea tune,a0            ;move tune to a 64k aligned buffer
 	move.l #tune_buf,d0    ;not the most memory efficient thing ever but eh :)
 	clr.w d0               ;align buffer
@@ -51,11 +53,11 @@ timer_c:
 	add.w #200,timer_c_ctr ;it is gyro day, let's reset the 200Hz counter
 	movem.l d0-a6,-(sp)    ;save all registers, just to be on the safe side
 	bsr PLY_AKYst_Start+2  ;play that funky music
-	movem.l (sp)+,d0-a6
+	movem.l (sp)+,d0-a6    ;restore registers
 
-oldtimerc=*+2
+old_timer_c=*+2
 timer_c_jump:
-	jmp 'AKY!'
+	jmp 'AKY!'             ;jump to the old timer C vector
 
 timer_c_ctr: dc.w 200
 
