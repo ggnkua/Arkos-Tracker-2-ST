@@ -208,7 +208,7 @@ PLY_AKYst_Channel1_PtTrack: suba.w a6,a6                ;Clear lower word for th
 PLY_AKYst_Channel1_RegisterBlock_Process:
         ;Processes the RegisterBlock, whether it is the current one or a new one.
 ;        ld (PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock + 1),a
-        move.b d0,PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock
+        move.b d1,PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock
 
 
 
@@ -222,9 +222,6 @@ PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock = * + 3
         subq.b #1,d1       
 ;        jr z,PLY_AKYst_Channel2_RegisterBlock_Finished
         blt.s PLY_AKYst_Channel2_RegisterBlock_Finished
-;                ld b,6                  ;26 cycles.
-;                djnz $
-;                nop
 ;        jr PLY_AKYst_Channel2_RegisterBlock_Process
         bra.s PLY_AKYst_Channel2_RegisterBlock_Process
 PLY_AKYst_Channel2_RegisterBlock_Finished:
