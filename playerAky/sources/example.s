@@ -79,7 +79,8 @@ timer_c_ctr: dc.w 200
 	.data
 
 tune:
-	.include "ymtype.s"
+;	.include "ymtype.s"
+	.include "ymtype2.s"
 	.long				;pad to 4 bytes
 tune_end:
 
