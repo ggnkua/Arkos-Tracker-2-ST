@@ -35,6 +35,7 @@
 ;assuming that de'=d6
 ;Note: I am using a in a register of its own even though it's a part of af. I think this is a good idea in general but we'll have to see if this causes other problems (the obvious problem is that if I use d1 then the upper bits of d3.w aren't updated automatically)
 ;Note 2: exx and ex isntructions are "emulated" using exg which not the most optimium way to do this. Ideally the regions where ex/exx have effect the register names can be swapped. HOWEVER: for now this is very error prone. A third pass of the source when the player is running properly can eliminate this
+;Note 3: register f doesn't appear to be used in the main player - so we can probably junk d7/d5
 
 ; Register mappings
 ; 
@@ -58,6 +59,9 @@ PLY_AKYst_Start:
 ;       HL = music address.
 *       a0.l = music address
 PLY_AKYst_Init:
+        move.l a0,PLY_AKYst_StartSong1  ;We have to update the player at these two points because 
+        move.l a0,PLY_AKYst_StartSong2  ;of the cmpa - (cmpa.w sign extends so we need cmp.l)
+
         ;Skips the header.
 ;        inc hl                          ;Skips the format version.
         addq.l #1,a0                    ;Skips the format version.
@@ -65,19 +69,18 @@ PLY_AKYst_Init:
 ;        inc hl
         move.b (a0)+,d1                 ;Let's say that d1=accumulator
 ;        ld de,4
-        move.w #4,d2                    ;Let's say that d2=de
 PLY_AKYst_Init_SkipHeaderLoop:                ;There is always at least one PSG to skip.
 ;        add hl,de
         addq.l #4,a0
 ;        sub 3                           ;A PSG is three channels.
-        subq.b #3,d0                    ;A PSG is three channels.
+        subq.b #3,d1                    ;A PSG is three channels.
 ;        jr z,PLY_AKYst_Init_SkipHeaderEnd
-        blt.s PLY_AKYst_Init_SkipHeaderEnd
+        beq.s PLY_AKYst_Init_SkipHeaderEnd
 ;        jr nc,PLY_AKYst_Init_SkipHeaderLoop   ;Security in case of the PSG channel is not a multiple of 3.
         bcc.s PLY_AKYst_Init_SkipHeaderLoop
 PLY_AKYst_Init_SkipHeaderEnd:
 ;        ld (PLY_AKYst_PtLinker + 1),hl        ;HL now points on the Linker.
-        move.l  a0,PLY_AKYst_PtLinker       ;HL now points on the Linker.
+        move.w  a0,PLY_AKYst_PtLinker       ;HL now points on the Linker.
 
 ;        ld a,PLY_AKYst_OPCODE_OR_A
         move.l #PLY_AKYst_OPCODE_OR_A,d0
@@ -113,7 +116,10 @@ PLY_AKYst_PatternFrameCounter equ * + 2
 ;        dec hl
 ;        ld a,l
 ;        or h
-        cmp.w #0,a1
+
+* SMC - DO NOT OPTIMISE!
+PLY_AKYst_StartSong1 equ * + 2
+        cmpa.l #0,a1
 ;        jr z,PLY_AKYst_PatternFrameCounter_Over
         beq.s PLY_AKYst_PatternFrameCounter_Over
 ;        ld (PLY_AKYst_PatternFrameCounter + 1),hl
@@ -128,14 +134,16 @@ PLY_AKYst_PatternFrameCounter_Over:
 ;PLY_AKYst_PtLinker: ld sp,0                             ;Points on the Pattern of the linker.
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_PtLinker = * + 2
-                    move.w #0,a6                        ;Points on the Pattern of the linker.
+        lea 0(a0),a6                        ;Points on the Pattern of the linker.
                                                         ;*assuming sp=a6
 ;        pop hl                                          ;Gets the duration of the Pattern, or 0 if end of the song.
         move.w (a6)+,a1
         lea (a0,a1.w),a1
 ;        ld a,l
 ;        or h
-        cmp.w #0,a1
+* SMC - DO NOT OPTIMISE!
+PLY_AKYst_StartSong2 equ * + 2
+        cmpa.l #0,a1
 ;        jr nz,PLY_AKYst_LinkerNotEndSong
         bgt.s PLY_AKYst_LinkerNotEndSong
         ;End of the song. Where to loop?
@@ -187,7 +195,7 @@ PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock = * + 3
         ;dec a
         subq.b #1,d1
 ;        jr z,PLY_AKYst_Channel1_RegisterBlock_Finished
-        blt.s PLY_AKYst_Channel1_RegisterBlock_Finished
+        beq.s PLY_AKYst_Channel1_RegisterBlock_Finished
 ;        jr PLY_AKYst_Channel1_RegisterBlock_Process
         bra.s PLY_AKYst_Channel1_RegisterBlock_Process
 PLY_AKYst_Channel1_RegisterBlock_Finished:
@@ -213,8 +221,9 @@ PLY_AKYst_Channel1_PtTrack = * + 2
         move.w a6,PLY_AKYst_Channel1_PtTrack
 ;        ld (PLY_AKYst_Channel1_PtRegisterBlock + 1),hl
         move.w a1,PLY_AKYst_Channel1_PtRegisterBlock
-
         ;A is the duration of the block.
+        move.w d7,d1
+        lsr.w #8,d1
 PLY_AKYst_Channel1_RegisterBlock_Process:
         ;Processes the RegisterBlock, whether it is the current one or a new one.
 ;        ld (PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock + 1),a
@@ -231,7 +240,7 @@ PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock = * + 3
 ;        dec a
         subq.b #1,d1       
 ;        jr z,PLY_AKYst_Channel2_RegisterBlock_Finished
-        blt.s PLY_AKYst_Channel2_RegisterBlock_Finished
+        beq.s PLY_AKYst_Channel2_RegisterBlock_Finished
 ;        jr PLY_AKYst_Channel2_RegisterBlock_Process
         bra.s PLY_AKYst_Channel2_RegisterBlock_Process
 PLY_AKYst_Channel2_RegisterBlock_Finished:
@@ -257,11 +266,12 @@ PLY_AKYst_Channel2_PtTrack = * + 2
 ;        ld (PLY_AKYst_Channel2_PtRegisterBlock + 1),hl
         move.w a1,PLY_AKYst_Channel2_PtRegisterBlock
         ;A is the duration of the block.
+        move.w d7,d1
+        lsr.w #8,d1
 PLY_AKYst_Channel2_RegisterBlock_Process:
         ;Processes the RegisterBlock, whether it is the current one or a new one.
 ;        ld (PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock + 1),a
-        lsr.w #8,d7
-        move.b d7,PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock
+        move.b d1,PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock
 
 
 
@@ -275,7 +285,7 @@ PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock = * + 3
 ;        dec a
         subq.w #1,d1
 ;        jr z,PLY_AKYst_Channel3_RegisterBlock_Finished
-        blt.s PLY_AKYst_Channel3_RegisterBlock_Finished
+        beq.s PLY_AKYst_Channel3_RegisterBlock_Finished
 ;        jr PLY_AKYst_Channel3_RegisterBlock_Process
         bra.s PLY_AKYst_Channel3_RegisterBlock_Process
 PLY_AKYst_Channel3_RegisterBlock_Finished:
@@ -303,11 +313,12 @@ PLY_AKYst_Channel3_PtTrack equ * + 2
 ;        ld (PLY_AKYst_Channel3_PtRegisterBlock + 1),hl
         move.w a1,PLY_AKYst_Channel3_PtRegisterBlock
         ;A is the duration of the block.
+        move.w d7,d1
+        lsr.w #8,d1
 PLY_AKYst_Channel3_RegisterBlock_Process:
         ;Processes the RegisterBlock, whether it is the current one or a new one.
         ;ld (PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock + 1),a
-        lsr.w #8,d7
-        move.b d7,PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock
+        move.b d1,PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock
 
 
 
