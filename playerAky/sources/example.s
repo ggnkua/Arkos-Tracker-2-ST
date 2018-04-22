@@ -4,44 +4,45 @@
 ; Uses rmac for assembling (probably not a big problem converting to devpac/vasm format)
 ;
 
-debug=0                    ;1=skips installing a timer for replay and instead calls the player in succession - good for debugging the player but plays the turn in turbo mode :)
+debug=0                             ;1=skips installing a timer for replay and instead calls the player in succession
+                                    ;good for debugging the player but plays the turn in turbo mode :)
 showcpu=1
 
-tune_freq = 50             ;tune frequency in ticks per second (not sure if this will ever change)
+tune_freq = 50                      ;tune frequency in ticks per second (not sure if this will ever change)
 
-	bsr align_song          ;copy song to aligned to 64k buffer
+	bsr align_song                  ;copy song to aligned to 64k buffer
 
-	pea start(pc)          ;go to start with supervisor mode on
+	pea start(pc)                   ;go to start with supervisor mode on
 	move.w #$26,-(sp)
 	trap #14
 
-	clr.w -(sp)            ;terminate
+	clr.w -(sp)                     ;terminate
 	trap #1
 
 start:
 
-    move.b $484.w,-(sp) ;save old keyclick state
-    clr.b $484.w        ;keyclick off, key repeat off
+    move.b $484.w,-(sp)             ;save old keyclick state
+    clr.b $484.w                    ;keyclick off, key repeat off
 
 	move.l tune_aligned_address,a0
-	bsr PLY_AKYst_Start+0  ;init player and tune
+	bsr PLY_AKYst_Start+0           ;init player and tune
 
     .if !debug
-	move sr,-(sp)          ;install our very own timer C
+	move sr,-(sp)                   ;install our very own timer C
 	move #$2700,sr
-    move.l  $114.w,old_timer_c  ;so how do you turn the player on?
-    move.l  #timer_c,$114.w     ;(makes gesture of turning an engine key on) *trrrrrrrrrrrrrr*
-	move (sp)+,sr          ;enable interrupts - tune will start playing
+    move.l  $114.w,old_timer_c      ;so how do you turn the player on?
+    move.l  #timer_c,$114.w         ;(makes gesture of turning an engine key on) *trrrrrrrrrrrrrr*
+	move (sp)+,sr                   ;enable interrupts - tune will start playing
     .endif
 	
 .waitspace:
 
     .if debug
     move.l tune_aligned_address,a0  ;tell the player where to find the aligned tune start
-	bsr PLY_AKYst_Start+2  ;play that funky music
+	bsr PLY_AKYst_Start+2           ;play that funky music
     .endif
 
-	cmp.b #57,$fffffc02.w  ;wait for space keypress
+	cmp.b #57,$fffffc02.w           ;wait for space keypress
 	bne.s .waitspace
 
 ;TODO: silence the YM
@@ -49,9 +50,9 @@ start:
     .if !debug
     move sr,-(sp)
 	move #$2700,sr
-    move.l  old_timer_c,$114.w ;restore timer c
-    move.b  #$C0,$FFFFFA23.w       ;and how would you stop the ym?
-    move.l  #$00000000,$FFFF8800.w ;(makes gensture of turning an engine key off) just turn it off!
+    move.l  old_timer_c,$114.w      ;restore timer c
+    move.b  #$C0,$FFFFFA23.w        ;and how would you stop the ym?
+    move.l  #$00000000,$FFFF8800.w  ;(makes gensture of turning an engine key off) just turn it off!
     move.l  #$01010000,$FFFF8800.w
     move.l  #$02020000,$FFFF8800.w
     move.l  #$03030000,$FFFF8800.w
@@ -64,37 +65,37 @@ start:
     move.l  #$0A0A0000,$FFFF8800.w
     move.l  #$0B0B0000,$FFFF8800.w
     move.l  #$0C0C0000,$FFFF8800.w
-	move (sp)+,sr          ;enable interrupts - tune will stop playing
+	move (sp)+,sr                   ;enable interrupts - tune will stop playing
     .endif
     
-    move.b (sp)+,$484.w ;restore keyclick state
+    move.b (sp)+,$484.w             ;restore keyclick state
 
-	rts                    ;bye!
+	rts                             ;bye!
 
     .if !debug
 timer_c:
-	sub.w #tune_freq,timer_c_ctr ;is it giiiirooo day tom?
-	bgt.s timer_c_jump     ;sadly derek, no it's not giro day
-	add.w #200,timer_c_ctr ;it is giro day, let's reset the 200Hz counter
-	movem.l d0-a6,-(sp)    ;save all registers, just to be on the safe side
+	sub.w #tune_freq,timer_c_ctr    ;is it giiiirooo day tom?
+	bgt.s timer_c_jump              ;sadly derek, no it's not giro day
+	add.w #200,timer_c_ctr          ;it is giro day, let's reset the 200Hz counter
+	movem.l d0-a6,-(sp)             ;save all registers, just to be on the safe side
     not.w $ffff8240.w
     move.l tune_aligned_address,a0  ;tell the player where to find the aligned tune start
-	bsr PLY_AKYst_Start+2  ;play that funky music
+	bsr PLY_AKYst_Start+2           ;play that funky music
     not.w $ffff8240.w
-	movem.l (sp)+,d0-a6    ;restore registers
+	movem.l (sp)+,d0-a6             ;restore registers
 
 old_timer_c=*+2
 timer_c_jump:
-	jmp 'AKY!'             ;jump to the old timer C vector
+	jmp 'AKY!'                      ;jump to the old timer C vector
 timer_c_ctr: dc.w 200
     .endif
 
 align_song:
-	lea tune,a0            ;move tune to a 64k aligned buffer
-	move.l #tune_buf,d0    ;not the most memory efficient thing ever but eh :)
-	clr.w d0               ;align buffer
+	lea tune,a0                     ;move tune to a 64k aligned buffer
+	move.l #tune_buf,d0             ;not the most memory efficient thing ever but eh :)
+	clr.w d0                        ;align buffer
 	move.l d0,a1
-	move.l d0,tune_aligned_address ;sooper high powered copy!
+	move.l d0,tune_aligned_address  ;sooper high powered copy!
 	move.l #(tune_end+3-tune)/4-1,d0
 .copy_tune:
 	move.l (a0)+,(a1)+
@@ -106,10 +107,8 @@ rts
 	.data
 
 tune:
-;	.include "ymtype.s"
-;	.include "ymtype2.s"
 	.include "ymtype-2mhz.s"
-	.long				;pad to 4 bytes
+	.long				            ;pad to 4 bytes
 tune_end:
 
 	.bss
