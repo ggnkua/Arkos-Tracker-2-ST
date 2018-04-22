@@ -5,8 +5,9 @@
 ;
 
 debug=0                    ;1=skips installing a timer for replay and instead calls the player in succession - good for debugging the player but plays the turn in turbo mode :)
+showcpu=1
 
-tune_freq = 50             ;not sure if this will ever change
+tune_freq = 50             ;tune frequency in ticks per second (not sure if this will ever change)
 
 	bsr align_song          ;copy song to aligned to 64k buffer
 
@@ -70,8 +71,10 @@ timer_c:
 	bgt.s timer_c_jump     ;sadly derek, no it's not giro day
 	add.w #200,timer_c_ctr ;it is giro day, let's reset the 200Hz counter
 	movem.l d0-a6,-(sp)    ;save all registers, just to be on the safe side
+    not.w $ffff8240.w
     move.l tune_aligned_address,a0  ;tell the player where to find the aligned tune start
 	bsr PLY_AKYst_Start+2  ;play that funky music
+    not.w $ffff8240.w
 	movem.l (sp)+,d0-a6    ;restore registers
 
 old_timer_c=*+2
@@ -98,7 +101,8 @@ rts
 
 tune:
 ;	.include "ymtype.s"
-	.include "ymtype2.s"
+;	.include "ymtype2.s"
+	.include "ymtype-2mhz.s"
 	.long				;pad to 4 bytes
 tune_end:
 
