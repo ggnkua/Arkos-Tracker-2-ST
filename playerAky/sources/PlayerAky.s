@@ -94,7 +94,7 @@ PLY_AKYst_Init_SkipHeaderEnd:
         move.l d0,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
 ;        ld hl,1
 ;        ld (PLY_AKYst_PatternFrameCounter + 1),hl
-        move.w #2,PLY_AKYst_PatternFrameCounter
+        move.w #1,PLY_AKYst_PatternFrameCounter
 
 ;        ret
         rts
@@ -104,8 +104,6 @@ PLY_AKYst_Init_SkipHeaderEnd:
 ; a0=hl=start of tune - must be aligned to 64k for now!
 
 PLY_AKYst_Play:
-        move.l a0,a6                                ;copy the upper 16 bits to a6 - we'll need it later
-        move.l a0,a1                                ;copy the upper 16 bits to a1 - we'll need it later
 
 ;        ld (PLY_AKYst_Exit + 1),sp
 
@@ -114,8 +112,10 @@ PLY_AKYst_Play:
 ;PLY_AKYst_PatternFrameCounter: ld hl,1                ;How many frames left before reading the next Pattern.
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_PatternFrameCounter equ * + 2
-        move.w #1,d0             ;How many frames left before reading the next Pattern.
+        move.w #1,a1             ;How many frames left before reading the next Pattern.
+        lea (a0,a1.w),a1
 ;        dec hl
+        subq.w #1,a1
 ;        ld a,l
 ;        or h
 
@@ -281,7 +281,7 @@ PLY_AKYst_Channel2_RegisterBlock_Process:
 PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock = * + 3
         move.b #1,d1    ;Frames to wait before reading the next RegisterBlock. 0 = finished.
 ;        dec a
-        subq.w #1,d1
+        subq.b #1,d1
 ;        jr z,PLY_AKYst_Channel3_RegisterBlock_Finished
         beq.s PLY_AKYst_Channel3_RegisterBlock_Finished
 ;        jr PLY_AKYst_Channel3_RegisterBlock_Process
@@ -454,7 +454,7 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
 
 ;Register 6
 ;                dec h
-
+                sub.w #$100,a1
 ;                ld b,d
 ;                out (c),h       ;f400 + register.
 ;                ld b,e
@@ -569,6 +569,8 @@ PLY_AKYst_RRB_BranchOnNonInitailState:
         bcs PLY_AKYst_RRB_NonInitialState
 
         ;* Code from the bcs and above copied here so nothing will screw with the carry flag        
+;        ld a,(hl)
+;        inc hl
         move.b (a1),d1
         addq.w #1,a1
         
@@ -848,7 +850,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
 ;        ld a,(hl)
         move.b (a1),d1       
 ;        inc hl
-        addq.w #1,d0
+        addq.w #1,a1
 ;        exx
         exg d3,d4
         exg d2,d6
@@ -877,7 +879,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
 ;        ld a,(hl)
         move.b (a1),d1
 ;        inc hl
-        addq.w #1,d0
+        addq.w #1,a1
 ;        exx
         exg d3,d4
         exg d2,d6
@@ -956,7 +958,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
 ;        ld a,(hl)
         move.b (a1),d1
 ;        inc hl
-        addq.l #1,d1
+        addq.l #1,a1
 ;        exx
         exg d3,d4
         exg d2,d6
@@ -1026,7 +1028,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
                 move.b d3,$ffff8802.w
 
 ;                inc l           ;Increases the volume register.
-                addq.b #1,d0
+                addq.w #1,a1
 ;        exx
         exg d3,d4
         exg d2,d6
@@ -1058,15 +1060,16 @@ PLY_AKYst_RRB_NonInitialState:
 
         ;Not in the original code, but simplifies the stabilization.
 ;        ld d,a                          ;A must be saved!
+        ror.w #8,d2
         move.b d1,d2
-        lsl.w #8,d2
+        ror.w #8,d2
 ;        and %00001111                   ;Keeps 4 bits to be able to detect the loop. (%1000)
         and.b #%00001111,d1
 ;        add a,a
 ;        add a,a
         add.b d1,d1
 ;        ld e,a
-        move.b d7,d2
+        move.b d1,d2
 
 ;        ld a,d                          ;Retrieves A, which is supposed to be shifted in the original code.
         move.w d2,d1
@@ -1142,20 +1145,25 @@ PLY_AKYst_NIS_JPTable:
 
 PLY_AKYst_RRB_NIS_ManageLoop:
         ;Loops. Reads the next pointer to this RegisterBlock.
+;Check if address is odd, and make it even if so
+;Nonononononononono
+;Nonononononononono
+;Nonononononononono
+;Nonononononononono
+;Nonononononononono
+;This is really not efficient - this needs to be EVENd during export
+        move.l a1,d1
+        btst #0,d1      ;odd address?
+        beq.s PLY_AKYst_RRB_NIS_ManageLoopEven
+        addq.l #1,d1    ;yup, make it even
+        move.l d1,a1
+PLY_AKYst_RRB_NIS_ManageLoopEven:
 ;        ld a,(hl)
 ;        inc hl
 ;        ld h,(hl)
 ;        ld l,a
-* Yeah yeah, laugh away.
-* This can all go away once register usage is trimmed and/or we understand what the above code is trying to do
-        move.b (a1),d1
-        addq.w #1,a1
-        move.b (a1),d1  ;d1=xxxH
-        swap d1         ;d1=xHxx
-        move.w a1,d1    ;d1=xHhl
-        ror.w #8,d1     ;d1=xHlh
-        lsr.l #8,d1     ;d1=xxHl
-        lea (a0,d1.w),a1
+        move.w (a1),a1
+        lea (a0,a1.w),a1
         
 
         ;Makes another iteration to read the new data.
@@ -1172,20 +1180,19 @@ PLY_AKYst_RRB_NIS_ManageLoop:
         move.b d1,d2
         ror.w #8,d2
 ;        and %00000011                   ;Keeps 4 bits to be able to detect the loop. (%1000)`
-        and.w #%0000001111111111,d2
+        and.b #%00000011,d1
 ;        add a,a
-        add.w d1,d1
 ;        add a,a
-        add.w d1,d1
+        add.b d1,d1
 ;        ld e,a
         move.b d1,d2
 
 ;        ld a,d                          ;Retrieves A, which is supposed to be shifted in the original code.
-        move.b d2,d1
+        move.w d2,d1
         lsr.w #8,d1
 ;        rra
 ;        rra
-        lsr.b #2,d0
+        lsr.b #2,d1
 ;        ld d,0
         andi.w #$ff,d2
 ;        ld ix,PLY_AKYst_NIS_JPTable_NoLoop
@@ -1221,7 +1228,7 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_Loop:            ;60 cycles.
         ;No software, no hardware.
         ;NO NEED to test the loop! It has been tested before. We can optimize from the original code.
 ;        ld e,a                  ;Used below.
-        move.b d1,d0
+        move.b d1,d2
 
         ;Closes the sound channel.
         ;set PLY_AKYst_RRB_SoundChannelBit, b
@@ -1332,7 +1339,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:                    ;129 cycles.
         move.b d7,$ffff8800.w
         move.b d1,$ffff8802.w
 ;                inc l           ;Increases the volume register.
-               addq.b #1,d0
+               addq.w #1,a1
 ;        exx
         exg d3,d4
         exg d2,d6
@@ -1347,7 +1354,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:                    ;129 cycles.
         bra.s PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP
 PLY_AKYst_RRB_NIS_SoftwareOnly_LSP:
 ;        ld a,(hl)
-        move.w (a1),d1
+        move.b (a1),d1
 ;        inc hl
         addq.w #1,a1
 ;        exx
@@ -1504,7 +1511,7 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop:            ;102 cycles.
 
 ;                inc h           ;Increases the frequency register.
 ;                inc h
-        add.w #$201,d0
+        add.w #$201,a1
 ;        exx
         exg d3,d4
         exg d2,d6
@@ -1636,7 +1643,7 @@ PLY_AKYst_RRB_NIS_SAHH_LSBS:
 ;        ld a,(hl)
         move.b (a1),d1
 ;        inc hl
-        addq.w #1,d0
+        addq.w #1,a1
 ;        exx
         exg d3,d4
         exg d2,d6
@@ -1701,7 +1708,7 @@ PLY_AKYst_RRB_NIS_SAHH_MSBS:
         move.b d1,$ffff8802.w
 
 ;                dec h           ;Yup. Will be compensated below.
-        sub.w #1<<8,d0
+        sub.w #1<<8,a1
 ;        exx
         exg d3,d4
         exg d2,d6
