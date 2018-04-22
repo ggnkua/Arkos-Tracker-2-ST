@@ -20,14 +20,17 @@ tune_freq = 50             ;tune frequency in ticks per second (not sure if this
 
 start:
 
+    move.b $484.w,-(sp) ;save old keyclick state
+    clr.b $484.w        ;keyclick off, key repeat off
+
 	move.l tune_aligned_address,a0
 	bsr PLY_AKYst_Start+0  ;init player and tune
 
     .if !debug
 	move sr,-(sp)          ;install our very own timer C
 	move #$2700,sr
-    move.l  $114.w,old_timer_c
-    move.l  #timer_c,$114.w
+    move.l  $114.w,old_timer_c  ;so how do you turn the player on?
+    move.l  #timer_c,$114.w     ;(makes gesture of turning an engine key on) *trrrrrrrrrrrrrr*
 	move (sp)+,sr          ;enable interrupts - tune will start playing
     .endif
 	
@@ -44,10 +47,11 @@ start:
 ;TODO: silence the YM
 
     .if !debug
+    move sr,-(sp)
 	move #$2700,sr
     move.l  old_timer_c,$114.w ;restore timer c
-    move.b  #$C0,$FFFFFA23.w
-    move.l  #$00000000,$FFFF8800.w ;kill sound!
+    move.b  #$C0,$FFFFFA23.w       ;and how would you stop the ym?
+    move.l  #$00000000,$FFFF8800.w ;(makes gensture of turning an engine key off) just turn it off!
     move.l  #$01010000,$FFFF8800.w
     move.l  #$02020000,$FFFF8800.w
     move.l  #$03030000,$FFFF8800.w
@@ -62,6 +66,8 @@ start:
     move.l  #$0C0C0000,$FFFF8800.w
 	move (sp)+,sr          ;enable interrupts - tune will stop playing
     .endif
+    
+    move.b (sp)+,$484.w ;restore keyclick state
 
 	rts                    ;bye!
 
