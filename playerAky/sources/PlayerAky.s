@@ -1775,7 +1775,7 @@ PLY_AKYst_RRB_NIS_SAHH_AfterMSBS:
         exg a1,a2
 ;                inc h
 ;                inc h
-        sub.w #2<<8,a1
+        add.w #2<<8,a1
 ;        exx
         exg d3,d4
         exg d2,d6
