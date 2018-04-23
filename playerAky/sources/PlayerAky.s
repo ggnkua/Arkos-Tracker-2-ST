@@ -535,7 +535,7 @@ PLY_AKYst_PsgRegister13_Change:
 ;                ex af,af'
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
-                move.b #12,$ffff8800.w
+                move.b #13,$ffff8800.w
                 move.b d1,$ffff8802.w
 PLY_AKYst_PsgRegister13_End:
 
@@ -1009,7 +1009,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
         move.b d1,$ffff8802.w
                 
 ;                inc h           ;Increases the frequency register.
-        add.w #1<<256,a1
+        add.w #1<<8,a1
 ;        exx
         exg d3,d4
         exg d2,d6

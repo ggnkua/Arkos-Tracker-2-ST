@@ -107,7 +107,11 @@ rts
 	.data
 
 tune:
-	.include "ymtype-2mhz.s"
+;	.include "ymtype-2mhz.s"
+;	.include "Targhan - Midline Process - Carpet.s"
+	.include "Targhan - Midline Process - Molusk.s"
+;	.include "Targhan - DemoIzArt - End Part.s"
+;	.include "loltest.aks.s"
 	.long				            ;pad to 4 bytes
 tune_end:
 
