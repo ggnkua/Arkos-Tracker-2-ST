@@ -5,7 +5,7 @@
 ;
 
 debug=0                             ;1=skips installing a timer for replay and instead calls the player in succession
-                                    ;good for debugging the player but plays the turn in turbo mode :)
+                                    ;good for debugging the player but plays the tune in turbo mode :)
 showcpu=1
 
 tune_freq = 50                      ;tune frequency in ticks per second (not sure if this will ever change)
