@@ -1,5 +1,6 @@
 @echo off
-set steemdir=c:\steem\files
+rem set steemdir=c:\steem\files
+set steemdir=C:\u-blox\workspaces\gottardo_trial\0\0\files\
 rem set steemdir=e:\games\steem\files
 del example.prg >NUL
 del %steemdir%\example.prg >NUL

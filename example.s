@@ -24,7 +24,7 @@ start:
     move.b $484.w,-(sp)             ;save old keyclick state
     clr.b $484.w                    ;keyclick off, key repeat off
 
-	move.l tune_aligned_address,a0
+	move.l #tune,a0
 	bsr PLY_AKYst_Start+0           ;init player and tune
 
     .if !debug
@@ -38,7 +38,7 @@ start:
 .waitspace:
 
     .if debug
-    move.l tune_aligned_address,a0  ;tell the player where to find the aligned tune start
+    move.l #tune,a0  ;tell the player where to find the aligned tune start
 	bsr PLY_AKYst_Start+2           ;play that funky music
     .endif
 
@@ -108,10 +108,9 @@ rts
 
 tune:
 ;	.include "ymtype-2mhz.s"
-;	.include "Targhan - Midline Process - Carpet.s"
-	.include "Targhan - Midline Process - Molusk.s"
+	.include "Targhan - Midline Process - Carpet.s"
+;	.include "Targhan - Midline Process - Molusk.s"
 ;	.include "Targhan - DemoIzArt - End Part.s"
-;	.include "loltest.aks.s"
 	.long				            ;pad to 4 bytes
 tune_end:
 
