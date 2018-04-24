@@ -11,7820 +11,7820 @@ Main_Subsong0:
 Main_Subsong0_Linker:
 ; Pattern 0
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_92-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_92-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_2-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_92-Main_Subsong0
+	dc.w Main_Subsong0_Track_92-Main_Subsong0
+	dc.w Main_Subsong0_Track_2-Main_Subsong0
 
 ; Pattern 1
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_3-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_92-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_5-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_3-Main_Subsong0
+	dc.w Main_Subsong0_Track_92-Main_Subsong0
+	dc.w Main_Subsong0_Track_5-Main_Subsong0
 
 ; Pattern 2
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_6-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_92-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_8-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_6-Main_Subsong0
+	dc.w Main_Subsong0_Track_92-Main_Subsong0
+	dc.w Main_Subsong0_Track_8-Main_Subsong0
 
 ; Pattern 3
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_12-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_13-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_12-Main_Subsong0
+	dc.w Main_Subsong0_Track_13-Main_Subsong0
+	dc.w Main_Subsong0_Track_11-Main_Subsong0
 
 ; Pattern 4
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_12-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_13-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_12-Main_Subsong0
+	dc.w Main_Subsong0_Track_13-Main_Subsong0
+	dc.w Main_Subsong0_Track_11-Main_Subsong0
 
 ; Pattern 5
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_15-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_13-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_17-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_15-Main_Subsong0
+	dc.w Main_Subsong0_Track_13-Main_Subsong0
+	dc.w Main_Subsong0_Track_17-Main_Subsong0
 
 ; Pattern 6
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_115-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_13-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_116-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_115-Main_Subsong0
+	dc.w Main_Subsong0_Track_13-Main_Subsong0
+	dc.w Main_Subsong0_Track_116-Main_Subsong0
 
 ; Pattern 7
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_21-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_28-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_29-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_21-Main_Subsong0
+	dc.w Main_Subsong0_Track_28-Main_Subsong0
+	dc.w Main_Subsong0_Track_29-Main_Subsong0
 
 ; Pattern 8
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_24-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_31-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_26-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_24-Main_Subsong0
+	dc.w Main_Subsong0_Track_31-Main_Subsong0
+	dc.w Main_Subsong0_Track_26-Main_Subsong0
 
 ; Pattern 9
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_21-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_28-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_29-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_21-Main_Subsong0
+	dc.w Main_Subsong0_Track_28-Main_Subsong0
+	dc.w Main_Subsong0_Track_29-Main_Subsong0
 
 ; Pattern 10
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_30-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_31-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_32-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_30-Main_Subsong0
+	dc.w Main_Subsong0_Track_31-Main_Subsong0
+	dc.w Main_Subsong0_Track_32-Main_Subsong0
 
 ; Pattern 11
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_66-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_34-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_66-Main_Subsong0
+	dc.w Main_Subsong0_Track_34-Main_Subsong0
+	dc.w Main_Subsong0_Track_68-Main_Subsong0
 
 ; Pattern 12
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_63-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_37-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_65-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_63-Main_Subsong0
+	dc.w Main_Subsong0_Track_37-Main_Subsong0
+	dc.w Main_Subsong0_Track_65-Main_Subsong0
 
 ; Pattern 13
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_66-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_40-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_66-Main_Subsong0
+	dc.w Main_Subsong0_Track_40-Main_Subsong0
+	dc.w Main_Subsong0_Track_68-Main_Subsong0
 
 ; Pattern 14
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_69-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_43-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_71-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_69-Main_Subsong0
+	dc.w Main_Subsong0_Track_43-Main_Subsong0
+	dc.w Main_Subsong0_Track_71-Main_Subsong0
 
 ; Pattern 15
 	dc.w 128	; Duration in frames.
-	dc.w Main_Subsong0_Track_45-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_46-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_47-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_45-Main_Subsong0
+	dc.w Main_Subsong0_Track_46-Main_Subsong0
+	dc.w Main_Subsong0_Track_47-Main_Subsong0
 
 ; Pattern 16
 	dc.w 512	; Duration in frames.
-	dc.w Main_Subsong0_Track_48-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_49-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_50-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_48-Main_Subsong0
+	dc.w Main_Subsong0_Track_49-Main_Subsong0
+	dc.w Main_Subsong0_Track_50-Main_Subsong0
 
 ; Pattern 17
 	dc.w 512	; Duration in frames.
-	dc.w Main_Subsong0_Track_51-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_52-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_53-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_51-Main_Subsong0
+	dc.w Main_Subsong0_Track_52-Main_Subsong0
+	dc.w Main_Subsong0_Track_53-Main_Subsong0
 
 ; Pattern 18
 	dc.w 512	; Duration in frames.
-	dc.w Main_Subsong0_Track_54-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_55-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_54-Main_Subsong0
+	dc.w Main_Subsong0_Track_55-Main_Subsong0
+	dc.w Main_Subsong0_Track_56-Main_Subsong0
 
 ; Pattern 19
 	dc.w 512	; Duration in frames.
-	dc.w Main_Subsong0_Track_54-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_55-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_54-Main_Subsong0
+	dc.w Main_Subsong0_Track_55-Main_Subsong0
+	dc.w Main_Subsong0_Track_56-Main_Subsong0
 
 ; Pattern 20
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_66-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_61-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_66-Main_Subsong0
+	dc.w Main_Subsong0_Track_61-Main_Subsong0
+	dc.w Main_Subsong0_Track_68-Main_Subsong0
 
 ; Pattern 21
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_63-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_64-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_65-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_63-Main_Subsong0
+	dc.w Main_Subsong0_Track_64-Main_Subsong0
+	dc.w Main_Subsong0_Track_65-Main_Subsong0
 
 ; Pattern 22
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_66-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_67-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_66-Main_Subsong0
+	dc.w Main_Subsong0_Track_67-Main_Subsong0
+	dc.w Main_Subsong0_Track_68-Main_Subsong0
 
 ; Pattern 23
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_69-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_70-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_71-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_69-Main_Subsong0
+	dc.w Main_Subsong0_Track_70-Main_Subsong0
+	dc.w Main_Subsong0_Track_71-Main_Subsong0
 
 ; Pattern 24
 	dc.w 128	; Duration in frames.
-	dc.w Main_Subsong0_Track_45-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_73-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_47-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_45-Main_Subsong0
+	dc.w Main_Subsong0_Track_73-Main_Subsong0
+	dc.w Main_Subsong0_Track_47-Main_Subsong0
 
 ; Pattern 25
 	dc.w 512	; Duration in frames.
-	dc.w Main_Subsong0_Track_78-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_79-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_77-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_78-Main_Subsong0
+	dc.w Main_Subsong0_Track_79-Main_Subsong0
+	dc.w Main_Subsong0_Track_77-Main_Subsong0
 
 ; Pattern 26
 	dc.w 512	; Duration in frames.
-	dc.w Main_Subsong0_Track_78-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_79-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_80-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_78-Main_Subsong0
+	dc.w Main_Subsong0_Track_79-Main_Subsong0
+	dc.w Main_Subsong0_Track_80-Main_Subsong0
 
 ; Pattern 27
 	dc.w 384	; Duration in frames.
-	dc.w Main_Subsong0_Track_78-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_79-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_80-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_78-Main_Subsong0
+	dc.w Main_Subsong0_Track_79-Main_Subsong0
+	dc.w Main_Subsong0_Track_80-Main_Subsong0
 
 ; Pattern 28
 	dc.w 128	; Duration in frames.
-	dc.w Main_Subsong0_Track_84-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_85-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_86-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_84-Main_Subsong0
+	dc.w Main_Subsong0_Track_85-Main_Subsong0
+	dc.w Main_Subsong0_Track_86-Main_Subsong0
 
 ; Pattern 29
 	dc.w 512	; Duration in frames.
-	dc.w Main_Subsong0_Track_87-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_88-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_89-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_87-Main_Subsong0
+	dc.w Main_Subsong0_Track_88-Main_Subsong0
+	dc.w Main_Subsong0_Track_89-Main_Subsong0
 
 ; Pattern 30
 	dc.w 512	; Duration in frames.
-	dc.w Main_Subsong0_Track_90-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_91-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_92-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_90-Main_Subsong0
+	dc.w Main_Subsong0_Track_91-Main_Subsong0
+	dc.w Main_Subsong0_Track_92-Main_Subsong0
 
 ; Pattern 31
 	dc.w 512	; Duration in frames.
-	dc.w Main_Subsong0_Track_93-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_94-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_95-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_93-Main_Subsong0
+	dc.w Main_Subsong0_Track_94-Main_Subsong0
+	dc.w Main_Subsong0_Track_95-Main_Subsong0
 
 ; Pattern 32
 	dc.w 512	; Duration in frames.
-	dc.w Main_Subsong0_Track_96-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_97-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_98-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_96-Main_Subsong0
+	dc.w Main_Subsong0_Track_97-Main_Subsong0
+	dc.w Main_Subsong0_Track_98-Main_Subsong0
 
 ; Pattern 33
 	dc.w 512	; Duration in frames.
-	dc.w Main_Subsong0_Track_99-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_103-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_101-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_99-Main_Subsong0
+	dc.w Main_Subsong0_Track_103-Main_Subsong0
+	dc.w Main_Subsong0_Track_101-Main_Subsong0
 
 ; Pattern 34
 	dc.w 512	; Duration in frames.
-	dc.w Main_Subsong0_Track_102-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_103-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_104-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_102-Main_Subsong0
+	dc.w Main_Subsong0_Track_103-Main_Subsong0
+	dc.w Main_Subsong0_Track_104-Main_Subsong0
 
 ; Pattern 35
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_105-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_109-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_107-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_105-Main_Subsong0
+	dc.w Main_Subsong0_Track_109-Main_Subsong0
+	dc.w Main_Subsong0_Track_107-Main_Subsong0
 
 ; Pattern 36
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_13-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_109-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_92-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_13-Main_Subsong0
+	dc.w Main_Subsong0_Track_109-Main_Subsong0
+	dc.w Main_Subsong0_Track_92-Main_Subsong0
 
 ; Pattern 37
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_13-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_115-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_116-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_13-Main_Subsong0
+	dc.w Main_Subsong0_Track_115-Main_Subsong0
+	dc.w Main_Subsong0_Track_116-Main_Subsong0
 
 ; Pattern 38
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_13-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_115-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_116-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_13-Main_Subsong0
+	dc.w Main_Subsong0_Track_115-Main_Subsong0
+	dc.w Main_Subsong0_Track_116-Main_Subsong0
 
 ; Pattern 39
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_13-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_154-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_155-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_13-Main_Subsong0
+	dc.w Main_Subsong0_Track_154-Main_Subsong0
+	dc.w Main_Subsong0_Track_155-Main_Subsong0
 
 ; Pattern 40
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_13-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_157-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_158-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_13-Main_Subsong0
+	dc.w Main_Subsong0_Track_157-Main_Subsong0
+	dc.w Main_Subsong0_Track_158-Main_Subsong0
 
 ; Pattern 41
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_13-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_154-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_155-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_13-Main_Subsong0
+	dc.w Main_Subsong0_Track_154-Main_Subsong0
+	dc.w Main_Subsong0_Track_155-Main_Subsong0
 
 ; Pattern 42
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_13-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_157-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_158-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_13-Main_Subsong0
+	dc.w Main_Subsong0_Track_157-Main_Subsong0
+	dc.w Main_Subsong0_Track_158-Main_Subsong0
 
 ; Pattern 43
 	dc.w 128	; Duration in frames.
-	dc.w Main_Subsong0_Track_13-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_166-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_170-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_13-Main_Subsong0
+	dc.w Main_Subsong0_Track_166-Main_Subsong0
+	dc.w Main_Subsong0_Track_170-Main_Subsong0
 
 ; Pattern 44
 	dc.w 128	; Duration in frames.
-	dc.w Main_Subsong0_Track_141-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_166-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_170-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_141-Main_Subsong0
+	dc.w Main_Subsong0_Track_166-Main_Subsong0
+	dc.w Main_Subsong0_Track_170-Main_Subsong0
 
 ; Pattern 45
 	dc.w 128	; Duration in frames.
-	dc.w Main_Subsong0_Track_150-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_166-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_170-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_150-Main_Subsong0
+	dc.w Main_Subsong0_Track_166-Main_Subsong0
+	dc.w Main_Subsong0_Track_170-Main_Subsong0
 
 ; Pattern 46
 	dc.w 128	; Duration in frames.
-	dc.w Main_Subsong0_Track_150-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_166-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_170-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_150-Main_Subsong0
+	dc.w Main_Subsong0_Track_166-Main_Subsong0
+	dc.w Main_Subsong0_Track_170-Main_Subsong0
 
 ; Pattern 47
 	dc.w 128	; Duration in frames.
-	dc.w Main_Subsong0_Track_141-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_166-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_170-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_141-Main_Subsong0
+	dc.w Main_Subsong0_Track_166-Main_Subsong0
+	dc.w Main_Subsong0_Track_170-Main_Subsong0
 
 ; Pattern 48
 	dc.w 128	; Duration in frames.
-	dc.w Main_Subsong0_Track_13-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_166-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_170-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_13-Main_Subsong0
+	dc.w Main_Subsong0_Track_166-Main_Subsong0
+	dc.w Main_Subsong0_Track_170-Main_Subsong0
 
 ; Pattern 49
 	dc.w 128	; Duration in frames.
-	dc.w Main_Subsong0_Track_150-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_166-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_170-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_150-Main_Subsong0
+	dc.w Main_Subsong0_Track_166-Main_Subsong0
+	dc.w Main_Subsong0_Track_170-Main_Subsong0
 
 ; Pattern 50
 	dc.w 128	; Duration in frames.
-	dc.w Main_Subsong0_Track_150-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_166-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_170-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_150-Main_Subsong0
+	dc.w Main_Subsong0_Track_166-Main_Subsong0
+	dc.w Main_Subsong0_Track_170-Main_Subsong0
 
 ; Pattern 51
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_13-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_154-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_155-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_13-Main_Subsong0
+	dc.w Main_Subsong0_Track_154-Main_Subsong0
+	dc.w Main_Subsong0_Track_155-Main_Subsong0
 
 ; Pattern 52
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_13-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_157-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_158-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_13-Main_Subsong0
+	dc.w Main_Subsong0_Track_157-Main_Subsong0
+	dc.w Main_Subsong0_Track_158-Main_Subsong0
 
 ; Pattern 53
 	dc.w 128	; Duration in frames.
-	dc.w Main_Subsong0_Track_159-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_166-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_170-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_159-Main_Subsong0
+	dc.w Main_Subsong0_Track_166-Main_Subsong0
+	dc.w Main_Subsong0_Track_170-Main_Subsong0
 
 ; Pattern 54
 	dc.w 128	; Duration in frames.
-	dc.w Main_Subsong0_Track_92-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_166-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_170-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_92-Main_Subsong0
+	dc.w Main_Subsong0_Track_166-Main_Subsong0
+	dc.w Main_Subsong0_Track_170-Main_Subsong0
 
 ; Pattern 55
 	dc.w 128	; Duration in frames.
-	dc.w Main_Subsong0_Track_92-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_166-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_170-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_92-Main_Subsong0
+	dc.w Main_Subsong0_Track_166-Main_Subsong0
+	dc.w Main_Subsong0_Track_170-Main_Subsong0
 
 ; Pattern 56
 	dc.w 128	; Duration in frames.
-	dc.w Main_Subsong0_Track_168-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_169-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_170-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_168-Main_Subsong0
+	dc.w Main_Subsong0_Track_169-Main_Subsong0
+	dc.w Main_Subsong0_Track_170-Main_Subsong0
 
 ; Pattern 57
 Main_Subsong0_LinkerLoop:	; Loops here.
 	dc.w 256	; Duration in frames.
-	dc.w Main_Subsong0_Track_171-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_172-Main_Subsong0-Main_Subsong0
-	dc.w Main_Subsong0_Track_92-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_Track_171-Main_Subsong0
+	dc.w Main_Subsong0_Track_172-Main_Subsong0
+	dc.w Main_Subsong0_Track_92-Main_Subsong0
 
 	dc.w 0	; Loops (duration = 0).
-	dc.w Main_Subsong0_LinkerLoop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_LinkerLoop-Main_Subsong0
 
 ; The tracks.
 Main_Subsong0_Track_84:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_3-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_3-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_5-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_5-Main_Subsong0
 
 Main_Subsong0_Track_85:
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_7-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_7-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_8-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_8-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_9-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_9-Main_Subsong0
 
 Main_Subsong0_Track_86:
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_12-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_12-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_12-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_12-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_12-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_12-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_12-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_12-Main_Subsong0
 
 Main_Subsong0_Track_73:
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2204-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2204-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2224-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2224-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_28-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_28-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_29-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_29-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_30-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_30-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_31-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_31-Main_Subsong0
 
 Main_Subsong0_Track_45:
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_34-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_34-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_35-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_35-Main_Subsong0
 
 Main_Subsong0_Track_46:
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2204-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2204-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2224-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2224-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_45-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_45-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_46-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_46-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_47-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_47-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_48-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_48-Main_Subsong0
 
 Main_Subsong0_Track_47:
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_50-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_50-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_51-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_51-Main_Subsong0
 
 	dc.b 56	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_52-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_52-Main_Subsong0
 
 Main_Subsong0_Track_141:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_54-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_54-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_64-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_64-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_64-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_64-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1154-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1154-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1149-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1149-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1138-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1138-Main_Subsong0
 
 Main_Subsong0_Track_150:
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1229-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1229-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_93-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_93-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1140-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1140-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1229-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1229-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_93-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_93-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_107-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_107-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1229-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1229-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_93-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_93-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1199-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1199-Main_Subsong0
 
 Main_Subsong0_Track_159:
 	dc.b 128	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_119-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_119-Main_Subsong0
 
 Main_Subsong0_Track_166:
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1032-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1032-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0
 
 	dc.b 12	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 Main_Subsong0_Track_168:
 	dc.b 104	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1316-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1316-Main_Subsong0
 
 Main_Subsong0_Track_169:
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 12	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0
 
 Main_Subsong0_Track_170:
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_176-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_176-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_177-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_177-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 Main_Subsong0_Track_15:
 	dc.b 96	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_181-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_181-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_182-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_182-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_183-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_183-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_184-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_184-Main_Subsong0
 
 	dc.b 116	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_186-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_186-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_187-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_187-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_188-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_188-Main_Subsong0
 
 Main_Subsong0_Track_17:
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 84	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_194-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_194-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_195-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_195-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_196-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_196-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_197-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_197-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 112	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_199-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_199-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_200-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_200-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_201-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_201-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_202-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_202-Main_Subsong0
 
 Main_Subsong0_Track_24:
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_204-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_204-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_205-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_205-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_206-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_206-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_207-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_207-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_208-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_208-Main_Subsong0
 
 	dc.b 72	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_209-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_209-Main_Subsong0
 
 	dc.b 36	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_210-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_210-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_211-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_211-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_212-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_212-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_213-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_213-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_214-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_214-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_215-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_215-Main_Subsong0
 
 	dc.b 72	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_216-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_216-Main_Subsong0
 
 Main_Subsong0_Track_26:
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 36	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_219-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_219-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_220-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_220-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_221-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_221-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_222-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_222-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_223-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_223-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 36	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_225-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_225-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 28	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_225-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_225-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_231-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_231-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_231-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_231-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_231-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_231-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_234-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_234-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_235-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_235-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_231-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_231-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 28	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_239-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_239-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_239-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_239-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_239-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_239-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_239-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_239-Main_Subsong0
 
 Main_Subsong0_Track_28:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_54-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_54-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_64-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_64-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_64-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_64-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_64-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_64-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_286-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_286-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_289-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_289-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_286-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_286-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_299-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_299-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_286-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_286-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_309-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_309-Main_Subsong0
 
 Main_Subsong0_Track_29:
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_315-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_315-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_316-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_316-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_317-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_317-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_318-Main_Subsong0
 
 	dc.b 36	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_319-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_319-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_319-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_319-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_319-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_319-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_225-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_225-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 28	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_225-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_225-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_328-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_328-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_329-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_329-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_330-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_330-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_331-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_331-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 36	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_333-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_333-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_333-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_333-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 12	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_333-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_333-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_333-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_333-Main_Subsong0
 
 Main_Subsong0_Track_30:
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_341-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_341-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_342-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_342-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_343-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_343-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_344-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_344-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_345-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_345-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_209-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_209-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_347-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_347-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_348-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_348-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_349-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_349-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_350-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_350-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_351-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_351-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_352-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_352-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_353-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_353-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_354-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_354-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_355-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_355-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_356-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_356-Main_Subsong0
 
 	dc.b 56	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_357-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_357-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1848-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1848-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_359-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_359-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_360-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_360-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2089-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2089-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2089-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2089-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1848-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1848-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_359-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_359-Main_Subsong0
 
 Main_Subsong0_Track_31:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_54-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_54-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_370-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_370-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_370-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_370-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_374-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_374-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_370-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_370-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_286-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_286-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_299-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_299-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_286-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_286-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_299-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_299-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_398-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_398-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_399-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_399-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_400-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_400-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_401-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_401-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_402-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_402-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_400-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_400-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_400-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_400-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_405-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_405-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_406-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_406-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_399-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_399-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_398-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_398-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_409-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_409-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_400-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_400-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_401-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_401-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_402-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_402-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_399-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_399-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_398-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_398-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_405-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_405-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_406-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_406-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_399-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_399-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_398-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_398-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_419-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_419-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_400-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_400-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_399-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_399-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_402-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_402-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_401-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_401-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_400-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_400-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_405-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_405-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_406-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_406-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_399-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_399-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_398-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_398-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_429-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_429-Main_Subsong0
 
 Main_Subsong0_Track_32:
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_219-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_219-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_219-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_219-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_219-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_219-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_437-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_437-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_438-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_438-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_439-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_439-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_440-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_440-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 12	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_225-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_225-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_225-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_225-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_225-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_225-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_447-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_447-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_448-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_448-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_450-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_450-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_451-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_451-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_452-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_452-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_453-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_453-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_454-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_454-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_455-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_455-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_456-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_456-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_460-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_460-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_460-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_460-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_460-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_460-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_460-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_460-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_460-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_460-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 12	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_194-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_194-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_469-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_469-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_319-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_319-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_471-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_471-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_460-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_460-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_469-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_469-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_199-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_199-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_460-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_460-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_476-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_476-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_194-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_194-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_476-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_476-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_319-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_319-Main_Subsong0
 
 Main_Subsong0_Track_34:
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_483-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_483-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_486-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_486-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_487-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_487-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_488-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_488-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_489-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_489-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_486-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_486-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_491-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_491-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_492-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_492-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_483-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_483-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_486-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_486-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_487-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_487-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_488-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_488-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_489-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_489-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_486-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_486-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_491-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_491-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_492-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_492-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_507-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_507-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_510-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_510-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_487-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_487-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_488-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_488-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_489-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_489-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_510-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_510-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_515-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_515-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_492-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_492-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_519-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_519-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_653-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_653-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_523-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_523-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_653-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_653-Main_Subsong0
 
 Main_Subsong0_Track_37:
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_483-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_483-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_488-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_488-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_532-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_532-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_533-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_533-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_489-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_489-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_488-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_488-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_491-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_491-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_537-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_537-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_483-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_483-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_486-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_486-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_532-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_532-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_488-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_488-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_489-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_489-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_533-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_533-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_491-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_491-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_537-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_537-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_507-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_507-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_488-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_488-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_487-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_487-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_488-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_488-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_489-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_489-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_510-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_510-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_515-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_515-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_492-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_492-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_563-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_563-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_519-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_519-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_563-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_563-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_653-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_653-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_523-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_523-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_653-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_653-Main_Subsong0
 
 Main_Subsong0_Track_40:
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_483-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_483-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_486-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_486-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_487-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_487-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_488-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_488-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_489-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_489-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_486-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_486-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_489-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_489-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_492-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_492-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_483-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_483-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_486-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_486-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_487-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_487-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_488-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_488-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_489-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_489-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_486-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_486-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_593-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_593-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_594-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_594-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_596-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_596-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_507-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_507-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_596-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_596-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_510-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_510-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_487-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_487-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_488-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_488-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_489-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_489-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_510-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_510-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_515-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_515-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_606-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_606-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_596-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_596-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_519-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_519-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_596-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_596-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_596-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_596-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_523-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_523-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_596-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_596-Main_Subsong0
 
 Main_Subsong0_Track_43:
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_617-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_617-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_483-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_483-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_617-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_617-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_621-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_621-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_622-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_622-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_621-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_621-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_624-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_624-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_621-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_621-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_622-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_622-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_627-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_627-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_617-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_617-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_483-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_483-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_617-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_617-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_510-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_510-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_515-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_515-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_635-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_635-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_636-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_636-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_637-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_637-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_636-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_636-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_639-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_639-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_641-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_641-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_507-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_507-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_641-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_641-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_621-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_621-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_646-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_646-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_637-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_637-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_636-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_636-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_510-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_510-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_650-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_650-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_651-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_651-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 28	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_653-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_653-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0
 
 Main_Subsong0_Track_61:
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 28	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 28	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 28	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 28	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_7-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_7-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_677-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_677-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_677-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_677-Main_Subsong0
 
 Main_Subsong0_Track_63:
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_681-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_681-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_681-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_681-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_721-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_721-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_721-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_721-Main_Subsong0
 
 Main_Subsong0_Track_64:
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 28	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 28	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 28	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 28	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_563-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_563-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_8-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_8-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 12	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_677-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_677-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_677-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_677-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_677-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_677-Main_Subsong0
 
 Main_Subsong0_Track_65:
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_716-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_716-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_681-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_681-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_721-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_721-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0
 
 Main_Subsong0_Track_66:
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_761-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_761-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_728-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_728-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_728-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_728-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0
 
 Main_Subsong0_Track_67:
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 28	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 28	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 28	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 28	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_743-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_743-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_743-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_743-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_743-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_743-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_743-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_743-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_743-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_743-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 12	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_743-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_743-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_743-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_743-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_743-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_743-Main_Subsong0
 
 Main_Subsong0_Track_68:
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_761-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_761-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_761-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_761-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_728-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_728-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0
 
 Main_Subsong0_Track_69:
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_767-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_767-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_767-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_767-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_803-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_803-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_772-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_772-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_772-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_772-Main_Subsong0
 
 Main_Subsong0_Track_70:
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 28	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_777-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_777-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_777-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_777-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_777-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_777-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 28	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_777-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_777-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 28	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_777-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_777-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 28	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2485-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2485-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 12	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2485-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2485-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2485-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2485-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2485-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2485-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_677-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_677-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_7-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_7-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 28	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_7-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_7-Main_Subsong0
 
 Main_Subsong0_Track_71:
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_716-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_716-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_767-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_767-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_803-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_803-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_803-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_803-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_767-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_767-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_772-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_772-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_803-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_803-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_803-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_803-Main_Subsong0
 
 Main_Subsong0_Track_21:
 	dc.b 44	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_812-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_812-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_813-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_813-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_814-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_814-Main_Subsong0
 
 	dc.b 72	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_815-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_815-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_209-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_209-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_817-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_817-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_818-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_818-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_819-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_819-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_820-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_820-Main_Subsong0
 
 	dc.b 72	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0
 
 Main_Subsong0_Track_105:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_823-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_823-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_823-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_823-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_825-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_825-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1135-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1135-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_825-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_825-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_823-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_823-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1101-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1101-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1138-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1138-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_825-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_825-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_823-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_823-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1134-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1134-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_823-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_823-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_823-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_823-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1181-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1181-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_825-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_825-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1135-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1135-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1149-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1149-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_825-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_825-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1138-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1138-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_823-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_823-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1147-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1147-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1181-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1181-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1154-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1154-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_823-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_823-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1138-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1138-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_823-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_823-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_93-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_93-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1143-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1143-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_107-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_107-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1199-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1199-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1163-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1163-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1143-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1143-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_54-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_54-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_107-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_107-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1229-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1229-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1143-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1143-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1165-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1165-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1199-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1199-Main_Subsong0
 
 Main_Subsong0_Track_107:
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_887-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_887-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_888-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_888-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_889-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_889-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_890-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_890-Main_Subsong0
 
 	dc.b 20	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_891-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_891-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_892-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_892-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_893-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_893-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_894-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_894-Main_Subsong0
 
 	dc.b 12	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_895-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_895-Main_Subsong0
 
 	dc.b 112	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 Main_Subsong0_Track_109:
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 252	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 Main_Subsong0_Track_115:
 	dc.b 96	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_902-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_902-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_903-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_903-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_181-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_181-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_182-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_182-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_183-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_183-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_907-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_907-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_908-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_908-Main_Subsong0
 
 	dc.b 88	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_910-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_910-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_911-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_911-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_912-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_912-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_913-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_913-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_914-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_914-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_915-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_915-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_916-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_916-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_917-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_917-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_918-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_918-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_919-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_919-Main_Subsong0
 
 Main_Subsong0_Track_116:
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 84	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_925-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_925-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_926-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_926-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_194-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_194-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_928-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_928-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_929-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_929-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_930-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_930-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_931-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_931-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 84	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_199-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_199-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_934-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_934-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_935-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_935-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_936-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_936-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_937-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_937-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_938-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_938-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_939-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_939-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_940-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_940-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_941-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_941-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_942-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_942-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_943-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_943-Main_Subsong0
 
 Main_Subsong0_Track_154:
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_949-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_949-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_949-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_949-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_949-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_949-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_949-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_949-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_949-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_949-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_964-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_964-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_965-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_965-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_966-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_966-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_949-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_949-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_974-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_974-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_975-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_975-Main_Subsong0
 
 Main_Subsong0_Track_155:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 Main_Subsong0_Track_157:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_949-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_949-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_949-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_949-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1032-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1032-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_949-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_949-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_975-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_975-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_974-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_974-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_975-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_975-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_974-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_974-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1032-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1032-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_949-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_949-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_964-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_964-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_965-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_965-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_964-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_964-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_965-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_965-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1044-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1044-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_945-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_949-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_949-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_123-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1050-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1050-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_966-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_966-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_975-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_975-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1053-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1053-Main_Subsong0
 
 Main_Subsong0_Track_158:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 Main_Subsong0_Track_2:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1099-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1099-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1100-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1100-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1101-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1101-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1099-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1099-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1103-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1103-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1099-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1099-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1105-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1105-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1101-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1101-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1099-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1099-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1103-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1103-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1109-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1109-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1099-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1099-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1133-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1133-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1109-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1109-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1138-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1138-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1114-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1114-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1114-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1114-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1139-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1139-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1114-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1114-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1140-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1140-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1114-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1114-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1139-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1139-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1140-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1140-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1141-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1141-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1140-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1140-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0
 
 Main_Subsong0_Track_3:
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1133-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1133-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1134-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1134-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1135-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1135-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1138-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1138-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1135-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1135-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1138-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1138-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1139-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1139-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1140-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1140-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1141-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1141-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1140-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1140-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1143-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1143-Main_Subsong0
 
 Main_Subsong0_Track_5:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1147-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1147-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1149-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1149-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1147-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1147-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1154-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1154-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1154-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1154-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1161-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1161-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1163-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1163-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1165-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1165-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1166-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1166-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1163-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1163-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1161-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1161-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1163-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1163-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0
 
 Main_Subsong0_Track_6:
 	dc.b 12	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1114-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1114-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1181-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1181-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1109-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1109-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1149-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1149-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1114-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1114-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1109-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1109-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1181-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1181-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1149-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1149-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1114-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1114-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1181-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1181-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1149-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1149-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1109-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1109-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1114-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1114-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1141-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1141-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1199-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1199-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1109-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1109-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1141-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1141-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1114-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1114-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1199-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1199-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1114-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1114-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1141-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1141-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1109-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1109-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1140-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1140-Main_Subsong0
 
 Main_Subsong0_Track_8:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1211-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1211-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1213-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1213-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1215-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1215-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1166-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1166-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1213-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1213-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1166-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1166-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1213-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1213-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1211-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1211-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1166-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1166-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1229-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1229-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1165-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1165-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1229-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1229-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1165-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1165-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1166-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1166-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1163-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1163-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0
 
 Main_Subsong0_Track_11:
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 244	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0
 
 Main_Subsong0_Track_12:
 	dc.b 255	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0
 
 	dc.b 1	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1250-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1250-Main_Subsong0
 
 Main_Subsong0_Track_13:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_54-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_54-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_64-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_64-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_64-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_64-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_57-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_64-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_64-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1229-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1229-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_93-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_93-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1140-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1140-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1229-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1229-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_93-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_93-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_107-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_107-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1229-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1229-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_68-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_56-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_93-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_93-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_66-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_55-Main_Subsong0
 
 	dc.b 4	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1199-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1199-Main_Subsong0
 
 Main_Subsong0_Track_171:
 	dc.b 255	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1316-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1316-Main_Subsong0
 
 	dc.b 1	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1316-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1316-Main_Subsong0
 
 Main_Subsong0_Track_172:
 	dc.b 255	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0
 
 	dc.b 1	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0
 
 Main_Subsong0_Track_56:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1322-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1322-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1323-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1323-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1324-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1324-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1325-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1325-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1323-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1323-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1324-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1324-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1328-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1328-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1323-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1323-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1324-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1324-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1331-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1331-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1323-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1323-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1324-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1324-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1334-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1334-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1335-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1335-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1334-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1334-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1335-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1335-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1322-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1322-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1323-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1323-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1324-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1324-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1325-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1325-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1323-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1323-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1324-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1324-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1328-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1328-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1323-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1323-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1324-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1324-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1331-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1331-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1323-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1323-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1324-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1324-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1334-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1334-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1335-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1335-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1334-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1334-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1335-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1335-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1354-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1354-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1355-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1355-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1356-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1356-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1334-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1334-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1355-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1355-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1356-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1356-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1331-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1331-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1361-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1361-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1356-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1356-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1328-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1328-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1356-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1356-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1323-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1323-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1325-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1325-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1367-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1367-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1322-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1322-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1323-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1323-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1370-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1370-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1323-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1323-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1367-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1367-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1373-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1373-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1367-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1367-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1324-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1324-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1376-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1376-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1324-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1324-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1378-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1378-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1379-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1379-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1324-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1324-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1378-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1378-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1382-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1382-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1383-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1383-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1384-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1384-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1385-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1385-Main_Subsong0
 
 Main_Subsong0_Track_55:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1387-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1387-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1388-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1388-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1389-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1389-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1387-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1387-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1388-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1388-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1389-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1389-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1387-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1387-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1388-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1388-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1395-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1395-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1396-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1396-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1397-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1397-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1395-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1395-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1396-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1396-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1388-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1388-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1401-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1401-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1396-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1396-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1403-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1403-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1404-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1404-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1405-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1405-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1406-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1406-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1407-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1407-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1404-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1404-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1406-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1406-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1407-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1407-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1411-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1411-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1412-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1412-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1413-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1413-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1414-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1414-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1415-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1415-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1416-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1416-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1417-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1417-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1416-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1416-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1387-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1387-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1388-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1388-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1389-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1389-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1387-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1387-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1388-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1388-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1389-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1389-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1387-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1387-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1388-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1388-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1395-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1395-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1389-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1389-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1387-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1387-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1387-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1387-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1389-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1389-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1396-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1396-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1433-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1433-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1388-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1388-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1406-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1406-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1436-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1436-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1437-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1437-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1403-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1403-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1436-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1436-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1436-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1436-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1441-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1441-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1407-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1407-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1443-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1443-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1444-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1444-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1443-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1443-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1446-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1446-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1447-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1447-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1448-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1448-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1415-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1415-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1450-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1450-Main_Subsong0
 
 Main_Subsong0_Track_54:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_7-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_7-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_7-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_7-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_8-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_8-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_8-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_8-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2485-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2485-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_743-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_743-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_743-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_743-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_7-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_7-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2485-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2485-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 Main_Subsong0_Track_53:
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1507-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1507-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1508-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1508-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1522-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1522-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1510-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1510-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1511-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1511-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1512-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1512-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1613-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1613-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1514-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1514-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1626-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1626-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1522-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1522-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1626-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1626-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1518-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1518-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1519-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1519-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1507-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1507-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1521-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1521-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1522-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1522-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1523-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1523-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1524-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1524-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1525-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1525-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1526-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1526-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1527-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1527-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1528-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1528-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1529-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1529-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1508-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1508-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1531-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1531-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1626-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1626-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1531-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1531-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1508-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1508-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1531-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1531-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1626-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1626-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1531-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1531-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1508-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1508-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1539-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1539-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1626-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1626-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1541-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1541-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1542-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1542-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1519-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1519-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1542-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1542-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1519-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1519-Main_Subsong0
 
 Main_Subsong0_Track_52:
 	dc.b 128	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1547-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1547-Main_Subsong0
 
 	dc.b 128	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1548-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1548-Main_Subsong0
 
 	dc.b 128	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1549-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1549-Main_Subsong0
 
 	dc.b 64	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1550-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1550-Main_Subsong0
 
 	dc.b 64	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1551-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1551-Main_Subsong0
 
 Main_Subsong0_Track_51:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1584-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1584-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1584-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1584-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1584-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1584-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1584-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1584-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1584-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1584-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1595-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1595-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1595-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1595-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1595-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1595-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1595-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1595-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1603-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1603-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 Main_Subsong0_Track_50:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1507-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1507-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1612-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1612-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1613-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1613-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1626-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1626-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1518-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1518-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1519-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1519-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1507-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1507-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1613-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1613-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1626-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1626-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1518-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1518-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1519-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1519-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1622-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1622-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1623-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1623-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1624-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1624-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1519-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1519-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1626-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1626-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1522-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1522-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1507-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1507-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1633-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1633-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1630-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1630-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1631-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1631-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1632-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1632-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1633-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1633-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1632-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1632-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1507-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1507-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1632-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1632-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1637-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1637-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1522-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1522-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1639-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1639-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1640-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1640-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1626-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1626-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1514-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1514-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1626-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1626-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1522-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1522-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1514-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1514-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1646-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1646-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1529-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1529-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1648-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1648-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1649-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1649-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1650-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1650-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1651-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1651-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1652-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1652-Main_Subsong0
 
 Main_Subsong0_Track_49:
 	dc.b 128	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1547-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1547-Main_Subsong0
 
 	dc.b 128	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1548-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1548-Main_Subsong0
 
 	dc.b 128	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1656-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1656-Main_Subsong0
 
 	dc.b 96	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1657-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1657-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1658-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1658-Main_Subsong0
 
 Main_Subsong0_Track_48:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1676-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1676-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1676-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1676-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1676-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1676-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1676-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1676-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1584-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1584-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1584-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1584-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1584-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1584-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1584-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1584-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1696-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1696-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_3-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_3-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_3-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_3-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1696-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1696-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_5-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_5-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 Main_Subsong0_Track_93:
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1799-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1799-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1714-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1714-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1715-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1715-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1716-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1716-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1717-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1717-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1717-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1717-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1717-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1717-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1714-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1714-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1714-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1714-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1722-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1722-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1723-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1723-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1724-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1724-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1725-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1725-Main_Subsong0
 
 Main_Subsong0_Track_94:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2485-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2485-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1763-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1763-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1787-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1787-Main_Subsong0
 
 Main_Subsong0_Track_95:
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1723-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1723-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1724-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1724-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1791-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1791-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1792-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1792-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1791-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1791-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1791-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1791-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1796-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1796-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1796-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1796-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1791-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1791-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1798-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1798-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1799-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1799-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1799-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1799-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1801-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1801-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1818-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1818-Main_Subsong0
 
 Main_Subsong0_Track_96:
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1804-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1804-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1799-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1799-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1714-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1714-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1715-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1715-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1716-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1716-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1717-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1717-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1717-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1717-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1717-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1717-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1714-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1714-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1714-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1714-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1791-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1791-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1715-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1715-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1724-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1724-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1898-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1898-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1818-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1818-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1819-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1819-Main_Subsong0
 
 Main_Subsong0_Track_97:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1846-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1846-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1848-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1848-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2197-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2197-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1874-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1874-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1876-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1876-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 Main_Subsong0_Track_98:
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1723-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1723-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1724-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1724-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1791-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1791-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1792-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1792-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1791-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1791-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1791-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1791-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1796-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1796-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1796-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1796-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1791-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1791-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1798-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1798-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1798-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1798-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1799-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1799-Main_Subsong0
 
 	dc.b 40	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1926-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1926-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1801-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1801-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1893-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1893-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1894-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1894-Main_Subsong0
 
 Main_Subsong0_Track_99:
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1896-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1896-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1724-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1724-Main_Subsong0
 
 	dc.b 56	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1898-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1898-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1900-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1900-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1901-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1901-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1902-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1902-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1913-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1913-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1904-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1904-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1905-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1905-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1906-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1906-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2043-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2043-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2042-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2042-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1909-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1909-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1910-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1910-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1911-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1911-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1904-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1904-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1913-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1913-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1914-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1914-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1950-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1950-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1949-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1949-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1917-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1917-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1918-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1918-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1919-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1919-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1920-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1920-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1921-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1921-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1922-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1922-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1923-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1923-Main_Subsong0
 
 Main_Subsong0_Track_101:
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1799-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1799-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1926-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1926-Main_Subsong0
 
 	dc.b 152	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1927-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1927-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1928-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1928-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1929-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1929-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1930-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1930-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1931-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1931-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1942-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1942-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1941-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1941-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1934-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1934-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1935-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1935-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1936-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1936-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1937-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1937-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1938-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1938-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1939-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1939-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1934-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1934-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1941-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1941-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1942-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1942-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1943-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1943-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1944-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1944-Main_Subsong0
 
 Main_Subsong0_Track_102:
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1919-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1919-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1947-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1947-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1948-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1948-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1949-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1949-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1950-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1950-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1914-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1914-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1952-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1952-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1953-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1953-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1966-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1966-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1955-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1955-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1956-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1956-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1963-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1963-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1958-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1958-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1959-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1959-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1960-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1960-Main_Subsong0
 
 	dc.b 56	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1961-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1961-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1962-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1962-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1963-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1963-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1964-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1964-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1965-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1965-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1966-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1966-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1967-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1967-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1968-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1968-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1969-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1969-Main_Subsong0
 
 Main_Subsong0_Track_103:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1846-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1846-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1846-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1846-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1848-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1848-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1848-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1848-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_0-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1874-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1874-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1874-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1874-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1876-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1876-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1876-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1876-Main_Subsong0
 
 Main_Subsong0_Track_104:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2035-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2035-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2036-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2036-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2037-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2037-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1904-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1904-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1905-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1905-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1906-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1906-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2043-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2043-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2042-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2042-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2043-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2043-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1910-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1910-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1911-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1911-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2046-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2046-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1913-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1913-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2048-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2048-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2049-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2049-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2056-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2056-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2051-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2051-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2052-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2052-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2053-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2053-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2054-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2054-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2055-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2055-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2056-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2056-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2057-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2057-Main_Subsong0
 
 Main_Subsong0_Track_88:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2089-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2089-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2118-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2118-Main_Subsong0
 
 Main_Subsong0_Track_89:
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 255	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 241	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 Main_Subsong0_Track_90:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2197-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2197-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2197-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2197-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1763-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1763-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2197-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2197-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2197-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2197-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2197-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2197-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 Main_Subsong0_Track_87:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2197-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2197-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2204-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2204-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2197-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2197-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2204-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2204-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2224-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2224-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2226-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2226-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2197-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2197-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1737-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1775-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2197-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2197-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0
 
 Main_Subsong0_Track_91:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2485-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2485-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1786-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_899-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1734-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1736-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1732-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_677-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_677-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2089-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2089-Main_Subsong0
 
 Main_Subsong0_Track_92:
 	dc.b 255	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 255	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 2	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 Main_Subsong0_Track_77:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2319-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2319-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2319-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2319-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2319-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2319-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2319-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2319-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2319-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2319-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2348-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2348-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2349-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2349-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2319-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2319-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2319-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2319-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2319-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2319-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2319-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2319-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2318-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2369-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2369-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2321-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2369-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2369-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2369-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2369-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2373-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2373-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2369-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2369-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2348-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2348-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2348-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2348-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2369-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2369-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2369-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2369-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2379-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2379-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2380-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2380-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2379-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2379-Main_Subsong0
 
 Main_Subsong0_Track_80:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2413-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2413-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2414-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2414-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2386-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_12-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_12-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_12-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_12-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_12-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_12-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_12-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_12-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2384-Main_Subsong0
 
 Main_Subsong0_Track_79:
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2451-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2451-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_777-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_777-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2451-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2451-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_777-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_777-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_743-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_743-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2451-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2451-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2089-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2089-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2451-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2451-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2451-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2451-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1459-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2451-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2451-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_7-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_7-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_8-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_8-Main_Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2485-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2485-Main_Subsong0
 
 Main_Subsong0_Track_78:
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2494-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2494-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2501-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2501-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_2501-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2501-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1676-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1676-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1595-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1595-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 16	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_3-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_3-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_5-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_5-Main_Subsong0
 
 	dc.b 8	; Duration.
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0
 
 
 ; The RegisterBlocks.
@@ -7853,7 +7853,7 @@ Main_Subsong0_RegisterBlock_1249_Loop:
 	dc.b 3	; Non-initial State, software and hardware.
 
 	dc.b 8	; Loop to index 3.
-	dc.w Main_Subsong0_RegisterBlock_1249_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1249_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1316:
@@ -7864,7 +7864,7 @@ Main_Subsong0_RegisterBlock_1316_Loop:
 	dc.b 49	; Non-initial State, software only.
 
 	dc.b 8	; Loop to index 1.
-	dc.w Main_Subsong0_RegisterBlock_1316_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1316_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1319:
@@ -7876,7 +7876,7 @@ Main_Subsong0_RegisterBlock_1319_Loop:
 	dc.b 3	; Non-initial State, software and hardware.
 
 	dc.b 8	; Loop to index 1.
-	dc.w Main_Subsong0_RegisterBlock_1319_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1319_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_2121:
@@ -7886,7 +7886,7 @@ Main_Subsong0_RegisterBlock_2121_Loop:
 	dc.b 4	; Non-initial State, no software no hardware.
 
 	dc.b 8	; Loop to index 1.
-	dc.w Main_Subsong0_RegisterBlock_2121_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2121_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_899:
@@ -7895,7 +7895,7 @@ Main_Subsong0_RegisterBlock_899:
 	dc.b 0, 95	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1247:
 	dc.b 121	; Initial State: software only.
@@ -7929,7 +7929,7 @@ Main_Subsong0_RegisterBlock_1247_Loop:
 	dc.b 61	; Non-initial State, software only.
 
 	dc.b 8	; Loop to index 6.
-	dc.w Main_Subsong0_RegisterBlock_1247_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1247_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1927:
@@ -8159,7 +8159,7 @@ Main_Subsong0_RegisterBlock_1927:
 	dc.b 1	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_119:
 	dc.b 65	; Initial State: software only.
@@ -8203,7 +8203,7 @@ Main_Subsong0_RegisterBlock_119:
 	dc.b 0	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1547:
 	dc.b 163	; Initial State : software and hardware.
@@ -8232,7 +8232,7 @@ Main_Subsong0_RegisterBlock_1547_Loop:
 	dc.b 3	; Non-initial State, software and hardware.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_1547_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1547_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1548:
@@ -8264,7 +8264,7 @@ Main_Subsong0_RegisterBlock_1548_Loop:
 	dc.b 3	; Non-initial State, software and hardware.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_1548_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1548_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1549:
@@ -8296,7 +8296,7 @@ Main_Subsong0_RegisterBlock_1549_Loop:
 	dc.b 3	; Non-initial State, software and hardware.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_1549_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1549_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1656:
@@ -8328,7 +8328,7 @@ Main_Subsong0_RegisterBlock_1656_Loop:
 	dc.b 3	; Non-initial State, software and hardware.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_1656_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1656_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_185:
@@ -8354,7 +8354,7 @@ Main_Subsong0_RegisterBlock_185_Loop:
 	dc.b 3	; Non-initial State, software and hardware.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_185_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_185_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_199:
@@ -8391,20 +8391,20 @@ Main_Subsong0_RegisterBlock_199_Loop:
 	dc.b 61	; Non-initial State, software only.
 
 	dc.b 8	; Loop to index 7.
-	dc.w Main_Subsong0_RegisterBlock_199_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_199_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_896:
 	dc.b 0	; Initial State: no software, no hardware.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_141:
 	dc.b 0	; Initial State: no software, no hardware.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_180:
 	dc.b 131	; Initial State : software and hardware.
@@ -8412,7 +8412,7 @@ Main_Subsong0_RegisterBlock_180:
 	dc.b 0, 95	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1657:
 	dc.b 163	; Initial State : software and hardware.
@@ -8460,7 +8460,7 @@ Main_Subsong0_RegisterBlock_1657_Loop:
 	dc.b 3	; Non-initial State, software and hardware.
 
 	dc.b 8	; Loop to index 6.
-	dc.w Main_Subsong0_RegisterBlock_1657_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1657_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_193:
@@ -8468,7 +8468,7 @@ Main_Subsong0_RegisterBlock_193:
 	dc.b 11, 218	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_209:
 	dc.b 131	; Initial State : software and hardware.
@@ -8502,7 +8502,7 @@ Main_Subsong0_RegisterBlock_209_Loop:
 	dc.b 3	; Non-initial State, software and hardware.
 
 	dc.b 8	; Loop to index 6.
-	dc.w Main_Subsong0_RegisterBlock_209_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_209_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_216:
@@ -8537,7 +8537,7 @@ Main_Subsong0_RegisterBlock_216_Loop:
 	dc.b 3	; Non-initial State, software and hardware.
 
 	dc.b 8	; Loop to index 6.
-	dc.w Main_Subsong0_RegisterBlock_216_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_216_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_815:
@@ -8572,7 +8572,7 @@ Main_Subsong0_RegisterBlock_815_Loop:
 	dc.b 3	; Non-initial State, software and hardware.
 
 	dc.b 8	; Loop to index 6.
-	dc.w Main_Subsong0_RegisterBlock_815_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_815_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_821:
@@ -8607,7 +8607,7 @@ Main_Subsong0_RegisterBlock_821_Loop:
 	dc.b 3	; Non-initial State, software and hardware.
 
 	dc.b 8	; Loop to index 6.
-	dc.w Main_Subsong0_RegisterBlock_821_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_821_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1550:
@@ -8646,7 +8646,7 @@ Main_Subsong0_RegisterBlock_1550_Loop:
 	dc.b 3	; Non-initial State, software and hardware.
 
 	dc.b 8	; Loop to index 4.
-	dc.w Main_Subsong0_RegisterBlock_1550_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1550_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1551:
@@ -8685,7 +8685,7 @@ Main_Subsong0_RegisterBlock_1551_Loop:
 	dc.b 3	; Non-initial State, software and hardware.
 
 	dc.b 8	; Loop to index 4.
-	dc.w Main_Subsong0_RegisterBlock_1551_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1551_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_52:
@@ -8830,7 +8830,7 @@ Main_Subsong0_RegisterBlock_52:
 	dc.b 5	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_357:
 	dc.b 131	; Initial State : software and hardware.
@@ -8855,7 +8855,7 @@ Main_Subsong0_RegisterBlock_357_Loop:
 	dc.b 3	; Non-initial State, software and hardware.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_357_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_357_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1898:
@@ -9005,7 +9005,7 @@ Main_Subsong0_RegisterBlock_1898:
 	dc.b 5	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1927-Main_Subsong0-Main_Subsong0 + 76	; Optimization: goto common Block at index 42.
+	dc.w Main_Subsong0_RegisterBlock_1927-Main_Subsong0 + 76	; Optimization: goto common Block at index 42.
 
 Main_Subsong0_RegisterBlock_1961:
 	dc.b 113	; Initial State: software only.
@@ -9028,7 +9028,7 @@ Main_Subsong0_RegisterBlock_1961_Loop:
 	dc.b 1	; New MSB for software period, maybe with noise.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_1961_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1961_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_7:
@@ -9037,7 +9037,7 @@ Main_Subsong0_RegisterBlock_7:
 	dc.b 0, 60	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_8:
 	dc.b 131	; Initial State : software and hardware.
@@ -9045,7 +9045,7 @@ Main_Subsong0_RegisterBlock_8:
 	dc.b 0, 36	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_33:
 	dc.b 113	; Initial State: software only.
@@ -9189,7 +9189,7 @@ Main_Subsong0_RegisterBlock_33:
 	dc.b 21	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_34:
 	dc.b 89	; Initial State: software only.
@@ -9333,7 +9333,7 @@ Main_Subsong0_RegisterBlock_34:
 	dc.b 9	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_51:
 	dc.b 97	; Initial State: software only.
@@ -9477,7 +9477,7 @@ Main_Subsong0_RegisterBlock_51:
 	dc.b 13	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_681:
 	dc.b 113	; Initial State: software only.
@@ -9597,7 +9597,7 @@ Main_Subsong0_RegisterBlock_681:
 	dc.b 1	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0-Main_Subsong0 + 84	; Optimization: goto common Block at index 33.
+	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0 + 84	; Optimization: goto common Block at index 33.
 
 Main_Subsong0_RegisterBlock_684:
 	dc.b 113	; Initial State: software only.
@@ -9717,7 +9717,7 @@ Main_Subsong0_RegisterBlock_684:
 	dc.b 1	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0-Main_Subsong0 + 84	; Optimization: goto common Block at index 33.
+	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0 + 84	; Optimization: goto common Block at index 33.
 
 Main_Subsong0_RegisterBlock_728:
 	dc.b 113	; Initial State: software only.
@@ -9823,7 +9823,7 @@ Main_Subsong0_RegisterBlock_728:
 	dc.b 239	; New LSB for software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0-Main_Subsong0 + 84	; Optimization: goto common Block at index 33.
+	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0 + 84	; Optimization: goto common Block at index 33.
 
 Main_Subsong0_RegisterBlock_761:
 	dc.b 113	; Initial State: software only.
@@ -9929,7 +9929,7 @@ Main_Subsong0_RegisterBlock_761:
 	dc.b 253	; New LSB for software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0-Main_Subsong0 + 84	; Optimization: goto common Block at index 33.
+	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0 + 84	; Optimization: goto common Block at index 33.
 
 Main_Subsong0_RegisterBlock_767:
 	dc.b 113	; Initial State: software only.
@@ -10049,7 +10049,7 @@ Main_Subsong0_RegisterBlock_767:
 	dc.b 1	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0-Main_Subsong0 + 84	; Optimization: goto common Block at index 33.
+	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0 + 84	; Optimization: goto common Block at index 33.
 
 Main_Subsong0_RegisterBlock_803:
 	dc.b 113	; Initial State: software only.
@@ -10169,7 +10169,7 @@ Main_Subsong0_RegisterBlock_803:
 	dc.b 1	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0-Main_Subsong0 + 84	; Optimization: goto common Block at index 33.
+	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0 + 84	; Optimization: goto common Block at index 33.
 
 Main_Subsong0_RegisterBlock_1714:
 	dc.b 113	; Initial State: software only.
@@ -10548,7 +10548,7 @@ Main_Subsong0_RegisterBlock_1723:
 	dc.b 25	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1898-Main_Subsong0-Main_Subsong0 + 26	; Optimization: goto common Block at index 14.
+	dc.w Main_Subsong0_RegisterBlock_1898-Main_Subsong0 + 26	; Optimization: goto common Block at index 14.
 
 Main_Subsong0_RegisterBlock_1724:
 	dc.b 97	; Initial State: software only.
@@ -10653,7 +10653,7 @@ Main_Subsong0_RegisterBlock_1724:
 	dc.b 25	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1927-Main_Subsong0-Main_Subsong0 + 30	; Optimization: goto common Block at index 16.
+	dc.w Main_Subsong0_RegisterBlock_1927-Main_Subsong0 + 30	; Optimization: goto common Block at index 16.
 
 Main_Subsong0_RegisterBlock_1791:
 	dc.b 105	; Initial State: software only.
@@ -11010,7 +11010,7 @@ Main_Subsong0_RegisterBlock_1799:
 	dc.b 29	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1898-Main_Subsong0-Main_Subsong0 + 30	; Optimization: goto common Block at index 16.
+	dc.w Main_Subsong0_RegisterBlock_1898-Main_Subsong0 + 30	; Optimization: goto common Block at index 16.
 
 Main_Subsong0_RegisterBlock_1801:
 	dc.b 113	; Initial State: software only.
@@ -11278,7 +11278,7 @@ Main_Subsong0_RegisterBlock_1926:
 	dc.b 2	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1927-Main_Subsong0-Main_Subsong0 + 57	; Optimization: goto common Block at index 31.
+	dc.w Main_Subsong0_RegisterBlock_1927-Main_Subsong0 + 57	; Optimization: goto common Block at index 31.
 
 Main_Subsong0_RegisterBlock_2053:
 	dc.b 113	; Initial State: software only.
@@ -11301,7 +11301,7 @@ Main_Subsong0_RegisterBlock_2053_Loop:
 	dc.b 45	; New LSB for software period.
 
 	dc.b 8	; Loop to index 3.
-	dc.w Main_Subsong0_RegisterBlock_2053_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2053_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_2054:
@@ -11325,7 +11325,7 @@ Main_Subsong0_RegisterBlock_2054_Loop:
 	dc.b 45	; New LSB for software period.
 
 	dc.b 8	; Loop to index 3.
-	dc.w Main_Subsong0_RegisterBlock_2054_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2054_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_2055:
@@ -11349,7 +11349,7 @@ Main_Subsong0_RegisterBlock_2055_Loop:
 	dc.b 45	; New LSB for software period.
 
 	dc.b 8	; Loop to index 3.
-	dc.w Main_Subsong0_RegisterBlock_2055_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2055_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_2056:
@@ -11373,7 +11373,7 @@ Main_Subsong0_RegisterBlock_2056_Loop:
 	dc.b 45	; New LSB for software period.
 
 	dc.b 8	; Loop to index 3.
-	dc.w Main_Subsong0_RegisterBlock_2056_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2056_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1:
@@ -11396,7 +11396,7 @@ Main_Subsong0_RegisterBlock_1_Loop:
 	dc.b 57	; Non-initial State, software only.
 
 	dc.b 8	; Loop to index 5.
-	dc.w Main_Subsong0_RegisterBlock_1_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_3:
@@ -11416,7 +11416,7 @@ Main_Subsong0_RegisterBlock_3:
 	dc.b 4	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0-Main_Subsong0 + 11	; Optimization: goto common Block at index 5.
+	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0 + 11	; Optimization: goto common Block at index 5.
 
 Main_Subsong0_RegisterBlock_204:
 	dc.b 131	; Initial State : software and hardware.
@@ -11446,7 +11446,7 @@ Main_Subsong0_RegisterBlock_204_Loop:
 	dc.b 221	; Software period, LSB.
 
 	dc.b 8	; Loop to index 4.
-	dc.w Main_Subsong0_RegisterBlock_204_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_204_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_341:
@@ -11455,28 +11455,28 @@ Main_Subsong0_RegisterBlock_341:
 	dc.b 0, 71	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_727:
 	dc.b 113	; Initial State: software only.
 	dc.b 0, 63	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_761-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_761-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_769:
 	dc.b 113	; Initial State: software only.
 	dc.b 0, 106	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_803-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_803-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1713:
 	dc.b 105	; Initial State: software only.
 	dc.b 0, 190	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1799-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1799-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1725:
 	dc.b 105	; Initial State: software only.
@@ -11598,14 +11598,14 @@ Main_Subsong0_RegisterBlock_1817:
 	dc.b 0, 190	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1898-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1898-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1891:
 	dc.b 89	; Initial State: software only.
 	dc.b 0, 190	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1926-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1926-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_210:
 	dc.b 131	; Initial State : software and hardware.
@@ -11639,7 +11639,7 @@ Main_Subsong0_RegisterBlock_210_Loop:
 	dc.b 3	; Non-initial State, software and hardware.
 
 	dc.b 8	; Loop to index 6.
-	dc.w Main_Subsong0_RegisterBlock_210_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_210_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_219:
@@ -11678,7 +11678,7 @@ Main_Subsong0_RegisterBlock_219_Loop:
 	dc.b 61	; Non-initial State, software only.
 
 	dc.b 8	; Loop to index 8.
-	dc.w Main_Subsong0_RegisterBlock_219_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_219_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_225:
@@ -11717,7 +11717,7 @@ Main_Subsong0_RegisterBlock_225_Loop:
 	dc.b 61	; Non-initial State, software only.
 
 	dc.b 8	; Loop to index 8.
-	dc.w Main_Subsong0_RegisterBlock_225_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_225_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_319:
@@ -11756,7 +11756,7 @@ Main_Subsong0_RegisterBlock_319_Loop:
 	dc.b 61	; Non-initial State, software only.
 
 	dc.b 8	; Loop to index 8.
-	dc.w Main_Subsong0_RegisterBlock_319_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_319_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_333:
@@ -11795,7 +11795,7 @@ Main_Subsong0_RegisterBlock_333_Loop:
 	dc.b 61	; Non-initial State, software only.
 
 	dc.b 8	; Loop to index 8.
-	dc.w Main_Subsong0_RegisterBlock_333_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_333_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_9:
@@ -11804,7 +11804,7 @@ Main_Subsong0_RegisterBlock_9:
 	dc.b 0, 89	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_35:
 	dc.b 65	; Initial State: software only.
@@ -11926,7 +11926,7 @@ Main_Subsong0_RegisterBlock_654:
 	dc.b 0, 60	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_721:
 	dc.b 113	; Initial State: software only.
@@ -12208,7 +12208,7 @@ Main_Subsong0_RegisterBlock_1138:
 	dc.b 63	; New LSB for software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_119-Main_Subsong0-Main_Subsong0 + 27	; Optimization: goto common Block at index 10.
+	dc.w Main_Subsong0_RegisterBlock_119-Main_Subsong0 + 27	; Optimization: goto common Block at index 10.
 
 Main_Subsong0_RegisterBlock_1626:
 	dc.b 113	; Initial State: software only.
@@ -12261,7 +12261,7 @@ Main_Subsong0_RegisterBlock_1626_Loop:
 	dc.b 1	; New MSB for software period, maybe with noise.
 
 	dc.b 8	; Loop to index 8.
-	dc.w Main_Subsong0_RegisterBlock_1626_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1626_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1658:
@@ -12295,7 +12295,7 @@ Main_Subsong0_RegisterBlock_1658_Loop:
 	dc.b 3	; Non-initial State, software and hardware.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_1658_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1658_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1716:
@@ -12376,7 +12376,7 @@ Main_Subsong0_RegisterBlock_1716_Loop:
 	dc.b 127	; New LSB for software period.
 
 	dc.b 8	; Loop to index 28.
-	dc.w Main_Subsong0_RegisterBlock_1716_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1716_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1722:
@@ -12465,7 +12465,7 @@ Main_Subsong0_RegisterBlock_1722_Loop:
 	dc.b 0	; New MSB for software period, maybe with noise.
 
 	dc.b 8	; Loop to index 28.
-	dc.w Main_Subsong0_RegisterBlock_1722_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1722_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1796:
@@ -12546,7 +12546,7 @@ Main_Subsong0_RegisterBlock_1796_Loop:
 	dc.b 113	; New LSB for software period.
 
 	dc.b 8	; Loop to index 28.
-	dc.w Main_Subsong0_RegisterBlock_1796_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1796_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1798:
@@ -12635,7 +12635,7 @@ Main_Subsong0_RegisterBlock_1798_Loop:
 	dc.b 0	; New MSB for software period, maybe with noise.
 
 	dc.b 8	; Loop to index 28.
-	dc.w Main_Subsong0_RegisterBlock_1798_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1798_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1909:
@@ -12659,7 +12659,7 @@ Main_Subsong0_RegisterBlock_1909_Loop:
 	dc.b 1	; New MSB for software period, maybe with noise.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_1909_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1909_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1922:
@@ -12679,7 +12679,7 @@ Main_Subsong0_RegisterBlock_1922_Loop:
 	dc.b 123	; New LSB for software period.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_1922_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1922_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1937:
@@ -12700,7 +12700,7 @@ Main_Subsong0_RegisterBlock_1937_Loop:
 	dc.b 12	; New LSB for software period.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_1937_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1937_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1963:
@@ -12724,7 +12724,7 @@ Main_Subsong0_RegisterBlock_1963_Loop:
 	dc.b 0	; New MSB for software period, maybe with noise.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_1963_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1963_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1964:
@@ -12747,7 +12747,7 @@ Main_Subsong0_RegisterBlock_1964_Loop:
 	dc.b 12	; New LSB for software period.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_1964_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1964_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1965:
@@ -12771,7 +12771,7 @@ Main_Subsong0_RegisterBlock_1965_Loop:
 	dc.b 1	; New MSB for software period, maybe with noise.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_1965_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1965_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1966:
@@ -12795,7 +12795,7 @@ Main_Subsong0_RegisterBlock_1966_Loop:
 	dc.b 0	; New MSB for software period, maybe with noise.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_1966_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1966_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1967:
@@ -12818,7 +12818,7 @@ Main_Subsong0_RegisterBlock_1967_Loop:
 	dc.b 12	; New LSB for software period.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_1967_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1967_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1968:
@@ -12842,7 +12842,7 @@ Main_Subsong0_RegisterBlock_1968_Loop:
 	dc.b 1	; New MSB for software period, maybe with noise.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_1968_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1968_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1969:
@@ -12866,7 +12866,7 @@ Main_Subsong0_RegisterBlock_1969_Loop:
 	dc.b 0	; New MSB for software period, maybe with noise.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_1969_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1969_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_2042:
@@ -12890,7 +12890,7 @@ Main_Subsong0_RegisterBlock_2042_Loop:
 	dc.b 1	; New MSB for software period, maybe with noise.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_2042_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2042_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_2118:
@@ -12899,7 +12899,7 @@ Main_Subsong0_RegisterBlock_2118:
 	dc.b 0, 50	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_2485:
 	dc.b 131	; Initial State : software and hardware.
@@ -12907,7 +12907,7 @@ Main_Subsong0_RegisterBlock_2485:
 	dc.b 0, 45	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_239:
 	dc.b 121	; Initial State: software only.
@@ -12943,7 +12943,7 @@ Main_Subsong0_RegisterBlock_239_Loop:
 	dc.b 61	; Non-initial State, software only.
 
 	dc.b 8	; Loop to index 7.
-	dc.w Main_Subsong0_RegisterBlock_239_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_239_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_653:
@@ -12974,7 +12974,7 @@ Main_Subsong0_RegisterBlock_653_Loop:
 	dc.b 163	; Software period, LSB.
 
 	dc.b 8	; Loop to index 4.
-	dc.w Main_Subsong0_RegisterBlock_653_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_653_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_743:
@@ -12983,7 +12983,7 @@ Main_Subsong0_RegisterBlock_743:
 	dc.b 0, 40	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_777:
 	dc.b 131	; Initial State : software and hardware.
@@ -12991,7 +12991,7 @@ Main_Subsong0_RegisterBlock_777:
 	dc.b 0, 42	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_787:
 	dc.b 131	; Initial State : software and hardware.
@@ -12999,7 +12999,7 @@ Main_Subsong0_RegisterBlock_787:
 	dc.b 0, 45	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_5:
 	dc.b 121	; Initial State: software only.
@@ -13018,21 +13018,21 @@ Main_Subsong0_RegisterBlock_5:
 	dc.b 5	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0-Main_Subsong0 + 11	; Optimization: goto common Block at index 5.
+	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0 + 11	; Optimization: goto common Block at index 5.
 
 Main_Subsong0_RegisterBlock_50:
 	dc.b 97	; Initial State: software only.
 	dc.b 1, 170	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_803-Main_Subsong0-Main_Subsong0 + 22	; Optimization: goto common Block at index 9.
+	dc.w Main_Subsong0_RegisterBlock_803-Main_Subsong0 + 22	; Optimization: goto common Block at index 9.
 
 Main_Subsong0_RegisterBlock_142:
 	dc.b 97	; Initial State: software only.
 	dc.b 23, 179	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1316-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1316-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_162:
 	dc.b 163	; Initial State : software and hardware.
@@ -13040,7 +13040,7 @@ Main_Subsong0_RegisterBlock_162:
 	dc.b 0, 95	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_178:
 	dc.b 125	; Initial State: software only.
@@ -13070,21 +13070,21 @@ Main_Subsong0_RegisterBlock_178:
 	dc.b 14	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_686:
 	dc.b 113	; Initial State: software only.
 	dc.b 0, 84	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_721-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_721-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_716:
 	dc.b 73	; Initial State: software only.
 	dc.b 2, 126	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0-Main_Subsong0 + 44	; Optimization: goto common Block at index 17.
+	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0 + 44	; Optimization: goto common Block at index 17.
 
 Main_Subsong0_RegisterBlock_1134:
 	dc.b 73	; Initial State: software only.
@@ -13124,14 +13124,14 @@ Main_Subsong0_RegisterBlock_1134:
 	dc.b 1	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1138-Main_Subsong0-Main_Subsong0 + 27	; Optimization: goto common Block at index 10.
+	dc.w Main_Subsong0_RegisterBlock_1138-Main_Subsong0 + 27	; Optimization: goto common Block at index 10.
 
 Main_Subsong0_RegisterBlock_1136:
 	dc.b 81	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1138-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1138-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1140:
 	dc.b 89	; Initial State: software only.
@@ -13178,7 +13178,7 @@ Main_Subsong0_RegisterBlock_1140:
 	dc.b 0	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_119-Main_Subsong0-Main_Subsong0 + 22	; Optimization: goto common Block at index 8.
+	dc.w Main_Subsong0_RegisterBlock_119-Main_Subsong0 + 22	; Optimization: goto common Block at index 8.
 
 Main_Subsong0_RegisterBlock_1459:
 	dc.b 131	; Initial State : software and hardware.
@@ -13186,7 +13186,7 @@ Main_Subsong0_RegisterBlock_1459:
 	dc.b 0, 47	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1514:
 	dc.b 121	; Initial State: software only.
@@ -13225,7 +13225,7 @@ Main_Subsong0_RegisterBlock_1514_Loop:
 	dc.b 127	; New LSB for software period.
 
 	dc.b 8	; Loop to index 6.
-	dc.w Main_Subsong0_RegisterBlock_1514_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1514_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1522:
@@ -13273,7 +13273,7 @@ Main_Subsong0_RegisterBlock_1522_Loop:
 	dc.b 0	; New MSB for software period, maybe with noise.
 
 	dc.b 8	; Loop to index 6.
-	dc.w Main_Subsong0_RegisterBlock_1522_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1522_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1584:
@@ -13293,7 +13293,7 @@ Main_Subsong0_RegisterBlock_1584:
 	dc.b 6	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0-Main_Subsong0 + 11	; Optimization: goto common Block at index 5.
+	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0 + 11	; Optimization: goto common Block at index 5.
 
 Main_Subsong0_RegisterBlock_1623:
 	dc.b 113	; Initial State: software only.
@@ -13332,7 +13332,7 @@ Main_Subsong0_RegisterBlock_1623_Loop:
 	dc.b 106	; New LSB for software period.
 
 	dc.b 8	; Loop to index 6.
-	dc.w Main_Subsong0_RegisterBlock_1623_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1623_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1676:
@@ -13352,7 +13352,7 @@ Main_Subsong0_RegisterBlock_1676:
 	dc.b 4	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0-Main_Subsong0 + 11	; Optimization: goto common Block at index 5.
+	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0 + 11	; Optimization: goto common Block at index 5.
 
 Main_Subsong0_RegisterBlock_1717:
 	dc.b 113	; Initial State: software only.
@@ -13428,7 +13428,7 @@ Main_Subsong0_RegisterBlock_1795:
 	dc.b 0, 113	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1796-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1796-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1804:
 	dc.b 49	; Initial State: software only.
@@ -13560,7 +13560,7 @@ Main_Subsong0_RegisterBlock_1818:
 	dc.b 33	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1801-Main_Subsong0-Main_Subsong0 + 65	; Optimization: goto common Block at index 35.
+	dc.w Main_Subsong0_RegisterBlock_1801-Main_Subsong0 + 65	; Optimization: goto common Block at index 35.
 
 Main_Subsong0_RegisterBlock_1846:
 	dc.b 131	; Initial State : software and hardware.
@@ -13568,7 +13568,7 @@ Main_Subsong0_RegisterBlock_1846:
 	dc.b 0, 67	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1848:
 	dc.b 131	; Initial State : software and hardware.
@@ -13576,7 +13576,7 @@ Main_Subsong0_RegisterBlock_1848:
 	dc.b 0, 63	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1874:
 	dc.b 131	; Initial State : software and hardware.
@@ -13584,7 +13584,7 @@ Main_Subsong0_RegisterBlock_1874:
 	dc.b 0, 80	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1893:
 	dc.b 113	; Initial State: software only.
@@ -13729,7 +13729,7 @@ Main_Subsong0_RegisterBlock_1908:
 	dc.b 0, 253	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2042-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2042-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1910:
 	dc.b 97	; Initial State: software only.
@@ -13756,7 +13756,7 @@ Main_Subsong0_RegisterBlock_1910_Loop:
 	dc.b 1	; New MSB for software period, maybe with noise.
 
 	dc.b 8	; Loop to index 3.
-	dc.w Main_Subsong0_RegisterBlock_1910_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1910_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1911:
@@ -13784,7 +13784,7 @@ Main_Subsong0_RegisterBlock_1911_Loop:
 	dc.b 1	; New MSB for software period, maybe with noise.
 
 	dc.b 8	; Loop to index 3.
-	dc.w Main_Subsong0_RegisterBlock_1911_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1911_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1921:
@@ -13807,7 +13807,7 @@ Main_Subsong0_RegisterBlock_1921_Loop:
 	dc.b 45	; New LSB for software period.
 
 	dc.b 8	; Loop to index 3.
-	dc.w Main_Subsong0_RegisterBlock_1921_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1921_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1938:
@@ -13831,7 +13831,7 @@ Main_Subsong0_RegisterBlock_1938_Loop:
 	dc.b 12	; New LSB for software period.
 
 	dc.b 8	; Loop to index 3.
-	dc.w Main_Subsong0_RegisterBlock_1938_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1938_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1939:
@@ -13855,7 +13855,7 @@ Main_Subsong0_RegisterBlock_1939_Loop:
 	dc.b 12	; New LSB for software period.
 
 	dc.b 8	; Loop to index 3.
-	dc.w Main_Subsong0_RegisterBlock_1939_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1939_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1942:
@@ -13879,7 +13879,7 @@ Main_Subsong0_RegisterBlock_1942_Loop:
 	dc.b 45	; New LSB for software period.
 
 	dc.b 8	; Loop to index 3.
-	dc.w Main_Subsong0_RegisterBlock_1942_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1942_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1943:
@@ -13903,7 +13903,7 @@ Main_Subsong0_RegisterBlock_1943_Loop:
 	dc.b 45	; New LSB for software period.
 
 	dc.b 8	; Loop to index 3.
-	dc.w Main_Subsong0_RegisterBlock_1943_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1943_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1947:
@@ -13925,7 +13925,7 @@ Main_Subsong0_RegisterBlock_1947_Loop:
 	dc.b 123	; New LSB for software period.
 
 	dc.b 8	; Loop to index 3.
-	dc.w Main_Subsong0_RegisterBlock_1947_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1947_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1948:
@@ -13947,7 +13947,7 @@ Main_Subsong0_RegisterBlock_1948_Loop:
 	dc.b 123	; New LSB for software period.
 
 	dc.b 8	; Loop to index 3.
-	dc.w Main_Subsong0_RegisterBlock_1948_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1948_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1960:
@@ -13974,7 +13974,7 @@ Main_Subsong0_RegisterBlock_1960_Loop:
 	dc.b 12	; New LSB for software period.
 
 	dc.b 8	; Loop to index 3.
-	dc.w Main_Subsong0_RegisterBlock_1960_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1960_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1962:
@@ -14002,7 +14002,7 @@ Main_Subsong0_RegisterBlock_1962_Loop:
 	dc.b 1	; New MSB for software period, maybe with noise.
 
 	dc.b 8	; Loop to index 3.
-	dc.w Main_Subsong0_RegisterBlock_1962_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1962_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_2043:
@@ -14010,7 +14010,7 @@ Main_Subsong0_RegisterBlock_2043:
 	dc.b 1, 45	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1909-Main_Subsong0-Main_Subsong0 + 8	; Optimization: goto common Block at index 3.
+	dc.w Main_Subsong0_RegisterBlock_1909-Main_Subsong0 + 8	; Optimization: goto common Block at index 3.
 
 Main_Subsong0_RegisterBlock_2046:
 	dc.b 81	; Initial State: software only.
@@ -14036,7 +14036,7 @@ Main_Subsong0_RegisterBlock_2046_Loop:
 	dc.b 45	; New LSB for software period.
 
 	dc.b 8	; Loop to index 3.
-	dc.w Main_Subsong0_RegisterBlock_2046_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2046_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_2455:
@@ -14082,7 +14082,7 @@ Main_Subsong0_RegisterBlock_2455_Loop:
 	dc.b 3	; Non-initial State, software and hardware.
 
 	dc.b 8	; Loop to index 6.
-	dc.w Main_Subsong0_RegisterBlock_2455_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2455_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_21:
@@ -14091,13 +14091,13 @@ Main_Subsong0_RegisterBlock_21:
 	dc.b 0, 95	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_139:
 	dc.b 0	; Initial State: no software, no hardware.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_181:
 	dc.b 131	; Initial State : software and hardware.
@@ -14122,7 +14122,7 @@ Main_Subsong0_RegisterBlock_181_Loop:
 	dc.b 3	; Non-initial State, software and hardware.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_181_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_181_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_194:
@@ -14157,7 +14157,7 @@ Main_Subsong0_RegisterBlock_194_Loop:
 	dc.b 61	; Non-initial State, software only.
 
 	dc.b 8	; Loop to index 6.
-	dc.w Main_Subsong0_RegisterBlock_194_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_194_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_231:
@@ -14192,7 +14192,7 @@ Main_Subsong0_RegisterBlock_231_Loop:
 	dc.b 61	; Non-initial State, software only.
 
 	dc.b 8	; Loop to index 6.
-	dc.w Main_Subsong0_RegisterBlock_231_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_231_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_460:
@@ -14227,7 +14227,7 @@ Main_Subsong0_RegisterBlock_460_Loop:
 	dc.b 61	; Non-initial State, software only.
 
 	dc.b 8	; Loop to index 6.
-	dc.w Main_Subsong0_RegisterBlock_460_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_460_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_506:
@@ -14236,7 +14236,7 @@ Main_Subsong0_RegisterBlock_506:
 	dc.b 0, 60	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_821-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_522:
 	dc.b 131	; Initial State : software and hardware.
@@ -14244,7 +14244,7 @@ Main_Subsong0_RegisterBlock_522:
 	dc.b 0, 53	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_653-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_653-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_563:
 	dc.b 131	; Initial State : software and hardware.
@@ -14271,7 +14271,7 @@ Main_Subsong0_RegisterBlock_563_Loop:
 	dc.b 3	; Non-initial State, software and hardware.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_563_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_563_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_596:
@@ -14297,7 +14297,7 @@ Main_Subsong0_RegisterBlock_596_Loop:
 	dc.b 3	; Non-initial State, software and hardware.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_596_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_596_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_617:
@@ -14306,7 +14306,7 @@ Main_Subsong0_RegisterBlock_617:
 	dc.b 0, 42	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_357-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_357-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_641:
 	dc.b 131	; Initial State : software and hardware.
@@ -14331,7 +14331,7 @@ Main_Subsong0_RegisterBlock_641_Loop:
 	dc.b 3	; Non-initial State, software and hardware.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_641_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_641_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_677:
@@ -14340,7 +14340,7 @@ Main_Subsong0_RegisterBlock_677:
 	dc.b 0, 53	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_891:
 	dc.b 41	; Initial State: software only.
@@ -14360,7 +14360,7 @@ Main_Subsong0_RegisterBlock_891_Loop:
 	dc.b 250	; New LSB for software period.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_891_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_891_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_11:
@@ -14408,7 +14408,7 @@ Main_Subsong0_RegisterBlock_11:
 	dc.b 41	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1715-Main_Subsong0-Main_Subsong0 + 15	; Optimization: goto common Block at index 9.
+	dc.w Main_Subsong0_RegisterBlock_1715-Main_Subsong0 + 15	; Optimization: goto common Block at index 9.
 
 Main_Subsong0_RegisterBlock_12:
 	dc.b 113	; Initial State: software only.
@@ -14453,7 +14453,7 @@ Main_Subsong0_RegisterBlock_12:
 	dc.b 1	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0-Main_Subsong0 + 30	; Optimization: goto common Block at index 12.
+	dc.w Main_Subsong0_RegisterBlock_11-Main_Subsong0 + 30	; Optimization: goto common Block at index 12.
 
 Main_Subsong0_RegisterBlock_123:
 	dc.b 131	; Initial State : software and hardware.
@@ -14475,7 +14475,7 @@ Main_Subsong0_RegisterBlock_123_Loop:
 	dc.b 5	; Software period, MSB.
 
 	dc.b 8	; Loop to index 5.
-	dc.w Main_Subsong0_RegisterBlock_123_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_123_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_166:
@@ -14484,7 +14484,7 @@ Main_Subsong0_RegisterBlock_166:
 	dc.b 7, 119	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0 + 4	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0 + 4	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_172:
 	dc.b 121	; Initial State: software only.
@@ -14507,7 +14507,7 @@ Main_Subsong0_RegisterBlock_172:
 	dc.b 204	; New LSB for software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_358:
 	dc.b 131	; Initial State : software and hardware.
@@ -14515,7 +14515,7 @@ Main_Subsong0_RegisterBlock_358:
 	dc.b 0, 63	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_887:
 	dc.b 73	; Initial State: software only.
@@ -14532,7 +14532,7 @@ Main_Subsong0_RegisterBlock_887_Loop:
 	dc.b 123	; New LSB for software period.
 
 	dc.b 8	; Loop to index 1.
-	dc.w Main_Subsong0_RegisterBlock_887_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_887_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_888:
@@ -14550,7 +14550,7 @@ Main_Subsong0_RegisterBlock_888_Loop:
 	dc.b 45	; New LSB for software period.
 
 	dc.b 8	; Loop to index 1.
-	dc.w Main_Subsong0_RegisterBlock_888_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_888_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_889:
@@ -14568,7 +14568,7 @@ Main_Subsong0_RegisterBlock_889_Loop:
 	dc.b 250	; New LSB for software period.
 
 	dc.b 8	; Loop to index 1.
-	dc.w Main_Subsong0_RegisterBlock_889_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_889_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_890:
@@ -14586,7 +14586,7 @@ Main_Subsong0_RegisterBlock_890_Loop:
 	dc.b 123	; New LSB for software period.
 
 	dc.b 8	; Loop to index 1.
-	dc.w Main_Subsong0_RegisterBlock_890_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_890_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_892:
@@ -14604,7 +14604,7 @@ Main_Subsong0_RegisterBlock_892_Loop:
 	dc.b 123	; New LSB for software period.
 
 	dc.b 8	; Loop to index 1.
-	dc.w Main_Subsong0_RegisterBlock_892_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_892_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_893:
@@ -14622,7 +14622,7 @@ Main_Subsong0_RegisterBlock_893_Loop:
 	dc.b 45	; New LSB for software period.
 
 	dc.b 8	; Loop to index 1.
-	dc.w Main_Subsong0_RegisterBlock_893_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_893_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_894:
@@ -14640,7 +14640,7 @@ Main_Subsong0_RegisterBlock_894_Loop:
 	dc.b 250	; New LSB for software period.
 
 	dc.b 8	; Loop to index 1.
-	dc.w Main_Subsong0_RegisterBlock_894_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_894_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_945:
@@ -14663,7 +14663,7 @@ Main_Subsong0_RegisterBlock_945_Loop:
 	dc.b 11	; Software period, MSB.
 
 	dc.b 8	; Loop to index 5.
-	dc.w Main_Subsong0_RegisterBlock_945_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_945_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1133:
@@ -14747,7 +14747,7 @@ Main_Subsong0_RegisterBlock_1135:
 	dc.b 63	; New LSB for software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1133-Main_Subsong0-Main_Subsong0 + 21	; Optimization: goto common Block at index 10.
+	dc.w Main_Subsong0_RegisterBlock_1133-Main_Subsong0 + 21	; Optimization: goto common Block at index 10.
 
 Main_Subsong0_RegisterBlock_1139:
 	dc.b 81	; Initial State: software only.
@@ -14833,7 +14833,7 @@ Main_Subsong0_RegisterBlock_1141:
 	dc.b 123	; New LSB for software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1139-Main_Subsong0-Main_Subsong0 + 23	; Optimization: goto common Block at index 11.
+	dc.w Main_Subsong0_RegisterBlock_1139-Main_Subsong0 + 23	; Optimization: goto common Block at index 11.
 
 Main_Subsong0_RegisterBlock_1453:
 	dc.b 131	; Initial State : software and hardware.
@@ -14841,7 +14841,7 @@ Main_Subsong0_RegisterBlock_1453:
 	dc.b 0, 47	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1507:
 	dc.b 113	; Initial State: software only.
@@ -14880,7 +14880,7 @@ Main_Subsong0_RegisterBlock_1507_Loop:
 	dc.b 95	; New LSB for software period.
 
 	dc.b 8	; Loop to index 4.
-	dc.w Main_Subsong0_RegisterBlock_1507_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1507_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1508:
@@ -14920,7 +14920,7 @@ Main_Subsong0_RegisterBlock_1508_Loop:
 	dc.b 84	; New LSB for software period.
 
 	dc.b 8	; Loop to index 4.
-	dc.w Main_Subsong0_RegisterBlock_1508_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1508_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1515:
@@ -14928,14 +14928,14 @@ Main_Subsong0_RegisterBlock_1515:
 	dc.b 0, 142	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1626-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1626-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1516:
 	dc.b 113	; Initial State: software only.
 	dc.b 0, 159	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1522-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1522-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1519:
 	dc.b 113	; Initial State: software only.
@@ -14968,7 +14968,7 @@ Main_Subsong0_RegisterBlock_1519_Loop:
 	dc.b 63	; New LSB for software period.
 
 	dc.b 8	; Loop to index 4.
-	dc.w Main_Subsong0_RegisterBlock_1519_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1519_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1531:
@@ -15008,7 +15008,7 @@ Main_Subsong0_RegisterBlock_1531_Loop:
 	dc.b 106	; New LSB for software period.
 
 	dc.b 8	; Loop to index 4.
-	dc.w Main_Subsong0_RegisterBlock_1531_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1531_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1539:
@@ -15048,7 +15048,7 @@ Main_Subsong0_RegisterBlock_1539_Loop:
 	dc.b 100	; New LSB for software period.
 
 	dc.b 8	; Loop to index 4.
-	dc.w Main_Subsong0_RegisterBlock_1539_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1539_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1541:
@@ -15082,7 +15082,7 @@ Main_Subsong0_RegisterBlock_1541_Loop:
 	dc.b 63	; New LSB for software period.
 
 	dc.b 8	; Loop to index 4.
-	dc.w Main_Subsong0_RegisterBlock_1541_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1541_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1542:
@@ -15116,7 +15116,7 @@ Main_Subsong0_RegisterBlock_1542_Loop:
 	dc.b 60	; New LSB for software period.
 
 	dc.b 8	; Loop to index 4.
-	dc.w Main_Subsong0_RegisterBlock_1542_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1542_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1558:
@@ -15136,7 +15136,7 @@ Main_Subsong0_RegisterBlock_1558:
 	dc.b 5	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0-Main_Subsong0 + 11	; Optimization: goto common Block at index 5.
+	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0 + 11	; Optimization: goto common Block at index 5.
 
 Main_Subsong0_RegisterBlock_1613:
 	dc.b 105	; Initial State: software only.
@@ -15175,7 +15175,7 @@ Main_Subsong0_RegisterBlock_1613_Loop:
 	dc.b 127	; New LSB for software period.
 
 	dc.b 8	; Loop to index 4.
-	dc.w Main_Subsong0_RegisterBlock_1613_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1613_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1631:
@@ -15215,7 +15215,7 @@ Main_Subsong0_RegisterBlock_1631_Loop:
 	dc.b 127	; New LSB for software period.
 
 	dc.b 8	; Loop to index 4.
-	dc.w Main_Subsong0_RegisterBlock_1631_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1631_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1632:
@@ -15256,7 +15256,7 @@ Main_Subsong0_RegisterBlock_1632_Loop:
 	dc.b 0	; New MSB for software period, maybe with noise.
 
 	dc.b 8	; Loop to index 4.
-	dc.w Main_Subsong0_RegisterBlock_1632_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1632_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1633:
@@ -15296,7 +15296,7 @@ Main_Subsong0_RegisterBlock_1633_Loop:
 	dc.b 106	; New LSB for software period.
 
 	dc.b 8	; Loop to index 4.
-	dc.w Main_Subsong0_RegisterBlock_1633_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1633_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1652:
@@ -15337,7 +15337,7 @@ Main_Subsong0_RegisterBlock_1652_Loop:
 	dc.b 0	; New MSB for software period, maybe with noise.
 
 	dc.b 8	; Loop to index 4.
-	dc.w Main_Subsong0_RegisterBlock_1652_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1652_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1786:
@@ -15346,14 +15346,14 @@ Main_Subsong0_RegisterBlock_1786:
 	dc.b 0, 95	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1802:
 	dc.b 97	; Initial State: software only.
 	dc.b 0, 213	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1818-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1818-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1819:
 	dc.b 89	; Initial State: software only.
@@ -15408,35 +15408,35 @@ Main_Subsong0_RegisterBlock_1876:
 	dc.b 0, 75	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1904:
 	dc.b 81	; Initial State: software only.
 	dc.b 1, 45	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2046-Main_Subsong0-Main_Subsong0 + 8	; Optimization: goto common Block at index 3.
+	dc.w Main_Subsong0_RegisterBlock_2046-Main_Subsong0 + 8	; Optimization: goto common Block at index 3.
 
 Main_Subsong0_RegisterBlock_1905:
 	dc.b 89	; Initial State: software only.
 	dc.b 0, 253	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1911-Main_Subsong0-Main_Subsong0 + 6	; Optimization: goto common Block at index 2.
+	dc.w Main_Subsong0_RegisterBlock_1911-Main_Subsong0 + 6	; Optimization: goto common Block at index 2.
 
 Main_Subsong0_RegisterBlock_1906:
 	dc.b 97	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1910-Main_Subsong0-Main_Subsong0 + 9	; Optimization: goto common Block at index 3.
+	dc.w Main_Subsong0_RegisterBlock_1910-Main_Subsong0 + 9	; Optimization: goto common Block at index 3.
 
 Main_Subsong0_RegisterBlock_1907:
 	dc.b 105	; Initial State: software only.
 	dc.b 1, 45	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1909-Main_Subsong0-Main_Subsong0 + 8	; Optimization: goto common Block at index 3.
+	dc.w Main_Subsong0_RegisterBlock_1909-Main_Subsong0 + 8	; Optimization: goto common Block at index 3.
 
 Main_Subsong0_RegisterBlock_1913:
 	dc.b 73	; Initial State: software only.
@@ -15455,7 +15455,7 @@ Main_Subsong0_RegisterBlock_1913_Loop:
 	dc.b 0	; New MSB for software period, maybe with noise.
 
 	dc.b 8	; Loop to index 1.
-	dc.w Main_Subsong0_RegisterBlock_1913_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1913_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1918:
@@ -15463,7 +15463,7 @@ Main_Subsong0_RegisterBlock_1918:
 	dc.b 1, 45	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1947-Main_Subsong0-Main_Subsong0 + 4	; Optimization: goto common Block at index 2.
+	dc.w Main_Subsong0_RegisterBlock_1947-Main_Subsong0 + 4	; Optimization: goto common Block at index 2.
 
 Main_Subsong0_RegisterBlock_1919:
 	dc.b 97	; Initial State: software only.
@@ -15479,7 +15479,7 @@ Main_Subsong0_RegisterBlock_1919_Loop:
 	dc.b 123	; New LSB for software period.
 
 	dc.b 8	; Loop to index 1.
-	dc.w Main_Subsong0_RegisterBlock_1919_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1919_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1920:
@@ -15487,7 +15487,7 @@ Main_Subsong0_RegisterBlock_1920:
 	dc.b 1, 45	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1922-Main_Subsong0-Main_Subsong0 + 7	; Optimization: goto common Block at index 3.
+	dc.w Main_Subsong0_RegisterBlock_1922-Main_Subsong0 + 7	; Optimization: goto common Block at index 3.
 
 Main_Subsong0_RegisterBlock_1934:
 	dc.b 89	; Initial State: software only.
@@ -15504,7 +15504,7 @@ Main_Subsong0_RegisterBlock_1934_Loop:
 	dc.b 123	; New LSB for software period.
 
 	dc.b 8	; Loop to index 1.
-	dc.w Main_Subsong0_RegisterBlock_1934_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1934_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1935:
@@ -15512,7 +15512,7 @@ Main_Subsong0_RegisterBlock_1935:
 	dc.b 1, 45	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1939-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 2.
+	dc.w Main_Subsong0_RegisterBlock_1939-Main_Subsong0 + 5	; Optimization: goto common Block at index 2.
 
 Main_Subsong0_RegisterBlock_1941:
 	dc.b 81	; Initial State: software only.
@@ -15529,7 +15529,7 @@ Main_Subsong0_RegisterBlock_1941_Loop:
 	dc.b 45	; New LSB for software period.
 
 	dc.b 8	; Loop to index 1.
-	dc.w Main_Subsong0_RegisterBlock_1941_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1941_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1944:
@@ -15547,7 +15547,7 @@ Main_Subsong0_RegisterBlock_1944_Loop:
 	dc.b 12	; New LSB for software period.
 
 	dc.b 8	; Loop to index 1.
-	dc.w Main_Subsong0_RegisterBlock_1944_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1944_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1949:
@@ -15564,7 +15564,7 @@ Main_Subsong0_RegisterBlock_1949_Loop:
 	dc.b 45	; New LSB for software period.
 
 	dc.b 8	; Loop to index 1.
-	dc.w Main_Subsong0_RegisterBlock_1949_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1949_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1950:
@@ -15581,7 +15581,7 @@ Main_Subsong0_RegisterBlock_1950_Loop:
 	dc.b 33	; Non-initial State, software only.
 
 	dc.b 8	; Loop to index 1.
-	dc.w Main_Subsong0_RegisterBlock_1950_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1950_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1958:
@@ -15589,14 +15589,14 @@ Main_Subsong0_RegisterBlock_1958:
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1962-Main_Subsong0-Main_Subsong0 + 9	; Optimization: goto common Block at index 3.
+	dc.w Main_Subsong0_RegisterBlock_1962-Main_Subsong0 + 9	; Optimization: goto common Block at index 3.
 
 Main_Subsong0_RegisterBlock_1959:
 	dc.b 113	; Initial State: software only.
 	dc.b 1, 12	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1961-Main_Subsong0-Main_Subsong0 + 8	; Optimization: goto common Block at index 3.
+	dc.w Main_Subsong0_RegisterBlock_1961-Main_Subsong0 + 8	; Optimization: goto common Block at index 3.
 
 Main_Subsong0_RegisterBlock_2036:
 	dc.b 65	; Initial State: software only.
@@ -15615,7 +15615,7 @@ Main_Subsong0_RegisterBlock_2036_Loop:
 	dc.b 0	; New MSB for software period, maybe with noise.
 
 	dc.b 8	; Loop to index 1.
-	dc.w Main_Subsong0_RegisterBlock_2036_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2036_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_2037:
@@ -15631,7 +15631,7 @@ Main_Subsong0_RegisterBlock_2037_Loop:
 	dc.b 0	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1913-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1913-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_2048:
 	dc.b 73	; Initial State: software only.
@@ -15642,28 +15642,28 @@ Main_Subsong0_RegisterBlock_2048_Loop:
 	dc.b 123	; New LSB for software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_887-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_887-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_2050:
 	dc.b 89	; Initial State: software only.
 	dc.b 1, 250	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2056-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2056-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_2051:
 	dc.b 97	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2055-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 2.
+	dc.w Main_Subsong0_RegisterBlock_2055-Main_Subsong0 + 5	; Optimization: goto common Block at index 2.
 
 Main_Subsong0_RegisterBlock_2052:
 	dc.b 105	; Initial State: software only.
 	dc.b 1, 45	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2054-Main_Subsong0-Main_Subsong0 + 7	; Optimization: goto common Block at index 3.
+	dc.w Main_Subsong0_RegisterBlock_2054-Main_Subsong0 + 7	; Optimization: goto common Block at index 3.
 
 Main_Subsong0_RegisterBlock_2057:
 	dc.b 81	; Initial State: software only.
@@ -15680,7 +15680,7 @@ Main_Subsong0_RegisterBlock_2057_Loop:
 	dc.b 250	; New LSB for software period.
 
 	dc.b 8	; Loop to index 1.
-	dc.w Main_Subsong0_RegisterBlock_2057_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2057_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_2089:
@@ -15689,7 +15689,7 @@ Main_Subsong0_RegisterBlock_2089:
 	dc.b 0, 50	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_2197:
 	dc.b 113	; Initial State: software only.
@@ -15712,7 +15712,7 @@ Main_Subsong0_RegisterBlock_2197:
 	dc.b 204	; New LSB for software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_2449:
 	dc.b 163	; Initial State : software and hardware.
@@ -15720,7 +15720,7 @@ Main_Subsong0_RegisterBlock_2449:
 	dc.b 0, 12	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2455-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_2501:
 	dc.b 121	; Initial State: software only.
@@ -15739,13 +15739,13 @@ Main_Subsong0_RegisterBlock_2501:
 	dc.b 5	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0-Main_Subsong0 + 11	; Optimization: goto common Block at index 5.
+	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0 + 11	; Optimization: goto common Block at index 5.
 
 Main_Subsong0_RegisterBlock_131:
 	dc.b 0	; Initial State: no software, no hardware.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_895:
 	dc.b 9	; Initial State: software only.
@@ -15768,7 +15768,7 @@ Main_Subsong0_RegisterBlock_895_Loop:
 	dc.b 250	; New LSB for software period.
 
 	dc.b 8	; Loop to index 3.
-	dc.w Main_Subsong0_RegisterBlock_895_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_895_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1178:
@@ -15794,7 +15794,7 @@ Main_Subsong0_RegisterBlock_1178:
 	dc.b 123	; New LSB for software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_0:
 	dc.b 125	; Initial State: software only.
@@ -16075,7 +16075,7 @@ Main_Subsong0_RegisterBlock_127:
 	dc.b 0	; Initial State: no software, no hardware.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2121-Main_Subsong0 + 1	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_134:
 	dc.b 131	; Initial State : software and hardware.
@@ -16106,7 +16106,7 @@ Main_Subsong0_RegisterBlock_359:
 	dc.b 0, 84	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_360:
 	dc.b 131	; Initial State : software and hardware.
@@ -16114,7 +16114,7 @@ Main_Subsong0_RegisterBlock_360:
 	dc.b 0, 127	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_361:
 	dc.b 131	; Initial State : software and hardware.
@@ -16122,7 +16122,7 @@ Main_Subsong0_RegisterBlock_361:
 	dc.b 0, 50	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_362:
 	dc.b 131	; Initial State : software and hardware.
@@ -16130,14 +16130,14 @@ Main_Subsong0_RegisterBlock_362:
 	dc.b 0, 47	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_471:
 	dc.b 121	; Initial State: software only.
 	dc.b 15, 210	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_823:
 	dc.b 81	; Initial State: software only.
@@ -16422,14 +16422,14 @@ Main_Subsong0_RegisterBlock_1100:
 	dc.b 5	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1927-Main_Subsong0-Main_Subsong0 + 109	; Optimization: goto common Block at index 59.
+	dc.w Main_Subsong0_RegisterBlock_1927-Main_Subsong0 + 109	; Optimization: goto common Block at index 59.
 
 Main_Subsong0_RegisterBlock_1101:
 	dc.b 65	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1135-Main_Subsong0-Main_Subsong0 + 7	; Optimization: goto common Block at index 3.
+	dc.w Main_Subsong0_RegisterBlock_1135-Main_Subsong0 + 7	; Optimization: goto common Block at index 3.
 
 Main_Subsong0_RegisterBlock_1103:
 	dc.b 65	; Initial State: software only.
@@ -16468,7 +16468,7 @@ Main_Subsong0_RegisterBlock_1105:
 	dc.b 21	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1100-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1100-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1109:
 	dc.b 65	; Initial State: software only.
@@ -16477,21 +16477,21 @@ Main_Subsong0_RegisterBlock_1109:
 	dc.b 29	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1099-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1099-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1111:
 	dc.b 73	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1133-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1133-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1113:
 	dc.b 81	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1138-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1138-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1114:
 	dc.b 73	; Initial State: software only.
@@ -16500,7 +16500,7 @@ Main_Subsong0_RegisterBlock_1114:
 	dc.b 33	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1109-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1109-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1115:
 	dc.b 81	; Initial State: software only.
@@ -16509,28 +16509,28 @@ Main_Subsong0_RegisterBlock_1115:
 	dc.b 37	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_823-Main_Subsong0-Main_Subsong0 + 6	; Optimization: goto common Block at index 2.
+	dc.w Main_Subsong0_RegisterBlock_823-Main_Subsong0 + 6	; Optimization: goto common Block at index 2.
 
 Main_Subsong0_RegisterBlock_1117:
 	dc.b 81	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1139-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1139-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1119:
 	dc.b 89	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1140-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1140-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1127:
 	dc.b 89	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1141-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1141-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1143:
 	dc.b 97	; Initial State: software only.
@@ -16543,7 +16543,7 @@ Main_Subsong0_RegisterBlock_1143:
 	dc.b 123	; New LSB for software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1139-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1139-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1145:
 	dc.b 89	; Initial State: software only.
@@ -16552,7 +16552,7 @@ Main_Subsong0_RegisterBlock_1145:
 	dc.b 41	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1115-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1147:
 	dc.b 97	; Initial State: software only.
@@ -16565,7 +16565,7 @@ Main_Subsong0_RegisterBlock_1147:
 	dc.b 123	; New LSB for software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1135-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1135-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1149:
 	dc.b 89	; Initial State: software only.
@@ -16583,7 +16583,7 @@ Main_Subsong0_RegisterBlock_1149:
 	dc.b 1	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1103-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1103-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1150:
 	dc.b 97	; Initial State: software only.
@@ -16592,7 +16592,7 @@ Main_Subsong0_RegisterBlock_1150:
 	dc.b 45	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1145-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1154:
 	dc.b 97	; Initial State: software only.
@@ -16610,7 +16610,7 @@ Main_Subsong0_RegisterBlock_1154:
 	dc.b 1	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1134-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1134-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1157:
 	dc.b 105	; Initial State: software only.
@@ -16629,7 +16629,7 @@ Main_Subsong0_RegisterBlock_1157:
 	dc.b 123	; New LSB for software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1133-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1133-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1161:
 	dc.b 113	; Initial State: software only.
@@ -16640,7 +16640,7 @@ Main_Subsong0_RegisterBlock_1161:
 	dc.b 49	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1163:
 	dc.b 113	; Initial State: software only.
@@ -16653,7 +16653,7 @@ Main_Subsong0_RegisterBlock_1163:
 	dc.b 123	; New LSB for software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1143-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1143-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1165:
 	dc.b 113	; Initial State: software only.
@@ -16671,7 +16671,7 @@ Main_Subsong0_RegisterBlock_1165:
 	dc.b 1	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1140-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1140-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1166:
 	dc.b 105	; Initial State: software only.
@@ -16680,7 +16680,7 @@ Main_Subsong0_RegisterBlock_1166:
 	dc.b 49	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1150-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1170:
 	dc.b 121	; Initial State: software only.
@@ -16723,7 +16723,7 @@ Main_Subsong0_RegisterBlock_1181:
 	dc.b 123	; New LSB for software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1133-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1133-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1199:
 	dc.b 97	; Initial State: software only.
@@ -16744,7 +16744,7 @@ Main_Subsong0_RegisterBlock_1199:
 	dc.b 45	; New LSB for software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_119-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_119-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1211:
 	dc.b 121	; Initial State: software only.
@@ -16753,7 +16753,7 @@ Main_Subsong0_RegisterBlock_1211:
 	dc.b 57	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_54-Main_Subsong0-Main_Subsong0 + 6	; Optimization: goto common Block at index 2.
+	dc.w Main_Subsong0_RegisterBlock_54-Main_Subsong0 + 6	; Optimization: goto common Block at index 2.
 
 Main_Subsong0_RegisterBlock_1213:
 	dc.b 113	; Initial State: software only.
@@ -16766,7 +16766,7 @@ Main_Subsong0_RegisterBlock_1213:
 	dc.b 123	; New LSB for software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1147-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1147-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1215:
 	dc.b 113	; Initial State: software only.
@@ -16784,7 +16784,7 @@ Main_Subsong0_RegisterBlock_1215:
 	dc.b 1	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1149-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1149-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1220:
 	dc.b 121	; Initial State: software only.
@@ -16802,7 +16802,7 @@ Main_Subsong0_RegisterBlock_1220:
 	dc.b 1	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1154-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1154-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1229:
 	dc.b 121	; Initial State: software only.
@@ -16821,7 +16821,7 @@ Main_Subsong0_RegisterBlock_1229:
 	dc.b 123	; New LSB for software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1141-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1141-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1322:
 	dc.b 97	; Initial State: software only.
@@ -16858,7 +16858,7 @@ Main_Subsong0_RegisterBlock_1323:
 	dc.b 41	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1714-Main_Subsong0-Main_Subsong0 + 28	; Optimization: goto common Block at index 17.
+	dc.w Main_Subsong0_RegisterBlock_1714-Main_Subsong0 + 28	; Optimization: goto common Block at index 17.
 
 Main_Subsong0_RegisterBlock_1324:
 	dc.b 81	; Initial State: software only.
@@ -16875,7 +16875,7 @@ Main_Subsong0_RegisterBlock_1324:
 	dc.b 41	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1723-Main_Subsong0-Main_Subsong0 + 33	; Optimization: goto common Block at index 17.
+	dc.w Main_Subsong0_RegisterBlock_1723-Main_Subsong0 + 33	; Optimization: goto common Block at index 17.
 
 Main_Subsong0_RegisterBlock_1325:
 	dc.b 97	; Initial State: software only.
@@ -17036,7 +17036,7 @@ Main_Subsong0_RegisterBlock_1356:
 	dc.b 190	; New LSB for software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1335-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1335-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1361:
 	dc.b 81	; Initial State: software only.
@@ -17094,7 +17094,7 @@ Main_Subsong0_RegisterBlock_1370:
 	dc.b 213	; New LSB for software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1334-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1334-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1373:
 	dc.b 97	; Initial State: software only.
@@ -17108,7 +17108,7 @@ Main_Subsong0_RegisterBlock_1373:
 	dc.b 253	; New LSB for software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1331-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1331-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1376:
 	dc.b 97	; Initial State: software only.
@@ -17217,7 +17217,7 @@ Main_Subsong0_RegisterBlock_1383:
 	dc.b 41	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1801-Main_Subsong0-Main_Subsong0 + 33	; Optimization: goto common Block at index 17.
+	dc.w Main_Subsong0_RegisterBlock_1801-Main_Subsong0 + 33	; Optimization: goto common Block at index 17.
 
 Main_Subsong0_RegisterBlock_1384:
 	dc.b 81	; Initial State: software only.
@@ -17234,7 +17234,7 @@ Main_Subsong0_RegisterBlock_1384:
 	dc.b 41	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1714-Main_Subsong0-Main_Subsong0 + 24	; Optimization: goto common Block at index 15.
+	dc.w Main_Subsong0_RegisterBlock_1714-Main_Subsong0 + 24	; Optimization: goto common Block at index 15.
 
 Main_Subsong0_RegisterBlock_1385:
 	dc.b 81	; Initial State: software only.
@@ -18120,7 +18120,7 @@ Main_Subsong0_RegisterBlock_1509:
 	dc.b 0, 159	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1522-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1522-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1510:
 	dc.b 105	; Initial State: software only.
@@ -18141,7 +18141,7 @@ Main_Subsong0_RegisterBlock_1510:
 	dc.b 1	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1799-Main_Subsong0-Main_Subsong0 + 8	; Optimization: goto common Block at index 4.
+	dc.w Main_Subsong0_RegisterBlock_1799-Main_Subsong0 + 8	; Optimization: goto common Block at index 4.
 
 Main_Subsong0_RegisterBlock_1511:
 	dc.b 97	; Initial State: software only.
@@ -18201,7 +18201,7 @@ Main_Subsong0_RegisterBlock_1513:
 	dc.b 0, 253	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1613-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1613-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1518:
 	dc.b 97	; Initial State: software only.
@@ -18268,7 +18268,7 @@ Main_Subsong0_RegisterBlock_1523:
 	dc.b 0, 159	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1522-Main_Subsong0-Main_Subsong0 + 17	; Optimization: goto common Block at index 7.
+	dc.w Main_Subsong0_RegisterBlock_1522-Main_Subsong0 + 17	; Optimization: goto common Block at index 7.
 
 Main_Subsong0_RegisterBlock_1524:
 	dc.b 89	; Initial State: software only.
@@ -18451,14 +18451,14 @@ Main_Subsong0_RegisterBlock_1554:
 	dc.b 5, 237	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1558-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1582:
 	dc.b 121	; Initial State: software only.
 	dc.b 6, 167	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1584-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1584-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1595:
 	dc.b 121	; Initial State: software only.
@@ -18477,7 +18477,7 @@ Main_Subsong0_RegisterBlock_1595:
 	dc.b 6	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0-Main_Subsong0 + 11	; Optimization: goto common Block at index 5.
+	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0 + 11	; Optimization: goto common Block at index 5.
 
 Main_Subsong0_RegisterBlock_1603:
 	dc.b 121	; Initial State: software only.
@@ -18496,7 +18496,7 @@ Main_Subsong0_RegisterBlock_1603:
 	dc.b 7	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0-Main_Subsong0 + 11	; Optimization: goto common Block at index 5.
+	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0 + 11	; Optimization: goto common Block at index 5.
 
 Main_Subsong0_RegisterBlock_1612:
 	dc.b 97	; Initial State: software only.
@@ -18584,7 +18584,7 @@ Main_Subsong0_RegisterBlock_1629:
 	dc.b 0, 213	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1633-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1633-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1630:
 	dc.b 97	; Initial State: software only.
@@ -18667,7 +18667,7 @@ Main_Subsong0_RegisterBlock_1639:
 	dc.b 1	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1724-Main_Subsong0-Main_Subsong0 + 8	; Optimization: goto common Block at index 4.
+	dc.w Main_Subsong0_RegisterBlock_1724-Main_Subsong0 + 8	; Optimization: goto common Block at index 4.
 
 Main_Subsong0_RegisterBlock_1640:
 	dc.b 105	; Initial State: software only.
@@ -18684,7 +18684,7 @@ Main_Subsong0_RegisterBlock_1640:
 	dc.b 0	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1524-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 2.
+	dc.w Main_Subsong0_RegisterBlock_1524-Main_Subsong0 + 5	; Optimization: goto common Block at index 2.
 
 Main_Subsong0_RegisterBlock_1646:
 	dc.b 121	; Initial State: software only.
@@ -18836,7 +18836,7 @@ Main_Subsong0_RegisterBlock_1674:
 	dc.b 4, 252	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1676-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1676-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1696:
 	dc.b 121	; Initial State: software only.
@@ -18855,7 +18855,7 @@ Main_Subsong0_RegisterBlock_1696:
 	dc.b 8	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0-Main_Subsong0 + 11	; Optimization: goto common Block at index 5.
+	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0 + 11	; Optimization: goto common Block at index 5.
 
 Main_Subsong0_RegisterBlock_1728:
 	dc.b 131	; Initial State : software and hardware.
@@ -18863,7 +18863,7 @@ Main_Subsong0_RegisterBlock_1728:
 	dc.b 0, 95	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1732:
 	dc.b 131	; Initial State : software and hardware.
@@ -18871,7 +18871,7 @@ Main_Subsong0_RegisterBlock_1732:
 	dc.b 0, 190	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1733:
 	dc.b 92	; Initial State: no software, no hardware.
@@ -18905,7 +18905,7 @@ Main_Subsong0_RegisterBlock_1734:
 	dc.b 0, 190	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1736:
 	dc.b 131	; Initial State : software and hardware.
@@ -18913,7 +18913,7 @@ Main_Subsong0_RegisterBlock_1736:
 	dc.b 0, 48	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1737:
 	dc.b 84	; Initial State: no software, no hardware.
@@ -18975,7 +18975,7 @@ Main_Subsong0_RegisterBlock_1775:
 	dc.b 1	; Noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1763-Main_Subsong0-Main_Subsong0 + 2	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1763-Main_Subsong0 + 2	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1787:
 	dc.b 131	; Initial State : software and hardware.
@@ -19013,7 +19013,7 @@ Main_Subsong0_RegisterBlock_1863:
 	dc.b 1, 222	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2197-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2197-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1894:
 	dc.b 105	; Initial State: software only.
@@ -19032,7 +19032,7 @@ Main_Subsong0_RegisterBlock_1894:
 	dc.b 0	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1893-Main_Subsong0-Main_Subsong0 + 21	; Optimization: goto common Block at index 11.
+	dc.w Main_Subsong0_RegisterBlock_1893-Main_Subsong0 + 21	; Optimization: goto common Block at index 11.
 
 Main_Subsong0_RegisterBlock_1899:
 	dc.b 41	; Initial State: software only.
@@ -19054,7 +19054,7 @@ Main_Subsong0_RegisterBlock_1899_Loop:
 	dc.b 45	; New LSB for software period.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_1899_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1899_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1900:
@@ -19078,7 +19078,7 @@ Main_Subsong0_RegisterBlock_1900_Loop:
 	dc.b 1	; New MSB for software period, maybe with noise.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_1900_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1900_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1901:
@@ -19102,7 +19102,7 @@ Main_Subsong0_RegisterBlock_1901_Loop:
 	dc.b 0	; New MSB for software period, maybe with noise.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_1901_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1901_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1902:
@@ -19110,14 +19110,14 @@ Main_Subsong0_RegisterBlock_1902:
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2036-Main_Subsong0-Main_Subsong0 + 6	; Optimization: goto common Block at index 2.
+	dc.w Main_Subsong0_RegisterBlock_2036-Main_Subsong0 + 6	; Optimization: goto common Block at index 2.
 
 Main_Subsong0_RegisterBlock_1903:
 	dc.b 73	; Initial State: software only.
 	dc.b 0, 253	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1913-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1913-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1914:
 	dc.b 57	; Initial State: software only.
@@ -19136,7 +19136,7 @@ Main_Subsong0_RegisterBlock_1914_Loop:
 	dc.b 45	; New LSB for software period.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_1914_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1914_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1915:
@@ -19144,28 +19144,28 @@ Main_Subsong0_RegisterBlock_1915:
 	dc.b 1, 45	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1950-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1950-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1916:
 	dc.b 73	; Initial State: software only.
 	dc.b 1, 45	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1949-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1949-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1917:
 	dc.b 81	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1948-Main_Subsong0-Main_Subsong0 + 6	; Optimization: goto common Block at index 3.
+	dc.w Main_Subsong0_RegisterBlock_1948-Main_Subsong0 + 6	; Optimization: goto common Block at index 3.
 
 Main_Subsong0_RegisterBlock_1923:
 	dc.b 97	; Initial State: software only.
 	dc.b 1, 45	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1919-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 2.
+	dc.w Main_Subsong0_RegisterBlock_1919-Main_Subsong0 + 5	; Optimization: goto common Block at index 2.
 
 Main_Subsong0_RegisterBlock_1928:
 	dc.b 41	; Initial State: software only.
@@ -19185,7 +19185,7 @@ Main_Subsong0_RegisterBlock_1928_Loop:
 	dc.b 45	; New LSB for software period.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_1928_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1928_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1929:
@@ -19206,7 +19206,7 @@ Main_Subsong0_RegisterBlock_1929_Loop:
 	dc.b 123	; New LSB for software period.
 
 	dc.b 8	; Loop to index 2.
-	dc.w Main_Subsong0_RegisterBlock_1929_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_1929_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_1930:
@@ -19214,77 +19214,77 @@ Main_Subsong0_RegisterBlock_1930:
 	dc.b 1, 45	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1944-Main_Subsong0-Main_Subsong0 + 7	; Optimization: goto common Block at index 3.
+	dc.w Main_Subsong0_RegisterBlock_1944-Main_Subsong0 + 7	; Optimization: goto common Block at index 3.
 
 Main_Subsong0_RegisterBlock_1931:
 	dc.b 65	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1943-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 2.
+	dc.w Main_Subsong0_RegisterBlock_1943-Main_Subsong0 + 5	; Optimization: goto common Block at index 2.
 
 Main_Subsong0_RegisterBlock_1932:
 	dc.b 73	; Initial State: software only.
 	dc.b 1, 12	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1942-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1942-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1933:
 	dc.b 81	; Initial State: software only.
 	dc.b 1, 45	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1941-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1941-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1936:
 	dc.b 105	; Initial State: software only.
 	dc.b 1, 12	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1938-Main_Subsong0-Main_Subsong0 + 7	; Optimization: goto common Block at index 3.
+	dc.w Main_Subsong0_RegisterBlock_1938-Main_Subsong0 + 7	; Optimization: goto common Block at index 3.
 
 Main_Subsong0_RegisterBlock_1952:
 	dc.b 57	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1968-Main_Subsong0-Main_Subsong0 + 6	; Optimization: goto common Block at index 2.
+	dc.w Main_Subsong0_RegisterBlock_1968-Main_Subsong0 + 6	; Optimization: goto common Block at index 2.
 
 Main_Subsong0_RegisterBlock_1953:
 	dc.b 65	; Initial State: software only.
 	dc.b 0, 225	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1967-Main_Subsong0-Main_Subsong0 + 8	; Optimization: goto common Block at index 3.
+	dc.w Main_Subsong0_RegisterBlock_1967-Main_Subsong0 + 8	; Optimization: goto common Block at index 3.
 
 Main_Subsong0_RegisterBlock_1954:
 	dc.b 73	; Initial State: software only.
 	dc.b 1, 12	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1966-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1966-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1955:
 	dc.b 81	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1965-Main_Subsong0-Main_Subsong0 + 6	; Optimization: goto common Block at index 2.
+	dc.w Main_Subsong0_RegisterBlock_1965-Main_Subsong0 + 6	; Optimization: goto common Block at index 2.
 
 Main_Subsong0_RegisterBlock_1956:
 	dc.b 89	; Initial State: software only.
 	dc.b 0, 225	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1964-Main_Subsong0-Main_Subsong0 + 8	; Optimization: goto common Block at index 3.
+	dc.w Main_Subsong0_RegisterBlock_1964-Main_Subsong0 + 8	; Optimization: goto common Block at index 3.
 
 Main_Subsong0_RegisterBlock_1957:
 	dc.b 97	; Initial State: software only.
 	dc.b 1, 12	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1963-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1963-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_2028:
 	dc.b 100	; Initial State: no software, no hardware.
@@ -19294,7 +19294,7 @@ Main_Subsong0_RegisterBlock_2028:
 	dc.b 1	; Noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0 + 2	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0 + 2	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_2035:
 	dc.b 57	; Initial State: software only.
@@ -19304,14 +19304,14 @@ Main_Subsong0_RegisterBlock_2035:
 	dc.b 45	; New LSB for software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1901-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1901-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_2049:
 	dc.b 81	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2057-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 2.
+	dc.w Main_Subsong0_RegisterBlock_2057-Main_Subsong0 + 5	; Optimization: goto common Block at index 2.
 
 Main_Subsong0_RegisterBlock_2060:
 	dc.b 89	; Initial State: software only.
@@ -19321,7 +19321,7 @@ Main_Subsong0_RegisterBlock_2060_Loop:
 	dc.b 45	; Non-initial State, software only.
 
 	dc.b 8	; Loop to index 1.
-	dc.w Main_Subsong0_RegisterBlock_2060_Loop-Main_Subsong0-Main_Subsong0
+	dc.w Main_Subsong0_RegisterBlock_2060_Loop-Main_Subsong0
 
 
 Main_Subsong0_RegisterBlock_2124:
@@ -19392,7 +19392,7 @@ Main_Subsong0_RegisterBlock_2209:
 	dc.b 1	; Noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0-Main_Subsong0 + 2	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0 + 2	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_2224:
 	dc.b 101	; Initial State: software only.
@@ -19469,7 +19469,7 @@ Main_Subsong0_RegisterBlock_2318:
 	dc.b 53	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0-Main_Subsong0 + 12	; Optimization: goto common Block at index 5.
+	dc.w Main_Subsong0_RegisterBlock_33-Main_Subsong0 + 12	; Optimization: goto common Block at index 5.
 
 Main_Subsong0_RegisterBlock_2319:
 	dc.b 121	; Initial State: software only.
@@ -19515,7 +19515,7 @@ Main_Subsong0_RegisterBlock_2321:
 	dc.b 53	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0-Main_Subsong0 + 12	; Optimization: goto common Block at index 5.
+	dc.w Main_Subsong0_RegisterBlock_684-Main_Subsong0 + 12	; Optimization: goto common Block at index 5.
 
 Main_Subsong0_RegisterBlock_2348:
 	dc.b 121	; Initial State: software only.
@@ -19532,7 +19532,7 @@ Main_Subsong0_RegisterBlock_2348:
 	dc.b 53	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_767-Main_Subsong0-Main_Subsong0 + 12	; Optimization: goto common Block at index 5.
+	dc.w Main_Subsong0_RegisterBlock_767-Main_Subsong0 + 12	; Optimization: goto common Block at index 5.
 
 Main_Subsong0_RegisterBlock_2349:
 	dc.b 121	; Initial State: software only.
@@ -19552,7 +19552,7 @@ Main_Subsong0_RegisterBlock_2349:
 	dc.b 0	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_761-Main_Subsong0-Main_Subsong0 + 12	; Optimization: goto common Block at index 6.
+	dc.w Main_Subsong0_RegisterBlock_761-Main_Subsong0 + 12	; Optimization: goto common Block at index 6.
 
 Main_Subsong0_RegisterBlock_2369:
 	dc.b 121	; Initial State: software only.
@@ -19630,7 +19630,7 @@ Main_Subsong0_RegisterBlock_2379:
 	dc.b 0	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_728-Main_Subsong0-Main_Subsong0 + 12	; Optimization: goto common Block at index 6.
+	dc.w Main_Subsong0_RegisterBlock_728-Main_Subsong0 + 12	; Optimization: goto common Block at index 6.
 
 Main_Subsong0_RegisterBlock_2380:
 	dc.b 121	; Initial State: software only.
@@ -19650,7 +19650,7 @@ Main_Subsong0_RegisterBlock_2380:
 	dc.b 0	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1633-Main_Subsong0-Main_Subsong0 + 10	; Optimization: goto common Block at index 4.
+	dc.w Main_Subsong0_RegisterBlock_1633-Main_Subsong0 + 10	; Optimization: goto common Block at index 4.
 
 Main_Subsong0_RegisterBlock_2384:
 	dc.b 113	; Initial State: software only.
@@ -19699,7 +19699,7 @@ Main_Subsong0_RegisterBlock_2386:
 	dc.b 0	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1524-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 2.
+	dc.w Main_Subsong0_RegisterBlock_1524-Main_Subsong0 + 5	; Optimization: goto common Block at index 2.
 
 Main_Subsong0_RegisterBlock_2413:
 	dc.b 113	; Initial State: software only.
@@ -19745,7 +19745,7 @@ Main_Subsong0_RegisterBlock_2414:
 	dc.b 127	; New LSB for software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1541-Main_Subsong0-Main_Subsong0 + 8	; Optimization: goto common Block at index 4.
+	dc.w Main_Subsong0_RegisterBlock_1541-Main_Subsong0 + 8	; Optimization: goto common Block at index 4.
 
 Main_Subsong0_RegisterBlock_2451:
 	dc.b 163	; Initial State : software and hardware.
@@ -19792,7 +19792,7 @@ Main_Subsong0_RegisterBlock_2494:
 	dc.b 11	; New MSB for software period, maybe with noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0-Main_Subsong0 + 11	; Optimization: goto common Block at index 5.
+	dc.w Main_Subsong0_RegisterBlock_1-Main_Subsong0 + 11	; Optimization: goto common Block at index 5.
 
 Main_Subsong0_RegisterBlock_22:
 	dc.b 117	; Initial State: software only.
@@ -19800,7 +19800,7 @@ Main_Subsong0_RegisterBlock_22:
 	dc.b 3, 188	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0-Main_Subsong0 + 4	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2124-Main_Subsong0 + 4	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_24:
 	dc.b 109	; Initial State: software only.
@@ -19808,7 +19808,7 @@ Main_Subsong0_RegisterBlock_24:
 	dc.b 3, 188	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2204-Main_Subsong0-Main_Subsong0 + 4	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2204-Main_Subsong0 + 4	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_26:
 	dc.b 101	; Initial State: software only.
@@ -19816,7 +19816,7 @@ Main_Subsong0_RegisterBlock_26:
 	dc.b 3, 188	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2224-Main_Subsong0-Main_Subsong0 + 4	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2224-Main_Subsong0 + 4	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_55:
 	dc.b 113	; Initial State: software only.
@@ -19863,14 +19863,14 @@ Main_Subsong0_RegisterBlock_60:
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_61:
 	dc.b 121	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1220-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_64:
 	dc.b 105	; Initial State: software only.
@@ -19919,49 +19919,49 @@ Main_Subsong0_RegisterBlock_82:
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1154-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1154-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_83:
 	dc.b 89	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1149-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1149-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_84:
 	dc.b 81	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1138-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1138-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_90:
 	dc.b 121	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1229-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1229-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_93:
 	dc.b 105	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1229-Main_Subsong0-Main_Subsong0 + 7	; Optimization: goto common Block at index 3.
+	dc.w Main_Subsong0_RegisterBlock_1229-Main_Subsong0 + 7	; Optimization: goto common Block at index 3.
 
 Main_Subsong0_RegisterBlock_94:
 	dc.b 121	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_97:
 	dc.b 89	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1140-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1140-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_107:
 	dc.b 105	; Initial State: software only.
@@ -19984,7 +19984,7 @@ Main_Subsong0_RegisterBlock_117:
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0-Main_Subsong0 + 11	; Optimization: goto common Block at index 4.
+	dc.w Main_Subsong0_RegisterBlock_1170-Main_Subsong0 + 11	; Optimization: goto common Block at index 4.
 
 Main_Subsong0_RegisterBlock_121:
 	dc.b 131	; Initial State : software and hardware.
@@ -19992,7 +19992,7 @@ Main_Subsong0_RegisterBlock_121:
 	dc.b 0, 24	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_128:
 	dc.b 131	; Initial State : software and hardware.
@@ -20000,7 +20000,7 @@ Main_Subsong0_RegisterBlock_128:
 	dc.b 0, 12	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_132:
 	dc.b 131	; Initial State : software and hardware.
@@ -20008,7 +20008,7 @@ Main_Subsong0_RegisterBlock_132:
 	dc.b 0, 47	; Hardware period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1319-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_164:
 	dc.b 125	; Initial State: software only.
@@ -20016,14 +20016,14 @@ Main_Subsong0_RegisterBlock_164:
 	dc.b 7, 119	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0-Main_Subsong0 + 4	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_178-Main_Subsong0 + 4	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_170:
 	dc.b 121	; Initial State: software only.
 	dc.b 1, 222	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_172-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_176:
 	dc.b 121	; Initial State: software only.
@@ -20166,7 +20166,7 @@ Main_Subsong0_RegisterBlock_191:
 	dc.b 11, 218	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_195:
 	dc.b 121	; Initial State: software only.
@@ -20461,7 +20461,7 @@ Main_Subsong0_RegisterBlock_229:
 	dc.b 12, 142	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_234:
 	dc.b 121	; Initial State: software only.
@@ -21258,7 +21258,7 @@ Main_Subsong0_RegisterBlock_458:
 	dc.b 6, 71	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1247-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_469:
 	dc.b 121	; Initial State: software only.
@@ -21803,56 +21803,56 @@ Main_Subsong0_RegisterBlock_826:
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1135-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1135-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_829:
 	dc.b 65	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1135-Main_Subsong0-Main_Subsong0 + 7	; Optimization: goto common Block at index 3.
+	dc.w Main_Subsong0_RegisterBlock_1135-Main_Subsong0 + 7	; Optimization: goto common Block at index 3.
 
 Main_Subsong0_RegisterBlock_833:
 	dc.b 73	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1134-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1134-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_836:
 	dc.b 89	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0-Main_Subsong0 + 7	; Optimization: goto common Block at index 3.
+	dc.w Main_Subsong0_RegisterBlock_1157-Main_Subsong0 + 7	; Optimization: goto common Block at index 3.
 
 Main_Subsong0_RegisterBlock_846:
 	dc.b 97	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1147-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1147-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_861:
 	dc.b 97	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1143-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1143-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_868:
 	dc.b 113	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1163-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1163-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_882:
 	dc.b 113	; Initial State: software only.
 	dc.b 1, 123	; Software period.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1165-Main_Subsong0-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1165-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_902:
 	dc.b 131	; Initial State : software and hardware.
@@ -22309,28 +22309,28 @@ Main_Subsong0_RegisterBlock_979:
 	dc.b 1	; Noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0-Main_Subsong0 + 2	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2209-Main_Subsong0 + 2	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_980:
 	dc.b 100	; Initial State: no software, no hardware.
 	dc.b 1	; Noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0-Main_Subsong0 + 2	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_2028-Main_Subsong0 + 2	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_981:
 	dc.b 92	; Initial State: no software, no hardware.
 	dc.b 1	; Noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0 + 2	; Optimization: goto common Block at index 1.
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0 + 2	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_987:
 	dc.b 84	; Initial State: no software, no hardware.
 	dc.b 1	; Noise.
 
 	dc.b 8
-	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0-Main_Subsong0 + 4	; Optimization: goto common Block at index 2.
+	dc.w Main_Subsong0_RegisterBlock_1733-Main_Subsong0 + 4	; Optimization: goto common Block at index 2.
 
 Main_Subsong0_RegisterBlock_1250:
 	dc.b 131	; Initial State : software and hardware.
