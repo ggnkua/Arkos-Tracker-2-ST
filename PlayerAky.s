@@ -747,20 +747,12 @@ PLY_AKYst_RRB_IS_HO_AfterNoise:
 ;        ld (PLY_AKYst_PsgRegister13),a
         move.b d1,PLY_AKYst_PsgRegister13
 
-;Nonononononononono
-;Nonononononononono
-;Nonononononononono
-;Nonononononononono
-;Nonononononononono
-;patched like software period
         ;Copies the hardware period.
 ;        ld de,PLY_AKYst_PsgRegister11
 ;        ldi
 ;        ldi
-*        move.b (a1),PLY_AKYst_PsgRegister11
-*        move.b 1(a1),PLY_AKYst_PsgRegister11+1
-        move.b 1(a1),PLY_AKYst_PsgRegister11
-        move.b (a1),PLY_AKYst_PsgRegister11+1
+        move.b (a1),PLY_AKYst_PsgRegister11
+        move.b 1(a1),PLY_AKYst_PsgRegister11+1
         addq.w #2,a1
         addq.w #2,d2
         subq.w #2,d3
@@ -852,21 +844,15 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
         exg d2,d6
         exg a1,a2
 
-;Nonononononononono
-;Nonononononononono
-;Nonononononononono
-;Nonononononononono
-;Nonononononononono
 ;The exporter here exports the period values as hi/lo instead of lo/hi
 ;even they get exported as individual dc.b staements.
 ;That's not how big endian works!
 ;So for now I'll read the bytes in reverse order and compensate using addq.w #2 below
         ;Reads the software period.
 ;        ld a,(hl)
-*        move.b (a1),d1
-        move.b 1(a1),d1
+        move.b (a1),d1
 ;        inc hl
-*        addq.w #1,a1
+        addq.w #1,a1
 ;        exx
         exg d3,d4
         exg d2,d6
@@ -897,8 +883,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
 ;        ld a,(hl)
         move.b (a1),d1
 ;        inc hl
-*        addq.w #1,a1
-        addq.w #2,a1
+        addq.w #1,a1
 ;        exx
         exg d3,d4
         exg d2,d6
@@ -975,18 +960,11 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
 ;        ld (PLY_AKYst_PsgRegister13),a
         move.b d1,PLY_AKYst_PsgRegister13
 
-;Nonononononononono
-;Nonononononononono
-;Nonononononononono
-;Nonononononononono
-;Nonononononononono
-;patched like software period
         ;Reads the software period.
 ;        ld a,(hl)
-        move.b 1(a1),d1
-*        move.b (a1),d1
+        move.b (a1),d1
 ;        inc hl
-*        addq.l #1,a1
+        addq.l #1,a1
 ;        exx
         exg d3,d4
         exg d2,d6
@@ -1018,8 +996,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
 ;        ld a,(hl)
         move.b (a1),d1
 ;        inc hl
-*        addq.w #1,a1
-        addq.w #2,a1
+        addq.w #1,a1
 ;        exx
         exg d3,d4
         exg d2,d6
@@ -1067,20 +1044,12 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
         exg d2,d6
         exg a1,a2
 
-;Nonononononononono
-;Nonononononononono
-;Nonononononononono
-;Nonononononononono
-;Nonononononononono
-;patched like software period
         ;Copies the hardware period.
 ;        ld de,PLY_AKYst_PsgRegister11
 ;        ldi
 ;        ldi
-*        move.b (a1),PLY_AKYst_PsgRegister11
-*        move.b 1(a1),PLY_AKYst_PsgRegister11+1
-        move.b 1(a1),PLY_AKYst_PsgRegister11
-        move.b (a1),PLY_AKYst_PsgRegister11+1
+        move.b (a1),PLY_AKYst_PsgRegister11
+        move.b 1(a1),PLY_AKYst_PsgRegister11+1
         addq.w #2,a1
         addq.w #2,d2
         subq.w #2,d3

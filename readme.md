@@ -14,9 +14,9 @@ To export a track from the tracker for use with these player follow these simple
   - Word declaration: dc.w
   - Labels prefix: (leave blank)
   - Labels postfix: :
-  - Little endian: uncheck
+  - Little endian: check
 - Go to File->Export->Export as AKY. Check "source file" and leave ASM labels prefix as "Main". Check "Encode to address" and type "0" in the field. Press "Export" and choose a filename.
-- sed -e "s/ : dc/\r\tdc/gI" filename.s >convert1.s
-- sed -e "s/\(dc.w Main_Subsong0_.[A-z|0-9|_]*\?\)/\1-Main_Subsong0/gI" convert1.s >convert2.s
+- sed -i -e "s/ : dc/\r\tdc/gI" filename.s
+- sed -i -e "s/\(dc.w Main_Subsong0_.[A-z|0-9|_]*\?\)/\1-Main_Subsong0/gI" filename.s
 
-You can use convert2.s directly with the player example source
+You can now use the exported .s file directly with the player example source

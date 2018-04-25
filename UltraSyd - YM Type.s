@@ -3,10 +3,10 @@
 Main_Subsong0:
 
 ; Header
-	dc.b 0	; Format version: 0 and endianness: big-endian.
+	dc.b 128	; Format version: 0 and endianness: little-endian.
 	dc.b 3	; How many channels are encoded.
 ; Frequency of the PSG index 0: 2000000Hz.
-	dc.b 0, 30, 132, 128
+	dc.b 128, 132, 30, 0
 
 Main_Subsong0_Linker:
 ; Pattern 0
@@ -4718,8 +4718,8 @@ Main_Subsong0_RegisterBlock_784_Loop:
 
 Main_Subsong0_RegisterBlock_1246:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 5, 237	; Software period.
-	dc.b 0, 190	; Hardware period.
+	dc.b 237, 5	; Software period.
+	dc.b 190, 0	; Hardware period.
 
 	dc.b 3	; Non-initial State, software and hardware.
 
@@ -4768,8 +4768,8 @@ Main_Subsong0_RegisterBlock_50:
 
 Main_Subsong0_RegisterBlock_1197:
 	dc.b 135	; Initial State : software and hardware. Retrig.
-	dc.b 11, 218	; Software period.
-	dc.b 0, 95	; Hardware period.
+	dc.b 218, 11	; Software period.
+	dc.b 95, 0	; Hardware period.
 
 Main_Subsong0_RegisterBlock_1197_Loop:
 	dc.b 3	; Non-initial State, software and hardware.
@@ -4780,8 +4780,8 @@ Main_Subsong0_RegisterBlock_1197_Loop:
 
 Main_Subsong0_RegisterBlock_1193:
 	dc.b 135	; Initial State : software and hardware. Retrig.
-	dc.b 11, 218	; Software period.
-	dc.b 0, 95	; Hardware period.
+	dc.b 218, 11	; Software period.
+	dc.b 95, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1197-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
@@ -4854,16 +4854,16 @@ Main_Subsong0_RegisterBlock_123:
 
 Main_Subsong0_RegisterBlock_1247:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 5, 237	; Software period.
-	dc.b 0, 190	; Hardware period.
+	dc.b 237, 5	; Software period.
+	dc.b 190, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1246-Main_Subsong0 + 8	; Optimization: goto common Block at index 4.
 
 Main_Subsong0_RegisterBlock_14:
 	dc.b 135	; Initial State : software and hardware. Retrig.
-	dc.b 5, 237	; Software period.
-	dc.b 0, 47	; Hardware period.
+	dc.b 237, 5	; Software period.
+	dc.b 47, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1197-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
@@ -5098,7 +5098,7 @@ Main_Subsong0_RegisterBlock_60:
 
 Main_Subsong0_RegisterBlock_1190:
 	dc.b 41	; Initial State: software only.
-	dc.b 0, 190	; Software period.
+	dc.b 190, 0	; Software period.
 
 	dc.b 21	; Non-initial State, software only.
 
@@ -5277,7 +5277,7 @@ Main_Subsong0_RegisterBlock_1229:
 
 Main_Subsong0_RegisterBlock_589:
 	dc.b 57	; Initial State: software only.
-	dc.b 0, 179	; Software period.
+	dc.b 179, 0	; Software period.
 
 	dc.b 29	; Non-initial State, software only.
 
@@ -5312,7 +5312,7 @@ Main_Subsong0_RegisterBlock_589:
 
 Main_Subsong0_RegisterBlock_761:
 	dc.b 57	; Initial State: software only.
-	dc.b 0, 119	; Software period.
+	dc.b 119, 0	; Software period.
 
 	dc.b 29	; Non-initial State, software only.
 
@@ -5346,7 +5346,7 @@ Main_Subsong0_RegisterBlock_761:
 
 Main_Subsong0_RegisterBlock_787:
 	dc.b 1	; Initial State: software only.
-	dc.b 2, 204	; Software period.
+	dc.b 204, 2	; Software period.
 
 	dc.b 1	; Non-initial State, software only.
 
@@ -5359,7 +5359,7 @@ Main_Subsong0_RegisterBlock_787_Loop:
 
 Main_Subsong0_RegisterBlock_798:
 	dc.b 89	; Initial State: software only.
-	dc.b 1, 170	; Software period.
+	dc.b 170, 1	; Software period.
 
 	dc.b 45	; Non-initial State, software only.
 
@@ -5424,8 +5424,8 @@ Main_Subsong0_RegisterBlock_3:
 
 Main_Subsong0_RegisterBlock_12:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 2, 246	; Software period.
-	dc.b 0, 95	; Hardware period.
+	dc.b 246, 2	; Software period.
+	dc.b 95, 0	; Hardware period.
 
 	dc.b 3	; Non-initial State, software and hardware.
 
@@ -5465,15 +5465,15 @@ Main_Subsong0_RegisterBlock_12_Loop:
 Main_Subsong0_RegisterBlock_48:
 	dc.b 139	; Initial State : software and hardware.
 	dc.b 12	; Noise.
-	dc.b 2, 200	; Software period.
-	dc.b 0, 89	; Hardware period.
+	dc.b 200, 2	; Software period.
+	dc.b 89, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1197-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_791:
 	dc.b 89	; Initial State: software only.
-	dc.b 2, 126	; Software period.
+	dc.b 126, 2	; Software period.
 
 	dc.b 45	; Non-initial State, software only.
 
@@ -5514,7 +5514,7 @@ Main_Subsong0_RegisterBlock_791:
 
 Main_Subsong0_RegisterBlock_796:
 	dc.b 89	; Initial State: software only.
-	dc.b 0, 213	; Software period.
+	dc.b 213, 0	; Software period.
 
 	dc.b 45	; Non-initial State, software only.
 
@@ -5551,7 +5551,7 @@ Main_Subsong0_RegisterBlock_796:
 
 Main_Subsong0_RegisterBlock_1161:
 	dc.b 97	; Initial State: software only.
-	dc.b 2, 246	; Software period.
+	dc.b 246, 2	; Software period.
 
 	dc.b 49	; Non-initial State, software only.
 
@@ -5588,7 +5588,7 @@ Main_Subsong0_RegisterBlock_1161_Loop:
 
 Main_Subsong0_RegisterBlock_1162:
 	dc.b 97	; Initial State: software only.
-	dc.b 0, 253	; Software period.
+	dc.b 253, 0	; Software period.
 
 	dc.b 49	; Non-initial State, software only.
 
@@ -5625,7 +5625,7 @@ Main_Subsong0_RegisterBlock_1162_Loop:
 
 Main_Subsong0_RegisterBlock_1163:
 	dc.b 73	; Initial State: software only.
-	dc.b 0, 253	; Software period.
+	dc.b 253, 0	; Software period.
 
 	dc.b 37	; Non-initial State, software only.
 
@@ -5650,7 +5650,7 @@ Main_Subsong0_RegisterBlock_1163:
 
 Main_Subsong0_RegisterBlock_1164:
 	dc.b 49	; Initial State: software only.
-	dc.b 0, 253	; Software period.
+	dc.b 253, 0	; Software period.
 
 	dc.b 25	; Non-initial State, software only.
 
@@ -5675,7 +5675,7 @@ Main_Subsong0_RegisterBlock_1164:
 
 Main_Subsong0_RegisterBlock_1176:
 	dc.b 33	; Initial State: software only.
-	dc.b 1, 63	; Software period.
+	dc.b 63, 1	; Software period.
 
 	dc.b 17	; Non-initial State, software only.
 
@@ -5712,7 +5712,7 @@ Main_Subsong0_RegisterBlock_1176_Loop:
 
 Main_Subsong0_RegisterBlock_1178:
 	dc.b 97	; Initial State: software only.
-	dc.b 0, 190	; Software period.
+	dc.b 190, 0	; Software period.
 
 	dc.b 49	; Non-initial State, software only.
 
@@ -5749,7 +5749,7 @@ Main_Subsong0_RegisterBlock_1178_Loop:
 
 Main_Subsong0_RegisterBlock_1179:
 	dc.b 73	; Initial State: software only.
-	dc.b 0, 190	; Software period.
+	dc.b 190, 0	; Software period.
 
 	dc.b 37	; Non-initial State, software only.
 
@@ -5774,7 +5774,7 @@ Main_Subsong0_RegisterBlock_1179:
 
 Main_Subsong0_RegisterBlock_1180:
 	dc.b 57	; Initial State: software only.
-	dc.b 0, 190	; Software period.
+	dc.b 190, 0	; Software period.
 
 	dc.b 29	; Non-initial State, software only.
 
@@ -5905,15 +5905,15 @@ Main_Subsong0_RegisterBlock_5:
 Main_Subsong0_RegisterBlock_9:
 	dc.b 139	; Initial State : software and hardware.
 	dc.b 12	; Noise.
-	dc.b 1, 104	; Software period.
-	dc.b 0, 45	; Hardware period.
+	dc.b 104, 1	; Software period.
+	dc.b 45, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1197-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_10:
 	dc.b 105	; Initial State: software only.
-	dc.b 2, 204	; Software period.
+	dc.b 204, 2	; Software period.
 
 	dc.b 53	; Non-initial State, software only.
 
@@ -5995,7 +5995,7 @@ Main_Subsong0_RegisterBlock_411:
 
 Main_Subsong0_RegisterBlock_441:
 	dc.b 105	; Initial State: software only.
-	dc.b 1, 123	; Software period.
+	dc.b 123, 1	; Software period.
 
 	dc.b 53	; Non-initial State, software only.
 
@@ -6019,14 +6019,14 @@ Main_Subsong0_RegisterBlock_441:
 
 Main_Subsong0_RegisterBlock_571:
 	dc.b 97	; Initial State: software only.
-	dc.b 0, 253	; Software period.
+	dc.b 253, 0	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1162-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_573:
 	dc.b 81	; Initial State: software only.
-	dc.b 0, 253	; Software period.
+	dc.b 253, 0	; Software period.
 
 	dc.b 41	; Non-initial State, software only.
 
@@ -6047,7 +6047,7 @@ Main_Subsong0_RegisterBlock_573:
 
 Main_Subsong0_RegisterBlock_575:
 	dc.b 65	; Initial State: software only.
-	dc.b 0, 253	; Software period.
+	dc.b 253, 0	; Software period.
 
 	dc.b 33	; Non-initial State, software only.
 
@@ -6068,7 +6068,7 @@ Main_Subsong0_RegisterBlock_575:
 
 Main_Subsong0_RegisterBlock_577:
 	dc.b 57	; Initial State: software only.
-	dc.b 0, 253	; Software period.
+	dc.b 253, 0	; Software period.
 
 	dc.b 29	; Non-initial State, software only.
 
@@ -6083,7 +6083,7 @@ Main_Subsong0_RegisterBlock_577:
 
 Main_Subsong0_RegisterBlock_580:
 	dc.b 97	; Initial State: software only.
-	dc.b 1, 63	; Software period.
+	dc.b 63, 1	; Software period.
 
 	dc.b 49	; Non-initial State, software only.
 
@@ -6098,7 +6098,7 @@ Main_Subsong0_RegisterBlock_580:
 
 Main_Subsong0_RegisterBlock_582:
 	dc.b 97	; Initial State: software only.
-	dc.b 0, 239	; Software period.
+	dc.b 239, 0	; Software period.
 
 	dc.b 49	; Non-initial State, software only.
 
@@ -6113,7 +6113,7 @@ Main_Subsong0_RegisterBlock_582:
 
 Main_Subsong0_RegisterBlock_584:
 	dc.b 81	; Initial State: software only.
-	dc.b 0, 239	; Software period.
+	dc.b 239, 0	; Software period.
 
 	dc.b 41	; Non-initial State, software only.
 
@@ -6128,7 +6128,7 @@ Main_Subsong0_RegisterBlock_584:
 
 Main_Subsong0_RegisterBlock_586:
 	dc.b 73	; Initial State: software only.
-	dc.b 0, 239	; Software period.
+	dc.b 239, 0	; Software period.
 
 	dc.b 37	; Non-initial State, software only.
 
@@ -6143,7 +6143,7 @@ Main_Subsong0_RegisterBlock_586:
 
 Main_Subsong0_RegisterBlock_588:
 	dc.b 65	; Initial State: software only.
-	dc.b 0, 239	; Software period.
+	dc.b 239, 0	; Software period.
 
 	dc.b 33	; Non-initial State, software only.
 
@@ -6158,7 +6158,7 @@ Main_Subsong0_RegisterBlock_588:
 
 Main_Subsong0_RegisterBlock_591:
 	dc.b 97	; Initial State: software only.
-	dc.b 0, 213	; Software period.
+	dc.b 213, 0	; Software period.
 
 	dc.b 49	; Non-initial State, software only.
 
@@ -6173,7 +6173,7 @@ Main_Subsong0_RegisterBlock_591:
 
 Main_Subsong0_RegisterBlock_593:
 	dc.b 81	; Initial State: software only.
-	dc.b 0, 213	; Software period.
+	dc.b 213, 0	; Software period.
 
 	dc.b 41	; Non-initial State, software only.
 
@@ -6188,7 +6188,7 @@ Main_Subsong0_RegisterBlock_593:
 
 Main_Subsong0_RegisterBlock_595:
 	dc.b 73	; Initial State: software only.
-	dc.b 0, 213	; Software period.
+	dc.b 213, 0	; Software period.
 
 	dc.b 37	; Non-initial State, software only.
 
@@ -6203,7 +6203,7 @@ Main_Subsong0_RegisterBlock_595:
 
 Main_Subsong0_RegisterBlock_597:
 	dc.b 97	; Initial State: software only.
-	dc.b 0, 127	; Software period.
+	dc.b 127, 0	; Software period.
 
 	dc.b 49	; Non-initial State, software only.
 
@@ -6217,7 +6217,7 @@ Main_Subsong0_RegisterBlock_597:
 
 Main_Subsong0_RegisterBlock_598:
 	dc.b 97	; Initial State: software only.
-	dc.b 0, 106	; Software period.
+	dc.b 106, 0	; Software period.
 
 	dc.b 49	; Non-initial State, software only.
 
@@ -6231,7 +6231,7 @@ Main_Subsong0_RegisterBlock_598:
 
 Main_Subsong0_RegisterBlock_599:
 	dc.b 97	; Initial State: software only.
-	dc.b 0, 89	; Software period.
+	dc.b 89, 0	; Software period.
 
 	dc.b 49	; Non-initial State, software only.
 
@@ -6245,7 +6245,7 @@ Main_Subsong0_RegisterBlock_599:
 
 Main_Subsong0_RegisterBlock_601:
 	dc.b 97	; Initial State: software only.
-	dc.b 0, 179	; Software period.
+	dc.b 179, 0	; Software period.
 
 	dc.b 49	; Non-initial State, software only.
 
@@ -6260,7 +6260,7 @@ Main_Subsong0_RegisterBlock_601:
 
 Main_Subsong0_RegisterBlock_603:
 	dc.b 81	; Initial State: software only.
-	dc.b 0, 179	; Software period.
+	dc.b 179, 0	; Software period.
 
 	dc.b 41	; Non-initial State, software only.
 
@@ -6275,7 +6275,7 @@ Main_Subsong0_RegisterBlock_603:
 
 Main_Subsong0_RegisterBlock_605:
 	dc.b 73	; Initial State: software only.
-	dc.b 0, 179	; Software period.
+	dc.b 179, 0	; Software period.
 
 	dc.b 37	; Non-initial State, software only.
 
@@ -6290,7 +6290,7 @@ Main_Subsong0_RegisterBlock_605:
 
 Main_Subsong0_RegisterBlock_607:
 	dc.b 65	; Initial State: software only.
-	dc.b 0, 179	; Software period.
+	dc.b 179, 0	; Software period.
 
 	dc.b 33	; Non-initial State, software only.
 
@@ -6305,7 +6305,7 @@ Main_Subsong0_RegisterBlock_607:
 
 Main_Subsong0_RegisterBlock_743:
 	dc.b 97	; Initial State: software only.
-	dc.b 0, 159	; Software period.
+	dc.b 159, 0	; Software period.
 
 	dc.b 49	; Non-initial State, software only.
 
@@ -6320,7 +6320,7 @@ Main_Subsong0_RegisterBlock_743:
 
 Main_Subsong0_RegisterBlock_745:
 	dc.b 81	; Initial State: software only.
-	dc.b 0, 159	; Software period.
+	dc.b 159, 0	; Software period.
 
 	dc.b 41	; Non-initial State, software only.
 
@@ -6335,7 +6335,7 @@ Main_Subsong0_RegisterBlock_745:
 
 Main_Subsong0_RegisterBlock_747:
 	dc.b 65	; Initial State: software only.
-	dc.b 0, 159	; Software period.
+	dc.b 159, 0	; Software period.
 
 	dc.b 33	; Non-initial State, software only.
 
@@ -6350,7 +6350,7 @@ Main_Subsong0_RegisterBlock_747:
 
 Main_Subsong0_RegisterBlock_749:
 	dc.b 57	; Initial State: software only.
-	dc.b 0, 159	; Software period.
+	dc.b 159, 0	; Software period.
 
 	dc.b 29	; Non-initial State, software only.
 
@@ -6365,14 +6365,14 @@ Main_Subsong0_RegisterBlock_749:
 
 Main_Subsong0_RegisterBlock_752:
 	dc.b 97	; Initial State: software only.
-	dc.b 0, 190	; Software period.
+	dc.b 190, 0	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1178-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_754:
 	dc.b 97	; Initial State: software only.
-	dc.b 0, 142	; Software period.
+	dc.b 142, 0	; Software period.
 
 	dc.b 49	; Non-initial State, software only.
 
@@ -6387,7 +6387,7 @@ Main_Subsong0_RegisterBlock_754:
 
 Main_Subsong0_RegisterBlock_756:
 	dc.b 81	; Initial State: software only.
-	dc.b 0, 142	; Software period.
+	dc.b 142, 0	; Software period.
 
 	dc.b 41	; Non-initial State, software only.
 
@@ -6402,7 +6402,7 @@ Main_Subsong0_RegisterBlock_756:
 
 Main_Subsong0_RegisterBlock_758:
 	dc.b 73	; Initial State: software only.
-	dc.b 0, 142	; Software period.
+	dc.b 142, 0	; Software period.
 
 	dc.b 37	; Non-initial State, software only.
 
@@ -6417,7 +6417,7 @@ Main_Subsong0_RegisterBlock_758:
 
 Main_Subsong0_RegisterBlock_760:
 	dc.b 65	; Initial State: software only.
-	dc.b 0, 142	; Software period.
+	dc.b 142, 0	; Software period.
 
 	dc.b 33	; Non-initial State, software only.
 
@@ -6432,7 +6432,7 @@ Main_Subsong0_RegisterBlock_760:
 
 Main_Subsong0_RegisterBlock_765:
 	dc.b 81	; Initial State: software only.
-	dc.b 0, 127	; Software period.
+	dc.b 127, 0	; Software period.
 
 	dc.b 41	; Non-initial State, software only.
 
@@ -6446,7 +6446,7 @@ Main_Subsong0_RegisterBlock_765:
 
 Main_Subsong0_RegisterBlock_767:
 	dc.b 73	; Initial State: software only.
-	dc.b 0, 127	; Software period.
+	dc.b 127, 0	; Software period.
 
 	dc.b 37	; Non-initial State, software only.
 
@@ -6460,7 +6460,7 @@ Main_Subsong0_RegisterBlock_767:
 
 Main_Subsong0_RegisterBlock_779:
 	dc.b 65	; Initial State: software only.
-	dc.b 0, 127	; Software period.
+	dc.b 127, 0	; Software period.
 
 	dc.b 33	; Non-initial State, software only.
 
@@ -6474,7 +6474,7 @@ Main_Subsong0_RegisterBlock_779:
 
 Main_Subsong0_RegisterBlock_781:
 	dc.b 57	; Initial State: software only.
-	dc.b 0, 127	; Software period.
+	dc.b 127, 0	; Software period.
 
 	dc.b 29	; Non-initial State, software only.
 
@@ -6489,15 +6489,15 @@ Main_Subsong0_RegisterBlock_781:
 Main_Subsong0_RegisterBlock_1152:
 	dc.b 139	; Initial State : software and hardware.
 	dc.b 12	; Noise.
-	dc.b 2, 248	; Software period.
-	dc.b 0, 95	; Hardware period.
+	dc.b 248, 2	; Software period.
+	dc.b 95, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1197-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1165:
 	dc.b 33	; Initial State: software only.
-	dc.b 0, 253	; Software period.
+	dc.b 253, 0	; Software period.
 
 	dc.b 17	; Non-initial State, software only.
 
@@ -6512,7 +6512,7 @@ Main_Subsong0_RegisterBlock_1165:
 
 Main_Subsong0_RegisterBlock_1170:
 	dc.b 73	; Initial State: software only.
-	dc.b 1, 63	; Software period.
+	dc.b 63, 1	; Software period.
 
 	dc.b 37	; Non-initial State, software only.
 
@@ -6527,7 +6527,7 @@ Main_Subsong0_RegisterBlock_1170:
 
 Main_Subsong0_RegisterBlock_1172:
 	dc.b 57	; Initial State: software only.
-	dc.b 1, 63	; Software period.
+	dc.b 63, 1	; Software period.
 
 	dc.b 29	; Non-initial State, software only.
 
@@ -6542,7 +6542,7 @@ Main_Subsong0_RegisterBlock_1172:
 
 Main_Subsong0_RegisterBlock_1174:
 	dc.b 49	; Initial State: software only.
-	dc.b 1, 63	; Software period.
+	dc.b 63, 1	; Software period.
 
 	dc.b 25	; Non-initial State, software only.
 
@@ -6557,7 +6557,7 @@ Main_Subsong0_RegisterBlock_1174:
 
 Main_Subsong0_RegisterBlock_1181:
 	dc.b 33	; Initial State: software only.
-	dc.b 0, 190	; Software period.
+	dc.b 190, 0	; Software period.
 
 	dc.b 17	; Non-initial State, software only.
 
@@ -6579,7 +6579,7 @@ Main_Subsong0_RegisterBlock_1211:
 
 Main_Subsong0_RegisterBlock_7:
 	dc.b 89	; Initial State: software only.
-	dc.b 0, 179	; Software period.
+	dc.b 179, 0	; Software period.
 
 	dc.b 45	; Non-initial State, software only.
 
@@ -6596,8 +6596,8 @@ Main_Subsong0_RegisterBlock_7:
 
 Main_Subsong0_RegisterBlock_8:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 0, 179	; Software period.
-	dc.b 0, 22	; Hardware period.
+	dc.b 179, 0	; Software period.
+	dc.b 22, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1246-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
@@ -6605,16 +6605,16 @@ Main_Subsong0_RegisterBlock_8:
 Main_Subsong0_RegisterBlock_13:
 	dc.b 139	; Initial State : software and hardware.
 	dc.b 12	; Noise.
-	dc.b 0, 192	; Software period.
-	dc.b 0, 24	; Hardware period.
+	dc.b 192, 0	; Software period.
+	dc.b 24, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1246-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_15:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 5, 245	; Software period.
-	dc.b 0, 48	; Hardware period.
+	dc.b 245, 5	; Software period.
+	dc.b 48, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 253	; Software period, LSB.
@@ -6636,8 +6636,8 @@ Main_Subsong0_RegisterBlock_15:
 
 Main_Subsong0_RegisterBlock_16:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 6, 37	; Software period.
-	dc.b 0, 49	; Hardware period.
+	dc.b 37, 6	; Software period.
+	dc.b 49, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 45	; Software period, LSB.
@@ -6658,8 +6658,8 @@ Main_Subsong0_RegisterBlock_16:
 
 Main_Subsong0_RegisterBlock_17:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 6, 85	; Software period.
-	dc.b 0, 51	; Hardware period.
+	dc.b 85, 6	; Software period.
+	dc.b 51, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 93	; Software period, LSB.
@@ -6680,8 +6680,8 @@ Main_Subsong0_RegisterBlock_17:
 
 Main_Subsong0_RegisterBlock_18:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 6, 133	; Software period.
-	dc.b 0, 52	; Hardware period.
+	dc.b 133, 6	; Software period.
+	dc.b 52, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 141	; Software period, LSB.
@@ -6702,8 +6702,8 @@ Main_Subsong0_RegisterBlock_18:
 
 Main_Subsong0_RegisterBlock_19:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 6, 181	; Software period.
-	dc.b 0, 54	; Hardware period.
+	dc.b 181, 6	; Software period.
+	dc.b 54, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 189	; Software period, LSB.
@@ -6724,8 +6724,8 @@ Main_Subsong0_RegisterBlock_19:
 
 Main_Subsong0_RegisterBlock_20:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 6, 229	; Software period.
-	dc.b 0, 55	; Hardware period.
+	dc.b 229, 6	; Software period.
+	dc.b 55, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 237	; Software period, LSB.
@@ -6747,8 +6747,8 @@ Main_Subsong0_RegisterBlock_20:
 
 Main_Subsong0_RegisterBlock_21:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 7, 21	; Software period.
-	dc.b 0, 57	; Hardware period.
+	dc.b 21, 7	; Software period.
+	dc.b 57, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 29	; Software period, LSB.
@@ -6769,8 +6769,8 @@ Main_Subsong0_RegisterBlock_21:
 
 Main_Subsong0_RegisterBlock_22:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 7, 69	; Software period.
-	dc.b 0, 58	; Hardware period.
+	dc.b 69, 7	; Software period.
+	dc.b 58, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 77	; Software period, LSB.
@@ -6784,8 +6784,8 @@ Main_Subsong0_RegisterBlock_22:
 
 Main_Subsong0_RegisterBlock_23:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 7, 117	; Software period.
-	dc.b 0, 60	; Hardware period.
+	dc.b 117, 7	; Software period.
+	dc.b 60, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 125	; Software period, LSB.
@@ -6806,8 +6806,8 @@ Main_Subsong0_RegisterBlock_23:
 
 Main_Subsong0_RegisterBlock_24:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 7, 165	; Software period.
-	dc.b 0, 61	; Hardware period.
+	dc.b 165, 7	; Software period.
+	dc.b 61, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 173	; Software period, LSB.
@@ -6821,8 +6821,8 @@ Main_Subsong0_RegisterBlock_24:
 
 Main_Subsong0_RegisterBlock_25:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 7, 213	; Software period.
-	dc.b 0, 63	; Hardware period.
+	dc.b 213, 7	; Software period.
+	dc.b 63, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 221	; Software period, LSB.
@@ -6843,8 +6843,8 @@ Main_Subsong0_RegisterBlock_25:
 
 Main_Subsong0_RegisterBlock_26:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 8, 5	; Software period.
-	dc.b 0, 64	; Hardware period.
+	dc.b 5, 8	; Software period.
+	dc.b 64, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 13	; Software period, LSB.
@@ -6858,8 +6858,8 @@ Main_Subsong0_RegisterBlock_26:
 
 Main_Subsong0_RegisterBlock_27:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 8, 53	; Software period.
-	dc.b 0, 66	; Hardware period.
+	dc.b 53, 8	; Software period.
+	dc.b 66, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 61	; Software period, LSB.
@@ -6880,8 +6880,8 @@ Main_Subsong0_RegisterBlock_27:
 
 Main_Subsong0_RegisterBlock_28:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 8, 101	; Software period.
-	dc.b 0, 67	; Hardware period.
+	dc.b 101, 8	; Software period.
+	dc.b 67, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 109	; Software period, LSB.
@@ -6919,7 +6919,7 @@ Main_Subsong0_RegisterBlock_29:
 
 Main_Subsong0_RegisterBlock_30:
 	dc.b 113	; Initial State: software only.
-	dc.b 9, 25	; Software period.
+	dc.b 25, 9	; Software period.
 
 	dc.b 237	; Non-initial State, software only.
 	dc.b 55	; New LSB for software period.
@@ -6930,7 +6930,7 @@ Main_Subsong0_RegisterBlock_30:
 
 Main_Subsong0_RegisterBlock_41:
 	dc.b 105	; Initial State: software only.
-	dc.b 0, 179	; Software period.
+	dc.b 179, 0	; Software period.
 
 	dc.b 53	; Non-initial State, software only.
 
@@ -6947,8 +6947,8 @@ Main_Subsong0_RegisterBlock_41:
 
 Main_Subsong0_RegisterBlock_42:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 0, 89	; Software period.
-	dc.b 0, 11	; Hardware period.
+	dc.b 89, 0	; Software period.
+	dc.b 11, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1246-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
@@ -6956,23 +6956,23 @@ Main_Subsong0_RegisterBlock_42:
 Main_Subsong0_RegisterBlock_49:
 	dc.b 139	; Initial State : software and hardware.
 	dc.b 12	; Noise.
-	dc.b 5, 152	; Software period.
-	dc.b 0, 179	; Hardware period.
+	dc.b 152, 5	; Software period.
+	dc.b 179, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1246-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_64:
 	dc.b 135	; Initial State : software and hardware. Retrig.
-	dc.b 1, 102	; Software period.
-	dc.b 0, 11	; Hardware period.
+	dc.b 102, 1	; Software period.
+	dc.b 11, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1246-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_65:
 	dc.b 121	; Initial State: software only.
-	dc.b 1, 170	; Software period.
+	dc.b 170, 1	; Software period.
 
 	dc.b 61	; Non-initial State, software only.
 
@@ -6989,23 +6989,23 @@ Main_Subsong0_RegisterBlock_65:
 
 Main_Subsong0_RegisterBlock_66:
 	dc.b 135	; Initial State : software and hardware. Retrig.
-	dc.b 0, 159	; Software period.
-	dc.b 0, 5	; Hardware period.
+	dc.b 159, 0	; Software period.
+	dc.b 5, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1246-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_68:
 	dc.b 135	; Initial State : software and hardware. Retrig.
-	dc.b 0, 179	; Software period.
-	dc.b 0, 6	; Hardware period.
+	dc.b 179, 0	; Software period.
+	dc.b 6, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1246-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_71:
 	dc.b 89	; Initial State: software only.
-	dc.b 2, 204	; Software period.
+	dc.b 204, 2	; Software period.
 
 Main_Subsong0_RegisterBlock_71_Loop:
 	dc.b 45	; Non-initial State, software only.
@@ -7016,7 +7016,7 @@ Main_Subsong0_RegisterBlock_71_Loop:
 
 Main_Subsong0_RegisterBlock_72:
 	dc.b 89	; Initial State: software only.
-	dc.b 2, 212	; Software period.
+	dc.b 212, 2	; Software period.
 
 	dc.b 109	; Non-initial State, software only.
 	dc.b 220	; New LSB for software period.
@@ -7036,7 +7036,7 @@ Main_Subsong0_RegisterBlock_72:
 
 Main_Subsong0_RegisterBlock_73:
 	dc.b 89	; Initial State: software only.
-	dc.b 3, 4	; Software period.
+	dc.b 4, 3	; Software period.
 
 	dc.b 109	; Non-initial State, software only.
 	dc.b 12	; New LSB for software period.
@@ -7056,7 +7056,7 @@ Main_Subsong0_RegisterBlock_73:
 
 Main_Subsong0_RegisterBlock_74:
 	dc.b 89	; Initial State: software only.
-	dc.b 3, 52	; Software period.
+	dc.b 52, 3	; Software period.
 
 	dc.b 109	; Non-initial State, software only.
 	dc.b 60	; New LSB for software period.
@@ -7076,7 +7076,7 @@ Main_Subsong0_RegisterBlock_74:
 
 Main_Subsong0_RegisterBlock_75:
 	dc.b 89	; Initial State: software only.
-	dc.b 3, 100	; Software period.
+	dc.b 100, 3	; Software period.
 
 	dc.b 109	; Non-initial State, software only.
 	dc.b 108	; New LSB for software period.
@@ -7096,7 +7096,7 @@ Main_Subsong0_RegisterBlock_75:
 
 Main_Subsong0_RegisterBlock_76:
 	dc.b 89	; Initial State: software only.
-	dc.b 3, 148	; Software period.
+	dc.b 148, 3	; Software period.
 
 	dc.b 109	; Non-initial State, software only.
 	dc.b 156	; New LSB for software period.
@@ -7116,7 +7116,7 @@ Main_Subsong0_RegisterBlock_76:
 
 Main_Subsong0_RegisterBlock_77:
 	dc.b 89	; Initial State: software only.
-	dc.b 3, 196	; Software period.
+	dc.b 196, 3	; Software period.
 
 	dc.b 109	; Non-initial State, software only.
 	dc.b 204	; New LSB for software period.
@@ -7129,7 +7129,7 @@ Main_Subsong0_RegisterBlock_77:
 
 Main_Subsong0_RegisterBlock_78:
 	dc.b 89	; Initial State: software only.
-	dc.b 3, 244	; Software period.
+	dc.b 244, 3	; Software period.
 
 	dc.b 109	; Non-initial State, software only.
 	dc.b 252	; New LSB for software period.
@@ -7143,7 +7143,7 @@ Main_Subsong0_RegisterBlock_78:
 
 Main_Subsong0_RegisterBlock_79:
 	dc.b 89	; Initial State: software only.
-	dc.b 4, 36	; Software period.
+	dc.b 36, 4	; Software period.
 
 	dc.b 109	; Non-initial State, software only.
 	dc.b 44	; New LSB for software period.
@@ -7156,7 +7156,7 @@ Main_Subsong0_RegisterBlock_79:
 
 Main_Subsong0_RegisterBlock_80:
 	dc.b 89	; Initial State: software only.
-	dc.b 4, 84	; Software period.
+	dc.b 84, 4	; Software period.
 
 	dc.b 109	; Non-initial State, software only.
 	dc.b 92	; New LSB for software period.
@@ -7169,7 +7169,7 @@ Main_Subsong0_RegisterBlock_80:
 
 Main_Subsong0_RegisterBlock_81:
 	dc.b 89	; Initial State: software only.
-	dc.b 4, 132	; Software period.
+	dc.b 132, 4	; Software period.
 
 	dc.b 109	; Non-initial State, software only.
 	dc.b 140	; New LSB for software period.
@@ -7182,7 +7182,7 @@ Main_Subsong0_RegisterBlock_81:
 
 Main_Subsong0_RegisterBlock_82:
 	dc.b 89	; Initial State: software only.
-	dc.b 4, 180	; Software period.
+	dc.b 180, 4	; Software period.
 
 	dc.b 109	; Non-initial State, software only.
 	dc.b 188	; New LSB for software period.
@@ -7195,7 +7195,7 @@ Main_Subsong0_RegisterBlock_82:
 
 Main_Subsong0_RegisterBlock_83:
 	dc.b 89	; Initial State: software only.
-	dc.b 4, 228	; Software period.
+	dc.b 228, 4	; Software period.
 
 	dc.b 109	; Non-initial State, software only.
 	dc.b 236	; New LSB for software period.
@@ -7216,7 +7216,7 @@ Main_Subsong0_RegisterBlock_83:
 
 Main_Subsong0_RegisterBlock_84:
 	dc.b 89	; Initial State: software only.
-	dc.b 5, 20	; Software period.
+	dc.b 20, 5	; Software period.
 
 	dc.b 109	; Non-initial State, software only.
 	dc.b 28	; New LSB for software period.
@@ -7229,7 +7229,7 @@ Main_Subsong0_RegisterBlock_84:
 
 Main_Subsong0_RegisterBlock_85:
 	dc.b 89	; Initial State: software only.
-	dc.b 5, 68	; Software period.
+	dc.b 68, 5	; Software period.
 
 	dc.b 109	; Non-initial State, software only.
 	dc.b 76	; New LSB for software period.
@@ -7242,7 +7242,7 @@ Main_Subsong0_RegisterBlock_85:
 
 Main_Subsong0_RegisterBlock_86:
 	dc.b 89	; Initial State: software only.
-	dc.b 5, 116	; Software period.
+	dc.b 116, 5	; Software period.
 
 	dc.b 109	; Non-initial State, software only.
 	dc.b 124	; New LSB for software period.
@@ -7255,7 +7255,7 @@ Main_Subsong0_RegisterBlock_86:
 
 Main_Subsong0_RegisterBlock_87:
 	dc.b 89	; Initial State: software only.
-	dc.b 5, 164	; Software period.
+	dc.b 164, 5	; Software period.
 
 	dc.b 109	; Non-initial State, software only.
 	dc.b 172	; New LSB for software period.
@@ -7268,49 +7268,49 @@ Main_Subsong0_RegisterBlock_87:
 
 Main_Subsong0_RegisterBlock_88:
 	dc.b 89	; Initial State: software only.
-	dc.b 5, 212	; Software period.
+	dc.b 212, 5	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_72-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_89:
 	dc.b 89	; Initial State: software only.
-	dc.b 6, 4	; Software period.
+	dc.b 4, 6	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_73-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_90:
 	dc.b 89	; Initial State: software only.
-	dc.b 6, 52	; Software period.
+	dc.b 52, 6	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_74-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_91:
 	dc.b 89	; Initial State: software only.
-	dc.b 6, 100	; Software period.
+	dc.b 100, 6	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_75-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_92:
 	dc.b 89	; Initial State: software only.
-	dc.b 6, 148	; Software period.
+	dc.b 148, 6	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_76-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_93:
 	dc.b 89	; Initial State: software only.
-	dc.b 6, 196	; Software period.
+	dc.b 196, 6	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_77-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_94:
 	dc.b 89	; Initial State: software only.
-	dc.b 6, 244	; Software period.
+	dc.b 244, 6	; Software period.
 
 	dc.b 109	; Non-initial State, software only.
 	dc.b 252	; New LSB for software period.
@@ -7324,35 +7324,35 @@ Main_Subsong0_RegisterBlock_94:
 
 Main_Subsong0_RegisterBlock_95:
 	dc.b 89	; Initial State: software only.
-	dc.b 7, 36	; Software period.
+	dc.b 36, 7	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_79-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_96:
 	dc.b 89	; Initial State: software only.
-	dc.b 7, 84	; Software period.
+	dc.b 84, 7	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_80-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_97:
 	dc.b 89	; Initial State: software only.
-	dc.b 7, 132	; Software period.
+	dc.b 132, 7	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_81-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_98:
 	dc.b 89	; Initial State: software only.
-	dc.b 7, 180	; Software period.
+	dc.b 180, 7	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_82-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_99:
 	dc.b 89	; Initial State: software only.
-	dc.b 7, 228	; Software period.
+	dc.b 228, 7	; Software period.
 
 	dc.b 109	; Non-initial State, software only.
 	dc.b 236	; New LSB for software period.
@@ -7373,77 +7373,77 @@ Main_Subsong0_RegisterBlock_99:
 
 Main_Subsong0_RegisterBlock_100:
 	dc.b 89	; Initial State: software only.
-	dc.b 8, 20	; Software period.
+	dc.b 20, 8	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_84-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_101:
 	dc.b 89	; Initial State: software only.
-	dc.b 8, 68	; Software period.
+	dc.b 68, 8	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_85-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_102:
 	dc.b 89	; Initial State: software only.
-	dc.b 8, 116	; Software period.
+	dc.b 116, 8	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_86-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_103:
 	dc.b 89	; Initial State: software only.
-	dc.b 8, 164	; Software period.
+	dc.b 164, 8	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_87-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_104:
 	dc.b 89	; Initial State: software only.
-	dc.b 8, 212	; Software period.
+	dc.b 212, 8	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_72-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_105:
 	dc.b 89	; Initial State: software only.
-	dc.b 9, 4	; Software period.
+	dc.b 4, 9	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_73-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_106:
 	dc.b 89	; Initial State: software only.
-	dc.b 9, 52	; Software period.
+	dc.b 52, 9	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_74-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_107:
 	dc.b 89	; Initial State: software only.
-	dc.b 9, 100	; Software period.
+	dc.b 100, 9	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_75-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_108:
 	dc.b 89	; Initial State: software only.
-	dc.b 9, 148	; Software period.
+	dc.b 148, 9	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_76-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_109:
 	dc.b 89	; Initial State: software only.
-	dc.b 9, 196	; Software period.
+	dc.b 196, 9	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_77-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_110:
 	dc.b 89	; Initial State: software only.
-	dc.b 9, 244	; Software period.
+	dc.b 244, 9	; Software period.
 
 	dc.b 109	; Non-initial State, software only.
 	dc.b 252	; New LSB for software period.
@@ -7458,15 +7458,15 @@ Main_Subsong0_RegisterBlock_110:
 Main_Subsong0_RegisterBlock_116:
 	dc.b 139	; Initial State : software and hardware.
 	dc.b 12	; Noise.
-	dc.b 2, 248	; Software period.
-	dc.b 0, 95	; Hardware period.
+	dc.b 248, 2	; Software period.
+	dc.b 95, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1246-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_117:
 	dc.b 121	; Initial State: software only.
-	dc.b 1, 123	; Software period.
+	dc.b 123, 1	; Software period.
 
 	dc.b 61	; Non-initial State, software only.
 
@@ -7485,8 +7485,8 @@ Main_Subsong0_RegisterBlock_117:
 Main_Subsong0_RegisterBlock_119:
 	dc.b 139	; Initial State : software and hardware.
 	dc.b 12	; Noise.
-	dc.b 0, 96	; Software period.
-	dc.b 0, 12	; Hardware period.
+	dc.b 96, 0	; Software period.
+	dc.b 12, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1246-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
@@ -7494,8 +7494,8 @@ Main_Subsong0_RegisterBlock_119:
 Main_Subsong0_RegisterBlock_125:
 	dc.b 139	; Initial State : software and hardware.
 	dc.b 12	; Noise.
-	dc.b 2, 184	; Software period.
-	dc.b 0, 87	; Hardware period.
+	dc.b 184, 2	; Software period.
+	dc.b 87, 0	; Hardware period.
 
 	dc.b 39	; Non-initial State, software and hardware.
 	dc.b 151	; Hardware period, LSB.
@@ -7530,55 +7530,55 @@ Main_Subsong0_RegisterBlock_128:
 
 Main_Subsong0_RegisterBlock_192:
 	dc.b 135	; Initial State : software and hardware. Retrig.
-	dc.b 11, 218	; Software period.
-	dc.b 0, 95	; Hardware period.
+	dc.b 218, 11	; Software period.
+	dc.b 95, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1246-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_210:
 	dc.b 135	; Initial State : software and hardware. Retrig.
-	dc.b 5, 152	; Software period.
-	dc.b 0, 45	; Hardware period.
+	dc.b 152, 5	; Software period.
+	dc.b 45, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1246-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_224:
 	dc.b 135	; Initial State : software and hardware. Retrig.
-	dc.b 9, 247	; Software period.
-	dc.b 0, 80	; Hardware period.
+	dc.b 247, 9	; Software period.
+	dc.b 80, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1246-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_226:
 	dc.b 135	; Initial State : software and hardware. Retrig.
-	dc.b 4, 252	; Software period.
-	dc.b 0, 40	; Hardware period.
+	dc.b 252, 4	; Software period.
+	dc.b 40, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1246-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_240:
 	dc.b 135	; Initial State : software and hardware. Retrig.
-	dc.b 11, 47	; Software period.
-	dc.b 0, 89	; Hardware period.
+	dc.b 47, 11	; Software period.
+	dc.b 89, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1246-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_248:
 	dc.b 135	; Initial State : software and hardware. Retrig.
-	dc.b 3, 188	; Software period.
-	dc.b 0, 30	; Hardware period.
+	dc.b 188, 3	; Software period.
+	dc.b 30, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1246-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_442:
 	dc.b 105	; Initial State: software only.
-	dc.b 1, 82	; Software period.
+	dc.b 82, 1	; Software period.
 
 	dc.b 53	; Non-initial State, software only.
 
@@ -7595,7 +7595,7 @@ Main_Subsong0_RegisterBlock_442:
 
 Main_Subsong0_RegisterBlock_443:
 	dc.b 73	; Initial State: software only.
-	dc.b 1, 123	; Software period.
+	dc.b 123, 1	; Software period.
 
 	dc.b 37	; Non-initial State, software only.
 
@@ -7612,7 +7612,7 @@ Main_Subsong0_RegisterBlock_443:
 
 Main_Subsong0_RegisterBlock_444:
 	dc.b 105	; Initial State: software only.
-	dc.b 1, 63	; Software period.
+	dc.b 63, 1	; Software period.
 
 	dc.b 53	; Non-initial State, software only.
 
@@ -7629,7 +7629,7 @@ Main_Subsong0_RegisterBlock_444:
 
 Main_Subsong0_RegisterBlock_445:
 	dc.b 73	; Initial State: software only.
-	dc.b 1, 82	; Software period.
+	dc.b 82, 1	; Software period.
 
 	dc.b 37	; Non-initial State, software only.
 
@@ -7646,7 +7646,7 @@ Main_Subsong0_RegisterBlock_445:
 
 Main_Subsong0_RegisterBlock_446:
 	dc.b 105	; Initial State: software only.
-	dc.b 0, 253	; Software period.
+	dc.b 253, 0	; Software period.
 
 	dc.b 53	; Non-initial State, software only.
 
@@ -7663,7 +7663,7 @@ Main_Subsong0_RegisterBlock_446:
 
 Main_Subsong0_RegisterBlock_447:
 	dc.b 73	; Initial State: software only.
-	dc.b 1, 63	; Software period.
+	dc.b 63, 1	; Software period.
 
 	dc.b 37	; Non-initial State, software only.
 
@@ -7680,7 +7680,7 @@ Main_Subsong0_RegisterBlock_447:
 
 Main_Subsong0_RegisterBlock_449:
 	dc.b 73	; Initial State: software only.
-	dc.b 0, 253	; Software period.
+	dc.b 253, 0	; Software period.
 
 	dc.b 37	; Non-initial State, software only.
 
@@ -7697,7 +7697,7 @@ Main_Subsong0_RegisterBlock_449:
 
 Main_Subsong0_RegisterBlock_462:
 	dc.b 105	; Initial State: software only.
-	dc.b 0, 239	; Software period.
+	dc.b 239, 0	; Software period.
 
 	dc.b 53	; Non-initial State, software only.
 
@@ -7714,7 +7714,7 @@ Main_Subsong0_RegisterBlock_462:
 
 Main_Subsong0_RegisterBlock_465:
 	dc.b 73	; Initial State: software only.
-	dc.b 0, 239	; Software period.
+	dc.b 239, 0	; Software period.
 
 	dc.b 37	; Non-initial State, software only.
 
@@ -7731,7 +7731,7 @@ Main_Subsong0_RegisterBlock_465:
 
 Main_Subsong0_RegisterBlock_478:
 	dc.b 105	; Initial State: software only.
-	dc.b 0, 213	; Software period.
+	dc.b 213, 0	; Software period.
 
 	dc.b 53	; Non-initial State, software only.
 
@@ -7743,7 +7743,7 @@ Main_Subsong0_RegisterBlock_478:
 
 Main_Subsong0_RegisterBlock_481:
 	dc.b 73	; Initial State: software only.
-	dc.b 0, 213	; Software period.
+	dc.b 213, 0	; Software period.
 
 	dc.b 37	; Non-initial State, software only.
 
@@ -7789,14 +7789,14 @@ Main_Subsong0_RegisterBlock_509:
 
 Main_Subsong0_RegisterBlock_570:
 	dc.b 97	; Initial State: software only.
-	dc.b 0, 190	; Software period.
+	dc.b 190, 0	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1178-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_572:
 	dc.b 81	; Initial State: software only.
-	dc.b 0, 190	; Software period.
+	dc.b 190, 0	; Software period.
 
 	dc.b 41	; Non-initial State, software only.
 
@@ -7813,7 +7813,7 @@ Main_Subsong0_RegisterBlock_572:
 
 Main_Subsong0_RegisterBlock_574:
 	dc.b 65	; Initial State: software only.
-	dc.b 0, 190	; Software period.
+	dc.b 190, 0	; Software period.
 
 	dc.b 33	; Non-initial State, software only.
 
@@ -7830,56 +7830,56 @@ Main_Subsong0_RegisterBlock_574:
 
 Main_Subsong0_RegisterBlock_576:
 	dc.b 57	; Initial State: software only.
-	dc.b 0, 190	; Software period.
+	dc.b 190, 0	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1180-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_581:
 	dc.b 97	; Initial State: software only.
-	dc.b 0, 179	; Software period.
+	dc.b 179, 0	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_601-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_583:
 	dc.b 81	; Initial State: software only.
-	dc.b 0, 179	; Software period.
+	dc.b 179, 0	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_603-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_585:
 	dc.b 73	; Initial State: software only.
-	dc.b 0, 179	; Software period.
+	dc.b 179, 0	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_605-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_587:
 	dc.b 65	; Initial State: software only.
-	dc.b 0, 179	; Software period.
+	dc.b 179, 0	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_607-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_590:
 	dc.b 97	; Initial State: software only.
-	dc.b 0, 159	; Software period.
+	dc.b 159, 0	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_743-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_592:
 	dc.b 81	; Initial State: software only.
-	dc.b 0, 159	; Software period.
+	dc.b 159, 0	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_745-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_594:
 	dc.b 73	; Initial State: software only.
-	dc.b 0, 159	; Software period.
+	dc.b 159, 0	; Software period.
 
 	dc.b 37	; Non-initial State, software only.
 
@@ -7896,14 +7896,14 @@ Main_Subsong0_RegisterBlock_594:
 
 Main_Subsong0_RegisterBlock_596:
 	dc.b 65	; Initial State: software only.
-	dc.b 0, 159	; Software period.
+	dc.b 159, 0	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_747-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_600:
 	dc.b 97	; Initial State: software only.
-	dc.b 0, 119	; Software period.
+	dc.b 119, 0	; Software period.
 
 	dc.b 49	; Non-initial State, software only.
 
@@ -7919,7 +7919,7 @@ Main_Subsong0_RegisterBlock_600:
 
 Main_Subsong0_RegisterBlock_602:
 	dc.b 81	; Initial State: software only.
-	dc.b 0, 119	; Software period.
+	dc.b 119, 0	; Software period.
 
 	dc.b 41	; Non-initial State, software only.
 
@@ -7935,7 +7935,7 @@ Main_Subsong0_RegisterBlock_602:
 
 Main_Subsong0_RegisterBlock_604:
 	dc.b 73	; Initial State: software only.
-	dc.b 0, 119	; Software period.
+	dc.b 119, 0	; Software period.
 
 	dc.b 37	; Non-initial State, software only.
 
@@ -7951,7 +7951,7 @@ Main_Subsong0_RegisterBlock_604:
 
 Main_Subsong0_RegisterBlock_606:
 	dc.b 65	; Initial State: software only.
-	dc.b 0, 119	; Software period.
+	dc.b 119, 0	; Software period.
 
 	dc.b 33	; Non-initial State, software only.
 
@@ -7967,14 +7967,14 @@ Main_Subsong0_RegisterBlock_606:
 
 Main_Subsong0_RegisterBlock_608:
 	dc.b 57	; Initial State: software only.
-	dc.b 0, 119	; Software period.
+	dc.b 119, 0	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_761-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_610:
 	dc.b 49	; Initial State: software only.
-	dc.b 0, 119	; Software period.
+	dc.b 119, 0	; Software period.
 
 	dc.b 25	; Non-initial State, software only.
 
@@ -7997,28 +7997,28 @@ Main_Subsong0_RegisterBlock_616:
 
 Main_Subsong0_RegisterBlock_744:
 	dc.b 81	; Initial State: software only.
-	dc.b 0, 127	; Software period.
+	dc.b 127, 0	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_765-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_746:
 	dc.b 65	; Initial State: software only.
-	dc.b 0, 127	; Software period.
+	dc.b 127, 0	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_779-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_748:
 	dc.b 57	; Initial State: software only.
-	dc.b 0, 127	; Software period.
+	dc.b 127, 0	; Software period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_781-Main_Subsong0 + 3	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_764:
 	dc.b 81	; Initial State: software only.
-	dc.b 0, 106	; Software period.
+	dc.b 106, 0	; Software period.
 
 	dc.b 41	; Non-initial State, software only.
 
@@ -8034,7 +8034,7 @@ Main_Subsong0_RegisterBlock_764:
 
 Main_Subsong0_RegisterBlock_766:
 	dc.b 73	; Initial State: software only.
-	dc.b 0, 106	; Software period.
+	dc.b 106, 0	; Software period.
 
 	dc.b 37	; Non-initial State, software only.
 
@@ -8050,7 +8050,7 @@ Main_Subsong0_RegisterBlock_766:
 
 Main_Subsong0_RegisterBlock_768:
 	dc.b 65	; Initial State: software only.
-	dc.b 0, 106	; Software period.
+	dc.b 106, 0	; Software period.
 
 	dc.b 33	; Non-initial State, software only.
 
@@ -8066,7 +8066,7 @@ Main_Subsong0_RegisterBlock_768:
 
 Main_Subsong0_RegisterBlock_772:
 	dc.b 97	; Initial State: software only.
-	dc.b 0, 95	; Software period.
+	dc.b 95, 0	; Software period.
 
 	dc.b 49	; Non-initial State, software only.
 
@@ -8082,7 +8082,7 @@ Main_Subsong0_RegisterBlock_772:
 
 Main_Subsong0_RegisterBlock_774:
 	dc.b 81	; Initial State: software only.
-	dc.b 0, 95	; Software period.
+	dc.b 95, 0	; Software period.
 
 	dc.b 41	; Non-initial State, software only.
 
@@ -8098,7 +8098,7 @@ Main_Subsong0_RegisterBlock_774:
 
 Main_Subsong0_RegisterBlock_776:
 	dc.b 73	; Initial State: software only.
-	dc.b 0, 95	; Software period.
+	dc.b 95, 0	; Software period.
 
 	dc.b 37	; Non-initial State, software only.
 
@@ -8114,7 +8114,7 @@ Main_Subsong0_RegisterBlock_776:
 
 Main_Subsong0_RegisterBlock_778:
 	dc.b 65	; Initial State: software only.
-	dc.b 0, 95	; Software period.
+	dc.b 95, 0	; Software period.
 
 	dc.b 33	; Non-initial State, software only.
 
@@ -8130,7 +8130,7 @@ Main_Subsong0_RegisterBlock_778:
 
 Main_Subsong0_RegisterBlock_780:
 	dc.b 57	; Initial State: software only.
-	dc.b 0, 95	; Software period.
+	dc.b 95, 0	; Software period.
 
 	dc.b 29	; Non-initial State, software only.
 
@@ -8146,7 +8146,7 @@ Main_Subsong0_RegisterBlock_780:
 
 Main_Subsong0_RegisterBlock_782:
 	dc.b 49	; Initial State: software only.
-	dc.b 0, 95	; Software period.
+	dc.b 95, 0	; Software period.
 
 	dc.b 25	; Non-initial State, software only.
 
@@ -8162,7 +8162,7 @@ Main_Subsong0_RegisterBlock_782:
 
 Main_Subsong0_RegisterBlock_797:
 	dc.b 73	; Initial State: software only.
-	dc.b 0, 213	; Software period.
+	dc.b 213, 0	; Software period.
 
 	dc.b 37	; Non-initial State, software only.
 
@@ -8179,16 +8179,16 @@ Main_Subsong0_RegisterBlock_797:
 
 Main_Subsong0_RegisterBlock_821:
 	dc.b 135	; Initial State : software and hardware. Retrig.
-	dc.b 2, 246	; Software period.
-	dc.b 0, 24	; Hardware period.
+	dc.b 246, 2	; Software period.
+	dc.b 24, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1246-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_825:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 0, 190	; Software period.
-	dc.b 0, 24	; Hardware period.
+	dc.b 190, 0	; Software period.
+	dc.b 24, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1246-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
@@ -8196,15 +8196,15 @@ Main_Subsong0_RegisterBlock_825:
 Main_Subsong0_RegisterBlock_827:
 	dc.b 139	; Initial State : software and hardware.
 	dc.b 12	; Noise.
-	dc.b 5, 240	; Software period.
-	dc.b 0, 190	; Hardware period.
+	dc.b 240, 5	; Software period.
+	dc.b 190, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1246-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_832:
 	dc.b 121	; Initial State: software only.
-	dc.b 2, 126	; Software period.
+	dc.b 126, 2	; Software period.
 
 	dc.b 61	; Non-initial State, software only.
 
@@ -8223,15 +8223,15 @@ Main_Subsong0_RegisterBlock_832:
 Main_Subsong0_RegisterBlock_840:
 	dc.b 139	; Initial State : software and hardware.
 	dc.b 12	; Noise.
-	dc.b 1, 120	; Software period.
-	dc.b 0, 47	; Hardware period.
+	dc.b 120, 1	; Software period.
+	dc.b 47, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1246-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_860:
 	dc.b 121	; Initial State: software only.
-	dc.b 2, 56	; Software period.
+	dc.b 56, 2	; Software period.
 
 	dc.b 61	; Non-initial State, software only.
 
@@ -8244,7 +8244,7 @@ Main_Subsong0_RegisterBlock_860:
 
 Main_Subsong0_RegisterBlock_863:
 	dc.b 121	; Initial State: software only.
-	dc.b 1, 28	; Software period.
+	dc.b 28, 1	; Software period.
 
 	dc.b 61	; Non-initial State, software only.
 
@@ -8262,7 +8262,7 @@ Main_Subsong0_RegisterBlock_863:
 
 Main_Subsong0_RegisterBlock_864:
 	dc.b 121	; Initial State: software only.
-	dc.b 0, 213	; Software period.
+	dc.b 213, 0	; Software period.
 
 	dc.b 61	; Non-initial State, software only.
 
@@ -8280,8 +8280,8 @@ Main_Subsong0_RegisterBlock_864:
 Main_Subsong0_RegisterBlock_871:
 	dc.b 139	; Initial State : software and hardware.
 	dc.b 12	; Noise.
-	dc.b 0, 120	; Software period.
-	dc.b 0, 15	; Hardware period.
+	dc.b 120, 0	; Software period.
+	dc.b 15, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1246-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
@@ -8289,15 +8289,15 @@ Main_Subsong0_RegisterBlock_871:
 Main_Subsong0_RegisterBlock_873:
 	dc.b 139	; Initial State : software and hardware.
 	dc.b 12	; Noise.
-	dc.b 1, 0	; Software period.
-	dc.b 0, 32	; Hardware period.
+	dc.b 0, 1	; Software period.
+	dc.b 32, 0	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1246-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1159:
 	dc.b 97	; Initial State: software only.
-	dc.b 9, 32	; Software period.
+	dc.b 32, 9	; Software period.
 
 	dc.b 229	; Non-initial State, software only.
 	dc.b 118	; New LSB for software period.
@@ -8308,7 +8308,7 @@ Main_Subsong0_RegisterBlock_1159:
 
 Main_Subsong0_RegisterBlock_1189:
 	dc.b 41	; Initial State: software only.
-	dc.b 0, 159	; Software period.
+	dc.b 159, 0	; Software period.
 
 	dc.b 21	; Non-initial State, software only.
 
@@ -8325,8 +8325,8 @@ Main_Subsong0_RegisterBlock_1189:
 
 Main_Subsong0_RegisterBlock_1237:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 11, 226	; Software period.
-	dc.b 0, 95	; Hardware period.
+	dc.b 226, 11	; Software period.
+	dc.b 95, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 234	; Software period, LSB.
@@ -8348,8 +8348,8 @@ Main_Subsong0_RegisterBlock_1237:
 
 Main_Subsong0_RegisterBlock_1238:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 12, 18	; Software period.
-	dc.b 0, 97	; Hardware period.
+	dc.b 18, 12	; Software period.
+	dc.b 97, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 26	; Software period, LSB.
@@ -8370,8 +8370,8 @@ Main_Subsong0_RegisterBlock_1238:
 
 Main_Subsong0_RegisterBlock_1239:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 12, 66	; Software period.
-	dc.b 0, 98	; Hardware period.
+	dc.b 66, 12	; Software period.
+	dc.b 98, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 74	; Software period, LSB.
@@ -8392,8 +8392,8 @@ Main_Subsong0_RegisterBlock_1239:
 
 Main_Subsong0_RegisterBlock_1240:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 12, 114	; Software period.
-	dc.b 0, 100	; Hardware period.
+	dc.b 114, 12	; Software period.
+	dc.b 100, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 122	; Software period, LSB.
@@ -8414,8 +8414,8 @@ Main_Subsong0_RegisterBlock_1240:
 
 Main_Subsong0_RegisterBlock_1241:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 12, 162	; Software period.
-	dc.b 0, 101	; Hardware period.
+	dc.b 162, 12	; Software period.
+	dc.b 101, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 170	; Software period, LSB.
@@ -8436,8 +8436,8 @@ Main_Subsong0_RegisterBlock_1241:
 
 Main_Subsong0_RegisterBlock_1242:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 12, 210	; Software period.
-	dc.b 0, 103	; Hardware period.
+	dc.b 210, 12	; Software period.
+	dc.b 103, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 218	; Software period, LSB.
@@ -8458,8 +8458,8 @@ Main_Subsong0_RegisterBlock_1242:
 
 Main_Subsong0_RegisterBlock_1243:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 13, 2	; Software period.
-	dc.b 0, 104	; Hardware period.
+	dc.b 2, 13	; Software period.
+	dc.b 104, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 10	; Software period, LSB.
@@ -8473,8 +8473,8 @@ Main_Subsong0_RegisterBlock_1243:
 
 Main_Subsong0_RegisterBlock_1244:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 13, 50	; Software period.
-	dc.b 0, 106	; Hardware period.
+	dc.b 50, 13	; Software period.
+	dc.b 106, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 58	; Software period, LSB.
@@ -8495,8 +8495,8 @@ Main_Subsong0_RegisterBlock_1244:
 
 Main_Subsong0_RegisterBlock_1248:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 5, 245	; Software period.
-	dc.b 0, 191	; Hardware period.
+	dc.b 245, 5	; Software period.
+	dc.b 191, 0	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 192	; Hardware period, LSB.
@@ -8522,8 +8522,8 @@ Main_Subsong0_RegisterBlock_1248:
 
 Main_Subsong0_RegisterBlock_1249:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 3, 46	; Software period.
-	dc.b 0, 102	; Hardware period.
+	dc.b 46, 3	; Software period.
+	dc.b 102, 0	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 103	; Hardware period, LSB.
@@ -8548,8 +8548,8 @@ Main_Subsong0_RegisterBlock_1249:
 
 Main_Subsong0_RegisterBlock_1250:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 6, 85	; Software period.
-	dc.b 0, 203	; Hardware period.
+	dc.b 85, 6	; Software period.
+	dc.b 203, 0	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 204	; Hardware period, LSB.
@@ -8574,8 +8574,8 @@ Main_Subsong0_RegisterBlock_1250:
 
 Main_Subsong0_RegisterBlock_1251:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 3, 142	; Software period.
-	dc.b 0, 114	; Hardware period.
+	dc.b 142, 3	; Software period.
+	dc.b 114, 0	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 115	; Hardware period, LSB.
@@ -8600,8 +8600,8 @@ Main_Subsong0_RegisterBlock_1251:
 
 Main_Subsong0_RegisterBlock_1252:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 6, 181	; Software period.
-	dc.b 0, 215	; Hardware period.
+	dc.b 181, 6	; Software period.
+	dc.b 215, 0	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 216	; Hardware period, LSB.
@@ -8626,8 +8626,8 @@ Main_Subsong0_RegisterBlock_1252:
 
 Main_Subsong0_RegisterBlock_1253:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 3, 238	; Software period.
-	dc.b 0, 126	; Hardware period.
+	dc.b 238, 3	; Software period.
+	dc.b 126, 0	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 127	; Hardware period, LSB.
@@ -8653,8 +8653,8 @@ Main_Subsong0_RegisterBlock_1253:
 
 Main_Subsong0_RegisterBlock_1254:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 7, 21	; Software period.
-	dc.b 0, 227	; Hardware period.
+	dc.b 21, 7	; Software period.
+	dc.b 227, 0	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 228	; Hardware period, LSB.
@@ -8679,8 +8679,8 @@ Main_Subsong0_RegisterBlock_1254:
 
 Main_Subsong0_RegisterBlock_1255:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 4, 78	; Software period.
-	dc.b 0, 138	; Hardware period.
+	dc.b 78, 4	; Software period.
+	dc.b 138, 0	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 139	; Hardware period, LSB.
@@ -8705,8 +8705,8 @@ Main_Subsong0_RegisterBlock_1255:
 
 Main_Subsong0_RegisterBlock_1257:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 13, 98	; Software period.
-	dc.b 0, 107	; Hardware period.
+	dc.b 98, 13	; Software period.
+	dc.b 107, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 106	; Software period, LSB.
@@ -8720,8 +8720,8 @@ Main_Subsong0_RegisterBlock_1257:
 
 Main_Subsong0_RegisterBlock_1258:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 13, 146	; Software period.
-	dc.b 0, 109	; Hardware period.
+	dc.b 146, 13	; Software period.
+	dc.b 109, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 154	; Software period, LSB.
@@ -8742,8 +8742,8 @@ Main_Subsong0_RegisterBlock_1258:
 
 Main_Subsong0_RegisterBlock_1259:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 13, 194	; Software period.
-	dc.b 0, 110	; Hardware period.
+	dc.b 194, 13	; Software period.
+	dc.b 110, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 202	; Software period, LSB.
@@ -8757,8 +8757,8 @@ Main_Subsong0_RegisterBlock_1259:
 
 Main_Subsong0_RegisterBlock_1260:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 13, 242	; Software period.
-	dc.b 0, 112	; Hardware period.
+	dc.b 242, 13	; Software period.
+	dc.b 112, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 250	; Software period, LSB.
@@ -8780,8 +8780,8 @@ Main_Subsong0_RegisterBlock_1260:
 
 Main_Subsong0_RegisterBlock_1261:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 14, 34	; Software period.
-	dc.b 0, 113	; Hardware period.
+	dc.b 34, 14	; Software period.
+	dc.b 113, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 42	; Software period, LSB.
@@ -8795,8 +8795,8 @@ Main_Subsong0_RegisterBlock_1261:
 
 Main_Subsong0_RegisterBlock_1262:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 14, 82	; Software period.
-	dc.b 0, 115	; Hardware period.
+	dc.b 82, 14	; Software period.
+	dc.b 115, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 90	; Software period, LSB.
@@ -8817,8 +8817,8 @@ Main_Subsong0_RegisterBlock_1262:
 
 Main_Subsong0_RegisterBlock_1263:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 14, 130	; Software period.
-	dc.b 0, 116	; Hardware period.
+	dc.b 130, 14	; Software period.
+	dc.b 116, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 138	; Software period, LSB.
@@ -8832,8 +8832,8 @@ Main_Subsong0_RegisterBlock_1263:
 
 Main_Subsong0_RegisterBlock_1264:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 14, 178	; Software period.
-	dc.b 0, 118	; Hardware period.
+	dc.b 178, 14	; Software period.
+	dc.b 118, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 186	; Software period, LSB.
@@ -8854,8 +8854,8 @@ Main_Subsong0_RegisterBlock_1264:
 
 Main_Subsong0_RegisterBlock_1265:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 14, 226	; Software period.
-	dc.b 0, 119	; Hardware period.
+	dc.b 226, 14	; Software period.
+	dc.b 119, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 234	; Software period, LSB.
@@ -8877,8 +8877,8 @@ Main_Subsong0_RegisterBlock_1265:
 
 Main_Subsong0_RegisterBlock_1266:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 15, 18	; Software period.
-	dc.b 0, 121	; Hardware period.
+	dc.b 18, 15	; Software period.
+	dc.b 121, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 26	; Software period, LSB.
@@ -8899,8 +8899,8 @@ Main_Subsong0_RegisterBlock_1266:
 
 Main_Subsong0_RegisterBlock_1267:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 15, 66	; Software period.
-	dc.b 0, 122	; Hardware period.
+	dc.b 66, 15	; Software period.
+	dc.b 122, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 74	; Software period, LSB.
@@ -8914,8 +8914,8 @@ Main_Subsong0_RegisterBlock_1267:
 
 Main_Subsong0_RegisterBlock_1268:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 15, 114	; Software period.
-	dc.b 0, 124	; Hardware period.
+	dc.b 114, 15	; Software period.
+	dc.b 124, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 122	; Software period, LSB.
@@ -8936,8 +8936,8 @@ Main_Subsong0_RegisterBlock_1268:
 
 Main_Subsong0_RegisterBlock_1269:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 15, 162	; Software period.
-	dc.b 0, 125	; Hardware period.
+	dc.b 162, 15	; Software period.
+	dc.b 125, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 170	; Software period, LSB.
@@ -8951,8 +8951,8 @@ Main_Subsong0_RegisterBlock_1269:
 
 Main_Subsong0_RegisterBlock_1270:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 15, 210	; Software period.
-	dc.b 0, 127	; Hardware period.
+	dc.b 210, 15	; Software period.
+	dc.b 127, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 218	; Software period, LSB.
@@ -8973,8 +8973,8 @@ Main_Subsong0_RegisterBlock_1270:
 
 Main_Subsong0_RegisterBlock_1271:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 16, 2	; Software period.
-	dc.b 0, 128	; Hardware period.
+	dc.b 2, 16	; Software period.
+	dc.b 128, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 10	; Software period, LSB.
@@ -8988,8 +8988,8 @@ Main_Subsong0_RegisterBlock_1271:
 
 Main_Subsong0_RegisterBlock_1272:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 16, 50	; Software period.
-	dc.b 0, 130	; Hardware period.
+	dc.b 50, 16	; Software period.
+	dc.b 130, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 58	; Software period, LSB.
@@ -9010,8 +9010,8 @@ Main_Subsong0_RegisterBlock_1272:
 
 Main_Subsong0_RegisterBlock_1273:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 16, 98	; Software period.
-	dc.b 0, 131	; Hardware period.
+	dc.b 98, 16	; Software period.
+	dc.b 131, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 106	; Software period, LSB.
@@ -9025,8 +9025,8 @@ Main_Subsong0_RegisterBlock_1273:
 
 Main_Subsong0_RegisterBlock_1274:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 16, 146	; Software period.
-	dc.b 0, 133	; Hardware period.
+	dc.b 146, 16	; Software period.
+	dc.b 133, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 154	; Software period, LSB.
@@ -9047,8 +9047,8 @@ Main_Subsong0_RegisterBlock_1274:
 
 Main_Subsong0_RegisterBlock_1275:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 16, 194	; Software period.
-	dc.b 0, 134	; Hardware period.
+	dc.b 194, 16	; Software period.
+	dc.b 134, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 202	; Software period, LSB.
@@ -9062,8 +9062,8 @@ Main_Subsong0_RegisterBlock_1275:
 
 Main_Subsong0_RegisterBlock_1276:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 16, 242	; Software period.
-	dc.b 0, 136	; Hardware period.
+	dc.b 242, 16	; Software period.
+	dc.b 136, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 250	; Software period, LSB.
@@ -9085,8 +9085,8 @@ Main_Subsong0_RegisterBlock_1276:
 
 Main_Subsong0_RegisterBlock_1277:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 17, 34	; Software period.
-	dc.b 0, 137	; Hardware period.
+	dc.b 34, 17	; Software period.
+	dc.b 137, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 42	; Software period, LSB.
@@ -9100,8 +9100,8 @@ Main_Subsong0_RegisterBlock_1277:
 
 Main_Subsong0_RegisterBlock_1278:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 17, 82	; Software period.
-	dc.b 0, 139	; Hardware period.
+	dc.b 82, 17	; Software period.
+	dc.b 139, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 90	; Software period, LSB.
@@ -9122,8 +9122,8 @@ Main_Subsong0_RegisterBlock_1278:
 
 Main_Subsong0_RegisterBlock_1279:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 17, 130	; Software period.
-	dc.b 0, 140	; Hardware period.
+	dc.b 130, 17	; Software period.
+	dc.b 140, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 138	; Software period, LSB.
@@ -9137,8 +9137,8 @@ Main_Subsong0_RegisterBlock_1279:
 
 Main_Subsong0_RegisterBlock_1280:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 17, 178	; Software period.
-	dc.b 0, 142	; Hardware period.
+	dc.b 178, 17	; Software period.
+	dc.b 142, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 186	; Software period, LSB.
@@ -9159,8 +9159,8 @@ Main_Subsong0_RegisterBlock_1280:
 
 Main_Subsong0_RegisterBlock_1281:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 17, 226	; Software period.
-	dc.b 0, 143	; Hardware period.
+	dc.b 226, 17	; Software period.
+	dc.b 143, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 234	; Software period, LSB.
@@ -9183,7 +9183,7 @@ Main_Subsong0_RegisterBlock_1281:
 Main_Subsong0_RegisterBlock_1282:
 	dc.b 131	; Initial State : software and hardware.
 	dc.b 18, 18	; Software period.
-	dc.b 0, 145	; Hardware period.
+	dc.b 145, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 26	; Software period, LSB.
@@ -9204,8 +9204,8 @@ Main_Subsong0_RegisterBlock_1282:
 
 Main_Subsong0_RegisterBlock_1283:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 18, 66	; Software period.
-	dc.b 0, 146	; Hardware period.
+	dc.b 66, 18	; Software period.
+	dc.b 146, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 74	; Software period, LSB.
@@ -9219,8 +9219,8 @@ Main_Subsong0_RegisterBlock_1283:
 
 Main_Subsong0_RegisterBlock_1284:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 18, 114	; Software period.
-	dc.b 0, 148	; Hardware period.
+	dc.b 114, 18	; Software period.
+	dc.b 148, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 122	; Software period, LSB.
@@ -9241,8 +9241,8 @@ Main_Subsong0_RegisterBlock_1284:
 
 Main_Subsong0_RegisterBlock_1285:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 18, 162	; Software period.
-	dc.b 0, 149	; Hardware period.
+	dc.b 162, 18	; Software period.
+	dc.b 149, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 170	; Software period, LSB.
@@ -9256,8 +9256,8 @@ Main_Subsong0_RegisterBlock_1285:
 
 Main_Subsong0_RegisterBlock_1286:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 18, 210	; Software period.
-	dc.b 0, 151	; Hardware period.
+	dc.b 210, 18	; Software period.
+	dc.b 151, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 218	; Software period, LSB.
@@ -9278,8 +9278,8 @@ Main_Subsong0_RegisterBlock_1286:
 
 Main_Subsong0_RegisterBlock_1287:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 19, 2	; Software period.
-	dc.b 0, 152	; Hardware period.
+	dc.b 2, 19	; Software period.
+	dc.b 152, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 10	; Software period, LSB.
@@ -9293,8 +9293,8 @@ Main_Subsong0_RegisterBlock_1287:
 
 Main_Subsong0_RegisterBlock_1288:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 19, 50	; Software period.
-	dc.b 0, 154	; Hardware period.
+	dc.b 50, 19	; Software period.
+	dc.b 154, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 58	; Software period, LSB.
@@ -9315,8 +9315,8 @@ Main_Subsong0_RegisterBlock_1288:
 
 Main_Subsong0_RegisterBlock_1289:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 19, 98	; Software period.
-	dc.b 0, 155	; Hardware period.
+	dc.b 98, 19	; Software period.
+	dc.b 155, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 106	; Software period, LSB.
@@ -9330,8 +9330,8 @@ Main_Subsong0_RegisterBlock_1289:
 
 Main_Subsong0_RegisterBlock_1290:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 19, 146	; Software period.
-	dc.b 0, 157	; Hardware period.
+	dc.b 146, 19	; Software period.
+	dc.b 157, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 154	; Software period, LSB.
@@ -9352,8 +9352,8 @@ Main_Subsong0_RegisterBlock_1290:
 
 Main_Subsong0_RegisterBlock_1291:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 19, 194	; Software period.
-	dc.b 0, 158	; Hardware period.
+	dc.b 194, 19	; Software period.
+	dc.b 158, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 202	; Software period, LSB.
@@ -9367,8 +9367,8 @@ Main_Subsong0_RegisterBlock_1291:
 
 Main_Subsong0_RegisterBlock_1292:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 19, 242	; Software period.
-	dc.b 0, 160	; Hardware period.
+	dc.b 242, 19	; Software period.
+	dc.b 160, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 250	; Software period, LSB.
@@ -9390,8 +9390,8 @@ Main_Subsong0_RegisterBlock_1292:
 
 Main_Subsong0_RegisterBlock_1293:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 20, 34	; Software period.
-	dc.b 0, 161	; Hardware period.
+	dc.b 34, 20	; Software period.
+	dc.b 161, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 42	; Software period, LSB.
@@ -9405,8 +9405,8 @@ Main_Subsong0_RegisterBlock_1293:
 
 Main_Subsong0_RegisterBlock_1294:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 20, 82	; Software period.
-	dc.b 0, 163	; Hardware period.
+	dc.b 82, 20	; Software period.
+	dc.b 163, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 90	; Software period, LSB.
@@ -9427,8 +9427,8 @@ Main_Subsong0_RegisterBlock_1294:
 
 Main_Subsong0_RegisterBlock_1295:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 20, 130	; Software period.
-	dc.b 0, 164	; Hardware period.
+	dc.b 130, 20	; Software period.
+	dc.b 164, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 138	; Software period, LSB.
@@ -9442,8 +9442,8 @@ Main_Subsong0_RegisterBlock_1295:
 
 Main_Subsong0_RegisterBlock_1296:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 20, 178	; Software period.
-	dc.b 0, 166	; Hardware period.
+	dc.b 178, 20	; Software period.
+	dc.b 166, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 186	; Software period, LSB.
@@ -9464,8 +9464,8 @@ Main_Subsong0_RegisterBlock_1296:
 
 Main_Subsong0_RegisterBlock_1297:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 20, 226	; Software period.
-	dc.b 0, 167	; Hardware period.
+	dc.b 226, 20	; Software period.
+	dc.b 167, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 234	; Software period, LSB.
@@ -9487,8 +9487,8 @@ Main_Subsong0_RegisterBlock_1297:
 
 Main_Subsong0_RegisterBlock_1298:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 21, 18	; Software period.
-	dc.b 0, 169	; Hardware period.
+	dc.b 18, 21	; Software period.
+	dc.b 169, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 26	; Software period, LSB.
@@ -9509,8 +9509,8 @@ Main_Subsong0_RegisterBlock_1298:
 
 Main_Subsong0_RegisterBlock_1299:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 21, 66	; Software period.
-	dc.b 0, 170	; Hardware period.
+	dc.b 66, 21	; Software period.
+	dc.b 170, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 74	; Software period, LSB.
@@ -9524,8 +9524,8 @@ Main_Subsong0_RegisterBlock_1299:
 
 Main_Subsong0_RegisterBlock_1300:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 21, 114	; Software period.
-	dc.b 0, 172	; Hardware period.
+	dc.b 114, 21	; Software period.
+	dc.b 172, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 122	; Software period, LSB.
@@ -9546,8 +9546,8 @@ Main_Subsong0_RegisterBlock_1300:
 
 Main_Subsong0_RegisterBlock_1301:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 21, 162	; Software period.
-	dc.b 0, 173	; Hardware period.
+	dc.b 162, 21	; Software period.
+	dc.b 173, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 170	; Software period, LSB.
@@ -9561,8 +9561,8 @@ Main_Subsong0_RegisterBlock_1301:
 
 Main_Subsong0_RegisterBlock_1302:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 21, 210	; Software period.
-	dc.b 0, 175	; Hardware period.
+	dc.b 210, 21	; Software period.
+	dc.b 175, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 218	; Software period, LSB.
@@ -9583,8 +9583,8 @@ Main_Subsong0_RegisterBlock_1302:
 
 Main_Subsong0_RegisterBlock_1303:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 22, 2	; Software period.
-	dc.b 0, 176	; Hardware period.
+	dc.b 2, 22	; Software period.
+	dc.b 176, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 10	; Software period, LSB.
@@ -9598,8 +9598,8 @@ Main_Subsong0_RegisterBlock_1303:
 
 Main_Subsong0_RegisterBlock_1304:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 22, 50	; Software period.
-	dc.b 0, 178	; Hardware period.
+	dc.b 50, 22	; Software period.
+	dc.b 178, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 58	; Software period, LSB.
@@ -9620,8 +9620,8 @@ Main_Subsong0_RegisterBlock_1304:
 
 Main_Subsong0_RegisterBlock_1305:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 22, 98	; Software period.
-	dc.b 0, 179	; Hardware period.
+	dc.b 98, 22	; Software period.
+	dc.b 179, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 106	; Software period, LSB.
@@ -9635,8 +9635,8 @@ Main_Subsong0_RegisterBlock_1305:
 
 Main_Subsong0_RegisterBlock_1306:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 22, 146	; Software period.
-	dc.b 0, 181	; Hardware period.
+	dc.b 146, 22	; Software period.
+	dc.b 181, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 154	; Software period, LSB.
@@ -9657,8 +9657,8 @@ Main_Subsong0_RegisterBlock_1306:
 
 Main_Subsong0_RegisterBlock_1307:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 22, 194	; Software period.
-	dc.b 0, 182	; Hardware period.
+	dc.b 194, 22	; Software period.
+	dc.b 182, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 202	; Software period, LSB.
@@ -9672,8 +9672,8 @@ Main_Subsong0_RegisterBlock_1307:
 
 Main_Subsong0_RegisterBlock_1308:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 22, 242	; Software period.
-	dc.b 0, 184	; Hardware period.
+	dc.b 242, 22	; Software period.
+	dc.b 184, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 250	; Software period, LSB.
@@ -9695,8 +9695,8 @@ Main_Subsong0_RegisterBlock_1308:
 
 Main_Subsong0_RegisterBlock_1309:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 23, 34	; Software period.
-	dc.b 0, 185	; Hardware period.
+	dc.b 34, 23	; Software period.
+	dc.b 185, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 42	; Software period, LSB.
@@ -9710,8 +9710,8 @@ Main_Subsong0_RegisterBlock_1309:
 
 Main_Subsong0_RegisterBlock_1310:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 23, 82	; Software period.
-	dc.b 0, 187	; Hardware period.
+	dc.b 82, 23	; Software period.
+	dc.b 187, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 90	; Software period, LSB.
@@ -9732,8 +9732,8 @@ Main_Subsong0_RegisterBlock_1310:
 
 Main_Subsong0_RegisterBlock_1311:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 23, 130	; Software period.
-	dc.b 0, 188	; Hardware period.
+	dc.b 130, 23	; Software period.
+	dc.b 188, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 138	; Software period, LSB.
@@ -9747,8 +9747,8 @@ Main_Subsong0_RegisterBlock_1311:
 
 Main_Subsong0_RegisterBlock_1312:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 23, 178	; Software period.
-	dc.b 0, 190	; Hardware period.
+	dc.b 178, 23	; Software period.
+	dc.b 190, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 186	; Software period, LSB.
@@ -9769,8 +9769,8 @@ Main_Subsong0_RegisterBlock_1312:
 
 Main_Subsong0_RegisterBlock_1313:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 23, 226	; Software period.
-	dc.b 0, 191	; Hardware period.
+	dc.b 226, 23	; Software period.
+	dc.b 191, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 234	; Software period, LSB.
@@ -9792,8 +9792,8 @@ Main_Subsong0_RegisterBlock_1313:
 
 Main_Subsong0_RegisterBlock_1314:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 24, 18	; Software period.
-	dc.b 0, 193	; Hardware period.
+	dc.b 18, 24	; Software period.
+	dc.b 193, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 26	; Software period, LSB.
@@ -9814,8 +9814,8 @@ Main_Subsong0_RegisterBlock_1314:
 
 Main_Subsong0_RegisterBlock_1315:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 24, 66	; Software period.
-	dc.b 0, 194	; Hardware period.
+	dc.b 66, 24	; Software period.
+	dc.b 194, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 74	; Software period, LSB.
@@ -9829,8 +9829,8 @@ Main_Subsong0_RegisterBlock_1315:
 
 Main_Subsong0_RegisterBlock_1316:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 24, 114	; Software period.
-	dc.b 0, 196	; Hardware period.
+	dc.b 114, 24	; Software period.
+	dc.b 196, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 122	; Software period, LSB.
@@ -9851,8 +9851,8 @@ Main_Subsong0_RegisterBlock_1316:
 
 Main_Subsong0_RegisterBlock_1317:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 24, 162	; Software period.
-	dc.b 0, 197	; Hardware period.
+	dc.b 162, 24	; Software period.
+	dc.b 197, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 170	; Software period, LSB.
@@ -9866,8 +9866,8 @@ Main_Subsong0_RegisterBlock_1317:
 
 Main_Subsong0_RegisterBlock_1318:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 24, 210	; Software period.
-	dc.b 0, 199	; Hardware period.
+	dc.b 210, 24	; Software period.
+	dc.b 199, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 218	; Software period, LSB.
@@ -9888,8 +9888,8 @@ Main_Subsong0_RegisterBlock_1318:
 
 Main_Subsong0_RegisterBlock_1319:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 25, 2	; Software period.
-	dc.b 0, 200	; Hardware period.
+	dc.b 2, 25	; Software period.
+	dc.b 200, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 10	; Software period, LSB.
@@ -9903,8 +9903,8 @@ Main_Subsong0_RegisterBlock_1319:
 
 Main_Subsong0_RegisterBlock_1320:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 25, 50	; Software period.
-	dc.b 0, 202	; Hardware period.
+	dc.b 50, 25	; Software period.
+	dc.b 202, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 58	; Software period, LSB.
@@ -9925,8 +9925,8 @@ Main_Subsong0_RegisterBlock_1320:
 
 Main_Subsong0_RegisterBlock_1322:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 7, 117	; Software period.
-	dc.b 0, 239	; Hardware period.
+	dc.b 117, 7	; Software period.
+	dc.b 239, 0	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 240	; Hardware period, LSB.
@@ -9951,8 +9951,8 @@ Main_Subsong0_RegisterBlock_1322:
 
 Main_Subsong0_RegisterBlock_1323:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 4, 174	; Software period.
-	dc.b 0, 150	; Hardware period.
+	dc.b 174, 4	; Software period.
+	dc.b 150, 0	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 151	; Hardware period, LSB.
@@ -9977,8 +9977,8 @@ Main_Subsong0_RegisterBlock_1323:
 
 Main_Subsong0_RegisterBlock_1324:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 7, 213	; Software period.
-	dc.b 0, 251	; Hardware period.
+	dc.b 213, 7	; Software period.
+	dc.b 251, 0	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 252	; Hardware period, LSB.
@@ -10004,8 +10004,8 @@ Main_Subsong0_RegisterBlock_1324:
 
 Main_Subsong0_RegisterBlock_1325:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 5, 14	; Software period.
-	dc.b 0, 162	; Hardware period.
+	dc.b 14, 5	; Software period.
+	dc.b 162, 0	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 163	; Hardware period, LSB.
@@ -10030,8 +10030,8 @@ Main_Subsong0_RegisterBlock_1325:
 
 Main_Subsong0_RegisterBlock_1326:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 8, 53	; Software period.
-	dc.b 1, 7	; Hardware period.
+	dc.b 53, 8	; Software period.
+	dc.b 7, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 8	; Hardware period, LSB.
@@ -10056,8 +10056,8 @@ Main_Subsong0_RegisterBlock_1326:
 
 Main_Subsong0_RegisterBlock_1327:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 5, 110	; Software period.
-	dc.b 0, 174	; Hardware period.
+	dc.b 110, 5	; Software period.
+	dc.b 174, 0	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 175	; Hardware period, LSB.
@@ -10082,8 +10082,8 @@ Main_Subsong0_RegisterBlock_1327:
 
 Main_Subsong0_RegisterBlock_1328:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 8, 149	; Software period.
-	dc.b 1, 19	; Hardware period.
+	dc.b 149, 8	; Software period.
+	dc.b 19, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 20	; Hardware period, LSB.
@@ -10108,8 +10108,8 @@ Main_Subsong0_RegisterBlock_1328:
 
 Main_Subsong0_RegisterBlock_1329:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 5, 206	; Software period.
-	dc.b 0, 186	; Hardware period.
+	dc.b 206, 5	; Software period.
+	dc.b 186, 0	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 187	; Hardware period, LSB.
@@ -10134,8 +10134,8 @@ Main_Subsong0_RegisterBlock_1329:
 
 Main_Subsong0_RegisterBlock_1330:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 8, 245	; Software period.
-	dc.b 1, 31	; Hardware period.
+	dc.b 245, 8	; Software period.
+	dc.b 31, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 32	; Hardware period, LSB.
@@ -10161,8 +10161,8 @@ Main_Subsong0_RegisterBlock_1330:
 
 Main_Subsong0_RegisterBlock_1331:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 6, 46	; Software period.
-	dc.b 0, 198	; Hardware period.
+	dc.b 46, 6	; Software period.
+	dc.b 198, 0	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 199	; Hardware period, LSB.
@@ -10187,8 +10187,8 @@ Main_Subsong0_RegisterBlock_1331:
 
 Main_Subsong0_RegisterBlock_1332:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 9, 85	; Software period.
-	dc.b 1, 43	; Hardware period.
+	dc.b 85, 9	; Software period.
+	dc.b 43, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 44	; Hardware period, LSB.
@@ -10213,8 +10213,8 @@ Main_Subsong0_RegisterBlock_1332:
 
 Main_Subsong0_RegisterBlock_1333:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 6, 142	; Software period.
-	dc.b 0, 210	; Hardware period.
+	dc.b 142, 6	; Software period.
+	dc.b 210, 0	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 211	; Hardware period, LSB.
@@ -10239,8 +10239,8 @@ Main_Subsong0_RegisterBlock_1333:
 
 Main_Subsong0_RegisterBlock_1334:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 9, 181	; Software period.
-	dc.b 1, 55	; Hardware period.
+	dc.b 181, 9	; Software period.
+	dc.b 55, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 56	; Hardware period, LSB.
@@ -10265,8 +10265,8 @@ Main_Subsong0_RegisterBlock_1334:
 
 Main_Subsong0_RegisterBlock_1335:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 6, 238	; Software period.
-	dc.b 0, 222	; Hardware period.
+	dc.b 238, 6	; Software period.
+	dc.b 222, 0	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 223	; Hardware period, LSB.
@@ -10292,8 +10292,8 @@ Main_Subsong0_RegisterBlock_1335:
 
 Main_Subsong0_RegisterBlock_1336:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 10, 21	; Software period.
-	dc.b 1, 67	; Hardware period.
+	dc.b 21, 10	; Software period.
+	dc.b 67, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 68	; Hardware period, LSB.
@@ -10318,8 +10318,8 @@ Main_Subsong0_RegisterBlock_1336:
 
 Main_Subsong0_RegisterBlock_1337:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 7, 78	; Software period.
-	dc.b 0, 234	; Hardware period.
+	dc.b 78, 7	; Software period.
+	dc.b 234, 0	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 235	; Hardware period, LSB.
@@ -10344,8 +10344,8 @@ Main_Subsong0_RegisterBlock_1337:
 
 Main_Subsong0_RegisterBlock_1338:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 10, 117	; Software period.
-	dc.b 1, 79	; Hardware period.
+	dc.b 117, 10	; Software period.
+	dc.b 79, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 80	; Hardware period, LSB.
@@ -10370,8 +10370,8 @@ Main_Subsong0_RegisterBlock_1338:
 
 Main_Subsong0_RegisterBlock_1339:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 7, 174	; Software period.
-	dc.b 0, 246	; Hardware period.
+	dc.b 174, 7	; Software period.
+	dc.b 246, 0	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 247	; Hardware period, LSB.
@@ -10396,8 +10396,8 @@ Main_Subsong0_RegisterBlock_1339:
 
 Main_Subsong0_RegisterBlock_1340:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 10, 213	; Software period.
-	dc.b 1, 91	; Hardware period.
+	dc.b 213, 10	; Software period.
+	dc.b 91, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 92	; Hardware period, LSB.
@@ -10422,8 +10422,8 @@ Main_Subsong0_RegisterBlock_1340:
 
 Main_Subsong0_RegisterBlock_1341:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 8, 14	; Software period.
-	dc.b 1, 2	; Hardware period.
+	dc.b 14, 8	; Software period.
+	dc.b 2, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 3	; Hardware period, LSB.
@@ -10448,8 +10448,8 @@ Main_Subsong0_RegisterBlock_1341:
 
 Main_Subsong0_RegisterBlock_1342:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 11, 53	; Software period.
-	dc.b 1, 103	; Hardware period.
+	dc.b 53, 11	; Software period.
+	dc.b 103, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 104	; Hardware period, LSB.
@@ -10474,8 +10474,8 @@ Main_Subsong0_RegisterBlock_1342:
 
 Main_Subsong0_RegisterBlock_1343:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 8, 110	; Software period.
-	dc.b 1, 14	; Hardware period.
+	dc.b 110, 8	; Software period.
+	dc.b 14, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 15	; Hardware period, LSB.
@@ -10500,8 +10500,8 @@ Main_Subsong0_RegisterBlock_1343:
 
 Main_Subsong0_RegisterBlock_1344:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 11, 149	; Software period.
-	dc.b 1, 115	; Hardware period.
+	dc.b 149, 11	; Software period.
+	dc.b 115, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 116	; Hardware period, LSB.
@@ -10526,8 +10526,8 @@ Main_Subsong0_RegisterBlock_1344:
 
 Main_Subsong0_RegisterBlock_1345:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 8, 206	; Software period.
-	dc.b 1, 26	; Hardware period.
+	dc.b 206, 8	; Software period.
+	dc.b 26, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 27	; Hardware period, LSB.
@@ -10552,8 +10552,8 @@ Main_Subsong0_RegisterBlock_1345:
 
 Main_Subsong0_RegisterBlock_1346:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 11, 245	; Software period.
-	dc.b 1, 127	; Hardware period.
+	dc.b 245, 11	; Software period.
+	dc.b 127, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 128	; Hardware period, LSB.
@@ -10579,8 +10579,8 @@ Main_Subsong0_RegisterBlock_1346:
 
 Main_Subsong0_RegisterBlock_1347:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 9, 46	; Software period.
-	dc.b 1, 38	; Hardware period.
+	dc.b 46, 9	; Software period.
+	dc.b 38, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 39	; Hardware period, LSB.
@@ -10605,8 +10605,8 @@ Main_Subsong0_RegisterBlock_1347:
 
 Main_Subsong0_RegisterBlock_1348:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 12, 85	; Software period.
-	dc.b 1, 139	; Hardware period.
+	dc.b 85, 12	; Software period.
+	dc.b 139, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 140	; Hardware period, LSB.
@@ -10631,8 +10631,8 @@ Main_Subsong0_RegisterBlock_1348:
 
 Main_Subsong0_RegisterBlock_1349:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 9, 142	; Software period.
-	dc.b 1, 50	; Hardware period.
+	dc.b 142, 9	; Software period.
+	dc.b 50, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 51	; Hardware period, LSB.
@@ -10657,8 +10657,8 @@ Main_Subsong0_RegisterBlock_1349:
 
 Main_Subsong0_RegisterBlock_1350:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 12, 181	; Software period.
-	dc.b 1, 151	; Hardware period.
+	dc.b 181, 12	; Software period.
+	dc.b 151, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 152	; Hardware period, LSB.
@@ -10683,8 +10683,8 @@ Main_Subsong0_RegisterBlock_1350:
 
 Main_Subsong0_RegisterBlock_1351:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 9, 238	; Software period.
-	dc.b 1, 62	; Hardware period.
+	dc.b 238, 9	; Software period.
+	dc.b 62, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 63	; Hardware period, LSB.
@@ -10710,8 +10710,8 @@ Main_Subsong0_RegisterBlock_1351:
 
 Main_Subsong0_RegisterBlock_1352:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 13, 21	; Software period.
-	dc.b 1, 163	; Hardware period.
+	dc.b 21, 13	; Software period.
+	dc.b 163, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 164	; Hardware period, LSB.
@@ -10736,8 +10736,8 @@ Main_Subsong0_RegisterBlock_1352:
 
 Main_Subsong0_RegisterBlock_1353:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 10, 78	; Software period.
-	dc.b 1, 74	; Hardware period.
+	dc.b 78, 10	; Software period.
+	dc.b 74, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 75	; Hardware period, LSB.
@@ -10762,8 +10762,8 @@ Main_Subsong0_RegisterBlock_1353:
 
 Main_Subsong0_RegisterBlock_1354:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 13, 117	; Software period.
-	dc.b 1, 175	; Hardware period.
+	dc.b 117, 13	; Software period.
+	dc.b 175, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 176	; Hardware period, LSB.
@@ -10788,8 +10788,8 @@ Main_Subsong0_RegisterBlock_1354:
 
 Main_Subsong0_RegisterBlock_1355:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 10, 174	; Software period.
-	dc.b 1, 86	; Hardware period.
+	dc.b 174, 10	; Software period.
+	dc.b 86, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 87	; Hardware period, LSB.
@@ -10814,8 +10814,8 @@ Main_Subsong0_RegisterBlock_1355:
 
 Main_Subsong0_RegisterBlock_1356:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 13, 213	; Software period.
-	dc.b 1, 187	; Hardware period.
+	dc.b 213, 13	; Software period.
+	dc.b 187, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 188	; Hardware period, LSB.
@@ -10840,8 +10840,8 @@ Main_Subsong0_RegisterBlock_1356:
 
 Main_Subsong0_RegisterBlock_1357:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 11, 14	; Software period.
-	dc.b 1, 98	; Hardware period.
+	dc.b 14, 11	; Software period.
+	dc.b 98, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 99	; Hardware period, LSB.
@@ -10866,8 +10866,8 @@ Main_Subsong0_RegisterBlock_1357:
 
 Main_Subsong0_RegisterBlock_1358:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 14, 53	; Software period.
-	dc.b 1, 199	; Hardware period.
+	dc.b 53, 14	; Software period.
+	dc.b 199, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 200	; Hardware period, LSB.
@@ -10892,8 +10892,8 @@ Main_Subsong0_RegisterBlock_1358:
 
 Main_Subsong0_RegisterBlock_1359:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 11, 110	; Software period.
-	dc.b 1, 110	; Hardware period.
+	dc.b 110, 11	; Software period.
+	dc.b 110, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 111	; Hardware period, LSB.
@@ -10918,8 +10918,8 @@ Main_Subsong0_RegisterBlock_1359:
 
 Main_Subsong0_RegisterBlock_1360:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 14, 149	; Software period.
-	dc.b 1, 211	; Hardware period.
+	dc.b 149, 14	; Software period.
+	dc.b 211, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 212	; Hardware period, LSB.
@@ -10944,8 +10944,8 @@ Main_Subsong0_RegisterBlock_1360:
 
 Main_Subsong0_RegisterBlock_1361:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 11, 206	; Software period.
-	dc.b 1, 122	; Hardware period.
+	dc.b 206, 11	; Software period.
+	dc.b 122, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 123	; Hardware period, LSB.
@@ -10970,8 +10970,8 @@ Main_Subsong0_RegisterBlock_1361:
 
 Main_Subsong0_RegisterBlock_1362:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 14, 245	; Software period.
-	dc.b 1, 223	; Hardware period.
+	dc.b 245, 14	; Software period.
+	dc.b 223, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 224	; Hardware period, LSB.
@@ -10997,8 +10997,8 @@ Main_Subsong0_RegisterBlock_1362:
 
 Main_Subsong0_RegisterBlock_1363:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 12, 46	; Software period.
-	dc.b 1, 134	; Hardware period.
+	dc.b 46, 12	; Software period.
+	dc.b 134, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 135	; Hardware period, LSB.
@@ -11023,8 +11023,8 @@ Main_Subsong0_RegisterBlock_1363:
 
 Main_Subsong0_RegisterBlock_1364:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 15, 85	; Software period.
-	dc.b 1, 235	; Hardware period.
+	dc.b 85, 15	; Software period.
+	dc.b 235, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 236	; Hardware period, LSB.
@@ -11049,8 +11049,8 @@ Main_Subsong0_RegisterBlock_1364:
 
 Main_Subsong0_RegisterBlock_1365:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 12, 142	; Software period.
-	dc.b 1, 146	; Hardware period.
+	dc.b 142, 12	; Software period.
+	dc.b 146, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 147	; Hardware period, LSB.
@@ -11075,8 +11075,8 @@ Main_Subsong0_RegisterBlock_1365:
 
 Main_Subsong0_RegisterBlock_1366:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 15, 181	; Software period.
-	dc.b 1, 247	; Hardware period.
+	dc.b 181, 15	; Software period.
+	dc.b 247, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 248	; Hardware period, LSB.
@@ -11101,8 +11101,8 @@ Main_Subsong0_RegisterBlock_1366:
 
 Main_Subsong0_RegisterBlock_1367:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 12, 238	; Software period.
-	dc.b 1, 158	; Hardware period.
+	dc.b 238, 12	; Software period.
+	dc.b 158, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 159	; Hardware period, LSB.
@@ -11128,8 +11128,8 @@ Main_Subsong0_RegisterBlock_1367:
 
 Main_Subsong0_RegisterBlock_1368:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 16, 21	; Software period.
-	dc.b 2, 3	; Hardware period.
+	dc.b 21, 16	; Software period.
+	dc.b 3, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 4	; Hardware period, LSB.
@@ -11154,8 +11154,8 @@ Main_Subsong0_RegisterBlock_1368:
 
 Main_Subsong0_RegisterBlock_1369:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 13, 78	; Software period.
-	dc.b 1, 170	; Hardware period.
+	dc.b 78, 13	; Software period.
+	dc.b 170, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 171	; Hardware period, LSB.
@@ -11180,8 +11180,8 @@ Main_Subsong0_RegisterBlock_1369:
 
 Main_Subsong0_RegisterBlock_1370:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 16, 117	; Software period.
-	dc.b 2, 15	; Hardware period.
+	dc.b 117, 16	; Software period.
+	dc.b 15, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 16	; Hardware period, LSB.
@@ -11206,8 +11206,8 @@ Main_Subsong0_RegisterBlock_1370:
 
 Main_Subsong0_RegisterBlock_1371:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 13, 174	; Software period.
-	dc.b 1, 182	; Hardware period.
+	dc.b 174, 13	; Software period.
+	dc.b 182, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 183	; Hardware period, LSB.
@@ -11232,8 +11232,8 @@ Main_Subsong0_RegisterBlock_1371:
 
 Main_Subsong0_RegisterBlock_1372:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 16, 213	; Software period.
-	dc.b 2, 27	; Hardware period.
+	dc.b 213, 16	; Software period.
+	dc.b 27, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 28	; Hardware period, LSB.
@@ -11259,7 +11259,7 @@ Main_Subsong0_RegisterBlock_1372:
 Main_Subsong0_RegisterBlock_1373:
 	dc.b 131	; Initial State : software and hardware.
 	dc.b 14, 14	; Software period.
-	dc.b 1, 194	; Hardware period.
+	dc.b 194, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 195	; Hardware period, LSB.
@@ -11284,8 +11284,8 @@ Main_Subsong0_RegisterBlock_1373:
 
 Main_Subsong0_RegisterBlock_1374:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 17, 53	; Software period.
-	dc.b 2, 39	; Hardware period.
+	dc.b 53, 17	; Software period.
+	dc.b 39, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 40	; Hardware period, LSB.
@@ -11310,8 +11310,8 @@ Main_Subsong0_RegisterBlock_1374:
 
 Main_Subsong0_RegisterBlock_1375:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 14, 110	; Software period.
-	dc.b 1, 206	; Hardware period.
+	dc.b 110, 14	; Software period.
+	dc.b 206, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 207	; Hardware period, LSB.
@@ -11336,8 +11336,8 @@ Main_Subsong0_RegisterBlock_1375:
 
 Main_Subsong0_RegisterBlock_1376:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 17, 149	; Software period.
-	dc.b 2, 51	; Hardware period.
+	dc.b 149, 17	; Software period.
+	dc.b 51, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 52	; Hardware period, LSB.
@@ -11362,8 +11362,8 @@ Main_Subsong0_RegisterBlock_1376:
 
 Main_Subsong0_RegisterBlock_1377:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 14, 206	; Software period.
-	dc.b 1, 218	; Hardware period.
+	dc.b 206, 14	; Software period.
+	dc.b 218, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 219	; Hardware period, LSB.
@@ -11388,8 +11388,8 @@ Main_Subsong0_RegisterBlock_1377:
 
 Main_Subsong0_RegisterBlock_1378:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 17, 245	; Software period.
-	dc.b 2, 63	; Hardware period.
+	dc.b 245, 17	; Software period.
+	dc.b 63, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 64	; Hardware period, LSB.
@@ -11415,8 +11415,8 @@ Main_Subsong0_RegisterBlock_1378:
 
 Main_Subsong0_RegisterBlock_1379:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 15, 46	; Software period.
-	dc.b 1, 230	; Hardware period.
+	dc.b 46, 15	; Software period.
+	dc.b 230, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 231	; Hardware period, LSB.
@@ -11441,8 +11441,8 @@ Main_Subsong0_RegisterBlock_1379:
 
 Main_Subsong0_RegisterBlock_1380:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 18, 85	; Software period.
-	dc.b 2, 75	; Hardware period.
+	dc.b 85, 18	; Software period.
+	dc.b 75, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 76	; Hardware period, LSB.
@@ -11467,8 +11467,8 @@ Main_Subsong0_RegisterBlock_1380:
 
 Main_Subsong0_RegisterBlock_1381:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 15, 142	; Software period.
-	dc.b 1, 242	; Hardware period.
+	dc.b 142, 15	; Software period.
+	dc.b 242, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 243	; Hardware period, LSB.
@@ -11493,8 +11493,8 @@ Main_Subsong0_RegisterBlock_1381:
 
 Main_Subsong0_RegisterBlock_1382:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 18, 181	; Software period.
-	dc.b 2, 87	; Hardware period.
+	dc.b 181, 18	; Software period.
+	dc.b 87, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 88	; Hardware period, LSB.
@@ -11519,8 +11519,8 @@ Main_Subsong0_RegisterBlock_1382:
 
 Main_Subsong0_RegisterBlock_1383:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 15, 238	; Software period.
-	dc.b 1, 254	; Hardware period.
+	dc.b 238, 15	; Software period.
+	dc.b 254, 1	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 255	; Hardware period, LSB.
@@ -11547,8 +11547,8 @@ Main_Subsong0_RegisterBlock_1383:
 
 Main_Subsong0_RegisterBlock_1384:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 19, 21	; Software period.
-	dc.b 2, 99	; Hardware period.
+	dc.b 21, 19	; Software period.
+	dc.b 99, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 100	; Hardware period, LSB.
@@ -11573,8 +11573,8 @@ Main_Subsong0_RegisterBlock_1384:
 
 Main_Subsong0_RegisterBlock_1385:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 16, 78	; Software period.
-	dc.b 2, 10	; Hardware period.
+	dc.b 78, 16	; Software period.
+	dc.b 10, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 11	; Hardware period, LSB.
@@ -11599,8 +11599,8 @@ Main_Subsong0_RegisterBlock_1385:
 
 Main_Subsong0_RegisterBlock_1387:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 25, 98	; Software period.
-	dc.b 0, 203	; Hardware period.
+	dc.b 98, 25	; Software period.
+	dc.b 203, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 106	; Software period, LSB.
@@ -11614,8 +11614,8 @@ Main_Subsong0_RegisterBlock_1387:
 
 Main_Subsong0_RegisterBlock_1388:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 25, 146	; Software period.
-	dc.b 0, 205	; Hardware period.
+	dc.b 146, 25	; Software period.
+	dc.b 205, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 154	; Software period, LSB.
@@ -11636,8 +11636,8 @@ Main_Subsong0_RegisterBlock_1388:
 
 Main_Subsong0_RegisterBlock_1389:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 25, 194	; Software period.
-	dc.b 0, 206	; Hardware period.
+	dc.b 194, 25	; Software period.
+	dc.b 206, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 202	; Software period, LSB.
@@ -11651,8 +11651,8 @@ Main_Subsong0_RegisterBlock_1389:
 
 Main_Subsong0_RegisterBlock_1390:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 25, 242	; Software period.
-	dc.b 0, 208	; Hardware period.
+	dc.b 242, 25	; Software period.
+	dc.b 208, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 250	; Software period, LSB.
@@ -11674,8 +11674,8 @@ Main_Subsong0_RegisterBlock_1390:
 
 Main_Subsong0_RegisterBlock_1391:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 26, 34	; Software period.
-	dc.b 0, 209	; Hardware period.
+	dc.b 34, 26	; Software period.
+	dc.b 209, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 42	; Software period, LSB.
@@ -11689,8 +11689,8 @@ Main_Subsong0_RegisterBlock_1391:
 
 Main_Subsong0_RegisterBlock_1392:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 26, 82	; Software period.
-	dc.b 0, 211	; Hardware period.
+	dc.b 82, 26	; Software period.
+	dc.b 211, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 90	; Software period, LSB.
@@ -11711,8 +11711,8 @@ Main_Subsong0_RegisterBlock_1392:
 
 Main_Subsong0_RegisterBlock_1393:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 26, 130	; Software period.
-	dc.b 0, 212	; Hardware period.
+	dc.b 130, 26	; Software period.
+	dc.b 212, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 138	; Software period, LSB.
@@ -11726,8 +11726,8 @@ Main_Subsong0_RegisterBlock_1393:
 
 Main_Subsong0_RegisterBlock_1394:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 26, 178	; Software period.
-	dc.b 0, 214	; Hardware period.
+	dc.b 178, 26	; Software period.
+	dc.b 214, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 186	; Software period, LSB.
@@ -11748,8 +11748,8 @@ Main_Subsong0_RegisterBlock_1394:
 
 Main_Subsong0_RegisterBlock_1395:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 26, 226	; Software period.
-	dc.b 0, 215	; Hardware period.
+	dc.b 226, 26	; Software period.
+	dc.b 215, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 234	; Software period, LSB.
@@ -11771,8 +11771,8 @@ Main_Subsong0_RegisterBlock_1395:
 
 Main_Subsong0_RegisterBlock_1396:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 27, 18	; Software period.
-	dc.b 0, 217	; Hardware period.
+	dc.b 18, 27	; Software period.
+	dc.b 217, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 26	; Software period, LSB.
@@ -11793,8 +11793,8 @@ Main_Subsong0_RegisterBlock_1396:
 
 Main_Subsong0_RegisterBlock_1397:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 27, 66	; Software period.
-	dc.b 0, 218	; Hardware period.
+	dc.b 66, 27	; Software period.
+	dc.b 218, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 74	; Software period, LSB.
@@ -11808,8 +11808,8 @@ Main_Subsong0_RegisterBlock_1397:
 
 Main_Subsong0_RegisterBlock_1398:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 27, 114	; Software period.
-	dc.b 0, 220	; Hardware period.
+	dc.b 114, 27	; Software period.
+	dc.b 220, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 122	; Software period, LSB.
@@ -11830,8 +11830,8 @@ Main_Subsong0_RegisterBlock_1398:
 
 Main_Subsong0_RegisterBlock_1399:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 27, 162	; Software period.
-	dc.b 0, 221	; Hardware period.
+	dc.b 162, 27	; Software period.
+	dc.b 221, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 170	; Software period, LSB.
@@ -11845,8 +11845,8 @@ Main_Subsong0_RegisterBlock_1399:
 
 Main_Subsong0_RegisterBlock_1400:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 27, 210	; Software period.
-	dc.b 0, 223	; Hardware period.
+	dc.b 210, 27	; Software period.
+	dc.b 223, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 218	; Software period, LSB.
@@ -11867,8 +11867,8 @@ Main_Subsong0_RegisterBlock_1400:
 
 Main_Subsong0_RegisterBlock_1401:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 28, 2	; Software period.
-	dc.b 0, 224	; Hardware period.
+	dc.b 2, 28	; Software period.
+	dc.b 224, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 10	; Software period, LSB.
@@ -11882,8 +11882,8 @@ Main_Subsong0_RegisterBlock_1401:
 
 Main_Subsong0_RegisterBlock_1402:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 28, 50	; Software period.
-	dc.b 0, 226	; Hardware period.
+	dc.b 50, 28	; Software period.
+	dc.b 226, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 58	; Software period, LSB.
@@ -11904,8 +11904,8 @@ Main_Subsong0_RegisterBlock_1402:
 
 Main_Subsong0_RegisterBlock_1403:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 28, 98	; Software period.
-	dc.b 0, 227	; Hardware period.
+	dc.b 98, 28	; Software period.
+	dc.b 227, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 106	; Software period, LSB.
@@ -11919,8 +11919,8 @@ Main_Subsong0_RegisterBlock_1403:
 
 Main_Subsong0_RegisterBlock_1404:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 28, 146	; Software period.
-	dc.b 0, 229	; Hardware period.
+	dc.b 146, 28	; Software period.
+	dc.b 229, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 154	; Software period, LSB.
@@ -11941,8 +11941,8 @@ Main_Subsong0_RegisterBlock_1404:
 
 Main_Subsong0_RegisterBlock_1405:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 28, 194	; Software period.
-	dc.b 0, 230	; Hardware period.
+	dc.b 194, 28	; Software period.
+	dc.b 230, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 202	; Software period, LSB.
@@ -11956,8 +11956,8 @@ Main_Subsong0_RegisterBlock_1405:
 
 Main_Subsong0_RegisterBlock_1406:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 28, 242	; Software period.
-	dc.b 0, 232	; Hardware period.
+	dc.b 242, 28	; Software period.
+	dc.b 232, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 250	; Software period, LSB.
@@ -11979,8 +11979,8 @@ Main_Subsong0_RegisterBlock_1406:
 
 Main_Subsong0_RegisterBlock_1407:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 29, 34	; Software period.
-	dc.b 0, 233	; Hardware period.
+	dc.b 34, 29	; Software period.
+	dc.b 233, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 42	; Software period, LSB.
@@ -11994,8 +11994,8 @@ Main_Subsong0_RegisterBlock_1407:
 
 Main_Subsong0_RegisterBlock_1408:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 29, 82	; Software period.
-	dc.b 0, 235	; Hardware period.
+	dc.b 82, 29	; Software period.
+	dc.b 235, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 90	; Software period, LSB.
@@ -12016,8 +12016,8 @@ Main_Subsong0_RegisterBlock_1408:
 
 Main_Subsong0_RegisterBlock_1409:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 29, 130	; Software period.
-	dc.b 0, 236	; Hardware period.
+	dc.b 130, 29	; Software period.
+	dc.b 236, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 138	; Software period, LSB.
@@ -12031,8 +12031,8 @@ Main_Subsong0_RegisterBlock_1409:
 
 Main_Subsong0_RegisterBlock_1410:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 29, 178	; Software period.
-	dc.b 0, 238	; Hardware period.
+	dc.b 178, 29	; Software period.
+	dc.b 238, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 186	; Software period, LSB.
@@ -12053,8 +12053,8 @@ Main_Subsong0_RegisterBlock_1410:
 
 Main_Subsong0_RegisterBlock_1411:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 29, 226	; Software period.
-	dc.b 0, 239	; Hardware period.
+	dc.b 226, 29	; Software period.
+	dc.b 239, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 234	; Software period, LSB.
@@ -12076,8 +12076,8 @@ Main_Subsong0_RegisterBlock_1411:
 
 Main_Subsong0_RegisterBlock_1412:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 30, 18	; Software period.
-	dc.b 0, 241	; Hardware period.
+	dc.b 18, 30	; Software period.
+	dc.b 241, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 26	; Software period, LSB.
@@ -12098,8 +12098,8 @@ Main_Subsong0_RegisterBlock_1412:
 
 Main_Subsong0_RegisterBlock_1413:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 30, 66	; Software period.
-	dc.b 0, 242	; Hardware period.
+	dc.b 66, 30	; Software period.
+	dc.b 242, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 74	; Software period, LSB.
@@ -12113,8 +12113,8 @@ Main_Subsong0_RegisterBlock_1413:
 
 Main_Subsong0_RegisterBlock_1414:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 30, 114	; Software period.
-	dc.b 0, 244	; Hardware period.
+	dc.b 114, 30	; Software period.
+	dc.b 244, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 122	; Software period, LSB.
@@ -12135,8 +12135,8 @@ Main_Subsong0_RegisterBlock_1414:
 
 Main_Subsong0_RegisterBlock_1415:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 30, 162	; Software period.
-	dc.b 0, 245	; Hardware period.
+	dc.b 162, 30	; Software period.
+	dc.b 245, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 170	; Software period, LSB.
@@ -12150,8 +12150,8 @@ Main_Subsong0_RegisterBlock_1415:
 
 Main_Subsong0_RegisterBlock_1416:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 30, 210	; Software period.
-	dc.b 0, 247	; Hardware period.
+	dc.b 210, 30	; Software period.
+	dc.b 247, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 218	; Software period, LSB.
@@ -12172,8 +12172,8 @@ Main_Subsong0_RegisterBlock_1416:
 
 Main_Subsong0_RegisterBlock_1417:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 31, 2	; Software period.
-	dc.b 0, 248	; Hardware period.
+	dc.b 2, 31	; Software period.
+	dc.b 248, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 10	; Software period, LSB.
@@ -12187,8 +12187,8 @@ Main_Subsong0_RegisterBlock_1417:
 
 Main_Subsong0_RegisterBlock_1418:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 31, 50	; Software period.
-	dc.b 0, 250	; Hardware period.
+	dc.b 50, 31	; Software period.
+	dc.b 250, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 58	; Software period, LSB.
@@ -12209,8 +12209,8 @@ Main_Subsong0_RegisterBlock_1418:
 
 Main_Subsong0_RegisterBlock_1419:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 31, 98	; Software period.
-	dc.b 0, 251	; Hardware period.
+	dc.b 98, 31	; Software period.
+	dc.b 251, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 106	; Software period, LSB.
@@ -12224,8 +12224,8 @@ Main_Subsong0_RegisterBlock_1419:
 
 Main_Subsong0_RegisterBlock_1420:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 31, 146	; Software period.
-	dc.b 0, 253	; Hardware period.
+	dc.b 146, 31	; Software period.
+	dc.b 253, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 154	; Software period, LSB.
@@ -12246,8 +12246,8 @@ Main_Subsong0_RegisterBlock_1420:
 
 Main_Subsong0_RegisterBlock_1421:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 31, 194	; Software period.
-	dc.b 0, 254	; Hardware period.
+	dc.b 194, 31	; Software period.
+	dc.b 254, 0	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 202	; Software period, LSB.
@@ -12261,8 +12261,8 @@ Main_Subsong0_RegisterBlock_1421:
 
 Main_Subsong0_RegisterBlock_1422:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 31, 242	; Software period.
-	dc.b 1, 0	; Hardware period.
+	dc.b 242, 31	; Software period.
+	dc.b 0, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 250	; Software period, LSB.
@@ -12284,7 +12284,7 @@ Main_Subsong0_RegisterBlock_1422:
 
 Main_Subsong0_RegisterBlock_1423:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 32, 34	; Software period.
+	dc.b 34, 32	; Software period.
 	dc.b 1, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
@@ -12299,8 +12299,8 @@ Main_Subsong0_RegisterBlock_1423:
 
 Main_Subsong0_RegisterBlock_1424:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 32, 82	; Software period.
-	dc.b 1, 3	; Hardware period.
+	dc.b 82, 32	; Software period.
+	dc.b 3, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 90	; Software period, LSB.
@@ -12321,8 +12321,8 @@ Main_Subsong0_RegisterBlock_1424:
 
 Main_Subsong0_RegisterBlock_1425:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 32, 130	; Software period.
-	dc.b 1, 4	; Hardware period.
+	dc.b 130, 32	; Software period.
+	dc.b 4, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 138	; Software period, LSB.
@@ -12336,8 +12336,8 @@ Main_Subsong0_RegisterBlock_1425:
 
 Main_Subsong0_RegisterBlock_1426:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 32, 178	; Software period.
-	dc.b 1, 6	; Hardware period.
+	dc.b 178, 32	; Software period.
+	dc.b 6, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 186	; Software period, LSB.
@@ -12358,8 +12358,8 @@ Main_Subsong0_RegisterBlock_1426:
 
 Main_Subsong0_RegisterBlock_1427:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 32, 226	; Software period.
-	dc.b 1, 7	; Hardware period.
+	dc.b 226, 32	; Software period.
+	dc.b 7, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 234	; Software period, LSB.
@@ -12381,8 +12381,8 @@ Main_Subsong0_RegisterBlock_1427:
 
 Main_Subsong0_RegisterBlock_1428:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 33, 18	; Software period.
-	dc.b 1, 9	; Hardware period.
+	dc.b 18, 33	; Software period.
+	dc.b 9, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 26	; Software period, LSB.
@@ -12403,8 +12403,8 @@ Main_Subsong0_RegisterBlock_1428:
 
 Main_Subsong0_RegisterBlock_1429:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 33, 66	; Software period.
-	dc.b 1, 10	; Hardware period.
+	dc.b 66, 33	; Software period.
+	dc.b 10, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 74	; Software period, LSB.
@@ -12418,8 +12418,8 @@ Main_Subsong0_RegisterBlock_1429:
 
 Main_Subsong0_RegisterBlock_1430:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 33, 114	; Software period.
-	dc.b 1, 12	; Hardware period.
+	dc.b 114, 33	; Software period.
+	dc.b 12, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 122	; Software period, LSB.
@@ -12440,8 +12440,8 @@ Main_Subsong0_RegisterBlock_1430:
 
 Main_Subsong0_RegisterBlock_1431:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 33, 162	; Software period.
-	dc.b 1, 13	; Hardware period.
+	dc.b 162, 33	; Software period.
+	dc.b 13, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 170	; Software period, LSB.
@@ -12455,8 +12455,8 @@ Main_Subsong0_RegisterBlock_1431:
 
 Main_Subsong0_RegisterBlock_1432:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 33, 210	; Software period.
-	dc.b 1, 15	; Hardware period.
+	dc.b 210, 33	; Software period.
+	dc.b 15, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 218	; Software period, LSB.
@@ -12477,8 +12477,8 @@ Main_Subsong0_RegisterBlock_1432:
 
 Main_Subsong0_RegisterBlock_1433:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 34, 2	; Software period.
-	dc.b 1, 16	; Hardware period.
+	dc.b 2, 34	; Software period.
+	dc.b 16, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 10	; Software period, LSB.
@@ -12492,8 +12492,8 @@ Main_Subsong0_RegisterBlock_1433:
 
 Main_Subsong0_RegisterBlock_1434:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 34, 50	; Software period.
-	dc.b 1, 18	; Hardware period.
+	dc.b 50, 34	; Software period.
+	dc.b 18, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 58	; Software period, LSB.
@@ -12514,8 +12514,8 @@ Main_Subsong0_RegisterBlock_1434:
 
 Main_Subsong0_RegisterBlock_1435:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 34, 98	; Software period.
-	dc.b 1, 19	; Hardware period.
+	dc.b 98, 34	; Software period.
+	dc.b 19, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 106	; Software period, LSB.
@@ -12529,8 +12529,8 @@ Main_Subsong0_RegisterBlock_1435:
 
 Main_Subsong0_RegisterBlock_1436:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 34, 146	; Software period.
-	dc.b 1, 21	; Hardware period.
+	dc.b 146, 34	; Software period.
+	dc.b 21, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 154	; Software period, LSB.
@@ -12551,8 +12551,8 @@ Main_Subsong0_RegisterBlock_1436:
 
 Main_Subsong0_RegisterBlock_1437:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 34, 194	; Software period.
-	dc.b 1, 22	; Hardware period.
+	dc.b 194, 34	; Software period.
+	dc.b 22, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 202	; Software period, LSB.
@@ -12566,8 +12566,8 @@ Main_Subsong0_RegisterBlock_1437:
 
 Main_Subsong0_RegisterBlock_1438:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 34, 242	; Software period.
-	dc.b 1, 24	; Hardware period.
+	dc.b 242, 34	; Software period.
+	dc.b 24, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 250	; Software period, LSB.
@@ -12589,8 +12589,8 @@ Main_Subsong0_RegisterBlock_1438:
 
 Main_Subsong0_RegisterBlock_1439:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 35, 34	; Software period.
-	dc.b 1, 25	; Hardware period.
+	dc.b 34, 35	; Software period.
+	dc.b 25, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 42	; Software period, LSB.
@@ -12604,8 +12604,8 @@ Main_Subsong0_RegisterBlock_1439:
 
 Main_Subsong0_RegisterBlock_1440:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 35, 82	; Software period.
-	dc.b 1, 27	; Hardware period.
+	dc.b 82, 35	; Software period.
+	dc.b 27, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 90	; Software period, LSB.
@@ -12626,8 +12626,8 @@ Main_Subsong0_RegisterBlock_1440:
 
 Main_Subsong0_RegisterBlock_1441:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 35, 130	; Software period.
-	dc.b 1, 28	; Hardware period.
+	dc.b 130, 35	; Software period.
+	dc.b 28, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 138	; Software period, LSB.
@@ -12641,8 +12641,8 @@ Main_Subsong0_RegisterBlock_1441:
 
 Main_Subsong0_RegisterBlock_1442:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 35, 178	; Software period.
-	dc.b 1, 30	; Hardware period.
+	dc.b 178, 35	; Software period.
+	dc.b 30, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 186	; Software period, LSB.
@@ -12663,8 +12663,8 @@ Main_Subsong0_RegisterBlock_1442:
 
 Main_Subsong0_RegisterBlock_1443:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 35, 226	; Software period.
-	dc.b 1, 31	; Hardware period.
+	dc.b 226, 35	; Software period.
+	dc.b 31, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 234	; Software period, LSB.
@@ -12686,8 +12686,8 @@ Main_Subsong0_RegisterBlock_1443:
 
 Main_Subsong0_RegisterBlock_1444:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 36, 18	; Software period.
-	dc.b 1, 33	; Hardware period.
+	dc.b 18, 36	; Software period.
+	dc.b 33, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 26	; Software period, LSB.
@@ -12708,8 +12708,8 @@ Main_Subsong0_RegisterBlock_1444:
 
 Main_Subsong0_RegisterBlock_1445:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 36, 66	; Software period.
-	dc.b 1, 34	; Hardware period.
+	dc.b 66, 36	; Software period.
+	dc.b 34, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 74	; Software period, LSB.
@@ -12723,8 +12723,8 @@ Main_Subsong0_RegisterBlock_1445:
 
 Main_Subsong0_RegisterBlock_1446:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 36, 114	; Software period.
-	dc.b 1, 36	; Hardware period.
+	dc.b 114, 36	; Software period.
+	dc.b 36, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 122	; Software period, LSB.
@@ -12745,8 +12745,8 @@ Main_Subsong0_RegisterBlock_1446:
 
 Main_Subsong0_RegisterBlock_1447:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 36, 162	; Software period.
-	dc.b 1, 37	; Hardware period.
+	dc.b 162, 36	; Software period.
+	dc.b 37, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 170	; Software period, LSB.
@@ -12760,8 +12760,8 @@ Main_Subsong0_RegisterBlock_1447:
 
 Main_Subsong0_RegisterBlock_1448:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 36, 210	; Software period.
-	dc.b 1, 39	; Hardware period.
+	dc.b 210, 36	; Software period.
+	dc.b 39, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 218	; Software period, LSB.
@@ -12782,8 +12782,8 @@ Main_Subsong0_RegisterBlock_1448:
 
 Main_Subsong0_RegisterBlock_1449:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 37, 2	; Software period.
-	dc.b 1, 40	; Hardware period.
+	dc.b 2, 37	; Software period.
+	dc.b 40, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 10	; Software period, LSB.
@@ -12797,8 +12797,8 @@ Main_Subsong0_RegisterBlock_1449:
 
 Main_Subsong0_RegisterBlock_1450:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 37, 50	; Software period.
-	dc.b 1, 42	; Hardware period.
+	dc.b 50, 37	; Software period.
+	dc.b 42, 1	; Hardware period.
 
 	dc.b 19	; Non-initial State, software and hardware.
 	dc.b 58	; Software period, LSB.
@@ -12819,8 +12819,8 @@ Main_Subsong0_RegisterBlock_1450:
 
 Main_Subsong0_RegisterBlock_1452:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 19, 117	; Software period.
-	dc.b 2, 111	; Hardware period.
+	dc.b 117, 19	; Software period.
+	dc.b 111, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 112	; Hardware period, LSB.
@@ -12845,8 +12845,8 @@ Main_Subsong0_RegisterBlock_1452:
 
 Main_Subsong0_RegisterBlock_1453:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 16, 174	; Software period.
-	dc.b 2, 22	; Hardware period.
+	dc.b 174, 16	; Software period.
+	dc.b 22, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 23	; Hardware period, LSB.
@@ -12871,8 +12871,8 @@ Main_Subsong0_RegisterBlock_1453:
 
 Main_Subsong0_RegisterBlock_1454:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 19, 213	; Software period.
-	dc.b 2, 123	; Hardware period.
+	dc.b 213, 19	; Software period.
+	dc.b 123, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 124	; Hardware period, LSB.
@@ -12897,8 +12897,8 @@ Main_Subsong0_RegisterBlock_1454:
 
 Main_Subsong0_RegisterBlock_1455:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 17, 14	; Software period.
-	dc.b 2, 34	; Hardware period.
+	dc.b 14, 17	; Software period.
+	dc.b 34, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 35	; Hardware period, LSB.
@@ -12923,8 +12923,8 @@ Main_Subsong0_RegisterBlock_1455:
 
 Main_Subsong0_RegisterBlock_1456:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 20, 53	; Software period.
-	dc.b 2, 135	; Hardware period.
+	dc.b 53, 20	; Software period.
+	dc.b 135, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 136	; Hardware period, LSB.
@@ -12949,8 +12949,8 @@ Main_Subsong0_RegisterBlock_1456:
 
 Main_Subsong0_RegisterBlock_1457:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 17, 110	; Software period.
-	dc.b 2, 46	; Hardware period.
+	dc.b 110, 17	; Software period.
+	dc.b 46, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 47	; Hardware period, LSB.
@@ -12975,8 +12975,8 @@ Main_Subsong0_RegisterBlock_1457:
 
 Main_Subsong0_RegisterBlock_1458:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 20, 149	; Software period.
-	dc.b 2, 147	; Hardware period.
+	dc.b 149, 20	; Software period.
+	dc.b 147, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 148	; Hardware period, LSB.
@@ -13001,8 +13001,8 @@ Main_Subsong0_RegisterBlock_1458:
 
 Main_Subsong0_RegisterBlock_1459:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 17, 206	; Software period.
-	dc.b 2, 58	; Hardware period.
+	dc.b 206, 17	; Software period.
+	dc.b 58, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 59	; Hardware period, LSB.
@@ -13027,8 +13027,8 @@ Main_Subsong0_RegisterBlock_1459:
 
 Main_Subsong0_RegisterBlock_1460:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 20, 245	; Software period.
-	dc.b 2, 159	; Hardware period.
+	dc.b 245, 20	; Software period.
+	dc.b 159, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 160	; Hardware period, LSB.
@@ -13054,8 +13054,8 @@ Main_Subsong0_RegisterBlock_1460:
 
 Main_Subsong0_RegisterBlock_1461:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 18, 46	; Software period.
-	dc.b 2, 70	; Hardware period.
+	dc.b 46, 18	; Software period.
+	dc.b 70, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 71	; Hardware period, LSB.
@@ -13080,8 +13080,8 @@ Main_Subsong0_RegisterBlock_1461:
 
 Main_Subsong0_RegisterBlock_1462:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 21, 85	; Software period.
-	dc.b 2, 171	; Hardware period.
+	dc.b 85, 21	; Software period.
+	dc.b 171, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 172	; Hardware period, LSB.
@@ -13106,8 +13106,8 @@ Main_Subsong0_RegisterBlock_1462:
 
 Main_Subsong0_RegisterBlock_1463:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 18, 142	; Software period.
-	dc.b 2, 82	; Hardware period.
+	dc.b 142, 18	; Software period.
+	dc.b 82, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 83	; Hardware period, LSB.
@@ -13132,8 +13132,8 @@ Main_Subsong0_RegisterBlock_1463:
 
 Main_Subsong0_RegisterBlock_1464:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 21, 181	; Software period.
-	dc.b 2, 183	; Hardware period.
+	dc.b 181, 21	; Software period.
+	dc.b 183, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 184	; Hardware period, LSB.
@@ -13158,8 +13158,8 @@ Main_Subsong0_RegisterBlock_1464:
 
 Main_Subsong0_RegisterBlock_1465:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 18, 238	; Software period.
-	dc.b 2, 94	; Hardware period.
+	dc.b 238, 18	; Software period.
+	dc.b 94, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 95	; Hardware period, LSB.
@@ -13185,8 +13185,8 @@ Main_Subsong0_RegisterBlock_1465:
 
 Main_Subsong0_RegisterBlock_1466:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 22, 21	; Software period.
-	dc.b 2, 195	; Hardware period.
+	dc.b 21, 22	; Software period.
+	dc.b 195, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 196	; Hardware period, LSB.
@@ -13211,8 +13211,8 @@ Main_Subsong0_RegisterBlock_1466:
 
 Main_Subsong0_RegisterBlock_1467:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 19, 78	; Software period.
-	dc.b 2, 106	; Hardware period.
+	dc.b 78, 19	; Software period.
+	dc.b 106, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 107	; Hardware period, LSB.
@@ -13237,8 +13237,8 @@ Main_Subsong0_RegisterBlock_1467:
 
 Main_Subsong0_RegisterBlock_1468:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 22, 117	; Software period.
-	dc.b 2, 207	; Hardware period.
+	dc.b 117, 22	; Software period.
+	dc.b 207, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 208	; Hardware period, LSB.
@@ -13263,8 +13263,8 @@ Main_Subsong0_RegisterBlock_1468:
 
 Main_Subsong0_RegisterBlock_1469:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 19, 174	; Software period.
-	dc.b 2, 118	; Hardware period.
+	dc.b 174, 19	; Software period.
+	dc.b 118, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 119	; Hardware period, LSB.
@@ -13289,8 +13289,8 @@ Main_Subsong0_RegisterBlock_1469:
 
 Main_Subsong0_RegisterBlock_1470:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 22, 213	; Software period.
-	dc.b 2, 219	; Hardware period.
+	dc.b 213, 22	; Software period.
+	dc.b 219, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 220	; Hardware period, LSB.
@@ -13315,8 +13315,8 @@ Main_Subsong0_RegisterBlock_1470:
 
 Main_Subsong0_RegisterBlock_1471:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 20, 14	; Software period.
-	dc.b 2, 130	; Hardware period.
+	dc.b 14, 20	; Software period.
+	dc.b 130, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 131	; Hardware period, LSB.
@@ -13341,8 +13341,8 @@ Main_Subsong0_RegisterBlock_1471:
 
 Main_Subsong0_RegisterBlock_1472:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 23, 53	; Software period.
-	dc.b 2, 231	; Hardware period.
+	dc.b 53, 23	; Software period.
+	dc.b 231, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 232	; Hardware period, LSB.
@@ -13367,8 +13367,8 @@ Main_Subsong0_RegisterBlock_1472:
 
 Main_Subsong0_RegisterBlock_1473:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 20, 110	; Software period.
-	dc.b 2, 142	; Hardware period.
+	dc.b 110, 20	; Software period.
+	dc.b 142, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 143	; Hardware period, LSB.
@@ -13393,8 +13393,8 @@ Main_Subsong0_RegisterBlock_1473:
 
 Main_Subsong0_RegisterBlock_1474:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 23, 149	; Software period.
-	dc.b 2, 243	; Hardware period.
+	dc.b 149, 23	; Software period.
+	dc.b 243, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 244	; Hardware period, LSB.
@@ -13419,8 +13419,8 @@ Main_Subsong0_RegisterBlock_1474:
 
 Main_Subsong0_RegisterBlock_1475:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 20, 206	; Software period.
-	dc.b 2, 154	; Hardware period.
+	dc.b 206, 20	; Software period.
+	dc.b 154, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 155	; Hardware period, LSB.
@@ -13445,8 +13445,8 @@ Main_Subsong0_RegisterBlock_1475:
 
 Main_Subsong0_RegisterBlock_1476:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 23, 245	; Software period.
-	dc.b 2, 255	; Hardware period.
+	dc.b 245, 23	; Software period.
+	dc.b 255, 2	; Hardware period.
 
 	dc.b 31	; Non-initial State, software and hardware.
 	dc.b 0	; Hardware period, LSB.
@@ -13473,8 +13473,8 @@ Main_Subsong0_RegisterBlock_1476:
 
 Main_Subsong0_RegisterBlock_1477:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 21, 46	; Software period.
-	dc.b 2, 166	; Hardware period.
+	dc.b 46, 21	; Software period.
+	dc.b 166, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 167	; Hardware period, LSB.
@@ -13499,8 +13499,8 @@ Main_Subsong0_RegisterBlock_1477:
 
 Main_Subsong0_RegisterBlock_1478:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 24, 85	; Software period.
-	dc.b 3, 11	; Hardware period.
+	dc.b 85, 24	; Software period.
+	dc.b 11, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 12	; Hardware period, LSB.
@@ -13525,8 +13525,8 @@ Main_Subsong0_RegisterBlock_1478:
 
 Main_Subsong0_RegisterBlock_1479:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 21, 142	; Software period.
-	dc.b 2, 178	; Hardware period.
+	dc.b 142, 21	; Software period.
+	dc.b 178, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 179	; Hardware period, LSB.
@@ -13551,8 +13551,8 @@ Main_Subsong0_RegisterBlock_1479:
 
 Main_Subsong0_RegisterBlock_1480:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 24, 181	; Software period.
-	dc.b 3, 23	; Hardware period.
+	dc.b 181, 24	; Software period.
+	dc.b 23, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 24	; Hardware period, LSB.
@@ -13577,8 +13577,8 @@ Main_Subsong0_RegisterBlock_1480:
 
 Main_Subsong0_RegisterBlock_1481:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 21, 238	; Software period.
-	dc.b 2, 190	; Hardware period.
+	dc.b 238, 21	; Software period.
+	dc.b 190, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 191	; Hardware period, LSB.
@@ -13604,8 +13604,8 @@ Main_Subsong0_RegisterBlock_1481:
 
 Main_Subsong0_RegisterBlock_1482:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 25, 21	; Software period.
-	dc.b 3, 35	; Hardware period.
+	dc.b 21, 25	; Software period.
+	dc.b 35, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 36	; Hardware period, LSB.
@@ -13630,8 +13630,8 @@ Main_Subsong0_RegisterBlock_1482:
 
 Main_Subsong0_RegisterBlock_1483:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 22, 78	; Software period.
-	dc.b 2, 202	; Hardware period.
+	dc.b 78, 22	; Software period.
+	dc.b 202, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 203	; Hardware period, LSB.
@@ -13656,8 +13656,8 @@ Main_Subsong0_RegisterBlock_1483:
 
 Main_Subsong0_RegisterBlock_1484:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 25, 117	; Software period.
-	dc.b 3, 47	; Hardware period.
+	dc.b 117, 25	; Software period.
+	dc.b 47, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 48	; Hardware period, LSB.
@@ -13682,8 +13682,8 @@ Main_Subsong0_RegisterBlock_1484:
 
 Main_Subsong0_RegisterBlock_1485:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 22, 174	; Software period.
-	dc.b 2, 214	; Hardware period.
+	dc.b 174, 22	; Software period.
+	dc.b 214, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 215	; Hardware period, LSB.
@@ -13708,8 +13708,8 @@ Main_Subsong0_RegisterBlock_1485:
 
 Main_Subsong0_RegisterBlock_1486:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 25, 213	; Software period.
-	dc.b 3, 59	; Hardware period.
+	dc.b 213, 25	; Software period.
+	dc.b 59, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 60	; Hardware period, LSB.
@@ -13734,8 +13734,8 @@ Main_Subsong0_RegisterBlock_1486:
 
 Main_Subsong0_RegisterBlock_1487:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 23, 14	; Software period.
-	dc.b 2, 226	; Hardware period.
+	dc.b 14, 23	; Software period.
+	dc.b 226, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 227	; Hardware period, LSB.
@@ -13760,8 +13760,8 @@ Main_Subsong0_RegisterBlock_1487:
 
 Main_Subsong0_RegisterBlock_1488:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 26, 53	; Software period.
-	dc.b 3, 71	; Hardware period.
+	dc.b 53, 26	; Software period.
+	dc.b 71, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 72	; Hardware period, LSB.
@@ -13786,8 +13786,8 @@ Main_Subsong0_RegisterBlock_1488:
 
 Main_Subsong0_RegisterBlock_1489:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 23, 110	; Software period.
-	dc.b 2, 238	; Hardware period.
+	dc.b 110, 23	; Software period.
+	dc.b 238, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 239	; Hardware period, LSB.
@@ -13812,8 +13812,8 @@ Main_Subsong0_RegisterBlock_1489:
 
 Main_Subsong0_RegisterBlock_1490:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 26, 149	; Software period.
-	dc.b 3, 83	; Hardware period.
+	dc.b 149, 26	; Software period.
+	dc.b 83, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 84	; Hardware period, LSB.
@@ -13838,8 +13838,8 @@ Main_Subsong0_RegisterBlock_1490:
 
 Main_Subsong0_RegisterBlock_1491:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 23, 206	; Software period.
-	dc.b 2, 250	; Hardware period.
+	dc.b 206, 23	; Software period.
+	dc.b 250, 2	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 251	; Hardware period, LSB.
@@ -13864,8 +13864,8 @@ Main_Subsong0_RegisterBlock_1491:
 
 Main_Subsong0_RegisterBlock_1492:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 26, 245	; Software period.
-	dc.b 3, 95	; Hardware period.
+	dc.b 245, 26	; Software period.
+	dc.b 95, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 96	; Hardware period, LSB.
@@ -13891,8 +13891,8 @@ Main_Subsong0_RegisterBlock_1492:
 
 Main_Subsong0_RegisterBlock_1493:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 24, 46	; Software period.
-	dc.b 3, 6	; Hardware period.
+	dc.b 46, 24	; Software period.
+	dc.b 6, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 7	; Hardware period, LSB.
@@ -13917,8 +13917,8 @@ Main_Subsong0_RegisterBlock_1493:
 
 Main_Subsong0_RegisterBlock_1494:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 27, 85	; Software period.
-	dc.b 3, 107	; Hardware period.
+	dc.b 85, 27	; Software period.
+	dc.b 107, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 108	; Hardware period, LSB.
@@ -13943,8 +13943,8 @@ Main_Subsong0_RegisterBlock_1494:
 
 Main_Subsong0_RegisterBlock_1495:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 24, 142	; Software period.
-	dc.b 3, 18	; Hardware period.
+	dc.b 142, 24	; Software period.
+	dc.b 18, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 19	; Hardware period, LSB.
@@ -13969,8 +13969,8 @@ Main_Subsong0_RegisterBlock_1495:
 
 Main_Subsong0_RegisterBlock_1496:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 27, 181	; Software period.
-	dc.b 3, 119	; Hardware period.
+	dc.b 181, 27	; Software period.
+	dc.b 119, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 120	; Hardware period, LSB.
@@ -13995,8 +13995,8 @@ Main_Subsong0_RegisterBlock_1496:
 
 Main_Subsong0_RegisterBlock_1497:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 24, 238	; Software period.
-	dc.b 3, 30	; Hardware period.
+	dc.b 238, 24	; Software period.
+	dc.b 30, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 31	; Hardware period, LSB.
@@ -14022,8 +14022,8 @@ Main_Subsong0_RegisterBlock_1497:
 
 Main_Subsong0_RegisterBlock_1498:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 28, 21	; Software period.
-	dc.b 3, 131	; Hardware period.
+	dc.b 21, 28	; Software period.
+	dc.b 131, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 132	; Hardware period, LSB.
@@ -14048,8 +14048,8 @@ Main_Subsong0_RegisterBlock_1498:
 
 Main_Subsong0_RegisterBlock_1499:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 25, 78	; Software period.
-	dc.b 3, 42	; Hardware period.
+	dc.b 78, 25	; Software period.
+	dc.b 42, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 43	; Hardware period, LSB.
@@ -14074,8 +14074,8 @@ Main_Subsong0_RegisterBlock_1499:
 
 Main_Subsong0_RegisterBlock_1500:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 28, 117	; Software period.
-	dc.b 3, 143	; Hardware period.
+	dc.b 117, 28	; Software period.
+	dc.b 143, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 144	; Hardware period, LSB.
@@ -14100,8 +14100,8 @@ Main_Subsong0_RegisterBlock_1500:
 
 Main_Subsong0_RegisterBlock_1501:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 25, 174	; Software period.
-	dc.b 3, 54	; Hardware period.
+	dc.b 174, 25	; Software period.
+	dc.b 54, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 55	; Hardware period, LSB.
@@ -14126,8 +14126,8 @@ Main_Subsong0_RegisterBlock_1501:
 
 Main_Subsong0_RegisterBlock_1502:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 28, 213	; Software period.
-	dc.b 3, 155	; Hardware period.
+	dc.b 213, 28	; Software period.
+	dc.b 155, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 156	; Hardware period, LSB.
@@ -14152,8 +14152,8 @@ Main_Subsong0_RegisterBlock_1502:
 
 Main_Subsong0_RegisterBlock_1503:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 26, 14	; Software period.
-	dc.b 3, 66	; Hardware period.
+	dc.b 14, 26	; Software period.
+	dc.b 66, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 67	; Hardware period, LSB.
@@ -14178,8 +14178,8 @@ Main_Subsong0_RegisterBlock_1503:
 
 Main_Subsong0_RegisterBlock_1504:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 29, 53	; Software period.
-	dc.b 3, 167	; Hardware period.
+	dc.b 53, 29	; Software period.
+	dc.b 167, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 168	; Hardware period, LSB.
@@ -14204,8 +14204,8 @@ Main_Subsong0_RegisterBlock_1504:
 
 Main_Subsong0_RegisterBlock_1505:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 26, 110	; Software period.
-	dc.b 3, 78	; Hardware period.
+	dc.b 110, 26	; Software period.
+	dc.b 78, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 79	; Hardware period, LSB.
@@ -14230,8 +14230,8 @@ Main_Subsong0_RegisterBlock_1505:
 
 Main_Subsong0_RegisterBlock_1506:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 29, 149	; Software period.
-	dc.b 3, 179	; Hardware period.
+	dc.b 149, 29	; Software period.
+	dc.b 179, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 180	; Hardware period, LSB.
@@ -14256,8 +14256,8 @@ Main_Subsong0_RegisterBlock_1506:
 
 Main_Subsong0_RegisterBlock_1507:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 26, 206	; Software period.
-	dc.b 3, 90	; Hardware period.
+	dc.b 206, 26	; Software period.
+	dc.b 90, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 91	; Hardware period, LSB.
@@ -14282,8 +14282,8 @@ Main_Subsong0_RegisterBlock_1507:
 
 Main_Subsong0_RegisterBlock_1508:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 29, 245	; Software period.
-	dc.b 3, 191	; Hardware period.
+	dc.b 245, 29	; Software period.
+	dc.b 191, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 192	; Hardware period, LSB.
@@ -14299,40 +14299,40 @@ Main_Subsong0_RegisterBlock_1508:
 
 Main_Subsong0_RegisterBlock_1509:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 27, 46	; Software period.
-	dc.b 3, 102	; Hardware period.
+	dc.b 46, 27	; Software period.
+	dc.b 102, 3	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1249-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1510:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 30, 85	; Software period.
-	dc.b 3, 203	; Hardware period.
+	dc.b 85, 30	; Software period.
+	dc.b 203, 3	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1250-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1511:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 27, 142	; Software period.
-	dc.b 3, 114	; Hardware period.
+	dc.b 142, 27	; Software period.
+	dc.b 114, 3	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1251-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1512:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 30, 181	; Software period.
-	dc.b 3, 215	; Hardware period.
+	dc.b 181, 30	; Software period.
+	dc.b 215, 3	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1252-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1513:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 27, 238	; Software period.
-	dc.b 3, 126	; Hardware period.
+	dc.b 238, 27	; Software period.
+	dc.b 126, 3	; Hardware period.
 
 	dc.b 23	; Non-initial State, software and hardware.
 	dc.b 127	; Hardware period, LSB.
@@ -14358,16 +14358,16 @@ Main_Subsong0_RegisterBlock_1513:
 
 Main_Subsong0_RegisterBlock_1514:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 31, 21	; Software period.
-	dc.b 3, 227	; Hardware period.
+	dc.b 21, 31	; Software period.
+	dc.b 227, 3	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1254-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
 
 Main_Subsong0_RegisterBlock_1515:
 	dc.b 131	; Initial State : software and hardware.
-	dc.b 28, 78	; Software period.
-	dc.b 3, 138	; Hardware period.
+	dc.b 78, 28	; Software period.
+	dc.b 138, 3	; Hardware period.
 
 	dc.b 8
 	dc.w Main_Subsong0_RegisterBlock_1255-Main_Subsong0 + 5	; Optimization: goto common Block at index 1.
