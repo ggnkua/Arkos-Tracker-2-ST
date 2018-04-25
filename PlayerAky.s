@@ -59,9 +59,6 @@ PLY_AKYst_Start:
 ;       HL = music address.
 *       a0.l = music address
 PLY_AKYst_Init:
-        move.l a0,PLY_AKYst_StartSong1  ;We have to update the player at these two points because 
-        move.l a0,PLY_AKYst_StartSong2  ;of the cmpa - (cmpa.w sign extends so we need cmp.l)
-
         ;Skips the header.
 ;        inc hl                          ;Skips the format version.
         addq.l #1,a0                    ;Skips the format version.
@@ -118,8 +115,7 @@ PLY_AKYst_PatternFrameCounter equ * + 2
 ;        or h
 
 * SMC - DO NOT OPTIMISE!
-PLY_AKYst_StartSong1 equ * + 2
-        cmpa.l #0,a1
+        cmpa.l a0,a1
 ;        jr z,PLY_AKYst_PatternFrameCounter_Over
         beq.s PLY_AKYst_PatternFrameCounter_Over
 ;        ld (PLY_AKYst_PatternFrameCounter + 1),hl
@@ -142,8 +138,7 @@ PLY_AKYst_PtLinker = * + 2
 ;        ld a,l
 ;        or h
 * SMC - DO NOT OPTIMISE!
-PLY_AKYst_StartSong2 equ * + 2
-        cmpa.l #0,a1
+        cmpa.l a0,a1
 ;        jr nz,PLY_AKYst_LinkerNotEndSong
         bne.s PLY_AKYst_LinkerNotEndSong
         ;End of the song. Where to loop?
@@ -152,7 +147,7 @@ PLY_AKYst_StartSong2 equ * + 2
         lea (a0,a1.w),a1
         ;We directly point on the frame counter of the pattern to loop to.
 ;        ld sp,hl
-        move.w a1,a6
+        move.l a1,a6
         ;Gets the duration again. No need to check the end of the song,
         ;we know it contains at least one pattern.
 ;        pop hl
@@ -1158,7 +1153,7 @@ PLY_AKYst_RRB_NIS_ManageLoop:
 ;Check if address is odd, and make it even if so
 ;Auto-even address. Not the best thing we could do performance wise but it'll do for now
         move.l a1,d1
-        addq.w #1,d1
+        addq.l #1,d1
         bclr #0,d1
         move.l d1,a1
 ;        ld a,(hl)

@@ -111,7 +111,7 @@ tune:
 ;	.include "UltraSyd - YM Type.s"
 ;	.include "Targhan - Midline Process - Carpet.s"
 ;	.include "Targhan - Midline Process - Molusk.s"
-	.include "Targhan - DemoIzArt - End Part.s"
+	.include "Pachelbel's Canon in D major 003.s"
 	.long				            ;pad to 4 bytes
 tune_end:
 
