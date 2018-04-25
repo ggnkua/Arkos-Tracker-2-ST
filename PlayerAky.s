@@ -1156,18 +1156,11 @@ PLY_AKYst_NIS_JPTable:
 PLY_AKYst_RRB_NIS_ManageLoop:
         ;Loops. Reads the next pointer to this RegisterBlock.
 ;Check if address is odd, and make it even if so
-;Nonononononononono
-;Nonononononononono
-;Nonononononononono
-;Nonononononononono
-;Nonononononononono
-;This is really not efficient - this needs to be EVENd during export
+;Auto-even address. Not the best thing we could do performance wise but it'll do for now
         move.l a1,d1
-        btst #0,d1      ;odd address?
-        beq.s PLY_AKYst_RRB_NIS_ManageLoopEven
-        addq.l #1,d1    ;yup, make it even
+        addq.w #1,d1
+        bclr #0,d1
         move.l d1,a1
-PLY_AKYst_RRB_NIS_ManageLoopEven:
 ;        ld a,(hl)
 ;        inc hl
 ;        ld h,(hl)
