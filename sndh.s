@@ -139,8 +139,8 @@
       bra.w  sndh_vbl
 
       dc.b   'SNDH'
-      dc.b   'TITL','Pachelbel\'s Canon in D major',0
-      dc.b   'COMM','XiA',0
+      dc.b   'TITL','Remote entry #2',0
+      dc.b   'COMM','Who knows',0
       dc.b   'RIPP','GGN',0
       dc.b   'CONV','Arkos2-2-SNDH',0
 ;      dc.b   '##01',0
@@ -226,7 +226,7 @@ player:
   even
 
 tune:
-	.include "Pachelbel's Canon in D major 003.s"
+	.include "tune_filename.s"
 tune_end:
 
 	ds.b 65536
