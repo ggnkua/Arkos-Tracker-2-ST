@@ -92,7 +92,7 @@ PLY_AKYst_Init_SkipHeaderEnd:
         move.l d0,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode-PLY_AKYst_Init(a4)
 ;        ld hl,1
 ;        ld (PLY_AKYst_PatternFrameCounter + 1),hl
-        move.w #1,PLY_AKYst_PatternFrameCounter-PLY_AKYst_Init(a2)
+        move.w #1,PLY_AKYst_PatternFrameCounter-PLY_AKYst_Init(a4)
 
 ;        ret
         rts
@@ -447,8 +447,8 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
 ;                ex af,af'
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
-                move.b #7,$ffff8800.w
-                move.b d1,$ffff8802.w
+                move.b #7,$ffff8800
+                move.b d1,$ffff8802
 
 ;Register 6
 ;                dec h
@@ -466,8 +466,8 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
 ;                ex af,af'
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
-                move.b #6,$ffff8800.w
-                move.b PLY_AKYst_PsgRegister6(pc),$ffff8802.w
+                move.b #6,$ffff8800
+                move.b PLY_AKYst_PsgRegister6(pc),$ffff8802
 
 ;Register 11
 ;                ld a,11         ;Next regiser
@@ -483,8 +483,8 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
 ;                ex af,af'
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
-                move.b #11,$ffff8800.w
-                move.b PLY_AKYst_PsgRegister11(pc),$ffff8802.w
+                move.b #11,$ffff8800
+                move.b PLY_AKYst_PsgRegister11(pc),$ffff8802
                 
 
 ;Register 12
@@ -501,8 +501,8 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
 ;                ex af,af'
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
-                move.b #12,$ffff8800.w
-                move.b PLY_AKYst_PsgRegister12(pc),$ffff8802.w
+                move.b #12,$ffff8800
+                move.b PLY_AKYst_PsgRegister12(pc),$ffff8802
 
 
 ;Register 13
@@ -535,8 +535,8 @@ PLY_AKYst_PsgRegister13_Change:
 ;                ex af,af'
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
-                move.b #13,$ffff8800.w
-                move.b d1,$ffff8802.w
+                move.b #13,$ffff8800
+                move.b d1,$ffff8802
 PLY_AKYst_PsgRegister13_End:
 
 
@@ -691,8 +691,8 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolume:
 ;                inc h           ;Increases the frequency register.
 ;                inc h
         move.w a1,d7    ;can trash d7 as it's not used for now
-        move.b d7,$ffff8800.w
-        move.b d1,$ffff8802.w
+        move.b d7,$ffff8800
+        move.b d1,$ffff8802
         add.w #(2<<8)+1,a1
 ;        exx
         exg d3,d4
@@ -778,8 +778,8 @@ PLY_AKYst_RRB_IS_HO_AfterNoise:
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
         move.w a1,d7    ;can trash d7 as it's not used for now
-        move.b d7,$ffff8800.w
-        move.b d3,$ffff8802.w
+        move.b d7,$ffff8800
+        move.b d3,$ffff8802
 
 ;                inc l           ;Increases the volume register.
 ;                inc h           ;Increases the frequency register (mandatory!).
@@ -835,8 +835,8 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
         move.w a1,d7    ;can trash d7 as it's not used for now
-        move.b d7,$ffff8800.w
-        move.b d1,$ffff8802.w
+        move.b d7,$ffff8800
+        move.b d1,$ffff8802
 ;                inc l           ;Increases the volume register.
         addq.w #1,a1
 ;        exx
@@ -871,8 +871,8 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
 ;                ex af,af'
                 move.w a1,d7     ;can trash d7 as it's not used for now
                 lsr.w #8,d7
-                move.b d7,$ffff8800.w
-                move.b d1,$ffff8802.w
+                move.b d7,$ffff8800
+                move.b d1,$ffff8802
 ;                inc h           ;Increases the frequency register.
                 add.w #1<<8,a1
 ;        exx
@@ -902,8 +902,8 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
 ;                ex af,af'
         move.w a1,d7    ;can trash d7 as it's not used for now
         lsr.w #8,d7
-        move.b d7,$ffff8800.w
-        move.b d1,$ffff8802.w
+        move.b d7,$ffff8800
+        move.b d1,$ffff8802
 ;                inc h           ;Increases the frequency register.
         add.w #1<<8,a1
 ;        exx
@@ -983,8 +983,8 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
 ;                ex af,af'
         move.w a1,d7    ;can trash d7 as it's not used for now
         lsr.w #8,d7
-        move.b d7,$ffff8800.w
-        move.b d1,$ffff8802.w
+        move.b d7,$ffff8800
+        move.b d1,$ffff8802
                 
 ;                inc h           ;Increases the frequency register.
         add.w #1<<8,a1
@@ -1015,8 +1015,8 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
 ;                ex af,af'
                 move.w a1,d7    ;can trash d7 as it's not used for now
                 lsr.w #8,d7
-                move.b d7,$ffff8800.w
-                move.b d1,$ffff8802.w
+                move.b d7,$ffff8800
+                move.b d1,$ffff8802
 
 ;                inc h           ;Increases the frequency register.
                 add.w #1<<8,a1
@@ -1034,8 +1034,8 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
                 move.w a1,d7    ;can trash d7 as it's not used for now
-                move.b d7,$ffff8800.w
-                move.b d3,$ffff8802.w
+                move.b d7,$ffff8800
+                move.b d3,$ffff8802
 
 ;                inc l           ;Increases the volume register.
                 addq.w #1,a1
@@ -1264,8 +1264,8 @@ PLY_AKYst_RRB_NIS_Volume:
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
        move.w a1,d7    ;can trash d7 as it's not used for now
-       move.b d7,$ffff8800.w
-       move.b d1,$ffff8802.w 
+       move.b d7,$ffff8800
+       move.b d1,$ffff8802 
 ;        exx
         exg d3,d4
         exg d2,d6
@@ -1339,8 +1339,8 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:                    ;129 cycles.
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
         move.w a1,d7    ;can trash d7 as it's not used for now
-        move.b d7,$ffff8800.w
-        move.b d1,$ffff8802.w
+        move.b d7,$ffff8800
+        move.b d1,$ffff8802
 ;                inc l           ;Increases the volume register.
                addq.w #1,a1
 ;        exx
@@ -1378,8 +1378,8 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_LSP:
 ;                ex af,af'
         move.w a1,d7    ;can trash d7 as it's not used for now
         lsr.w #8,d7
-        move.b d7,$ffff8800.w
-        move.b d1,$ffff8802.w
+        move.b d7,$ffff8800
+        move.b d1,$ffff8802
                 ;H not incremented on purpose.
 ;        exx
         exg d3,d4
@@ -1434,8 +1434,8 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoise:   ;53 cycles.
 ;                ex af,af'
         move.w a1,d7    ;can trash d7 as it's not used for now
         lsr.w #8,d7
-        move.b d7,$ffff8800.w
-        move.b d1,$ffff8802.w
+        move.b d7,$ffff8800
+        move.b d1,$ffff8802
 
 ;                inc h           ;Increases the frequency register.
         add.w #1<<8,a1
@@ -1513,8 +1513,8 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop:            ;102 cycles.
 ;                ex af,af'
         move.w a1,d7    ;can trash d7 as it's not used for now
         lsr.w #8,d7
-        move.b d7,$ffff8800.w
-        move.b d3,$ffff8802.w
+        move.b d7,$ffff8800
+        move.b d3,$ffff8802
 
 ;                inc l           ;Increases the volume register.
 
@@ -1599,8 +1599,8 @@ PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop:             ;182 cycles.
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
         move.w a1,d7    ;can trash d7 as it's not used for now
-        move.b d7,$ffff8800.w
-        move.b d3,$ffff8802.w
+        move.b d7,$ffff8800
+        move.b d3,$ffff8802
 ;                inc l           ;Increases the volume register.
         addq.w #1,a1
 ;        exx
@@ -1672,8 +1672,8 @@ PLY_AKYst_RRB_NIS_SAHH_LSBS:
 ;                ex af,af'
         move.w a1,d7    ;can trash d7 as it's not used for now
         lsr.w #8,d7
-        move.b d7,$ffff8800.w
-        move.b d1,$ffff8802.w
+        move.b d7,$ffff8800
+        move.b d1,$ffff8802
                 ;H not increased on purpose.
 ;        exx
         exg d3,d4
@@ -1718,8 +1718,8 @@ PLY_AKYst_RRB_NIS_SAHH_MSBS:
 ;                ex af,af'
         move.w a1,d7    ;can trash d7 as it's not used for now
         lsr.w #8,d7
-        move.b d7,$ffff8800.w
-        move.b d1,$ffff8802.w
+        move.b d7,$ffff8800
+        move.b d1,$ffff8802
 
 ;                dec h           ;Yup. Will be compensated below.
         sub.w #1<<8,a1
