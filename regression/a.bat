@@ -7,17 +7,17 @@ set TUNES="UltraSyd - YM Type.s" ^
 set regressiondir=%cd%
 set sc=%cd%\sc68
 
-del sc68.log >NUL
+del sc68.log >NUL 2>&1
 
 for %%I in (%TUNES%) do (
 	rem echo plain filename:               %%I
 	rem echo without quotes:               %%~I
 	rem echo without quotes and extension: %%~nI
 
-	if not exist "%%~nI.sndh" %sc% "%%~nI.sndh" -w -o "%%~nI.wav" >> %regressiondir%\sc68.log
+	if not exist "%%~nI.wav" %sc% "%%~nI.sndh" -q -w -o "%%~nI.wav" >> %regressiondir%\sc68.log
 	cd ..
 	call sndh %%I
-	%sc% "%%~nI.sndh" -w -o "%%~nI.wav" >> %regressiondir%\sc68.log
+	%sc% "%%~nI.sndh" -q -w -o "%%~nI.wav" >> %regressiondir%\sc68.log
 
 	fc /b "%%~nI.wav" "%regressiondir%\%%~nI.wav"
 
