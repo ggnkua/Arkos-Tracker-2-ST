@@ -476,10 +476,11 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise:
         ;There is a noise. Reads it.
 ;        ld de,PLY_AKYst_PsgRegister6
 ;        ldi                     ;Safe for B, C is not 0. Preserves A.
-        movex.b (a1),PLY_AKYst_PsgRegister6
-        addq.w #1,a1
-        addq.w #1,d2
-        subq.w #1,d3
+        movex.b (a1)+,PLY_AKYst_PsgRegister6
+;        movex.b (a1),PLY_AKYst_PsgRegister6
+;        addq.w #1,a1
+;        addq.w #1,d2
+;        subq.w #1,d3
 
         ;Opens the noise channel.
         bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d4
@@ -524,10 +525,11 @@ PLY_AKYst_RRB_IS_HO_AfterRetrig:
         bra.s PLY_AKYst_RRB_IS_HO_AfterNoise
 PLY_AKYst_RRB_IS_HO_Noise:        ;Reads the noise.
 ;        ldi                     ;Safe for B, C is not 0. Preserves A.
-        movex.b (a1),PLY_AKYst_PsgRegister6
-        addq.w #1,a1
-        addq.w #1,d2
-        subq.w #1,d3
+        movex.b (a1)+,PLY_AKYst_PsgRegister6
+;        movex.b (a1),PLY_AKYst_PsgRegister6
+;        addq.w #1,a1
+;        addq.w #1,d2
+;        subq.w #1,d3
  
         ;Opens the noise channel.
         bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
@@ -539,11 +541,13 @@ PLY_AKYst_RRB_IS_HO_AfterNoise:
         ;Copies the hardware period.
 ;        ldi
 ;        ldi
-        movex.b (a1),PLY_AKYst_PsgRegister11
-        movex.b 1(a1),PLY_AKYst_PsgRegister11+1
-        addq.w #2,a1
-        addq.w #2,d2
-        subq.w #2,d3
+        movex.b (a1)+,PLY_AKYst_PsgRegister11
+        movex.b (a1)+,PLY_AKYst_PsgRegister11+1
+;        movex.b (a1),PLY_AKYst_PsgRegister11
+;        movex.b 1(a1),PLY_AKYst_PsgRegister11+1
+;        addq.w #2,a1
+;        addq.w #2,d2
+;        subq.w #2,d3
 
         ;Closes the sound channel.
         bset #PLY_AKYst_RRB_SoundChannelBit+8,d3
@@ -577,10 +581,11 @@ PLY_AKYst_RRB_IS_SoftwareOnly:
 PLY_AKYst_RRB_IS_SoftwareOnly_Noise:
         ;Noise. Reads it.
 ;        ldi                     ;Safe for B, C is not 0. Preserves A.
-        movex.b (a1),PLY_AKYst_PsgRegister6
-        addq.w #1,a1
-        addq.w #1,d2
-        subq.w #1,d3
+        movex.b (a1)+,PLY_AKYst_PsgRegister6
+;        movex.b (a1),PLY_AKYst_PsgRegister6
+;        addq.w #1,a1
+;        addq.w #1,d2
+;        subq.w #1,d3
         ;Opens the noise channel.
         bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
 PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
@@ -664,10 +669,11 @@ PLY_AKYst_RRB_IS_SAH_AfterRetrig:
 PLY_AKYst_RRB_IS_SAH_Noise:
         ;Reads the noise.
 ;        ldi                     ;Safe for B, C is not 0. Preserves A.
-        movex.b (a1),PLY_AKYst_PsgRegister6
-        addq.w #1,a1
-        addq.w #1,d2
-        subq.w #1,d3
+        movex.b (a1)+,PLY_AKYst_PsgRegister6
+;        movex.b (a1),PLY_AKYst_PsgRegister6
+;        addq.w #1,a1
+;        addq.w #1,d2
+;        subq.w #1,d3
         ;Opens the noise channel.
         bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
 PLY_AKYst_RRB_IS_SAH_AfterNoise:
@@ -724,11 +730,13 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
         ;Copies the hardware period.
 ;        ldi
 ;        ldi
-        movex.b (a1),PLY_AKYst_PsgRegister11
-        movex.b 1(a1),PLY_AKYst_PsgRegister11+1
-        addq.w #2,a1
-        addq.w #2,d2
-        subq.w #2,d3
+        movex.b (a1)+,PLY_AKYst_PsgRegister11
+        movex.b (a1)+,PLY_AKYst_PsgRegister11+1
+;        movex.b (a1),PLY_AKYst_PsgRegister11
+;        movex.b 1(a1),PLY_AKYst_PsgRegister11+1
+;        addq.w #2,a1
+;        addq.w #2,d2
+;        subq.w #2,d3
         rts
 
 
@@ -984,10 +992,12 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_NoisePresent:
         rts
 PLY_AKYst_RRB_NIS_SoftwareOnly_Noise:
         ;Gets the noise.
+;       ldi        
         movex.b (a1),PLY_AKYst_PsgRegister6
-        addq.w #1,a1
-        addq.w #1,d2
-        subq.w #1,d3
+;        movex.b (a1)+,PLY_AKYst_PsgRegister6
+;        addq.w #1,a1
+;        addq.w #1,d2
+;        subq.w #1,d3
         rts
 
 
@@ -1042,10 +1052,11 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop:
 PLY_AKYst_RRB_NIS_HardwareOnly_LSB:
 ;        ld de,PLY_AKYst_PsgRegister11
 ;        ldi
-        movex.b (a1),PLY_AKYst_PsgRegister11
-        addq.w #1,a1
-        addq.w #1,d2
-        subq.w #1,d3
+        movex.b (a1)+,PLY_AKYst_PsgRegister11
+;        movex.b (a1),PLY_AKYst_PsgRegister11
+;        addq.w #1,a1
+;        addq.w #1,d2
+;        subq.w #1,d3
 PLY_AKYst_RRB_NIS_HardwareOnly_AfterLSB:
 
         ;MSB for hardware period?
@@ -1058,10 +1069,11 @@ PLY_AKYst_RRB_NIS_HardwareOnly_AfterLSB:
 PLY_AKYst_RRB_NIS_HardwareOnly_MSB:
 ;        ld de,PLY_AKYst_PsgRegister12
 ;        ldi
-        movex.b (a1),PLY_AKYst_PsgRegister12
-        addq.w #1,a1
-        addq.w #1,d2
-        subq.w #1,d3
+        movex.b (a1)+,PLY_AKYst_PsgRegister12
+;        movex.b (a1),PLY_AKYst_PsgRegister12
+;        addq.w #1,a1
+;        addq.w #1,d2
+;        subq.w #1,d3
 PLY_AKYst_RRB_NIS_HardwareOnly_AfterMSB:
         
         ;Noise or retrig?
@@ -1105,10 +1117,11 @@ PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop:             ;182 cycles.
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterLSBH
 PLY_AKYst_RRB_NIS_SAHH_LSBH:
 ;        ldi
-        movex.b (a1),PLY_AKYst_PsgRegister11
-        addq.w #1,a1
-        addq.w #1,d2
-        subq.w #1,d3
+        movex.b (a1)+,PLY_AKYst_PsgRegister11
+;        movex.b (a1),PLY_AKYst_PsgRegister11
+;        addq.w #1,a1
+;        addq.w #1,d2
+;        subq.w #1,d3
 PLY_AKYst_RRB_NIS_SAHH_AfterLSBH:
 
         ;MSB of hardware period?
@@ -1117,10 +1130,11 @@ PLY_AKYst_RRB_NIS_SAHH_AfterLSBH:
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterMSBH
 PLY_AKYst_RRB_NIS_SAHH_MSBH:
 ;        ldi
-        movex.b (a1),PLY_AKYst_PsgRegister12
-        addq.w #1,a1
-        addq.w #1,d2
-        subq.w #1,d3
+        movex.b (a1)+,PLY_AKYst_PsgRegister12
+;        movex.b (a1),PLY_AKYst_PsgRegister12
+;        addq.w #1,a1
+;        addq.w #1,d2
+;        subq.w #1,d3
 PLY_AKYst_RRB_NIS_SAHH_AfterMSBH:
         
         ;LSB of software period?
@@ -1194,10 +1208,11 @@ PLY_AKYst_RRB_NIS_SAHH_AfterMSBS:
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterEnvelope
 PLY_AKYst_RRB_NIS_SAHH_Envelope:
 ;        ldi
-        movex.b (a1),PLY_AKYst_PsgRegister13
-        addq.w #1,a1
-        addq.w #1,d2
-        subq.w #1,d3
+        movex.b (a1)+,PLY_AKYst_PsgRegister13
+        ;movex.b (a1),PLY_AKYst_PsgRegister13
+        ;addq.w #1,a1
+        ;addq.w #1,d2
+        ;subq.w #1,d3
 PLY_AKYst_RRB_NIS_SAHH_AfterEnvelope:
 
         ;Retrig and/or noise?
