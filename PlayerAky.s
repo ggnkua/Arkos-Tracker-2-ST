@@ -413,21 +413,26 @@ PLY_AKYst_RRB_BranchOnNonInitailState:
         bcs PLY_AKYst_RRB_NonInitialState
 
         ; Code from the bcs and above copied here so nothing will screw with the carry flag        
-        move.b (a1),d1
-        addq.w #1,a1
+        move.b (a1)+,d1
+;        move.b (a1),d1
+;        addq.w #1,a1
         
         ;Not in the original code, but simplifies the stabilization.
-        ror.w #8,d2             ;d1 must be saved!
+;        ror.w #8,d2             ;d1 must be saved!
         move.b d1,d2
-        ror.w #8,d2
-        and.b #%00000011,d1
-        add.b d1,d1
-        move.b d1,d2
-        move.w d2,d1            ;Retrieves d1, which is supposed to be shifted in the original code.
-        lsr.w #8,d1
-        lsr.b #1,d1
-        lsr.b #1,d1
-        and.w #$ff,d2
+;        ror.w #8,d2
+;        and.b #%00000011,d1
+        and.b #%00000011,d2
+;        add.b d1,d1
+        add.b d2,d2
+;        move.b d1,d2
+;        move.w d2,d1            ;Retrieves d1, which is supposed to be shifted in the original code.
+;        lsr.w #8,d1
+;        lsr.b #1,d1
+;        lsr.b #1,d1
+        lsr.b #2,d1
+;        and.w #$ff,d2
+        ext.w d2
         lea PLY_AKYst_IS_JPTable(pc),a5
         add.w d2,a5
         move.w (a5),a5
@@ -748,21 +753,25 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
 PLY_AKYst_RRB_NonInitialState:
 
         ; Code from the start of PLY_AKYst_ReadRegisterBlock copied here so nothing will screw with the carry flag        
-        move.b (a1),d1
-        addq.w #1,a1
+        move.b (a1)+,d1
+;        move.b (a1),d1
+;        addq.w #1,a1
 
         ;Not in the original code, but simplifies the stabilization.
-        ror.w #8,d2                     ;d1 must be saved!
+;        ror.w #8,d2                     ;d1 must be saved!
         move.b d1,d2
-        ror.w #8,d2
-        and.b #%00001111,d1             ;Keeps 4 bits to be able to detect the loop. (%1000)
-        add.b d1,d1
-        move.b d1,d2
+;        ror.w #8,d2
+;        and.b #%00001111,d1             ;Keeps 4 bits to be able to detect the loop. (%1000)
+        and.b #%00001111,d2             ;Keeps 4 bits to be able to detect the loop. (%1000)
+;        add.b d1,d1
+        add.b d2,d2
+;        move.b d1,d2
 
-        move.w d2,d1                    ;Retrieves A, which is supposed to be shifted in the original code.
-        lsr.w #8,d1
+;        move.w d2,d1                    ;Retrieves A, which is supposed to be shifted in the original code.
+;        lsr.w #8,d1
         lsr.b #2,d1
-        and.w #$ff,d2
+;        and.w #$ff,d2
+        ext.w d2
         lea PLY_AKYst_NIS_JPTable(pc),a5
         add.w PLY_AKYst_NIS_JPTable(pc,d2.w),a5
         jmp (a5)
@@ -799,26 +808,29 @@ PLY_AKYst_RRB_NIS_ManageLoop:
         move.l d1,a1
         move.w (a1),a1
         lea (a0,a1.w),a1
-        
 
         ;Makes another iteration to read the new data.
         ;Since we KNOW it is not an initial state (because no jump goes to an initial state), we can directly go to the right branching.
         ;Reads the first byte.
-        move.b (a1),d1
-        addq.w #1,a1
+        move.b (a1)+,d1
+;        move.b (a1),d1
+;        addq.w #1,a1
         
         ;Reads the next NIS state. We know there won't be any loop.
-        ror.w #8,d2
+;        ror.w #8,d2
         move.b d1,d2                    ;d1 must be saved!
-        ror.w #8,d2
-        and.b #%00000011,d1
-        add.b d1,d1
-        move.b d1,d2
+;        ror.w #8,d2
+;        and.b #%00000011,d1
+        and.b #%00000011,d2
+;        add.b d1,d1
+        add.b d2,d2
+;        move.b d1,d2
 
-        move.w d2,d1                    ;Retrieves A, which is supposed to be shifted in the original code.
-        lsr.w #8,d1
+;        move.w d2,d1                    ;Retrieves A, which is supposed to be shifted in the original code.
+;        lsr.w #8,d1
         lsr.b #2,d1
-        andi.w #$ff,d2
+;        andi.w #$ff,d2
+        ext.w d2
         lea PLY_AKYst_NIS_JPTable_NoLoop(pc),a5
         add.w d2,a5
         move.w (a5),a5
