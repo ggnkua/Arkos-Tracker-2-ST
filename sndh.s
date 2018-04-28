@@ -222,7 +222,8 @@ tune_aligned_address:    .ds.l 1
 
 player:
   even
-  include  'p_sndh.s'
+SNDH_PLAYER=1                   ; turn on some sndh specific code for the player
+  include  'playerAky.s'
   even
 
 tune:

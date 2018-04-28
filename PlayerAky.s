@@ -40,6 +40,31 @@
 ; Register mappings
 ; 
 
+; Macros for sndh or normal player.
+; In sndh mode the player has to be position independent, and that mostly boils down
+; to being PC relative. So we define some macros for the instructions that require
+; one format or the other, just so both versions of the player can be generated
+; from the same source
+
+    .macro movex src,dst
+    .if ^^defined SNDH_PLAYER
+        move\! \src,\dst - PLY_AKYst_Init(a4)
+    .else
+        move\! \src,\dst
+    .endif
+    .endm
+
+; Nasty piece of rmac issue here - when invoked with -fb parameter
+; rmac will convert $ffffxxxx.w constants to $xxxx.l
+; No clever ideas about what to do for now, so this will have to do
+    .macro moveym value,address
+    .if ^^defined SNDH_PLAYER
+        move.b \value,\address
+    .else
+        move.b \value,\{address}.w
+    .endif
+    .endm
+
 ;PLY_AKYst_OPCODE_OR_A: equ #b7                        ;Opcode for "or a".
 ;PLY_AKYst_OPCODE_SCF: equ #37                         ;Opcode for "scf".
 PLY_AKYst_OPCODE_OR_A equ $00000000                  ;Opcode for "ori.b #0,d0".
@@ -59,6 +84,10 @@ PLY_AKYst_Start:
 ;       HL = music address.
 *       a0.l = music address
 PLY_AKYst_Init:
+         .if ^^defined SNDH_PLAYER
+         lea PLY_AKYst_Init(pc),a4		;base pointer for PC-relative stores
+         .endif
+
         ;Skips the header.
 ;        inc hl                          ;Skips the format version.
         addq.l #1,a0                    ;Skips the format version.
@@ -77,19 +106,19 @@ PLY_AKYst_Init_SkipHeaderLoop:                ;There is always at least one PSG 
         bcc.s PLY_AKYst_Init_SkipHeaderLoop
 PLY_AKYst_Init_SkipHeaderEnd:
 ;        ld (PLY_AKYst_PtLinker + 1),hl        ;HL now points on the Linker.
-        move.w  a0,PLY_AKYst_PtLinker       ;HL now points on the Linker.
+        movex.w a0,PLY_AKYst_PtLinker       ;HL now points on the Linker.
 
 ;        ld a,PLY_AKYst_OPCODE_OR_A
         move.l #PLY_AKYst_OPCODE_OR_A,d0
 ;        ld (PLY_AKYst_Channel1_RegisterBlockLineState_Opcode),a
-        move.l d0,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
+        movex.l d0,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
 ;        ld (PLY_AKYst_Channel2_RegisterBlockLineState_Opcode),a
-        move.l d0,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
+        movex.l d0,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
 ;        ld (PLY_AKYst_Channel3_RegisterBlockLineState_Opcode),a
-        move.l d0,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
+        movex.l d0,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
 ;        ld hl,1
 ;        ld (PLY_AKYst_PatternFrameCounter + 1),hl
-        move.w #1,PLY_AKYst_PatternFrameCounter
+        movex.w #1,PLY_AKYst_PatternFrameCounter
 
 ;        ret
         rts
@@ -99,6 +128,10 @@ PLY_AKYst_Init_SkipHeaderEnd:
 ; a0=hl=start of tune - must be aligned to 64k for now!
 
 PLY_AKYst_Play:
+
+         .if ^^defined SNDH_PLAYER
+         lea PLY_AKYst_Init(pc),a4		;base pointer for PC-relative stores
+         .endif
 
 ;        ld (PLY_AKYst_Exit + 1),sp
 
@@ -119,7 +152,7 @@ PLY_AKYst_PatternFrameCounter equ * + 2
 ;        jr z,PLY_AKYst_PatternFrameCounter_Over
         beq.s PLY_AKYst_PatternFrameCounter_Over
 ;        ld (PLY_AKYst_PatternFrameCounter + 1),hl
-        move.w a1,PLY_AKYst_PatternFrameCounter       ;*SMC galore!
+        movex.w a1,PLY_AKYst_PatternFrameCounter       ;*SMC galore!
         ;The pattern is not over.
 ;        jr PLY_AKYst_PatternFrameManagement_End
         bra.s PLY_AKYst_PatternFrameManagement_End
@@ -156,29 +189,29 @@ PLY_AKYst_PtLinker = * + 2
 ;        jr PLY_AKYst_LinkerNotEndSong_After
 PLY_AKYst_LinkerNotEndSong:
 ;        ld (PLY_AKYst_PatternFrameCounter + 1),hl
-        move.w a1,PLY_AKYst_PatternFrameCounter
+        movex.w a1,PLY_AKYst_PatternFrameCounter
 
 ;        pop hl
 ;        ld (PLY_AKYst_Channel1_PtTrack + 1),hl
-        move.w (a6)+,PLY_AKYst_Channel1_PtTrack
+        movex.w (a6)+,PLY_AKYst_Channel1_PtTrack
 ;        pop hl
 ;        ld (PLY_AKYst_Channel2_PtTrack + 1),hl
-        move.w (a6)+,PLY_AKYst_Channel2_PtTrack
+        movex.w (a6)+,PLY_AKYst_Channel2_PtTrack
 ;        pop hl
 ;        ld (PLY_AKYst_Channel3_PtTrack + 1),hl
-        move.w (a6)+,PLY_AKYst_Channel3_PtTrack
+        movex.w (a6)+,PLY_AKYst_Channel3_PtTrack
 ;        ld (PLY_AKYst_PtLinker + 1),sp
-        move.w a6,PLY_AKYst_PtLinker
+        movex.w a6,PLY_AKYst_PtLinker
 
         ;Resets the RegisterBlocks of the channels.
 ;        ld a,1
         moveq #1,d1
 ;        ld (PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock + 1),a
-        move.b d1,PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock
+        movex.b d1,PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock
 ;        ld (PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock + 1),a
-        move.b d1,PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock
+        movex.b d1,PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock
 ;        ld (PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock + 1),a
-        move.b d1,PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock
+        movex.b d1,PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock
 PLY_AKYst_PatternFrameManagement_End:
 
 ;Reading the Track - channel 1.
@@ -199,7 +232,7 @@ PLY_AKYst_Channel1_RegisterBlock_Finished:
 ;        ld a,PLY_AKYst_OPCODE_OR_A
         move.l #PLY_AKYst_OPCODE_OR_A,d1
 ;        ld (PLY_AKYst_Channel1_RegisterBlockLineState_Opcode),a
-        move.l d1,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
+        movex.l d1,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
 ;PLY_AKYst_Channel1_PtTrack: ld sp,0                   ;Points on the Track.
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel1_PtTrack = * + 2
@@ -213,14 +246,14 @@ PLY_AKYst_Channel1_PtTrack = * + 2
         addq.w #4,a6
 
 ;        ld (PLY_AKYst_Channel1_PtTrack + 1),sp
-        move.w a6,PLY_AKYst_Channel1_PtTrack
+        movex.w a6,PLY_AKYst_Channel1_PtTrack
 ;        ld (PLY_AKYst_Channel1_PtRegisterBlock + 1),hl
-        move.w a1,PLY_AKYst_Channel1_PtRegisterBlock
+        movex.w a1,PLY_AKYst_Channel1_PtRegisterBlock
         ;A is the duration of the block.
 PLY_AKYst_Channel1_RegisterBlock_Process:
         ;Processes the RegisterBlock, whether it is the current one or a new one.
 ;        ld (PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock + 1),a
-        move.b d1,PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock
+        movex.b d1,PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock
 
 
 
@@ -242,7 +275,7 @@ PLY_AKYst_Channel2_RegisterBlock_Finished:
 ;        ld a,PLY_AKYst_OPCODE_OR_A
         move.l #PLY_AKYst_OPCODE_OR_A,d1
 ;        ld (PLY_AKYst_Channel2_RegisterBlockLineState_Opcode),a
-        move.l d1,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
+        movex.l d1,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
 ;PLY_AKYst_Channel2_PtTrack: ld sp,0                   ;Points on the Track.
 PLY_AKYst_Channel2_PtTrack = * + 2
         lea 0(a0),a6                            ;Points on the Track.
@@ -255,14 +288,14 @@ PLY_AKYst_Channel2_PtTrack = * + 2
         addq.w #4,a6
 
 ;        ld (PLY_AKYst_Channel2_PtTrack + 1),sp
-        move.w a6,PLY_AKYst_Channel2_PtTrack
+        movex.w a6,PLY_AKYst_Channel2_PtTrack
 ;        ld (PLY_AKYst_Channel2_PtRegisterBlock + 1),hl
-        move.w a1,PLY_AKYst_Channel2_PtRegisterBlock
+        movex.w a1,PLY_AKYst_Channel2_PtRegisterBlock
         ;A is the duration of the block.
 PLY_AKYst_Channel2_RegisterBlock_Process:
         ;Processes the RegisterBlock, whether it is the current one or a new one.
 ;        ld (PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock + 1),a
-        move.b d1,PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock
+        movex.b d1,PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock
 
 
 
@@ -285,7 +318,7 @@ PLY_AKYst_Channel3_RegisterBlock_Finished:
 ;        ld a,PLY_AKYst_OPCODE_OR_A
         move.l #PLY_AKYst_OPCODE_OR_A,d1
 ;        ld (PLY_AKYst_Channel3_RegisterBlockLineState_Opcode),a
-        move.l d1,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
+        movex.l d1,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
 ;PLY_AKYst_Channel3_PtTrack: ld sp,0                   ;Points on the Track.
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel3_PtTrack equ * + 2
@@ -300,14 +333,14 @@ PLY_AKYst_Channel3_PtTrack equ * + 2
         addq.w #4,a6
 
 ;        ld (PLY_AKYst_Channel3_PtTrack + 1),sp
-        move.w a6,PLY_AKYst_Channel3_PtTrack
+        movex.w a6,PLY_AKYst_Channel3_PtTrack
 ;        ld (PLY_AKYst_Channel3_PtRegisterBlock + 1),hl
-        move.w a1,PLY_AKYst_Channel3_PtRegisterBlock
+        movex.w a1,PLY_AKYst_Channel3_PtRegisterBlock
         ;A is the duration of the block.
 PLY_AKYst_Channel3_RegisterBlock_Process:
         ;Processes the RegisterBlock, whether it is the current one or a new one.
         ;ld (PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock + 1),a
-        move.b d1,PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock
+        movex.b d1,PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock
 
 
 
@@ -362,9 +395,9 @@ PLY_AKYst_Channel1_RegisterBlockLineState_Opcode: ori.b #0,d0  ;yeah well, the b
 PLY_AKYst_Channel1_RegisterBlock_Return:
 ;        ld a,PLY_AKYst_OPCODE_SCF
 ;        ld (PLY_AKYst_Channel1_RegisterBlockLineState_Opcode),a
-        move.l #PLY_AKYst_OPCODE_SCF,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
+        movex.l #PLY_AKYst_OPCODE_SCF,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
 ;        ld (PLY_AKYst_Channel1_PtRegisterBlock + 1),hl        ;This is new pointer on the RegisterBlock.
-        move.w a1,PLY_AKYst_Channel1_PtRegisterBlock
+        movex.w a1,PLY_AKYst_Channel1_PtRegisterBlock
 
 
 ;Reading the RegisterBlock - Channel 2
@@ -387,9 +420,9 @@ PLY_AKYst_Channel2_RegisterBlockLineState_Opcode: ori.b #0,d0
 PLY_AKYst_Channel2_RegisterBlock_Return:
 ;        ld a,PLY_AKYst_OPCODE_SCF
 ;        ld (PLY_AKYst_Channel2_RegisterBlockLineState_Opcode),a
-        move.l #PLY_AKYst_OPCODE_SCF,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
+        movex.l #PLY_AKYst_OPCODE_SCF,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
 ;        ld (PLY_AKYst_Channel2_PtRegisterBlock + 1),hl        ;This is new pointer on the RegisterBlock.
-        move.w a1,PLY_AKYst_Channel2_PtRegisterBlock        ;This is new pointer on the RegisterBlock.
+        movex.w a1,PLY_AKYst_Channel2_PtRegisterBlock        ;This is new pointer on the RegisterBlock.
 
 
 ;Reading the RegisterBlock - Channel 3
@@ -412,9 +445,9 @@ PLY_AKYst_Channel3_RegisterBlockLineState_Opcode: ori.b #0,d0
 PLY_AKYst_Channel3_RegisterBlock_Return:
         ;ld a,PLY_AKYst_OPCODE_SCF
 ;        ld (PLY_AKYst_Channel3_RegisterBlockLineState_Opcode),a
-        move.l #PLY_AKYst_OPCODE_SCF,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
+        movex.l #PLY_AKYst_OPCODE_SCF,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
 ;        ld (PLY_AKYst_Channel3_PtRegisterBlock + 1),hl        ;This is new pointer on the RegisterBlock.
-        move.w a1,PLY_AKYst_Channel3_PtRegisterBlock        ;This is new pointer on the RegisterBlock.
+        movex.w a1,PLY_AKYst_Channel3_PtRegisterBlock        ;This is new pointer on the RegisterBlock.
 
         ;Register 7 to A.
 ;        ld a,b
@@ -442,8 +475,8 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
 ;                ex af,af'
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
-                move.b #7,$ffff8800.w
-                move.b d1,$ffff8802.w
+                moveym #7,$ffff8800
+                moveym d1,$ffff8802
 
 ;Register 6
 ;                dec h
@@ -461,8 +494,8 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
 ;                ex af,af'
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
-                move.b #6,$ffff8800.w
-                move.b PLY_AKYst_PsgRegister6,$ffff8802.w
+                moveym #6,$ffff8800
+                moveym PLY_AKYst_PsgRegister6(pc),$ffff8802
 
 ;Register 11
 ;                ld a,11         ;Next regiser
@@ -478,8 +511,8 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
 ;                ex af,af'
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
-                move.b #11,$ffff8800.w
-                move.b PLY_AKYst_PsgRegister11,$ffff8802.w
+                moveym #11,$ffff8800
+                moveym PLY_AKYst_PsgRegister11(pc),$ffff8802
                 
 
 ;Register 12
@@ -496,14 +529,14 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
 ;                ex af,af'
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
-                move.b #12,$ffff8800.w
-                move.b PLY_AKYst_PsgRegister12,$ffff8802.w
+                moveym #12,$ffff8800
+                moveym PLY_AKYst_PsgRegister12(pc),$ffff8802
 
 
 ;Register 13
 PLY_AKYst_PsgRegister13_Code:
 ;                ld a,(hl)
-                move.b PLY_AKYst_PsgRegister13,d1
+                move.b PLY_AKYst_PsgRegister13(pc),d1
 ;PLY_AKYst_PsgRegister13_Retrig: cp 255                         ;If IsRetrig?, force the R13 to be triggered.
 PLY_AKYst_PsgRegister13_Retrig equ * + 3
                 cmp.b #255,d1
@@ -516,7 +549,7 @@ PLY_AKYst_PsgRegister13_Retrig equ * + 3
                 bra.s PLY_AKYst_PsgRegister13_End
 PLY_AKYst_PsgRegister13_Change:
 ;                ld (PLY_AKYst_PsgRegister13_Retrig + 1),a
-                move.b d1,PLY_AKYst_PsgRegister13_Retrig
+                movex.b d1,PLY_AKYst_PsgRegister13_Retrig
 
 ;                ld b,d
 ;                ld l,13
@@ -530,8 +563,8 @@ PLY_AKYst_PsgRegister13_Change:
 ;                ex af,af'
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
-                move.b #13,$ffff8800.w
-                move.b d1,$ffff8802.w
+                moveym #13,$ffff8800
+                moveym d1,$ffff8802
 PLY_AKYst_PsgRegister13_End:
 
 
@@ -651,7 +684,7 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise:
         ;There is a noise. Reads it.
 ;        ld de,PLY_AKYst_PsgRegister6
 ;        ldi                     ;Safe for B, C is not 0. Preserves A.
-        move.b (a1),PLY_AKYst_PsgRegister6
+        movex.b (a1),PLY_AKYst_PsgRegister6
         addq.w #1,a1
         addq.w #1,d2
         subq.w #1,d3
@@ -686,8 +719,8 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolume:
 ;                inc h           ;Increases the frequency register.
 ;                inc h
         move.w a1,d7    ;can trash d7 as it's not used for now
-        move.b d7,$ffff8800.w
-        move.b d1,$ffff8802.w
+        moveym d7,$ffff8800
+        moveym d1,$ffff8802
         add.w #(2<<8)+1,a1
 ;        exx
         exg d3,d4
@@ -714,7 +747,7 @@ PLY_AKYst_RRB_IS_HO_Retrig:
 ;        set 7,a                         ;A value to make sure the retrig is performed, yet A can still be use.
         bset #7,d1
  ;       ld (PLY_AKYst_PsgRegister13_Retrig + 1),a
-        move.b d1,PLY_AKYst_PsgRegister13_Retrig
+        movex.b d1,PLY_AKYst_PsgRegister13_Retrig
 PLY_AKYst_RRB_IS_HO_AfterRetrig:
 
         ;Noise?
@@ -727,7 +760,7 @@ PLY_AKYst_RRB_IS_HO_AfterRetrig:
 PLY_AKYst_RRB_IS_HO_Noise:        ;Reads the noise.
 ;        ld de,PLY_AKYst_PsgRegister6
 ;        ldi                     ;Safe for B, C is not 0. Preserves A.
-        move.b (a1),PLY_AKYst_PsgRegister6
+        movex.b (a1),PLY_AKYst_PsgRegister6
         addq.w #1,a1
         addq.w #1,d2
         subq.w #1,d3
@@ -740,14 +773,14 @@ PLY_AKYst_RRB_IS_HO_AfterNoise:
 ;        and %1111
         and.b #%1111,d1
 ;        ld (PLY_AKYst_PsgRegister13),a
-        move.b d1,PLY_AKYst_PsgRegister13
+        movex.b d1,PLY_AKYst_PsgRegister13
 
         ;Copies the hardware period.
 ;        ld de,PLY_AKYst_PsgRegister11
 ;        ldi
 ;        ldi
-        move.b (a1),PLY_AKYst_PsgRegister11
-        move.b 1(a1),PLY_AKYst_PsgRegister11+1
+        movex.b (a1),PLY_AKYst_PsgRegister11
+        movex.b 1(a1),PLY_AKYst_PsgRegister11+1
         addq.w #2,a1
         addq.w #2,d2
         subq.w #2,d3
@@ -773,8 +806,8 @@ PLY_AKYst_RRB_IS_HO_AfterNoise:
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
         move.w a1,d7    ;can trash d7 as it's not used for now
-        move.b d7,$ffff8800.w
-        move.b d3,$ffff8802.w
+        moveym d7,$ffff8800
+        moveym d3,$ffff8802
 
 ;                inc l           ;Increases the volume register.
 ;                inc h           ;Increases the frequency register (mandatory!).
@@ -802,7 +835,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_Noise:
         ;Noise. Reads it.
 ;        ld de,PLY_AKYst_PsgRegister6
 ;        ldi                     ;Safe for B, C is not 0. Preserves A.
-        move.b (a1),PLY_AKYst_PsgRegister6
+        movex.b (a1),PLY_AKYst_PsgRegister6
         addq.w #1,a1
         addq.w #1,d2
         subq.w #1,d3
@@ -830,8 +863,8 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
         move.w a1,d7    ;can trash d7 as it's not used for now
-        move.b d7,$ffff8800.w
-        move.b d1,$ffff8802.w
+        moveym d7,$ffff8800
+        moveym d1,$ffff8802
 ;                inc l           ;Increases the volume register.
         addq.w #1,a1
 ;        exx
@@ -866,8 +899,8 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
 ;                ex af,af'
                 move.w a1,d7     ;can trash d7 as it's not used for now
                 lsr.w #8,d7
-                move.b d7,$ffff8800.w
-                move.b d1,$ffff8802.w
+                moveym d7,$ffff8800
+                moveym d1,$ffff8802
 ;                inc h           ;Increases the frequency register.
                 add.w #1<<8,a1
 ;        exx
@@ -897,8 +930,8 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
 ;                ex af,af'
         move.w a1,d7    ;can trash d7 as it's not used for now
         lsr.w #8,d7
-        move.b d7,$ffff8800.w
-        move.b d1,$ffff8802.w
+        moveym d7,$ffff8800
+        moveym d1,$ffff8802
 ;                inc h           ;Increases the frequency register.
         add.w #1<<8,a1
 ;        exx
@@ -926,7 +959,7 @@ PLY_AKYst_RRB_IS_SAH_Retrig:
 ;        set 7,a                         ;A value to make sure the retrig is performed, yet A can still be use.
         bset #7,d1
 ;        ld (PLY_AKYst_PsgRegister13_Retrig + 1),a
-        move.b d1,PLY_AKYst_PsgRegister13_Retrig
+        movex.b d1,PLY_AKYst_PsgRegister13_Retrig
 PLY_AKYst_RRB_IS_SAH_AfterRetrig:
 
         ;Noise?
@@ -940,7 +973,7 @@ PLY_AKYst_RRB_IS_SAH_Noise:
         ;Reads the noise.
 ;        ld de,PLY_AKYst_PsgRegister6
 ;        ldi                     ;Safe for B, C is not 0. Preserves A.
-        move.b (a1),PLY_AKYst_PsgRegister6
+        movex.b (a1),PLY_AKYst_PsgRegister6
         addq.w #1,a1
         addq.w #1,d2
         subq.w #1,d3
@@ -953,7 +986,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
 ;        and %1111
         and.b #%1111,d1
 ;        ld (PLY_AKYst_PsgRegister13),a
-        move.b d1,PLY_AKYst_PsgRegister13
+        movex.b d1,PLY_AKYst_PsgRegister13
 
         ;Reads the software period.
 ;        ld a,(hl)
@@ -978,8 +1011,8 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
 ;                ex af,af'
         move.w a1,d7    ;can trash d7 as it's not used for now
         lsr.w #8,d7
-        move.b d7,$ffff8800.w
-        move.b d1,$ffff8802.w
+        moveym d7,$ffff8800
+        moveym d1,$ffff8802
                 
 ;                inc h           ;Increases the frequency register.
         add.w #1<<8,a1
@@ -1010,8 +1043,8 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
 ;                ex af,af'
                 move.w a1,d7    ;can trash d7 as it's not used for now
                 lsr.w #8,d7
-                move.b d7,$ffff8800.w
-                move.b d1,$ffff8802.w
+                moveym d7,$ffff8800
+                moveym d1,$ffff8802
 
 ;                inc h           ;Increases the frequency register.
                 add.w #1<<8,a1
@@ -1029,8 +1062,8 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
                 move.w a1,d7    ;can trash d7 as it's not used for now
-                move.b d7,$ffff8800.w
-                move.b d3,$ffff8802.w
+                moveym d7,$ffff8800
+                moveym d3,$ffff8802
 
 ;                inc l           ;Increases the volume register.
                 addq.w #1,a1
@@ -1043,8 +1076,8 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
 ;        ld de,PLY_AKYst_PsgRegister11
 ;        ldi
 ;        ldi
-        move.b (a1),PLY_AKYst_PsgRegister11
-        move.b 1(a1),PLY_AKYst_PsgRegister11+1
+        movex.b (a1),PLY_AKYst_PsgRegister11
+        movex.b 1(a1),PLY_AKYst_PsgRegister11+1
         addq.w #2,a1
         addq.w #2,d2
         subq.w #2,d3
@@ -1194,7 +1227,7 @@ PLY_AKYst_RRB_NIS_ManageLoop:
 ;        ld d,0
         andi.w #$ff,d2
 ;        ld ix,PLY_AKYst_NIS_JPTable_NoLoop
-        lea PLY_AKYst_NIS_JPTable_NoLoop,a5
+        lea PLY_AKYst_NIS_JPTable_NoLoop(pc),a5
 ;        add ix,de
         add.w d2,a5
         move.w (a5),a5
@@ -1259,8 +1292,8 @@ PLY_AKYst_RRB_NIS_Volume:
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
        move.w a1,d7    ;can trash d7 as it's not used for now
-       move.b d7,$ffff8800.w
-       move.b d1,$ffff8802.w 
+       moveym d7,$ffff8800
+       moveym d1,$ffff8802
 ;        exx
         exg d3,d4
         exg d2,d6
@@ -1293,7 +1326,7 @@ PLY_AKYst_RRB_NIS_Noise:
 ;        ld a,(hl)
         move.b (a1),d1
 ;        ld (PLY_AKYst_PsgRegister6),a
-        move.b d1,PLY_AKYst_PsgRegister6
+        movex.b d1,PLY_AKYst_PsgRegister6
 ;        inc hl
         addq.w #1,a1
         ;Opens the noise channel.
@@ -1334,8 +1367,8 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:                    ;129 cycles.
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
         move.w a1,d7    ;can trash d7 as it's not used for now
-        move.b d7,$ffff8800.w
-        move.b d1,$ffff8802.w
+        moveym d7,$ffff8800
+        moveym d1,$ffff8802
 ;                inc l           ;Increases the volume register.
                addq.w #1,a1
 ;        exx
@@ -1373,8 +1406,8 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_LSP:
 ;                ex af,af'
         move.w a1,d7    ;can trash d7 as it's not used for now
         lsr.w #8,d7
-        move.b d7,$ffff8800.w
-        move.b d1,$ffff8802.w
+        moveym d7,$ffff8800
+        moveym d1,$ffff8802
                 ;H not incremented on purpose.
 ;        exx
         exg d3,d4
@@ -1429,8 +1462,8 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoise:   ;53 cycles.
 ;                ex af,af'
         move.w a1,d7    ;can trash d7 as it's not used for now
         lsr.w #8,d7
-        move.b d7,$ffff8800.w
-        move.b d1,$ffff8802.w
+        moveym d7,$ffff8800
+        moveym d1,$ffff8802
 
 ;                inc h           ;Increases the frequency register.
         add.w #1<<8,a1
@@ -1461,7 +1494,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Noise:
         ;Gets the noise.
 ;        ld de,PLY_AKYst_PsgRegister6
 ;        ldi
-        move.b (a1),PLY_AKYst_PsgRegister6
+        movex.b (a1),PLY_AKYst_PsgRegister6
         addq.w #1,a1
         addq.w #1,d2
         subq.w #1,d3
@@ -1484,7 +1517,7 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop:            ;102 cycles.
 ;        and %1110
         and.b #%1110,d1
 ;        ld (PLY_AKYst_PsgRegister13),a
-        move.b d1,PLY_AKYst_PsgRegister13
+        movex.b d1,PLY_AKYst_PsgRegister13
 
         ;Closes the sound channel.
 ;        set PLY_AKYst_RRB_SoundChannelBit, b
@@ -1508,8 +1541,8 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop:            ;102 cycles.
 ;                ex af,af'
         move.w a1,d7    ;can trash d7 as it's not used for now
         lsr.w #8,d7
-        move.b d7,$ffff8800.w
-        move.b d3,$ffff8802.w
+        moveym d7,$ffff8800
+        moveym d3,$ffff8802
 
 ;                inc l           ;Increases the volume register.
 
@@ -1536,7 +1569,7 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop:            ;102 cycles.
 PLY_AKYst_RRB_NIS_HardwareOnly_LSB:
 ;        ld de,PLY_AKYst_PsgRegister11
 ;        ldi
-        move.b (a1),PLY_AKYst_PsgRegister11
+        movex.b (a1),PLY_AKYst_PsgRegister11
         addq.w #1,a1
         addq.w #1,d2
         subq.w #1,d3
@@ -1552,7 +1585,7 @@ PLY_AKYst_RRB_NIS_HardwareOnly_AfterLSB:
 PLY_AKYst_RRB_NIS_HardwareOnly_MSB:
 ;        ld de,PLY_AKYst_PsgRegister12
 ;        ldi
-        move.b (a1),PLY_AKYst_PsgRegister12
+        movex.b (a1),PLY_AKYst_PsgRegister12
         addq.w #1,a1
         addq.w #1,d2
         subq.w #1,d3
@@ -1594,8 +1627,8 @@ PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop:             ;182 cycles.
 ;                out (c),a       ;f6c0.
 ;                ex af,af'
         move.w a1,d7    ;can trash d7 as it's not used for now
-        move.b d7,$ffff8800.w
-        move.b d3,$ffff8802.w
+        moveym d7,$ffff8800
+        moveym d3,$ffff8802
 ;                inc l           ;Increases the volume register.
         addq.w #1,a1
 ;        exx
@@ -1613,7 +1646,7 @@ PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop:             ;182 cycles.
 PLY_AKYst_RRB_NIS_SAHH_LSBH:
 ;        ld de,PLY_AKYst_PsgRegister11
 ;        ldi
-        move.b (a1),PLY_AKYst_PsgRegister11
+        movex.b (a1),PLY_AKYst_PsgRegister11
         addq.w #1,a1
         addq.w #1,d2
         subq.w #1,d3
@@ -1629,7 +1662,7 @@ PLY_AKYst_RRB_NIS_SAHH_AfterLSBH:
 PLY_AKYst_RRB_NIS_SAHH_MSBH:
 ;        ld de,PLY_AKYst_PsgRegister12
 ;        ldi
-        move.b (a1),PLY_AKYst_PsgRegister12
+        movex.b (a1),PLY_AKYst_PsgRegister12
         addq.w #1,a1
         addq.w #1,d2
         subq.w #1,d3
@@ -1667,8 +1700,8 @@ PLY_AKYst_RRB_NIS_SAHH_LSBS:
 ;                ex af,af'
         move.w a1,d7    ;can trash d7 as it's not used for now
         lsr.w #8,d7
-        move.b d7,$ffff8800.w
-        move.b d1,$ffff8802.w
+        moveym d7,$ffff8800
+        moveym d1,$ffff8802
                 ;H not increased on purpose.
 ;        exx
         exg d3,d4
@@ -1713,8 +1746,8 @@ PLY_AKYst_RRB_NIS_SAHH_MSBS:
 ;                ex af,af'
         move.w a1,d7    ;can trash d7 as it's not used for now
         lsr.w #8,d7
-        move.b d7,$ffff8800.w
-        move.b d1,$ffff8802.w
+        moveym d7,$ffff8800
+        moveym d1,$ffff8802
 
 ;                dec h           ;Yup. Will be compensated below.
         sub.w #1<<8,a1
@@ -1748,7 +1781,7 @@ PLY_AKYst_RRB_NIS_SAHH_AfterMSBS:
 PLY_AKYst_RRB_NIS_SAHH_Envelope:
 ;        ld de,PLY_AKYst_PsgRegister13
 ;        ldi
-        move.b (a1),PLY_AKYst_PsgRegister13
+        movex.b (a1),PLY_AKYst_PsgRegister13
         addq.w #1,a1
         addq.w #1,d2
         subq.w #1,d3
@@ -1782,7 +1815,7 @@ PLY_AKYst_RRB_NIS_S_NOR_Retrig:
 ;        set 7,a                         ;A value to make sure the retrig is performed, yet A can still be use.
         bset #7,d1
 ;        ld (PLY_AKYst_PsgRegister13_Retrig + 1),a
-        move.b d1,PLY_AKYst_PsgRegister13_Retrig
+        movex.b d1,PLY_AKYst_PsgRegister13_Retrig
 PLY_AKYst_RRB_NIS_S_NOR_AfterRetrig:
 
         ;Noise? If no, nothing more to do.
@@ -1807,7 +1840,7 @@ PLY_AKYst_RRB_NIS_S_NOR_Noise:
 PLY_AKYst_RRB_NIS_S_NOR_SetNoise:
         ;Sets the noise.
 ;        ld (PLY_AKYst_PsgRegister6),a
-        move.b d1,PLY_AKYst_PsgRegister6
+        movex.b d1,PLY_AKYst_PsgRegister6
 ;        ret
         rts
 
