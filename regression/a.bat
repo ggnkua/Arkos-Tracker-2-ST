@@ -14,12 +14,14 @@ for %%I in (%TUNES%) do (
 	rem echo without quotes:               %%~I
 	rem echo without quotes and extension: %%~nI
 
+	echo ------------------------------------------%%~nI
+
 	if not exist "%%~nI.wav" %sc% "%%~nI.sndh" -q -w -o "%%~nI.wav" >> %regressiondir%\sc68.log
 	cd ..
 	call sndh %%I
 	%sc% "%%~nI.sndh" -q -w -o "%%~nI.wav" >> %regressiondir%\sc68.log
 
-	fc /b "%%~nI.wav" "%regressiondir%\%%~nI.wav"
+	fc /A /B "%%~nI.wav" "%regressiondir%\%%~nI.wav"
 
 	cd %regressiondir%
 )
