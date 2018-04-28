@@ -65,6 +65,14 @@
     .endif
     .endm
 
+    .macro moveymw value,address
+    .if ^^defined SNDH_PLAYER
+        move.w \value,\address
+    .else
+        move.w \value,\{address}.w
+    .endif
+    .endm
+
 PLY_AKYst_OPCODE_OR_A equ $00000000                  ;Opcode for "ori.b #0,d0".
 PLY_AKYst_OPCODE_SCF  equ $003c0001                         ;Opcode for "ori #1,ccr".
 
@@ -600,8 +608,8 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
         exg d2,d6
         exg a1,a2
                 move.w a1,d7     ;can trash d7 as it's not used for now
-                lsr.w #8,d7
-                moveym d7,$ffff8800
+                ;lsr.w #8,d7
+                moveymw d7,$ffff8800
                 moveym d1,$ffff8802
                 add.w #1<<8,a1  ;Increases the frequency register.
 ;        exx
@@ -616,8 +624,8 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
         exg d2,d6
         exg a1,a2
         move.w a1,d7    ;can trash d7 as it's not used for now
-        lsr.w #8,d7
-        moveym d7,$ffff8800
+        ;lsr.w #8,d7
+        moveymw d7,$ffff8800
         moveym d1,$ffff8802
         add.w #1<<8,a1          ;Increases the frequency register.
 ;        exx
@@ -669,8 +677,8 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
         exg d2,d6
         exg a1,a2
         move.w a1,d7    ;can trash d7 as it's not used for now
-        lsr.w #8,d7
-        moveym d7,$ffff8800
+        ;lsr.w #8,d7
+        moveymw d7,$ffff8800
         moveym d1,$ffff8802
                 
         add.w #1<<8,a1          ;Increases the frequency register.
@@ -686,8 +694,8 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
         exg d2,d6
         exg a1,a2
                 move.w a1,d7    ;can trash d7 as it's not used for now
-                lsr.w #8,d7
-                moveym d7,$ffff8800
+                ;lsr.w #8,d7
+                moveymw d7,$ffff8800
                 moveym d1,$ffff8802
 
                 add.w #1<<8,a1  ;Increases the frequency register.
@@ -899,8 +907,8 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_LSP:
         exg d2,d6
         exg a1,a2
         move.w a1,d7    ;can trash d7 as it's not used for now
-        lsr.w #8,d7
-        moveym d7,$ffff8800
+        ;lsr.w #8,d7
+        moveymw d7,$ffff8800
         moveym d1,$ffff8802
                 ;a1 high byte not incremented on purpose.
 ;        exx
@@ -936,8 +944,8 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoise:   ;53 cycles.
         add.w #1<<8,a1          ;Was not increased before.
 
         move.w a1,d7    ;can trash d7 as it's not used for now
-        lsr.w #8,d7
-        moveym d7,$ffff8800
+        ;lsr.w #8,d7
+        moveymw d7,$ffff8800
         moveym d1,$ffff8802
 
         add.w #1<<8,a1          ;Increases the frequency register.
@@ -985,27 +993,16 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop:
         exg d3,d4
         exg d2,d6
         exg a1,a2
-;                ld b,d
-;                out (c),h       ;f400 + register.
-;                ld b,e
-;                out (c),0       ;f600.
-;                ld b,d
-;                out (c),c       ;f400 + value (16, hardware volume).
-;                ld b,e
-;                out (c),c       ;f680
-;                ex af,af'
-;                out (c),a       ;f6c0.
-;                ex af,af'
         move.w a1,d7    ;can trash d7 as it's not used for now
-        lsr.w #8,d7
-        moveym d7,$ffff8800
+        ;lsr.w #8,d7
+        moveymw d7,$ffff8800
         moveym d3,$ffff8802
 
 ;                inc l           ;Increases the volume register.
 
 ;                inc h           ;Increases the frequency register.
 ;                inc h
-        add.w #$201,a1
+        add.w #$201,a1          ;Increases the volume register (low byte), frequency register (high byte)
 ;        exx
         exg d3,d4
         exg d2,d6
@@ -1118,8 +1115,8 @@ PLY_AKYst_RRB_NIS_SAHH_LSBS:
         exg d2,d6
         exg a1,a2
         move.w a1,d7    ;can trash d7 as it's not used for now
-        lsr.w #8,d7
-        moveym d7,$ffff8800
+        ;lsr.w #8,d7
+        moveymw d7,$ffff8800
         moveym d1,$ffff8802
                 ;a1 high byte not increased on purpose.
 ;        exx
@@ -1144,8 +1141,8 @@ PLY_AKYst_RRB_NIS_SAHH_MSBS:
         add.w #1<<8,a1
 
         move.w a1,d7    ;can trash d7 as it's not used for now
-        lsr.w #8,d7
-        moveym d7,$ffff8800
+        ;lsr.w #8,d7
+        moveymw d7,$ffff8800
         moveym d1,$ffff8802
 
 ;                dec h           ;Yup. Will be compensated below.
@@ -1195,7 +1192,7 @@ PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStop:
         bcs.s PLY_AKYst_RRB_NIS_S_NOR_Retrig
         bra.s PLY_AKYst_RRB_NIS_S_NOR_AfterRetrig
 PLY_AKYst_RRB_NIS_S_NOR_Retrig:
-        bset #7,d1                      ;A value to make sure the retrig is performed, yet A can still be use.
+        bset #7,d1                      ;A value to make sure the retrig is performed, yet d1 can still be use.
         movex.b d1,PLY_AKYst_PsgRegister13_Retrig
 PLY_AKYst_RRB_NIS_S_NOR_AfterRetrig:
 
