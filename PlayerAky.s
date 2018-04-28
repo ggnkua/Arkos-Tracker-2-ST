@@ -633,8 +633,9 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
 ;        exg d2,d6
 ;        exg a1,a2
 
-        move.b (a1),d1
-        addq.w #1,a1
+        move.b (a1)+,d1
+;        move.b (a1),d1
+;        addq.w #1,a1
 ;        exx
 ;        exg d3,d4
 ;        exg d2,d6
@@ -688,8 +689,9 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
         movex.b d1,PLY_AKYst_PsgRegister13
 
         ;Reads the software period.
-        move.b (a1),d1
-        addq.l #1,a1
+        move.b (a1)+,d1
+;        move.b (a1),d1
+;        addq.l #1,a1
 ;        exx
 ;        exg d3,d4
 ;        exg d2,d6
@@ -706,8 +708,9 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
 ;        exg d2,d6
 ;        exg a1,a2
 
-        move.b (a1),d1
-        addq.w #1,a1
+        move.b (a1)+,d1
+;        move.b (a1),d1
+;        addq.w #1,a1
 ;        exx
 ;        exg d3,d4
 ;        exg d2,d6
