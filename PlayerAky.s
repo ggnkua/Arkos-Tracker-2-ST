@@ -279,15 +279,15 @@ PLY_AKYst_Channel3_RegisterBlock_Process:
 ;----------------------------------------
 
                 move.w #((0 * 256) + 8),d7                 ;d7 high byte = first frequency register, d7 low byte = first volume register.
-                move.w #$f4f6,d2
+;                move.w #$f4f6,d2
 ;                move.w #$f690,d3                         ;#90 used for both #80 for the PSG, and volume 16!
                 move.w #$f690,d4                         ;#90 used for both #80 for the PSG, and volume 16!
         
                 ;ld a,#c0                                ;Used for PSG.
-                move.w #$c0,d1                          ;Used for PSG.
+;                move.w #$c0,d1                          ;Used for PSG.
                 ;out (c),a                               ;f6c0. Madram's trick requires to start with this. out (c),b works, but will activate K7's relay! Not clean.
         ;ex af,af'
-        exg d0,d1
+        ;exg d0,d1
         ;exg d7,d5
         ;exx
 ;        exg d3,d4
