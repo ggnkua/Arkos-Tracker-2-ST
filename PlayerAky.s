@@ -1,25 +1,25 @@
-;       Stabilized AKY music player - V1.0.
-;       By Julien Névo a.k.a. Targhan/Arkos.
-;       February 2018.
-
-;       This version of the AKY player is "stabilized", which means that the CPU consumed by the player (on Amstrad CPC) is always the same. It is also slower,
-;       since the worst-case branching is always taken in account. However, it is hugely convenient for demos or games with require cycle-accurate timings!
-;       The "waiting" also makes the code bigger (and less readable).
-
-;       The init code is not stabilized (is it a problem?).
-
-;       PSG sending optimization trick by Madram/Overlanders.
-
-;       The player uses the stack for optimizations. Make sure the interruptions are disabled before it is called.
-;       The stack pointer is saved at the beginning and restored at the end.
-
-;       Possible optimizations:
-;       SIZE: The JP hooks at the beginning can be removed if you include this code in yours directly.
-;       SIZE: If you don't play a song twice, all the code in PLY_AKYst_Init can be removed, except the first lines that skip the header.
-;       SIZE: The header is only needed for players that want to load any song. Most of the time, you don't need it. Erase both the init code and the header bytes in the song.
-
+;
+; AKY music player
+;
 ; Port by George Nakos (GGN of pick-your-favorite-group - KUA software productions/D-Bug/Paradize/Reboot/Bello games)
 ; (yes, crews are becoming pointless :))
+;
+; Based on the soruces of "Stabilized AKY music player - V1.0."
+;       By Julien Névo a.k.a. Targhan/Arkos.
+;       February 2018.
+;
+; This source was written for the rmac assembler (http://virtualjaguar.kicks-ass.net/builds/)
+; It should be fairly easy to adapt to other assemblers.
+;
+; Note that the source makes use of macros, so take a look at their definitions (after these messages end) before reading the code
+
+; Stuff TODO:
+; - Get rid of that silly 64k alignment requirement
+; - Clean up register usage
+; - Remove all CPC leftovers, like some magic constant loads
+; - SMC stuff can potentially break machines with cache like TT and Falcon, either provide alternative or get rid of SMC in all cases if there's something faster
+; - In PLY_AKYst_RRB_NIS_ManageLoop there is an auto-even of address happening due to the way the data is exported. This can be fixed by a) Exporting all data as words, b) pre-parsing the tune during init, finding odd addresses, even them and patch all affected offsets
+; - PLY_AKYst_ReadRegisterBlock can be macro'd in order to be inlined. Also the ym registers will be then known, so they can get encoded as constants
         
 ;Global convetions for mapping of z80 registers
 ;assuming that hl=a1
@@ -37,8 +37,6 @@
 ;Note 2: exx and ex isntructions are "emulated" using exg which not the most optimium way to do this. Ideally the regions where ex/exx have effect the register names can be swapped. HOWEVER: for now this is very error prone. A third pass of the source when the player is running properly can eliminate this
 ;Note 3: register f doesn't appear to be used in the main player - so we can probably junk d7/d5
 
-; Register mappings
-; 
 
 ; Macros for sndh or normal player.
 ; In sndh mode the player has to be position independent, and that mostly boils down
@@ -87,7 +85,7 @@ PLY_AKYst_Start:
 ;       a0.l = music address
 PLY_AKYst_Init:
          .if ^^defined SNDH_PLAYER
-         lea PLY_AKYst_Init(pc),a4		;base pointer for PC-relative stores
+         lea PLY_AKYst_Init(pc),a4        ;base pointer for PC-relative stores
          .endif
 
         ;Skips the header.
@@ -116,7 +114,7 @@ PLY_AKYst_Init_SkipHeaderEnd:
 PLY_AKYst_Play:
 
          .if ^^defined SNDH_PLAYER
-         lea PLY_AKYst_Init(pc),a4		;base pointer for PC-relative stores
+         lea PLY_AKYst_Init(pc),a4        ;base pointer for PC-relative stores
          .endif
 
 ;Linker.
@@ -184,7 +182,6 @@ PLY_AKYst_Channel1_RegisterBlock_Finished:
         ;Obviously, starts at the initial state.
         move.l #PLY_AKYst_OPCODE_OR_A,d1
         movex.l d1,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
-;PLY_AKYst_Channel1_PtTrack: ld sp,0                   ;Points on the Track.
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel1_PtTrack = * + 2
         lea 0(a0),a6                ;Points on the Track.
@@ -279,24 +276,10 @@ PLY_AKYst_Channel3_RegisterBlock_Process:
 ;----------------------------------------
 
                 move.w #((0 * 256) + 8),d7                 ;d7 high byte = first frequency register, d7 low byte = first volume register.
-;                move.w #$f4f6,d2
-;                move.w #$f690,d3                         ;#90 used for both #80 for the PSG, and volume 16!
                 move.w #$f690,d4                         ;#90 used for both #80 for the PSG, and volume 16!
         
-                ;ld a,#c0                                ;Used for PSG.
-;                move.w #$c0,d1                          ;Used for PSG.
-                ;out (c),a                               ;f6c0. Madram's trick requires to start with this. out (c),b works, but will activate K7's relay! Not clean.
-        ;ex af,af'
-        ;exg d0,d1
-        ;exg d7,d5
-        ;exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
-
         ;In d3, R7 with default values: fully sound-open but noise-close.
         ;R7 has been shift twice to the left, it will be shifted back as the channels are treated.
-;        move.w #%11100000 * 256 + 255,d3                ;d3 low is 255 to prevent the following LDIs to decrease B. 
         move.w #%11100000,d3
 
 
@@ -314,10 +297,7 @@ PLY_AKYst_Channel1_RegisterBlock_Return:
 ;----------------------------------------
 
         ;Shifts the R7 for the next channels.
-;        srl b           ;Not RR, because we have to make sure the b6 is 0, else no more keyboard (on CPC)!
-;        ror.w #8,d3
         lsr.b #1,d3
-;        ror.w #8,d3     ;yeah this definitely could be done faster :)
         
 
 PLY_AKYst_Channel2_PtRegisterBlock equ * + 2
@@ -333,10 +313,7 @@ PLY_AKYst_Channel2_RegisterBlock_Return:
 ;----------------------------------------
 
         ;Shifts the R7 for the next channels.
-;        rr b            ;Safe to use RR, we don't care if b7 of R7 is 0 or 1.
-;        ror.w #8,d3
         lsr.b #1,d3
-;        ror.w #8,d3     ;yeah this definitely could be done faster :)
 
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel3_PtRegisterBlock equ * + 2
@@ -349,21 +326,15 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
 
         ;Register 7 to d1.
         move.w d3,d1
-;        lsr.w #8,d1
 
 ;Almost all the channel specific registers have been sent. Now sends the remaining registers (6, 7, 11, 12, 13).
 
 ;Register 7. Note that managing register 7 before 6/11/12 is done on purpose (the 6/11/12 registers are filled using OUTI).
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
 
                 moveym #7,$ffff8800
                 moveym d1,$ffff8802
 
 ;Register 6
-                ;sub.w #$100,a1
                 moveym #6,$ffff8800
                 moveym PLY_AKYst_PsgRegister6(pc),$ffff8802
 
@@ -404,7 +375,7 @@ PLY_AKYst_Exit:
 
 
 ;Generic code interpreting the RegisterBlock
-;IN:    HL = First byte.
+;IN:    a1 = First byte.
 ;       Carry = 0 = initial state, 1 = non-initial state.
 ;----------------------------------------------------------------
 
@@ -415,24 +386,12 @@ PLY_AKYst_RRB_BranchOnNonInitailState:
 
         ; Code from the bcs and above copied here so nothing will screw with the carry flag        
         move.b (a1)+,d1
-;        move.b (a1),d1
-;        addq.w #1,a1
         
         ;Not in the original code, but simplifies the stabilization.
-;        ror.w #8,d2             ;d1 must be saved!
         move.b d1,d2
-;        ror.w #8,d2
-;        and.b #%00000011,d1
         and.b #%00000011,d2
-;        add.b d1,d1
         add.b d2,d2
-;        move.b d1,d2
-;        move.w d2,d1            ;Retrieves d1, which is supposed to be shifted in the original code.
-;        lsr.w #8,d1
-;        lsr.b #1,d1
-;        lsr.b #1,d1
         lsr.b #2,d1
-;        and.w #$ff,d2
         ext.w d2
         lea PLY_AKYst_IS_JPTable(pc),a5
         add.w d2,a5
@@ -480,13 +439,7 @@ PLY_AKYst_RRB_IS_NoSoftwareNoHardware:
         bra.s PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise_End
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise:
         ;There is a noise. Reads it.
-;        ld de,PLY_AKYst_PsgRegister6
-;        ldi                     ;Safe for B, C is not 0. Preserves A.
         movex.b (a1)+,PLY_AKYst_PsgRegister6
-;        movex.b (a1),PLY_AKYst_PsgRegister6
-;        addq.w #1,a1
-;        addq.w #1,d2
-;        subq.w #1,d3
 
         ;Opens the noise channel.
         bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d4
@@ -495,21 +448,10 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise_End:
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolume:
         ;The volume is now in b0-b3.
 
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
-        ;move.w a1,d7    ;can trash d7 as it's not used for now
         moveym d7,$ffff8800
         moveym d1,$ffff8802
-;        add.w #(2<<8)+1,a1      ;Increases the volume register (low byte) and frequency register (high byte).
         add.w #(2<<8)+1,d7      ;Increases the volume register (low byte) and frequency register (high byte).
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
         ;Closes the sound channel.
-;        bset #PLY_AKYst_RRB_SoundChannelBit+8, d3
         bset #PLY_AKYst_RRB_SoundChannelBit, d3
         rts
 
@@ -531,15 +473,9 @@ PLY_AKYst_RRB_IS_HO_AfterRetrig:
         bcs.s PLY_AKYst_RRB_IS_HO_Noise 
         bra.s PLY_AKYst_RRB_IS_HO_AfterNoise
 PLY_AKYst_RRB_IS_HO_Noise:        ;Reads the noise.
-;        ldi                     ;Safe for B, C is not 0. Preserves A.
         movex.b (a1)+,PLY_AKYst_PsgRegister6
-;        movex.b (a1),PLY_AKYst_PsgRegister6
-;        addq.w #1,a1
-;        addq.w #1,d2
-;        subq.w #1,d3
  
         ;Opens the noise channel.
-;        bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
         bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
 PLY_AKYst_RRB_IS_HO_AfterNoise:
         ;The envelope.
@@ -547,36 +483,16 @@ PLY_AKYst_RRB_IS_HO_AfterNoise:
         movex.b d1,PLY_AKYst_PsgRegister13
 
         ;Copies the hardware period.
-;        ldi
-;        ldi
         movex.b (a1)+,PLY_AKYst_PsgRegister11
         movex.b (a1)+,PLY_AKYst_PsgRegister11+1
-;        movex.b (a1),PLY_AKYst_PsgRegister11
-;        movex.b 1(a1),PLY_AKYst_PsgRegister11+1
-;        addq.w #2,a1
-;        addq.w #2,d2
-;        subq.w #2,d3
 
         ;Closes the sound channel.
-;        bset #PLY_AKYst_RRB_SoundChannelBit+8,d3
         bset #PLY_AKYst_RRB_SoundChannelBit,d3
 
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
-        ;move.w a1,d7    ;can trash d7 as it's not used for now
         moveym d7,$ffff8800
-;        moveym d3,$ffff8802     ;(volume to 16).
         moveym d4,$ffff8802     ;(volume to 16).
 
-;        add.w #$201,a1          ;Increases the volume register (low byte), and frequency register (mandatory!).
         add.w #$201,d7          ;Increases the volume register (low byte), and frequency register (high byte - mandatory!).
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
-;        ret
         rts
 
 ;---------------------
@@ -589,69 +505,27 @@ PLY_AKYst_RRB_IS_SoftwareOnly:
         bra.s PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise
 PLY_AKYst_RRB_IS_SoftwareOnly_Noise:
         ;Noise. Reads it.
-;        ldi                     ;Safe for B, C is not 0. Preserves A.
         movex.b (a1)+,PLY_AKYst_PsgRegister6
-;        movex.b (a1),PLY_AKYst_PsgRegister6
-;        addq.w #1,a1
-;        addq.w #1,d2
-;        subq.w #1,d3
         ;Opens the noise channel.
-;        bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
         bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
 PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
 
         ;Reads the volume (now b0-b3).
         ;Note: we do NOT peform a "and %1111" because we know the bit 7 of the original byte is 0, so the bit 4 is currently 0. Else the hardware volume would be on!
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
-        ;move.w a1,d7    ;can trash d7 as it's not used for now
         moveym d7,$ffff8800
         moveym d1,$ffff8802
-;        addq.w #1,a1    ;Increases the volume register.
         addq.w #1,d7    ;Increases the volume register.
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
 
         ;Reads the software period.
         move.b (a1)+,d1
-;        move.b (a1),d1
-;        addq.w #1,a1
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
-                ;move.w a1,d7     ;can trash d7 as it's not used for now
-                ;lsr.w #8,d7
                 moveymw d7,$ffff8800
                 moveym d1,$ffff8802
-;                add.w #1<<8,a1  ;Increases the frequency register.
                 add.w #1<<8,d7  ;Increases the frequency register.
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
 
         move.b (a1)+,d1
-;        move.b (a1),d1
-;        addq.w #1,a1
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
-        ;move.w a1,d7    ;can trash d7 as it's not used for now
-        ;lsr.w #8,d7
         moveymw d7,$ffff8800
         moveym d1,$ffff8802
-;        add.w #1<<8,a1          ;Increases the frequency register.
         add.w #1<<8,d7          ;Increases the frequency register.
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
 
         rts
 
@@ -676,14 +550,8 @@ PLY_AKYst_RRB_IS_SAH_AfterRetrig:
         bra.s PLY_AKYst_RRB_IS_SAH_AfterNoise
 PLY_AKYst_RRB_IS_SAH_Noise:
         ;Reads the noise.
-;        ldi                     ;Safe for B, C is not 0. Preserves A.
         movex.b (a1)+,PLY_AKYst_PsgRegister6
-;        movex.b (a1),PLY_AKYst_PsgRegister6
-;        addq.w #1,a1
-;        addq.w #1,d2
-;        subq.w #1,d3
         ;Opens the noise channel.
-;        bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
         bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
 PLY_AKYst_RRB_IS_SAH_AfterNoise:
 
@@ -693,61 +561,25 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
 
         ;Reads the software period.
         move.b (a1)+,d1
-;        move.b (a1),d1
-;        addq.l #1,a1
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
-        ;move.w a1,d7    ;can trash d7 as it's not used for now
-        ;lsr.w #8,d7
         moveymw d7,$ffff8800
         moveym d1,$ffff8802
                 
-;        add.w #1<<8,a1          ;Increases the frequency register.
         add.w #1<<8,d7          ;Increases the frequency register.
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
 
         move.b (a1)+,d1
-;        move.b (a1),d1
-;        addq.w #1,a1
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
-                ;move.w a1,d7    ;can trash d7 as it's not used for now
-                ;lsr.w #8,d7
                 moveymw d7,$ffff8800
                 moveym d1,$ffff8802
 
-;                add.w #1<<8,a1  ;Increases the frequency register.
                 add.w #1<<8,d7  ;Increases the frequency register.
 
-                ;move.w a1,d7    ;can trash d7 as it's not used for now
                 moveym d7,$ffff8800
-;                moveym d3,$ffff8802     ;(volume to 16).
                 moveym d4,$ffff8802     ;(volume to 16).
 
-;                addq.w #1,a1    ;Increases the volume register.
                 addq.w #1,d7    ;Increases the volume register.
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
 
         ;Copies the hardware period.
-;        ldi
-;        ldi
         movex.b (a1)+,PLY_AKYst_PsgRegister11
         movex.b (a1)+,PLY_AKYst_PsgRegister11+1
-;        movex.b (a1),PLY_AKYst_PsgRegister11
-;        movex.b 1(a1),PLY_AKYst_PsgRegister11+1
-;        addq.w #2,a1
-;        addq.w #2,d2
-;        subq.w #2,d3
         rts
 
 
@@ -760,23 +592,13 @@ PLY_AKYst_RRB_NonInitialState:
 
         ; Code from the start of PLY_AKYst_ReadRegisterBlock copied here so nothing will screw with the carry flag        
         move.b (a1)+,d1
-;        move.b (a1),d1
-;        addq.w #1,a1
 
         ;Not in the original code, but simplifies the stabilization.
-;        ror.w #8,d2                     ;d1 must be saved!
         move.b d1,d2
-;        ror.w #8,d2
-;        and.b #%00001111,d1             ;Keeps 4 bits to be able to detect the loop. (%1000)
         and.b #%00001111,d2             ;Keeps 4 bits to be able to detect the loop. (%1000)
-;        add.b d1,d1
         add.b d2,d2
-;        move.b d1,d2
 
-;        move.w d2,d1                    ;Retrieves A, which is supposed to be shifted in the original code.
-;        lsr.w #8,d1
         lsr.b #2,d1
-;        and.w #$ff,d2
         ext.w d2
         lea PLY_AKYst_NIS_JPTable(pc),a5
         add.w PLY_AKYst_NIS_JPTable(pc,d2.w),a5
@@ -819,23 +641,13 @@ PLY_AKYst_RRB_NIS_ManageLoop:
         ;Since we KNOW it is not an initial state (because no jump goes to an initial state), we can directly go to the right branching.
         ;Reads the first byte.
         move.b (a1)+,d1
-;        move.b (a1),d1
-;        addq.w #1,a1
         
         ;Reads the next NIS state. We know there won't be any loop.
-;        ror.w #8,d2
         move.b d1,d2                    ;d1 must be saved!
-;        ror.w #8,d2
-;        and.b #%00000011,d1
         and.b #%00000011,d2
-;        add.b d1,d1
         add.b d2,d2
-;        move.b d1,d2
 
-;        move.w d2,d1                    ;Retrieves A, which is supposed to be shifted in the original code.
-;        lsr.w #8,d1
         lsr.b #2,d1
-;        andi.w #$ff,d2
         ext.w d2
         lea PLY_AKYst_NIS_JPTable_NoLoop(pc),a5
         add.w d2,a5
@@ -862,7 +674,6 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_Loop:            ;60 cycles.
         move.b d1,d2            ;Used below.
 
         ;Closes the sound channel.
-;        bset #PLY_AKYst_RRB_SoundChannelBit+8,d3
         bset #PLY_AKYst_RRB_SoundChannelBit,d3
 
         ;Volume? bit 2 - 2.
@@ -871,30 +682,11 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_Loop:            ;60 cycles.
         bra.s PLY_AKYst_RRB_NIS_AfterVolume
 PLY_AKYst_RRB_NIS_Volume:
         and.b #%1111,d1
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
-       ;move.w a1,d7    ;can trash d7 as it's not used for now
        moveym d7,$ffff8800
        moveym d1,$ffff8802
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
 PLY_AKYst_RRB_NIS_AfterVolume:
 
-        ;Sadly, have to lose a bit of CPU here, as this must be done in all cases.
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
-;        add.w #$201,a1          ;Next volume register (low byte) and frequency registers (high byte)
         add.w #$201,d7          ;Next volume register (low byte) and frequency registers (high byte)
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
 
         ;Noise? Was on bit 7, but there has been two shifts. We can't use A, it may have been modified by the volume AND.
         btst #7 - 2,d2
@@ -902,12 +694,8 @@ PLY_AKYst_RRB_NIS_AfterVolume:
         rts
 PLY_AKYst_RRB_NIS_Noise:
         ;Noise.
-        move.b (a1)+,PLY_AKYst_PsgRegister6
-        ;move.b (a1),d1
-        ;movex.b d1,PLY_AKYst_PsgRegister6
-        ;addq.w #1,a1
+        movex.b (a1)+,PLY_AKYst_PsgRegister6
         ;Opens the noise channel.
-;        bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
         bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
         rts
 
@@ -924,19 +712,9 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:
         move.b d1,d2
         ;Gets the volume (already shifted).
         and.b #%1111,d1
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
-        ;move.w a1,d7    ;can trash d7 as it's not used for now
         moveym d7,$ffff8800
         moveym d1,$ffff8802
-;               addq.w #1,a1     ;Increases the volume register.
                addq.w #1,d7     ;Increases the volume register.
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
 
         ;LSP? (Least Significant byte of Period). Was bit 6, but now shifted.
         btst #6 - 2,d2
@@ -944,70 +722,33 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:
         bra.s PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP
 PLY_AKYst_RRB_NIS_SoftwareOnly_LSP:
         move.b (a1)+,d1
-        ;move.b (a1),d1
-        ;addq.w #1,a1
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
-        ;move.w a1,d7    ;can trash d7 as it's not used for now
-        ;lsr.w #8,d7
         moveymw d7,$ffff8800
         moveym d1,$ffff8802
-                ;a1 high byte not incremented on purpose.
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
+                ;d7 high byte not incremented on purpose.
 PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP:
 
         ;MSP AND/OR (Noise and/or new Noise)? (Most Significant byte of Period).
         btst #7 - 2,d2
         bne.s PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoise
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
-;        add.w #2<<8,a1
         add.w #2<<8,d7
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
-;        ret
         rts
         
 PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoise:
         ;MSP and noise?, in the next byte. nipppp (n = newNoise? i = isNoise? p = MSB period).
         move.b (a1)+,d1  ;Useless bits at the end, not a problem.
-        ;move.b (a1),d1  ;Useless bits at the end, not a problem.
-        ;addq.w #1,a1
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
 ;                ;Sends the MSB software frequency.
-;        add.w #1<<8,a1          ;Was not increased before.
         add.w #1<<8,d7          ;Was not increased before.
 
-        ;move.w a1,d7    ;can trash d7 as it's not used for now
-        ;lsr.w #8,d7
         moveymw d7,$ffff8800
         moveym d1,$ffff8802
 
-;        add.w #1<<8,a1          ;Increases the frequency register.
         add.w #1<<8,d7          ;Increases the frequency register.
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
         
         rol.b #1,d1             ;Carry is isNoise?
         bcs.s PLY_AKYst_RRB_NIS_SoftwareOnly_NoisePresent
         rts
 PLY_AKYst_RRB_NIS_SoftwareOnly_NoisePresent:
         ;Opens the noise channel.
-;        bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
         bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
        
         ;Is there a new noise value? If yes, gets the noise.
@@ -1016,12 +757,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_NoisePresent:
         rts
 PLY_AKYst_RRB_NIS_SoftwareOnly_Noise:
         ;Gets the noise.
-;       ldi        
         movex.b (a1)+,PLY_AKYst_PsgRegister6
-;        movex.b (a1)+,PLY_AKYst_PsgRegister6
-;        addq.w #1,a1
-;        addq.w #1,d2
-;        subq.w #1,d3
         rts
 
 
@@ -1037,77 +773,35 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop:
         movex.b d1,PLY_AKYst_PsgRegister13
 
         ;Closes the sound channel.
-;        bset #PLY_AKYst_RRB_SoundChannelBit+8,d3
         bset #PLY_AKYst_RRB_SoundChannelBit,d3
 
         ;Hardware volume.
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
-        ;move.w a1,d7    ;can trash d7 as it's not used for now
-        ;lsr.w #8,d7
         moveymw d7,$ffff8800
-;        moveym d3,$ffff8802
         moveym d4,$ffff8802     ;(16 = hardware volume).
 
-;                inc l           ;Increases the volume register.
-
-;                inc h           ;Increases the frequency register.
-;                inc h
-;        add.w #$201,a1          ;Increases the volume register (low byte), frequency register (high byte)
         add.w #$201,d7          ;Increases the volume register (low byte), frequency register (high byte)
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
 
-;        ld a,e
         move.b d2,d1
 
         ;LSB for hardware period? Currently on b6.
         rol.b #2,d1
-;        rla
-;        rol.b #1,d1
-;        rla
-;        rol.b #1,d1
-;        jr c,PLY_AKYst_RRB_NIS_HardwareOnly_LSB
         bcs.s PLY_AKYst_RRB_NIS_HardwareOnly_LSB
-;        jr PLY_AKYst_RRB_NIS_HardwareOnly_AfterLSB
         bra.s PLY_AKYst_RRB_NIS_HardwareOnly_AfterLSB
 PLY_AKYst_RRB_NIS_HardwareOnly_LSB:
-;        ld de,PLY_AKYst_PsgRegister11
-;        ldi
         movex.b (a1)+,PLY_AKYst_PsgRegister11
-;        movex.b (a1),PLY_AKYst_PsgRegister11
-;        addq.w #1,a1
-;        addq.w #1,d2
-;        subq.w #1,d3
 PLY_AKYst_RRB_NIS_HardwareOnly_AfterLSB:
 
         ;MSB for hardware period?
-;        rla
         rol.b #1,d1
-;        jr c,PLY_AKYst_RRB_NIS_HardwareOnly_MSB
         bcs.s PLY_AKYst_RRB_NIS_HardwareOnly_MSB
-;        jr PLY_AKYst_RRB_NIS_HardwareOnly_AfterMSB
         bra.s PLY_AKYst_RRB_NIS_HardwareOnly_AfterMSB
 PLY_AKYst_RRB_NIS_HardwareOnly_MSB:
-;        ld de,PLY_AKYst_PsgRegister12
-;        ldi
         movex.b (a1)+,PLY_AKYst_PsgRegister12
-;        movex.b (a1),PLY_AKYst_PsgRegister12
-;        addq.w #1,a1
-;        addq.w #1,d2
-;        subq.w #1,d3
 PLY_AKYst_RRB_NIS_HardwareOnly_AfterMSB:
         
         ;Noise or retrig?
-;        rla
         rol.b #1,d1
-;        jp c,PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStop          ;The retrig/noise code is shared.
         bcs PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStop
-;        ret
         rts
 
 
@@ -1116,38 +810,18 @@ PLY_AKYst_RRB_NIS_SoftwareAndHardware:
 
 PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop:             ;182 cycles.
 
-                ;This is the longest! So nothing to wait.
-                ;ds PLY_AKYst_NOP_LongestInState - 182, 0         ;For all the IS/NIS subcodes to spend the same amount of time.
-        
-
         ;Hardware volume.
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
                 ;Sends the volume.
-        ;move.w a1,d7    ;can trash d7 as it's not used for now
         moveym d7,$ffff8800
-;        moveym d3,$ffff8802     ;(16 = hardware volume).
         moveym d4,$ffff8802     ;(16 = hardware volume).
-;        addq.w #1,a1            ;Increases the volume register.
         addq.w #1,d7            ;Increases the volume register.
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
 
         ;LSB of hardware period?
         ror.b #1,d1
         bcs.s PLY_AKYst_RRB_NIS_SAHH_LSBH
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterLSBH
 PLY_AKYst_RRB_NIS_SAHH_LSBH:
-;        ldi
         movex.b (a1)+,PLY_AKYst_PsgRegister11
-;        movex.b (a1),PLY_AKYst_PsgRegister11
-;        addq.w #1,a1
-;        addq.w #1,d2
-;        subq.w #1,d3
 PLY_AKYst_RRB_NIS_SAHH_AfterLSBH:
 
         ;MSB of hardware period?
@@ -1155,12 +829,7 @@ PLY_AKYst_RRB_NIS_SAHH_AfterLSBH:
         bcs.s PLY_AKYst_RRB_NIS_SAHH_MSBH
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterMSBH
 PLY_AKYst_RRB_NIS_SAHH_MSBH:
-;        ldi
         movex.b (a1)+,PLY_AKYst_PsgRegister12
-;        movex.b (a1),PLY_AKYst_PsgRegister12
-;        addq.w #1,a1
-;        addq.w #1,d2
-;        subq.w #1,d3
 PLY_AKYst_RRB_NIS_SAHH_AfterMSBH:
         
         ;LSB of software period?
@@ -1170,21 +839,9 @@ PLY_AKYst_RRB_NIS_SAHH_AfterMSBH:
 PLY_AKYst_RRB_NIS_SAHH_LSBS:
         move.b d1,d2
         move.b (a1)+,d1
-;        move.b (a1),d1
-;        addq.w #1,a1
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
-        ;move.w a1,d7    ;can trash d7 as it's not used for now
-        ;lsr.w #8,d7
         moveymw d7,$ffff8800
         moveym d1,$ffff8802
                 ;a1 high byte not increased on purpose.
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
         move.b d2,d1
 PLY_AKYst_RRB_NIS_SAHH_AfterLSBS:
        
@@ -1195,52 +852,23 @@ PLY_AKYst_RRB_NIS_SAHH_AfterLSBS:
 PLY_AKYst_RRB_NIS_SAHH_MSBS:
         move.b d1,d2
         move.b (a1)+,d1
-;        move.b (a1),d1
-;        addq.w #1,a1
-;       exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
 ;                ;Sends the MSB software frequency.
-;        add.w #1<<8,a1
         add.w #1<<8,d7
 
-        ;move.w a1,d7    ;can trash d7 as it's not used for now
-        ;lsr.w #8,d7
         moveymw d7,$ffff8800
         moveym d1,$ffff8802
 
-;                dec h           ;Yup. Will be compensated below.
-;        sub.w #1<<8,a1
-        sub.w #1<<8,d7
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
+        sub.w #1<<8,d7          ;Yup. Will be compensated below.
         move.b d2,d1
 PLY_AKYst_RRB_NIS_SAHH_AfterMSBS:
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
-;        add.w #2<<8,a1
         add.w #2<<8,d7
-;        exx
-;        exg d3,d4
-;        exg d2,d6
-;        exg a1,a2
 
         ;New hardware envelope?
         ror.b #1,d1
         bcs.s PLY_AKYst_RRB_NIS_SAHH_Envelope
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterEnvelope
 PLY_AKYst_RRB_NIS_SAHH_Envelope:
-;        ldi
         movex.b (a1)+,PLY_AKYst_PsgRegister13
-        ;movex.b (a1),PLY_AKYst_PsgRegister13
-        ;addq.w #1,a1
-        ;addq.w #1,d2
-        ;subq.w #1,d3
 PLY_AKYst_RRB_NIS_SAHH_AfterEnvelope:
 
         ;Retrig and/or noise?
@@ -1253,8 +881,6 @@ PLY_AKYst_RRB_NIS_SAHH_AfterEnvelope:
 PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStop:
         ;Noise or retrig. Reads the next byte.
         move.b (a1)+,d1
-;        move.b (a1),d1
-;        addq.w #1,a1
 
         ;Retrig?
         ror.b #1,d1
@@ -1272,7 +898,6 @@ PLY_AKYst_RRB_NIS_S_NOR_AfterRetrig:
 PLY_AKYst_RRB_NIS_S_NOR_Noise:
         
         ;Noise. Opens the noise channel.
-;        bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
         bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
         ;Is there a new noise value? If yes, gets the noise.
         ror.b #1,d1
