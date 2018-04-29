@@ -296,7 +296,8 @@ PLY_AKYst_Channel3_RegisterBlock_Process:
 
         ;In d3, R7 with default values: fully sound-open but noise-close.
         ;R7 has been shift twice to the left, it will be shifted back as the channels are treated.
-        move.w #%11100000 * 256 + 255,d3                ;d3 low is 255 to prevent the following LDIs to decrease B. 
+;        move.w #%11100000 * 256 + 255,d3                ;d3 low is 255 to prevent the following LDIs to decrease B. 
+        move.w #%11100000,d3
 
 
 * SMC - DO NOT OPTIMISE!
@@ -314,9 +315,9 @@ PLY_AKYst_Channel1_RegisterBlock_Return:
 
         ;Shifts the R7 for the next channels.
 ;        srl b           ;Not RR, because we have to make sure the b6 is 0, else no more keyboard (on CPC)!
-        ror.w #8,d3
+;        ror.w #8,d3
         lsr.b #1,d3
-        ror.w #8,d3     ;yeah this definitely could be done faster :)
+;        ror.w #8,d3     ;yeah this definitely could be done faster :)
         
 
 PLY_AKYst_Channel2_PtRegisterBlock equ * + 2
@@ -333,9 +334,9 @@ PLY_AKYst_Channel2_RegisterBlock_Return:
 
         ;Shifts the R7 for the next channels.
 ;        rr b            ;Safe to use RR, we don't care if b7 of R7 is 0 or 1.
-        ror.w #8,d3
+;        ror.w #8,d3
         lsr.b #1,d3
-        ror.w #8,d3     ;yeah this definitely could be done faster :)
+;        ror.w #8,d3     ;yeah this definitely could be done faster :)
 
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel3_PtRegisterBlock equ * + 2
@@ -348,7 +349,7 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
 
         ;Register 7 to d1.
         move.w d3,d1
-        lsr.w #8,d1
+;        lsr.w #8,d1
 
 ;Almost all the channel specific registers have been sent. Now sends the remaining registers (6, 7, 11, 12, 13).
 
@@ -508,7 +509,8 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolume:
 ;        exg d2,d6
 ;        exg a1,a2
         ;Closes the sound channel.
-        bset #PLY_AKYst_RRB_SoundChannelBit+8, d3
+;        bset #PLY_AKYst_RRB_SoundChannelBit+8, d3
+        bset #PLY_AKYst_RRB_SoundChannelBit, d3
         rts
 
 
@@ -537,7 +539,8 @@ PLY_AKYst_RRB_IS_HO_Noise:        ;Reads the noise.
 ;        subq.w #1,d3
  
         ;Opens the noise channel.
-        bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
+;        bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
+        bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
 PLY_AKYst_RRB_IS_HO_AfterNoise:
         ;The envelope.
         and.b #%1111,d1
@@ -555,7 +558,8 @@ PLY_AKYst_RRB_IS_HO_AfterNoise:
 ;        subq.w #2,d3
 
         ;Closes the sound channel.
-        bset #PLY_AKYst_RRB_SoundChannelBit+8,d3
+;        bset #PLY_AKYst_RRB_SoundChannelBit+8,d3
+        bset #PLY_AKYst_RRB_SoundChannelBit,d3
 
 ;        exx
 ;        exg d3,d4
@@ -592,7 +596,8 @@ PLY_AKYst_RRB_IS_SoftwareOnly_Noise:
 ;        addq.w #1,d2
 ;        subq.w #1,d3
         ;Opens the noise channel.
-        bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
+;        bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
+        bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
 PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
 
         ;Reads the volume (now b0-b3).
@@ -678,7 +683,8 @@ PLY_AKYst_RRB_IS_SAH_Noise:
 ;        addq.w #1,d2
 ;        subq.w #1,d3
         ;Opens the noise channel.
-        bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
+;        bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
+        bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
 PLY_AKYst_RRB_IS_SAH_AfterNoise:
 
         ;The envelope.
@@ -856,7 +862,8 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_Loop:            ;60 cycles.
         move.b d1,d2            ;Used below.
 
         ;Closes the sound channel.
-        bset #PLY_AKYst_RRB_SoundChannelBit+8,d3
+;        bset #PLY_AKYst_RRB_SoundChannelBit+8,d3
+        bset #PLY_AKYst_RRB_SoundChannelBit,d3
 
         ;Volume? bit 2 - 2.
         lsr.b #1,d1
@@ -900,7 +907,8 @@ PLY_AKYst_RRB_NIS_Noise:
         ;movex.b d1,PLY_AKYst_PsgRegister6
         ;addq.w #1,a1
         ;Opens the noise channel.
-        bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
+;        bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
+        bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
         rts
 
 
@@ -999,7 +1007,8 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoise:
         rts
 PLY_AKYst_RRB_NIS_SoftwareOnly_NoisePresent:
         ;Opens the noise channel.
-        bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
+;        bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
+        bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
        
         ;Is there a new noise value? If yes, gets the noise.
         rol.b #1,d1
@@ -1028,7 +1037,8 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop:
         movex.b d1,PLY_AKYst_PsgRegister13
 
         ;Closes the sound channel.
-        bset #PLY_AKYst_RRB_SoundChannelBit+8,d3
+;        bset #PLY_AKYst_RRB_SoundChannelBit+8,d3
+        bset #PLY_AKYst_RRB_SoundChannelBit,d3
 
         ;Hardware volume.
 ;        exx
@@ -1262,7 +1272,8 @@ PLY_AKYst_RRB_NIS_S_NOR_AfterRetrig:
 PLY_AKYst_RRB_NIS_S_NOR_Noise:
         
         ;Noise. Opens the noise channel.
-        bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
+;        bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
+        bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
         ;Is there a new noise value? If yes, gets the noise.
         ror.b #1,d1
         bcs.s PLY_AKYst_RRB_NIS_S_NOR_SetNoise

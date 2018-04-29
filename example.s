@@ -107,12 +107,12 @@ rts
 	.data
 
 tune:
-;   .include "UltraSyd - Fractal.s"
-	.include "UltraSyd - YM Type.s"
-;	.include "Targhan - Midline Process - Carpet.s"
-;	.include "Targhan - Midline Process - Molusk.s"
-;	.include "Targhan - DemoIzArt - End Part.s"
-;	.include "Pachelbel's Canon in D major 003.s"
+;   .include "tunes/UltraSyd - Fractal.s"
+	.include "tunes/UltraSyd - YM Type.s"
+;	.include "tunes/Targhan - Midline Process - Carpet.s"
+;	.include "tunes/Targhan - Midline Process - Molusk.s"
+;	.include "tunes/Targhan - DemoIzArt - End Part.s"
+;	.include "tunes/Pachelbel's Canon in D major 003.s"
 	.long				            ;pad to 4 bytes
 tune_end:
 
