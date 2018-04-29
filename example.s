@@ -108,11 +108,14 @@ rts
 
 tune:
 ;   .include "tunes/UltraSyd - Fractal.s"
-	.include "tunes/UltraSyd - YM Type.s"
+;	.include "tunes/UltraSyd - YM Type.s"
 ;	.include "tunes/Targhan - Midline Process - Carpet.s"
 ;	.include "tunes/Targhan - Midline Process - Molusk.s"
 ;	.include "tunes/Targhan - DemoIzArt - End Part.s"
 ;	.include "tunes/Pachelbel's Canon in D major 003.s"
+;	.include "tunes/Interleave THIS! 015.s"
+;	.include "tunes/Ten Little Endians_015.s"
+	.include "tunes/Just add cream 020.s"
 	.long				            ;pad to 4 bytes
 tune_end:
 
