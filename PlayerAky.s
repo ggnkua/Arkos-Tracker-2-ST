@@ -471,7 +471,7 @@ PLY_AKYst_RRB_NoiseChannelBit equ 5          ;Bit to modify to set/reset the noi
 PLY_AKYst_RRB_SoundChannelBit equ 2          ;Bit to modify to set/reset the sound channel.
 
 
-PLY_AKYst_RRB_IS_NoSoftwareNoHardware:          ;50 cycles.
+PLY_AKYst_RRB_IS_NoSoftwareNoHardware:
 
         ;No software no hardware.
         lsr.b #1,d1             ;Noise?
@@ -567,7 +567,7 @@ PLY_AKYst_RRB_IS_HO_AfterNoise:
         moveym d4,$ffff8802     ;(volume to 16).
 
 ;        add.w #$201,a1          ;Increases the volume register (low byte), and frequency register (mandatory!).
-        add.w #$201,d7          ;Increases the volume register (low byte), and frequency register (mandatory!).
+        add.w #$201,d7          ;Increases the volume register (low byte), and frequency register (high byte - mandatory!).
 ;        exx
 ;        exg d3,d4
 ;        exg d2,d6
@@ -611,13 +611,10 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
 ;        exg d2,d6
 ;        exg a1,a2
 
-;The exporter here exports the period values as hi/lo instead of lo/hi
-;even they get exported as individual dc.b staements.
-;That's not how big endian works!
-;So for now I'll read the bytes in reverse order and compensate using addq.w #2 below
         ;Reads the software period.
-        move.b (a1),d1
-        addq.w #1,a1
+        move.b (a1)+,d1
+;        move.b (a1),d1
+;        addq.w #1,a1
 ;        exx
 ;        exg d3,d4
 ;        exg d2,d6
@@ -898,9 +895,10 @@ PLY_AKYst_RRB_NIS_AfterVolume:
         rts
 PLY_AKYst_RRB_NIS_Noise:
         ;Noise.
-        move.b (a1),d1
-        movex.b d1,PLY_AKYst_PsgRegister6
-        addq.w #1,a1
+        move.b (a1)+,PLY_AKYst_PsgRegister6
+        ;move.b (a1),d1
+        ;movex.b d1,PLY_AKYst_PsgRegister6
+        ;addq.w #1,a1
         ;Opens the noise channel.
         bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d3
         rts
@@ -912,7 +910,7 @@ PLY_AKYst_RRB_NIS_Noise:
 
 ;---------------------
 PLY_AKYst_RRB_NIS_SoftwareOnly:
-PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:                    ;129 cycles.
+PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:
         
         ;Software only. Structure: mspnoise lsp v  v  v  v  (0  1).
         move.b d1,d2
@@ -937,8 +935,9 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:                    ;129 cycles.
         bne.s PLY_AKYst_RRB_NIS_SoftwareOnly_LSP
         bra.s PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP
 PLY_AKYst_RRB_NIS_SoftwareOnly_LSP:
-        move.b (a1),d1
-        addq.w #1,a1
+        move.b (a1)+,d1
+        ;move.b (a1),d1
+        ;addq.w #1,a1
 ;        exx
 ;        exg d3,d4
 ;        exg d2,d6
@@ -970,10 +969,11 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP:
 ;        ret
         rts
         
-PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoise:   ;53 cycles.           
+PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoise:
         ;MSP and noise?, in the next byte. nipppp (n = newNoise? i = isNoise? p = MSB period).
-        move.b (a1),d1  ;Useless bits at the end, not a problem.
-        addq.w #1,a1
+        move.b (a1)+,d1  ;Useless bits at the end, not a problem.
+        ;move.b (a1),d1  ;Useless bits at the end, not a problem.
+        ;addq.w #1,a1
 ;        exx
 ;        exg d3,d4
 ;        exg d2,d6
@@ -1008,7 +1008,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_NoisePresent:
 PLY_AKYst_RRB_NIS_SoftwareOnly_Noise:
         ;Gets the noise.
 ;       ldi        
-        movex.b (a1),PLY_AKYst_PsgRegister6
+        movex.b (a1)+,PLY_AKYst_PsgRegister6
 ;        movex.b (a1)+,PLY_AKYst_PsgRegister6
 ;        addq.w #1,a1
 ;        addq.w #1,d2
@@ -1039,7 +1039,7 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop:
         ;lsr.w #8,d7
         moveymw d7,$ffff8800
 ;        moveym d3,$ffff8802
-        moveym d4,$ffff8802
+        moveym d4,$ffff8802     ;(16 = hardware volume).
 
 ;                inc l           ;Increases the volume register.
 
@@ -1056,10 +1056,11 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop:
         move.b d2,d1
 
         ;LSB for hardware period? Currently on b6.
+        rol.b #2,d1
 ;        rla
-        rol.b #1,d1
+;        rol.b #1,d1
 ;        rla
-        rol.b #1,d1
+;        rol.b #1,d1
 ;        jr c,PLY_AKYst_RRB_NIS_HardwareOnly_LSB
         bcs.s PLY_AKYst_RRB_NIS_HardwareOnly_LSB
 ;        jr PLY_AKYst_RRB_NIS_HardwareOnly_AfterLSB
@@ -1158,8 +1159,9 @@ PLY_AKYst_RRB_NIS_SAHH_AfterMSBH:
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterLSBS
 PLY_AKYst_RRB_NIS_SAHH_LSBS:
         move.b d1,d2
-        move.b (a1),d1
-        addq.w #1,a1
+        move.b (a1)+,d1
+;        move.b (a1),d1
+;        addq.w #1,a1
 ;        exx
 ;        exg d3,d4
 ;        exg d2,d6
@@ -1182,8 +1184,9 @@ PLY_AKYst_RRB_NIS_SAHH_AfterLSBS:
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterMSBS
 PLY_AKYst_RRB_NIS_SAHH_MSBS:
         move.b d1,d2
-        move.b (a1),d1
-        addq.w #1,a1
+        move.b (a1)+,d1
+;        move.b (a1),d1
+;        addq.w #1,a1
 ;       exx
 ;        exg d3,d4
 ;        exg d2,d6
@@ -1239,8 +1242,9 @@ PLY_AKYst_RRB_NIS_SAHH_AfterEnvelope:
         ;------------------------------------------
 PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStop:
         ;Noise or retrig. Reads the next byte.
-        move.b (a1),d1
-        addq.w #1,a1
+        move.b (a1)+,d1
+;        move.b (a1),d1
+;        addq.w #1,a1
 
         ;Retrig?
         ror.b #1,d1
