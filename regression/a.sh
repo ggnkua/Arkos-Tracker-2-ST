@@ -1,4 +1,13 @@
-TUNES=("UltraSyd - YM Type.s" "UltraSyd - Fractal.s" "test001.s" "Targhan - Midline Process - Molusk.s" "Targhan - Midline Process - Carpet.s" "Targhan - DemoIzArt - End Part.s" "Pachelbel's Canon in D major 004.s" "Pachelbel's Canon in D major 003.s" "song001_009.s" "Interleave THIS! 014.s")
+TUNES=(\
+"UltraSyd - YM Type.s" "UltraSyd - Fractal.s" \
+"test001.s" "Targhan - Midline Process - Molusk.s" \
+"Targhan - Midline Process - Carpet.s" \
+"Targhan - DemoIzArt - End Part.s" \
+"Pachelbel's Canon in D major 004.s" \
+"Pachelbel's Canon in D major 003.s" \
+"song001_009.s" \
+"Interleave THIS! 014.s" \
+"Just add cream 008.s")
 
 regressiondir=$PWD
 sc=$PWD/sc68
