@@ -44,22 +44,23 @@
 sndh_init:
   movem.l d0-a6,-(sp)
 
-align_song:
-	lea tune(pc),a0                 ;move tune to a 64k aligned buffer
-	lea align_song(pc),a1
-	add.l #tune_buf-align_song,a1
-	move.l a1,d0                    ;not the most memory efficient thing ever but eh :)
-	clr.w d0                        ;align buffer
-	move.l d0,a1
-	move.l d0,d1
-	lea tune_aligned_address(pc),a2
-	move.l d0,(a2)                  ;sooper high powered copy!
-	move.l #(tune_end+3-tune)/4-1,d0
-.copy_tune:
-	move.l (a0)+,(a1)+
-	dbra d0,.copy_tune 
+;align_song:
+;	lea tune(pc),a0                 ;move tune to a 64k aligned buffer
+;	lea align_song(pc),a1
+;	add.l #tune_buf-align_song,a1
+;	move.l a1,d0                    ;not the most memory efficient thing ever but eh :)
+;	clr.w d0                        ;align buffer
+;	move.l d0,a1
+;	move.l d0,d1
+;	lea tune_aligned_address(pc),a2
+;	move.l d0,(a2)                  ;sooper high powered copy!
+;	move.l #(tune_end+3-tune)/4-1,d0
+;.copy_tune:
+;	move.l (a0)+,(a1)+
+;	dbra d0,.copy_tune 
   
-  move.l d1,a0
+;  move.l d1,a0
+  lea tune(pc),a0
   bsr.w PLY_AKYst_Init
   movem.l  (sp)+,d0-a6
   rts
@@ -84,11 +85,12 @@ sndh_exit:
 
 sndh_vbl:
   movem.l d0-a6,-(sp)
-  move.l tune_aligned_address(pc),a0
+;  move.l tune_aligned_address(pc),a0
+  lea tune(pc),a0
   bsr.w  PLY_AKYst_Play
   movem.l  (sp)+,d0-a6
   rts
-tune_aligned_address:    .ds.l 1
+;tune_aligned_address:    .ds.l 1
 
 player:
   even
@@ -100,8 +102,8 @@ tune:
 	.include "tune_filename.s"
 tune_end:
 
-	ds.b 65536
-tune_buf:ds.b 65535
+;	ds.b 65536
+;tune_buf:ds.b 65535
 
 
 ;http://phf.atari.org

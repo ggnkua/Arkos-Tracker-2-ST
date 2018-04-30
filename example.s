@@ -12,7 +12,7 @@ use_vbl=1                           ;if enabled, vbl is used instead of timer c
 
 tune_freq = 50                      ;tune frequency in ticks per second (not sure if this will ever change)
 
-	bsr align_song                  ;copy song to aligned to 64k buffer
+;	bsr align_song                  ;copy song to aligned to 64k buffer
 
 	pea start(pc)                   ;go to start with supervisor mode on
 	move.w #$26,-(sp)
@@ -26,7 +26,8 @@ start:
     move.b $484.w,-(sp)             ;save old keyclick state
     clr.b $484.w                    ;keyclick off, key repeat off
 
-	move.l tune_aligned_address,a0
+;	move.l tune_aligned_address,a0
+	move.l #tune,a0
 	bsr PLY_AKYst_Start+0           ;init player and tune
 
     .if !debug
@@ -45,7 +46,8 @@ start:
 .waitspace:
 
     .if debug
-    move.l tune_aligned_address,a0  ;tell the player where to find the aligned tune start
+;    move.l tune_aligned_address,a0  ;tell the player where to find the aligned tune start
+    move.l #tune,a0  ;tell the player where to find the aligned tune start
 	bsr PLY_AKYst_Start+2           ;play that funky music
     .endif
 
@@ -90,7 +92,8 @@ vbl:
 
     move.w #2048,d0                 ;small softwre pause so we can see the cpu time
 .wait: dbra d0,.wait
-    move.l tune_aligned_address,a0  ;tell the player where to find the aligned tune start
+;    move.l tune_aligned_address,a0  ;tell the player where to find the aligned tune start
+    move.l #tune,a0  ;tell the player where to find the aligned tune start
     .if show_cpu
     not.w $ffff8240.w
     .endif
@@ -110,7 +113,8 @@ timer_c:
     .if show_cpu
     not.w $ffff8240.w
     .endif
-    move.l tune_aligned_address,a0  ;tell the player where to find the aligned tune start
+;    move.l tune_aligned_address,a0  ;tell the player where to find the aligned tune start
+    move.l #tune,a0  ;tell the player where to find the aligned tune start
     .if show_cpu
 	bsr PLY_AKYst_Start+2           ;play that funky music
     .endif
@@ -124,17 +128,17 @@ timer_c_ctr: dc.w 200
     .endif
     .endif
 
-align_song:
-	lea tune,a0                     ;move tune to a 64k aligned buffer
-	move.l #tune_buf,d0             ;not the most memory efficient thing ever but eh :)
-	clr.w d0                        ;align buffer
-	move.l d0,a1
-	move.l d0,tune_aligned_address  ;sooper high powered copy!
-	move.l #(tune_end+3-tune)/4-1,d0
-.copy_tune:
-	move.l (a0)+,(a1)+
-	dbra d0,.copy_tune
-rts
+;align_song:
+;	lea tune,a0                     ;move tune to a 64k aligned buffer
+;	move.l #tune_buf,d0             ;not the most memory efficient thing ever but eh :)
+;	clr.w d0                        ;align buffer
+;	move.l d0,a1
+;	move.l d0,tune_aligned_address  ;sooper high powered copy!
+;	move.l #(tune_end+3-tune)/4-1,d0
+;.copy_tune:
+;	move.l (a0)+,(a1)+
+;	dbra d0,.copy_tune
+;rts
 
 	.include "PlayerAky.s"
 
@@ -155,7 +159,7 @@ tune_end:
 
 	.bss
 
-tune_aligned_address:    .ds.l 1
+;tune_aligned_address:    .ds.l 1
 
-	ds.b 65536
-tune_buf:ds.b 65535
+;	ds.b 65536
+;tune_buf:ds.b 65535

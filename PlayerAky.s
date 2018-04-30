@@ -14,9 +14,9 @@
 ; Note that the source makes use of macros, so take a look at their definitions (after these messages end) before reading the code
 
 ; Stuff TODO:
-; - Get rid of that silly 64k alignment requirement
+; - (done) Get rid of that silly 64k alignment requirement
 ; - Clean up register usage
-; - Remove all CPC leftovers, like some magic constant loads
+; - (done) Remove all CPC leftovers, like some magic constant loads
 ; - SMC stuff can potentially break machines with cache like TT and Falcon, either provide alternative or get rid of SMC in all cases if there's something faster
 ; - In PLY_AKYst_RRB_NIS_ManageLoop there is an auto-even of address happening due to the way the data is exported. This can be fixed by a) Exporting all data as words, b) pre-parsing the tune during init, finding odd addresses, even them and patch all affected offsets
 ; - PLY_AKYst_ReadRegisterBlock can be macro'd in order to be inlined. Also the ym registers will be then known, so they can get encoded as constants
@@ -97,7 +97,7 @@ PLY_AKYst_Init_SkipHeaderLoop:                ;There is always at least one PSG 
         beq.s PLY_AKYst_Init_SkipHeaderEnd
         bcc.s PLY_AKYst_Init_SkipHeaderLoop     ;Security in case of the PSG channel is not a multiple of 3.
 PLY_AKYst_Init_SkipHeaderEnd:
-        movex.w a0,PLY_AKYst_PtLinker       ;a0 now points on the Linker.
+        movex.l a0,PLY_AKYst_PtLinker       ;a0 now points on the Linker.
 
         move.l #PLY_AKYst_OPCODE_OR_A,d0
         movex.l d0,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
@@ -109,7 +109,7 @@ PLY_AKYst_Init_SkipHeaderEnd:
 
 ;       Plays the music. It must have been initialized before.
 ;       The interruption SHOULD be disabled (DI), as the stack is heavily used.
-; a0=start of tune - must be aligned to 64k for now!
+; a0=start of tune
 
 PLY_AKYst_Play:
 
@@ -140,7 +140,7 @@ PLY_AKYst_PatternFrameCounter_Over:
 ;The pattern is over. Reads the next one.
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_PtLinker = * + 2
-        lea 0(a0),a6                        ;Points on the Pattern of the linker.
+        lea 0.l,a6                        ;Points on the Pattern of the linker.
 
 ;        move.w (a6)+,a1                     ;Gets the duration of the Pattern, or 0 if end of the song.
         move.w (a6)+,d1                     ;Gets the duration of the Pattern, or 0 if end of the song.
@@ -167,7 +167,7 @@ PLY_AKYst_LinkerNotEndSong:
         movex.w (a6)+,PLY_AKYst_Channel1_PtTrack
         movex.w (a6)+,PLY_AKYst_Channel2_PtTrack
         movex.w (a6)+,PLY_AKYst_Channel3_PtTrack
-        movex.w a6,PLY_AKYst_PtLinker
+        movex.l a6,PLY_AKYst_PtLinker
 
         ;Resets the RegisterBlocks of the channels.
         moveq #1,d1
@@ -195,10 +195,12 @@ PLY_AKYst_Channel1_RegisterBlock_Finished:
 PLY_AKYst_Channel1_PtTrack = * + 2
         lea 0(a0),a6                ;Points on the Track.
         move.b (a6),d1                          ;Gets the duration.
-;        move.w 2(a6),a1                         ;Reads the RegisterBlock address.
-;        lea (a0,a1.w),a1
-        movex.w 2(a6),PLY_AKYst_Channel1_PtRegisterBlock
+        move.w 2(a6),a1                         ;Reads the RegisterBlock address.
+        lea (a0,a1.w),a1
+        movex.l a1,PLY_AKYst_Channel1_PtRegisterBlock
         addq.w #4,a6
+
+        sub.l a0,a6                             ;TODO can we do without this?
 
         movex.w a6,PLY_AKYst_Channel1_PtTrack
 ;        movex.w a1,PLY_AKYst_Channel1_PtRegisterBlock
@@ -227,10 +229,12 @@ PLY_AKYst_Channel2_RegisterBlock_Finished:
 PLY_AKYst_Channel2_PtTrack = * + 2
         lea 0(a0),a6                            ;Points on the Track.
         move.b (a6),d1                          ;Gets the duration (b1-7). b0 = silence block?
-;        move.w 2(a6),a1
-;        lea (a0,a1.w),a1
-        movex.w 2(a6),PLY_AKYst_Channel2_PtRegisterBlock
+        move.w 2(a6),a1
+        lea (a0,a1.w),a1
+        movex.l a1,PLY_AKYst_Channel2_PtRegisterBlock
         addq.w #4,a6
+
+        sub.l a0,a6                             ;TODO can we do without this?
 
         movex.w a6,PLY_AKYst_Channel2_PtTrack
 ;        movex.w a1,PLY_AKYst_Channel2_PtRegisterBlock
@@ -262,10 +266,12 @@ PLY_AKYst_Channel3_PtTrack equ * + 2
         lea 0(a0),a6                                    ;Points on the Track.
 
         move.b (a6),d1                          ;Gets the duration (b1-7). b0 = silence block?
-;        move.w 2(a6),a1
-;        lea (a0,a1.w),a1
-        movex.w 2(a6),PLY_AKYst_Channel3_PtRegisterBlock
+        move.w 2(a6),a1
+        lea (a0,a1.w),a1
+        movex.l a1,PLY_AKYst_Channel3_PtRegisterBlock
         addq.w #4,a6
+
+        sub.l a0,a6                             ;TODO can we do without this?
 
         movex.w a6,PLY_AKYst_Channel3_PtTrack
 ;        movex.w a1,PLY_AKYst_Channel3_PtRegisterBlock
@@ -299,12 +305,12 @@ PLY_AKYst_Channel3_RegisterBlock_Process:
 
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel1_PtRegisterBlock = * + 2
-        lea 0(a0),a1                                            ;Points on the data of the RegisterBlock to read.
+        lea 0.l,a1                                            ;Points on the data of the RegisterBlock to read.
 PLY_AKYst_Channel1_RegisterBlockLineState_Opcode: ori.b #0,d0  ;if initial state, "ori.b #0,d0" / "ori #1,ccr" if non-initial state.
         bsr PLY_AKYst_ReadRegisterBlock
 PLY_AKYst_Channel1_RegisterBlock_Return:
         movex.l #PLY_AKYst_OPCODE_SCF,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
-        movex.w a1,PLY_AKYst_Channel1_PtRegisterBlock           ;This is new pointer on the RegisterBlock.
+        movex.l a1,PLY_AKYst_Channel1_PtRegisterBlock           ;This is new pointer on the RegisterBlock.
 
 
 ;Reading the RegisterBlock - Channel 2
@@ -314,13 +320,14 @@ PLY_AKYst_Channel1_RegisterBlock_Return:
         lsr.b #1,d3
         
 
+* SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel2_PtRegisterBlock equ * + 2
-        lea 0(a0),a1                ;Points on the data of the RegisterBlock to read.
+        lea 0.l,a1                ;Points on the data of the RegisterBlock to read.
 PLY_AKYst_Channel2_RegisterBlockLineState_Opcode: ori.b #0,d0   ;if initial state, "ori.b #0,d0" / "ori #1,ccr" if non-initial state.
        bsr PLY_AKYst_ReadRegisterBlock 
 PLY_AKYst_Channel2_RegisterBlock_Return:
         movex.l #PLY_AKYst_OPCODE_SCF,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
-        movex.w a1,PLY_AKYst_Channel2_PtRegisterBlock        ;This is new pointer on the RegisterBlock.
+        movex.l a1,PLY_AKYst_Channel2_PtRegisterBlock        ;This is new pointer on the RegisterBlock.
 
 
 ;Reading the RegisterBlock - Channel 3
@@ -331,12 +338,12 @@ PLY_AKYst_Channel2_RegisterBlock_Return:
 
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel3_PtRegisterBlock equ * + 2
-        lea 0(a0),a1                ;Points on the data of the RegisterBlock to read.
+        lea 0.l,a1                ;Points on the data of the RegisterBlock to read.
 PLY_AKYst_Channel3_RegisterBlockLineState_Opcode: ori.b #0,d0   ;if initial state, "ori.b #0,d0" / "ori #1,ccr" if non-initial state.
         bsr PLY_AKYst_ReadRegisterBlock
 PLY_AKYst_Channel3_RegisterBlock_Return:
         movex.l #PLY_AKYst_OPCODE_SCF,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
-        movex.w a1,PLY_AKYst_Channel3_PtRegisterBlock        ;This is new pointer on the RegisterBlock.
+        movex.l a1,PLY_AKYst_Channel3_PtRegisterBlock        ;This is new pointer on the RegisterBlock.
 
         ;Register 7 to d1.
         move.w d3,d1
