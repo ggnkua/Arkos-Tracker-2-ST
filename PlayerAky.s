@@ -188,18 +188,20 @@ PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock = * + 3
 PLY_AKYst_Channel1_RegisterBlock_Finished:
         ;This RegisterBlock is finished. Reads the next one from the Track.
         ;Obviously, starts at the initial state.
-        move.l #PLY_AKYst_OPCODE_OR_A,d1
-        movex.l d1,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
+;        move.l #PLY_AKYst_OPCODE_OR_A,d1
+;        movex.l d1,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
+        movex.l #PLY_AKYst_OPCODE_OR_A,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel1_PtTrack = * + 2
         lea 0(a0),a6                ;Points on the Track.
         move.b (a6),d1                          ;Gets the duration.
-        move.w 2(a6),a1                         ;Reads the RegisterBlock address.
-        lea (a0,a1.w),a1
+;        move.w 2(a6),a1                         ;Reads the RegisterBlock address.
+;        lea (a0,a1.w),a1
+        movex.w 2(a6),PLY_AKYst_Channel1_PtRegisterBlock
         addq.w #4,a6
 
         movex.w a6,PLY_AKYst_Channel1_PtTrack
-        movex.w a1,PLY_AKYst_Channel1_PtRegisterBlock
+;        movex.w a1,PLY_AKYst_Channel1_PtRegisterBlock
         ;d1 is the duration of the block.
 PLY_AKYst_Channel1_RegisterBlock_Process:
         ;Processes the RegisterBlock, whether it is the current one or a new one.
@@ -219,17 +221,19 @@ PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock = * + 3
 PLY_AKYst_Channel2_RegisterBlock_Finished:
         ;This RegisterBlock is finished. Reads the next one from the Track.
         ;Obviously, starts at the initial state.
-        move.l #PLY_AKYst_OPCODE_OR_A,d1
-        movex.l d1,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
+;        move.l #PLY_AKYst_OPCODE_OR_A,d1
+;        movex.l d1,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
+        movex.l #PLY_AKYst_OPCODE_OR_A,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
 PLY_AKYst_Channel2_PtTrack = * + 2
         lea 0(a0),a6                            ;Points on the Track.
         move.b (a6),d1                          ;Gets the duration (b1-7). b0 = silence block?
-        move.w 2(a6),a1
-        lea (a0,a1.w),a1
+;        move.w 2(a6),a1
+;        lea (a0,a1.w),a1
+        movex.w 2(a6),PLY_AKYst_Channel2_PtRegisterBlock
         addq.w #4,a6
 
         movex.w a6,PLY_AKYst_Channel2_PtTrack
-        movex.w a1,PLY_AKYst_Channel2_PtRegisterBlock
+;        movex.w a1,PLY_AKYst_Channel2_PtRegisterBlock
         ;d1 is the duration of the block.
 PLY_AKYst_Channel2_RegisterBlock_Process:
         ;Processes the RegisterBlock, whether it is the current one or a new one.
@@ -250,19 +254,21 @@ PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock = * + 3
 PLY_AKYst_Channel3_RegisterBlock_Finished:
         ;This RegisterBlock is finished. Reads the next one from the Track.
         ;Obviously, starts at the initial state.
-        move.l #PLY_AKYst_OPCODE_OR_A,d1
-        movex.l d1,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
+;        move.l #PLY_AKYst_OPCODE_OR_A,d1
+;        movex.l d1,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
+        movex.l #PLY_AKYst_OPCODE_OR_A,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel3_PtTrack equ * + 2
         lea 0(a0),a6                                    ;Points on the Track.
 
         move.b (a6),d1                          ;Gets the duration (b1-7). b0 = silence block?
-        move.w 2(a6),a1
-        lea (a0,a1.w),a1
+;        move.w 2(a6),a1
+;        lea (a0,a1.w),a1
+        movex.w 2(a6),PLY_AKYst_Channel3_PtRegisterBlock
         addq.w #4,a6
 
         movex.w a6,PLY_AKYst_Channel3_PtTrack
-        movex.w a1,PLY_AKYst_Channel3_PtRegisterBlock
+;        movex.w a1,PLY_AKYst_Channel3_PtRegisterBlock
 PLY_AKYst_Channel3_RegisterBlock_Process:
         ;Processes the RegisterBlock, whether it is the current one or a new one.
         movex.b d1,PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock
