@@ -121,14 +121,17 @@ PLY_AKYst_Play:
 ;----------------------------------------
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_PatternFrameCounter equ * + 2
-        move.w #1,a1             ;How many frames left before reading the next Pattern.
-        lea (a0,a1.w),a1
-        subq.w #1,a1
+;        move.w #1,a1             ;How many frames left before reading the next Pattern.
+        move.w #1,d1             ;How many frames left before reading the next Pattern.
+;        lea (a0,a1.w),a1
+;        subq.w #1,a1
+        subq.w #1,d1
 
 * SMC - DO NOT OPTIMISE!
-        cmpa.l a0,a1
+;        cmpa.l a0,a1
         beq.s PLY_AKYst_PatternFrameCounter_Over
-        movex.w a1,PLY_AKYst_PatternFrameCounter
+;        movex.w a1,PLY_AKYst_PatternFrameCounter
+        movex.w d1,PLY_AKYst_PatternFrameCounter
         ;The pattern is not over.
         bra.s PLY_AKYst_PatternFrameManagement_End
 
@@ -139,22 +142,27 @@ PLY_AKYst_PatternFrameCounter_Over:
 PLY_AKYst_PtLinker = * + 2
         lea 0(a0),a6                        ;Points on the Pattern of the linker.
 
-        move.w (a6)+,a1                     ;Gets the duration of the Pattern, or 0 if end of the song.
-        lea (a0,a1.w),a1
+;        move.w (a6)+,a1                     ;Gets the duration of the Pattern, or 0 if end of the song.
+        move.w (a6)+,d1                     ;Gets the duration of the Pattern, or 0 if end of the song.
+;        lea (a0,a1.w),a1
 * SMC - DO NOT OPTIMISE!
-        cmpa.l a0,a1
+;        cmpa.l a0,a1
         bne.s PLY_AKYst_LinkerNotEndSong
         ;End of the song. Where to loop?
-        move.w (a6)+,a1
-        lea (a0,a1.w),a1
+;        move.w (a6)+,a1
+        move.w (a6)+,d1
+;        lea (a0,a1.w),a1
         ;We directly point on the frame counter of the pattern to loop to.
-        move.l a1,a6
+ ;       move.l a1,a6
+        lea (a0,d1.w),a6
         ;Gets the duration again. No need to check the end of the song,
         ;we know it contains at least one pattern.
-        move.w (a6)+,a1
-        lea (a0,a1.w),a1
+;        move.w (a6)+,a1
+        move.w (a6)+,d1
+;        lea (a0,a1.w),a1
 PLY_AKYst_LinkerNotEndSong:
-        movex.w a1,PLY_AKYst_PatternFrameCounter
+;        movex.w a1,PLY_AKYst_PatternFrameCounter
+        movex.w d1,PLY_AKYst_PatternFrameCounter
 
         movex.w (a6)+,PLY_AKYst_Channel1_PtTrack
         movex.w (a6)+,PLY_AKYst_Channel2_PtTrack
