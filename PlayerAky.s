@@ -531,14 +531,16 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
         addq.w #1,d7    ;Increases the volume register.
 
         ;Reads the software period.
-        move.b (a1)+,d1
+;        move.b (a1)+,d1
                 moveymw d7,$ffff8800
-                moveym d1,$ffff8802
+;                moveym d1,$ffff8802
+                moveym (a1)+,$ffff8802
                 add.w #1<<8,d7  ;Increases the frequency register.
 
-        move.b (a1)+,d1
+;        move.b (a1)+,d1
         moveymw d7,$ffff8800
-        moveym d1,$ffff8802
+ ;       moveym d1,$ffff8802
+        moveym (a1)+,$ffff8802
         add.w #1<<8,d7          ;Increases the frequency register.
 
         rts
@@ -574,15 +576,17 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
         movex.b d1,PLY_AKYst_PsgRegister13
 
         ;Reads the software period.
-        move.b (a1)+,d1
+;        move.b (a1)+,d1
         moveymw d7,$ffff8800
-        moveym d1,$ffff8802
+;        moveym d1,$ffff8802
+        moveym (a1)+,$ffff8802
                 
         add.w #1<<8,d7          ;Increases the frequency register.
 
-        move.b (a1)+,d1
+;        move.b (a1)+,d1
                 moveymw d7,$ffff8800
-                moveym d1,$ffff8802
+;                moveym d1,$ffff8802
+                moveym (a1)+,$ffff8802
 
                 add.w #1<<8,d7  ;Increases the frequency register.
 
@@ -735,9 +739,10 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:
         bne.s PLY_AKYst_RRB_NIS_SoftwareOnly_LSP
         bra.s PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP
 PLY_AKYst_RRB_NIS_SoftwareOnly_LSP:
-        move.b (a1)+,d1
+;        move.b (a1)+,d1
         moveymw d7,$ffff8800
-        moveym d1,$ffff8802
+;        moveym d1,$ffff8802
+        moveym (a1)+,$ffff8802
                 ;d7 high byte not incremented on purpose.
 PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP:
 
@@ -852,9 +857,10 @@ PLY_AKYst_RRB_NIS_SAHH_AfterMSBH:
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterLSBS
 PLY_AKYst_RRB_NIS_SAHH_LSBS:
         move.b d1,d2
-        move.b (a1)+,d1
+;        move.b (a1)+,d1
         moveymw d7,$ffff8800
-        moveym d1,$ffff8802
+;        moveym d1,$ffff8802
+        moveym (a1)+,$ffff8802
                 ;a1 high byte not increased on purpose.
         move.b d2,d1
 PLY_AKYst_RRB_NIS_SAHH_AfterLSBS:
@@ -865,12 +871,13 @@ PLY_AKYst_RRB_NIS_SAHH_AfterLSBS:
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterMSBS
 PLY_AKYst_RRB_NIS_SAHH_MSBS:
         move.b d1,d2
-        move.b (a1)+,d1
+;        move.b (a1)+,d1
 ;                ;Sends the MSB software frequency.
         add.w #1<<8,d7
 
         moveymw d7,$ffff8800
-        moveym d1,$ffff8802
+;        moveym d1,$ffff8802
+        moveym (a1)+,$ffff8802
 
         sub.w #1<<8,d7          ;Yup. Will be compensated below.
         move.b d2,d1
