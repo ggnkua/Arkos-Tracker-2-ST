@@ -6,7 +6,9 @@
 
 debug=0                             ;1=skips installing a timer for replay and instead calls the player in succession
                                     ;good for debugging the player but plays the tune in turbo mode :)
-showcpu=1
+show_cpu=1
+
+use_vbl=1                           ;if enabled, vbl is used instead of timer c
 
 tune_freq = 50                      ;tune frequency in ticks per second (not sure if this will ever change)
 
@@ -28,10 +30,15 @@ start:
 	bsr PLY_AKYst_Start+0           ;init player and tune
 
     .if !debug
-	move sr,-(sp)                   ;install our very own timer C
+	move sr,-(sp)
 	move #$2700,sr
+    .if use_vbl=1                   ;install our very own vbl
+    move.l  $70.w,old_vbl           ;so how do you turn the player on?
+    move.l  #vbl,$70.w              ;(makes gesture of turning an engine key on) *trrrrrrrrrrrrrr*
+    .else                           ;install our very own timer C
     move.l  $114.w,old_timer_c      ;so how do you turn the player on?
     move.l  #timer_c,$114.w         ;(makes gesture of turning an engine key on) *trrrrrrrrrrrrrr*
+    .endif
 	move (sp)+,sr                   ;enable interrupts - tune will start playing
     .endif
 	
@@ -50,8 +57,12 @@ start:
     .if !debug
     move sr,-(sp)
 	move #$2700,sr
+    .if use_vbl=1
+    move.l  old_vbl,$70.w           ;restore vbl
+    .else
     move.l  old_timer_c,$114.w      ;restore timer c
     move.b  #$C0,$FFFFFA23.w        ;and how would you stop the ym?
+    .endif
     move.l  #$00000000,$FFFF8800.w  ;(makes gensture of turning an engine key off) just turn it off!
     move.l  #$01010000,$FFFF8800.w
     move.l  #$02020000,$FFFF8800.w
@@ -73,14 +84,36 @@ start:
 	rts                             ;bye!
 
     .if !debug
+    .if use_vbl=1
+vbl:
+    movem.l d0-a6,-(sp)
+
+    move.w #2048,d0                 ;small softwre pause so we can see the cpu time
+.wait: dbra d0,.wait
+    move.l tune_aligned_address,a0  ;tell the player where to find the aligned tune start
+    .if show_cpu
+    not.w $ffff8240.w
+    .endif
+	bsr PLY_AKYst_Start+2           ;play that funky music
+    .if show_cpu
+    not.w $ffff8240.w
+    .endif
+    movem.l (sp)+,d0-a6    
+old_vbl=*+2
+    jmp 'GGN!'
+    .else
 timer_c:
 	sub.w #tune_freq,timer_c_ctr    ;is it giiiirooo day tom?
 	bgt.s timer_c_jump              ;sadly derek, no it's not giro day
 	add.w #200,timer_c_ctr          ;it is giro day, let's reset the 200Hz counter
 	movem.l d0-a6,-(sp)             ;save all registers, just to be on the safe side
+    .if show_cpu
     not.w $ffff8240.w
+    .endif
     move.l tune_aligned_address,a0  ;tell the player where to find the aligned tune start
+    .if show_cpu
 	bsr PLY_AKYst_Start+2           ;play that funky music
+    .endif
     not.w $ffff8240.w
 	movem.l (sp)+,d0-a6             ;restore registers
 
@@ -88,6 +121,7 @@ old_timer_c=*+2
 timer_c_jump:
 	jmp 'AKY!'                      ;jump to the old timer C vector
 timer_c_ctr: dc.w 200
+    .endif
     .endif
 
 align_song:
