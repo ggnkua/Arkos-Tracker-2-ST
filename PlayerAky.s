@@ -856,13 +856,13 @@ PLY_AKYst_RRB_NIS_SAHH_AfterMSBH:
         bcs.s PLY_AKYst_RRB_NIS_SAHH_LSBS
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterLSBS
 PLY_AKYst_RRB_NIS_SAHH_LSBS:
-        move.b d1,d2
+;        move.b d1,d2
 ;        move.b (a1)+,d1
         moveymw d7,$ffff8800
 ;        moveym d1,$ffff8802
         moveym (a1)+,$ffff8802
                 ;a1 high byte not increased on purpose.
-        move.b d2,d1
+;        move.b d2,d1
 PLY_AKYst_RRB_NIS_SAHH_AfterLSBS:
        
         ;MSB of software period?
@@ -870,7 +870,7 @@ PLY_AKYst_RRB_NIS_SAHH_AfterLSBS:
         bcs.s PLY_AKYst_RRB_NIS_SAHH_MSBS
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterMSBS
 PLY_AKYst_RRB_NIS_SAHH_MSBS:
-        move.b d1,d2
+;        move.b d1,d2
 ;        move.b (a1)+,d1
 ;                ;Sends the MSB software frequency.
         add.w #1<<8,d7
@@ -880,7 +880,7 @@ PLY_AKYst_RRB_NIS_SAHH_MSBS:
         moveym (a1)+,$ffff8802
 
         sub.w #1<<8,d7          ;Yup. Will be compensated below.
-        move.b d2,d1
+;        move.b d2,d1
 PLY_AKYst_RRB_NIS_SAHH_AfterMSBS:
         add.w #2<<8,d7
 
