@@ -95,6 +95,7 @@ sndh_vbl:
 player:
   even
 SNDH_PLAYER=1                   ; turn on some sndh specific code for the player
+AVOID_SMC=1                     ; assemble the player without SMC stuff, so it should be fine for CPUs with cache
   include  'PlayerAky.s'
   even
 
