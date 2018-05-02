@@ -59,8 +59,13 @@
     .endif
     .endm
 
-PLY_AKYst_OPCODE_OR_A equ $00000000                  ;Opcode for "ori.b #0,d0".
-PLY_AKYst_OPCODE_SCF  equ $003c0001                         ;Opcode for "ori #1,ccr".
+    .if !(^^defined AVOID_SMC)
+PLY_AKYst_OPCODE_SZF equ $7200                  ;Opcode for "moveq #0,d0".
+PLY_AKYst_OPCODE_CZF  equ $72ff                         ;Opcode for "moveq #-1,d0".
+    .else
+PLY_AKYst_OPCODE_SZF equ $0000
+PLY_AKYst_OPCODE_CZF  equ $ffff                         ;Opcode for "moveq #-1,d0".
+    .endif
 
 PLY_AKYst_Start:
         ;Hooks for external calls. Can be removed if not needed.
@@ -70,7 +75,7 @@ PLY_AKYst_Start:
 
 
 ;       Initializes the player.
-;       a0.l = music address
+;       a0.l=music address
 PLY_AKYst_Init:
          .if ^^defined SNDH_PLAYER
          lea PLY_AKYst_Init(pc),a4        ;base pointer for PC-relative stores
@@ -87,10 +92,10 @@ PLY_AKYst_Init_SkipHeaderLoop:                ;There is always at least one PSG 
 PLY_AKYst_Init_SkipHeaderEnd:
         movex.l a0,PLY_AKYst_PtLinker       ;a0 now points on the Linker.
 
-        move.l #PLY_AKYst_OPCODE_OR_A,d0
-        movex.l d0,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
-        movex.l d0,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
-        movex.l d0,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
+        move.w #PLY_AKYst_OPCODE_SZF,d0
+        movex.w d0,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
+        movex.w d0,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
+        movex.w d0,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
         movex.w #1,PLY_AKYst_PatternFrameCounter
 
         rts
@@ -187,7 +192,7 @@ PLY_AKYst_Channel1_RegisterBlock_Finished:
         ;Obviously, starts at the initial state.
 ;        move.l #PLY_AKYst_OPCODE_OR_A,d1
 ;        movex.l d1,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
-        movex.l #PLY_AKYst_OPCODE_OR_A,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
+        movex.w #PLY_AKYst_OPCODE_SZF,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
     .if !(^^defined AVOID_SMC)
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel1_PtTrack = * + 2
@@ -231,7 +236,7 @@ PLY_AKYst_Channel2_RegisterBlock_Finished:
         ;Obviously, starts at the initial state.
 ;        move.l #PLY_AKYst_OPCODE_OR_A,d1
 ;        movex.l d1,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
-        movex.l #PLY_AKYst_OPCODE_OR_A,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
+        movex.w #PLY_AKYst_OPCODE_SZF,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
     .if !(^^defined AVOID_SMC)
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel2_PtTrack = * + 2
@@ -276,7 +281,7 @@ PLY_AKYst_Channel3_RegisterBlock_Finished:
         ;Obviously, starts at the initial state.
 ;        move.l #PLY_AKYst_OPCODE_OR_A,d1
 ;        movex.l d1,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
-        movex.l #PLY_AKYst_OPCODE_OR_A,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
+        movex.w #PLY_AKYst_OPCODE_SZF,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
     .if !(^^defined AVOID_SMC)
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel3_PtTrack equ * + 2
@@ -331,10 +336,15 @@ PLY_AKYst_Channel1_PtRegisterBlock = * + 2
     .else
         move.l PLY_AKYst_Channel1_PtRegisterBlock(pc),a1
     .endif
-PLY_AKYst_Channel1_RegisterBlockLineState_Opcode: ori.b #0,d0  ;if initial state, "ori.b #0,d0" / "ori #1,ccr" if non-initial state.
+    .if !(^^defined AVOID_SMC)
+* SMC - DO NOT OPTIMISE!
+PLY_AKYst_Channel1_RegisterBlockLineState_Opcode: moveq #0,d1  ;if initial state, "moveq #0,d1" / "moveq #-1,d1" if non-initial state.
+    .else
+        move.w PLY_AKYst_Channel1_RegisterBlockLineState_Opcode(pc),d1
+    .endif
         bsr PLY_AKYst_ReadRegisterBlock
 PLY_AKYst_Channel1_RegisterBlock_Return:
-        movex.l #PLY_AKYst_OPCODE_SCF,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
+        movex.w #PLY_AKYst_OPCODE_CZF,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
         movex.l a1,PLY_AKYst_Channel1_PtRegisterBlock           ;This is new pointer on the RegisterBlock.
 
 
@@ -352,10 +362,15 @@ PLY_AKYst_Channel2_PtRegisterBlock equ * + 2
     .else
         move.l PLY_AKYst_Channel2_PtRegisterBlock(pc),a1
     .endif
-PLY_AKYst_Channel2_RegisterBlockLineState_Opcode: ori.b #0,d0   ;if initial state, "ori.b #0,d0" / "ori #1,ccr" if non-initial state.
+    .if !(^^defined AVOID_SMC)
+* SMC - DO NOT OPTIMISE!
+PLY_AKYst_Channel2_RegisterBlockLineState_Opcode: moveq #0,d1  ;if initial state, "moveq #0,d1" / "moveq #-1,d1" if non-initial state.
+    .else
+        move.w PLY_AKYst_Channel2_RegisterBlockLineState_Opcode(pc),d1
+    .endif
        bsr PLY_AKYst_ReadRegisterBlock 
 PLY_AKYst_Channel2_RegisterBlock_Return:
-        movex.l #PLY_AKYst_OPCODE_SCF,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
+        movex.w #PLY_AKYst_OPCODE_CZF,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
         movex.l a1,PLY_AKYst_Channel2_PtRegisterBlock        ;This is new pointer on the RegisterBlock.
 
 
@@ -372,10 +387,15 @@ PLY_AKYst_Channel3_PtRegisterBlock equ * + 2
     .else
         move.l PLY_AKYst_Channel3_PtRegisterBlock(pc),a1
     .endif
-PLY_AKYst_Channel3_RegisterBlockLineState_Opcode: ori.b #0,d0   ;if initial state, "ori.b #0,d0" / "ori #1,ccr" if non-initial state.
+    .if !(^^defined AVOID_SMC)
+* SMC - DO NOT OPTIMISE!
+PLY_AKYst_Channel3_RegisterBlockLineState_Opcode: moveq #0,d1  ;if initial state, "moveq #0,d1" / "moveq #-1,d1" if non-initial state.
+    .else
+        move.w PLY_AKYst_Channel3_RegisterBlockLineState_Opcode(pc),d1
+    .endif
         bsr PLY_AKYst_ReadRegisterBlock
 PLY_AKYst_Channel3_RegisterBlock_Return:
-        movex.l #PLY_AKYst_OPCODE_SCF,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
+        movex.w #PLY_AKYst_OPCODE_CZF,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
         movex.l a1,PLY_AKYst_Channel3_PtRegisterBlock        ;This is new pointer on the RegisterBlock.
 
         ;Register 7 to d1.
@@ -439,6 +459,8 @@ PLY_AKYst_Channel1_PtRegisterBlock:             .ds.l 1
 PLY_AKYst_Channel2_PtRegisterBlock:             .ds.l 1
 PLY_AKYst_Channel3_PtRegisterBlock:             .ds.l 1
 PLY_AKYst_PsgRegister13_Retrig:                 .ds.b 1
+PLY_AKYst_OPCODE_SZF:                           .ds.w 1
+PLY_AKYst_OPCODE_CZF:                           .ds.w 1
     .even
     .endif
 
@@ -452,11 +474,11 @@ PLY_AKYst_PsgRegister13_Retrig:                 .ds.b 1
 ;----------------------------------------------------------------
 
 PLY_AKYst_ReadRegisterBlock:
-        ;Gets the first byte of the line. What type? Jump to the matching code thanks to the carry.
+        ;Gets the first byte of the line. What type? Jump to the matching code thanks to the zero flag.
 PLY_AKYst_RRB_BranchOnNonInitailState:
-        bcs PLY_AKYst_RRB_NonInitialState
+        bne PLY_AKYst_RRB_NonInitialState
 
-        ; Code from the bcs and above copied here so nothing will screw with the carry flag        
+        ; Code from the bcs and above copied here so nothing will screw with the zero flag
         move.b (a1)+,d1
         
         ;Not in the original code, but simplifies the stabilization.
@@ -657,7 +679,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
 ;----------------------------------------------------------------
 PLY_AKYst_RRB_NonInitialState:
 
-        ; Code from the start of PLY_AKYst_ReadRegisterBlock copied here so nothing will screw with the carry flag        
+        ; Code from the start of PLY_AKYst_ReadRegisterBlock copied here so nothing will screw with the zero flag        
         move.b (a1)+,d1
 
         ;Not in the original code, but simplifies the stabilization.
