@@ -744,7 +744,7 @@ PLY_AKYst_RRB_NIS_AfterVolume:
 
         add.w #$201,d7                                          ;Next volume register (low byte) and frequency registers (high byte)
 
-        ;Noise? Was on bit 7, but there has been two shifts. We can't use A, it may have been modified by the volume AND.
+        ;Noise? Was on bit 7, but there has been two shifts. We can't use d1, it may have been modified by the volume AND.
         btst #7 - 2,d2
         bne.s PLY_AKYst_RRB_NIS_Noise
         rts
