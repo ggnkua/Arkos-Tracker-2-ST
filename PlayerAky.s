@@ -141,25 +141,16 @@ PLY_AKYst_PtLinker = * + 2
     .else
         move.l PLY_AKYst_PtLinker(pc),a6                        ;Points on the Pattern of the linker.
     .endif
-;        move.w (a6)+,a1                     ;Gets the duration of the Pattern, or 0 if end of the song.
         move.w (a6)+,d1                     ;Gets the duration of the Pattern, or 0 if end of the song.
-;        lea (a0,a1.w),a1
-;        cmpa.l a0,a1
         bne.s PLY_AKYst_LinkerNotEndSong
         ;End of the song. Where to loop?
-;        move.w (a6)+,a1
         move.w (a6)+,d1
-;        lea (a0,a1.w),a1
         ;We directly point on the frame counter of the pattern to loop to.
- ;       move.l a1,a6
         lea (a0,d1.w),a6
         ;Gets the duration again. No need to check the end of the song,
         ;we know it contains at least one pattern.
-;        move.w (a6)+,a1
         move.w (a6)+,d1
-;        lea (a0,a1.w),a1
 PLY_AKYst_LinkerNotEndSong:
-;        movex.w a1,PLY_AKYst_PatternFrameCounter
         movex.w d1,PLY_AKYst_PatternFrameCounter
 
         movex.w (a6)+,PLY_AKYst_Channel1_PtTrack
@@ -176,7 +167,6 @@ PLY_AKYst_PatternFrameManagement_End:
 
 ;Reading the Track - channel 1.
 ;----------------------------------------
-;PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock: ld a,1        ;Frames to wait before reading the next RegisterBlock. 0 = finished.
     .if !(^^defined AVOID_SMC)
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock = * + 3
@@ -190,8 +180,6 @@ PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock = * + 3
 PLY_AKYst_Channel1_RegisterBlock_Finished:
         ;This RegisterBlock is finished. Reads the next one from the Track.
         ;Obviously, starts at the initial state.
-;        move.l #PLY_AKYst_OPCODE_OR_A,d1
-;        movex.l d1,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
         movex.w #PLY_AKYst_OPCODE_SZF,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
     .if !(^^defined AVOID_SMC)
 * SMC - DO NOT OPTIMISE!
@@ -210,7 +198,6 @@ PLY_AKYst_Channel1_PtTrack = * + 2
         sub.l a0,a6                             ;TODO can we do without this?
 
         movex.w a6,PLY_AKYst_Channel1_PtTrack
-;        movex.w a1,PLY_AKYst_Channel1_PtRegisterBlock
         ;d1 is the duration of the block.
 PLY_AKYst_Channel1_RegisterBlock_Process:
         ;Processes the RegisterBlock, whether it is the current one or a new one.
@@ -220,7 +207,6 @@ PLY_AKYst_Channel1_RegisterBlock_Process:
 
 ;Reading the Track - channel 2.
 ;----------------------------------------
-;PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock: ld a,1        ;Frames to wait before reading the next RegisterBlock. 0 = finished.
     .if !(^^defined AVOID_SMC)
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock = * + 3
@@ -234,8 +220,6 @@ PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock = * + 3
 PLY_AKYst_Channel2_RegisterBlock_Finished:
         ;This RegisterBlock is finished. Reads the next one from the Track.
         ;Obviously, starts at the initial state.
-;        move.l #PLY_AKYst_OPCODE_OR_A,d1
-;        movex.l d1,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
         movex.w #PLY_AKYst_OPCODE_SZF,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
     .if !(^^defined AVOID_SMC)
 * SMC - DO NOT OPTIMISE!
@@ -254,7 +238,6 @@ PLY_AKYst_Channel2_PtTrack = * + 2
         sub.l a0,a6                             ;TODO can we do without this?
 
         movex.w a6,PLY_AKYst_Channel2_PtTrack
-;        movex.w a1,PLY_AKYst_Channel2_PtRegisterBlock
         ;d1 is the duration of the block.
 PLY_AKYst_Channel2_RegisterBlock_Process:
         ;Processes the RegisterBlock, whether it is the current one or a new one.
@@ -279,8 +262,6 @@ PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock = * + 3
 PLY_AKYst_Channel3_RegisterBlock_Finished:
         ;This RegisterBlock is finished. Reads the next one from the Track.
         ;Obviously, starts at the initial state.
-;        move.l #PLY_AKYst_OPCODE_OR_A,d1
-;        movex.l d1,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
         movex.w #PLY_AKYst_OPCODE_SZF,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
     .if !(^^defined AVOID_SMC)
 * SMC - DO NOT OPTIMISE!
@@ -300,7 +281,6 @@ PLY_AKYst_Channel3_PtTrack equ * + 2
         sub.l a0,a6                             ;TODO can we do without this?
 
         movex.w a6,PLY_AKYst_Channel3_PtTrack
-;        movex.w a1,PLY_AKYst_Channel3_PtRegisterBlock
 PLY_AKYst_Channel3_RegisterBlock_Process:
         ;Processes the RegisterBlock, whether it is the current one or a new one.
         movex.b d1,PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock
@@ -603,15 +583,11 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
         addq.w #1,d7    ;Increases the volume register.
 
         ;Reads the software period.
-;        move.b (a1)+,d1
                 moveymw d7,$ffff8800
-;                moveym d1,$ffff8802
                 moveym (a1)+,$ffff8802
                 add.w #1<<8,d7  ;Increases the frequency register.
 
-;        move.b (a1)+,d1
         moveymw d7,$ffff8800
- ;       moveym d1,$ffff8802
         moveym (a1)+,$ffff8802
         add.w #1<<8,d7          ;Increases the frequency register.
 
@@ -648,16 +624,12 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
         movex.b d1,PLY_AKYst_PsgRegister13
 
         ;Reads the software period.
-;        move.b (a1)+,d1
         moveymw d7,$ffff8800
-;        moveym d1,$ffff8802
         moveym (a1)+,$ffff8802
                 
         add.w #1<<8,d7          ;Increases the frequency register.
 
-;        move.b (a1)+,d1
                 moveymw d7,$ffff8800
-;                moveym d1,$ffff8802
                 moveym (a1)+,$ffff8802
 
                 add.w #1<<8,d7  ;Increases the frequency register.
@@ -811,9 +783,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:
         bne.s PLY_AKYst_RRB_NIS_SoftwareOnly_LSP
         bra.s PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP
 PLY_AKYst_RRB_NIS_SoftwareOnly_LSP:
-;        move.b (a1)+,d1
         moveymw d7,$ffff8800
-;        moveym d1,$ffff8802
         moveym (a1)+,$ffff8802
                 ;d7 high byte not incremented on purpose.
 PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP:
@@ -928,10 +898,7 @@ PLY_AKYst_RRB_NIS_SAHH_AfterMSBH:
         bcs.s PLY_AKYst_RRB_NIS_SAHH_LSBS
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterLSBS
 PLY_AKYst_RRB_NIS_SAHH_LSBS:
-;        move.b d1,d2
-;        move.b (a1)+,d1
         moveymw d7,$ffff8800
-;        moveym d1,$ffff8802
         moveym (a1)+,$ffff8802
                 ;a1 high byte not increased on purpose.
 ;        move.b d2,d1
@@ -942,17 +909,13 @@ PLY_AKYst_RRB_NIS_SAHH_AfterLSBS:
         bcs.s PLY_AKYst_RRB_NIS_SAHH_MSBS
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterMSBS
 PLY_AKYst_RRB_NIS_SAHH_MSBS:
-;        move.b d1,d2
-;        move.b (a1)+,d1
 ;                ;Sends the MSB software frequency.
         add.w #1<<8,d7
 
         moveymw d7,$ffff8800
-;        moveym d1,$ffff8802
         moveym (a1)+,$ffff8802
 
         sub.w #1<<8,d7          ;Yup. Will be compensated below.
-;        move.b d2,d1
 PLY_AKYst_RRB_NIS_SAHH_AfterMSBS:
         add.w #2<<8,d7
 
