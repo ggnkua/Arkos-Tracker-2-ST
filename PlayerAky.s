@@ -459,8 +459,9 @@ PLY_AKYst_Channel1_PtRegisterBlock:             .ds.l 1
 PLY_AKYst_Channel2_PtRegisterBlock:             .ds.l 1
 PLY_AKYst_Channel3_PtRegisterBlock:             .ds.l 1
 PLY_AKYst_PsgRegister13_Retrig:                 .ds.b 1
-PLY_AKYst_OPCODE_SZF:                           .ds.w 1
-PLY_AKYst_OPCODE_CZF:                           .ds.w 1
+PLY_AKYst_Channel1_RegisterBlockLineState_Opcode:   .ds.w 1
+PLY_AKYst_Channel2_RegisterBlockLineState_Opcode:   .ds.w 1
+PLY_AKYst_Channel3_RegisterBlockLineState_Opcode:   .ds.w 1
     .even
     .endif
 

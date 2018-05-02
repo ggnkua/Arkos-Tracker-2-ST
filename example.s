@@ -90,7 +90,7 @@ start:
 vbl:
     movem.l d0-a6,-(sp)
 
-    move.w #2048,d0                 ;small softwre pause so we can see the cpu time
+    move.w #2047,d0                 ;small softwre pause so we can see the cpu time
 .wait: dbra d0,.wait
 ;    move.l tune_aligned_address,a0  ;tell the player where to find the aligned tune start
     move.l #tune,a0  ;tell the player where to find the aligned tune start
