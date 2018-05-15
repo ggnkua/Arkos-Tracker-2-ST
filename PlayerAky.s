@@ -621,7 +621,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
         lsr.w #8,d0
         add.w d0,d0
         add.w d0,d0
-        move.b (a1),(a3,d0.w)
+        move.b (a1)+,(a3,d0.w)
 
         add.w #1<<8,d7                                          ;Increases the frequency register.
 
