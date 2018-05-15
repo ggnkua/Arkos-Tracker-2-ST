@@ -502,7 +502,7 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise:
         movex.b (a1)+,PLY_AKYst_PsgRegister6
 
         ;Opens the noise channel.
-        bclr #PLY_AKYst_RRB_NoiseChannelBit+8,d4
+        bclr #PLY_AKYst_RRB_NoiseChannelBit,d4
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise_End:
         
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolume:

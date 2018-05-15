@@ -1,4 +1,4 @@
 %sno/ : dc/\r\tdc/gI
-:%s/\(dc.w Main_Subsong0_.[A-z|0-9]* \{-}\)/\1-Main_Subsong0/gI
+%s/\(dc.w Main_Subsong0_.[A-z|0-9]* \{-}\)/\1-Main_Subsong0/gI
 
 \{-} is vim non-greedy match
