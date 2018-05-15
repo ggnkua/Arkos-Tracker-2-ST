@@ -1,70 +1,65 @@
-;---------------------------------------------------------------------------
-;Example of a complete SNDH header/file
-;---------------------------------------------------------------------------
 ;
-;      section text
+; SNDH header
+; based on the official source from http://sndh.atari.org
 ;
-      bra.w  sndh_init
-      bra.w  sndh_exit
-      bra.w  sndh_vbl
 
-      dc.b   'SNDH'
-      dc.b   'TITL','Remote entry #2',0
-      dc.b   'COMM','Who knows',0
-      dc.b   'RIPP','GGN',0
-      dc.b   'CONV','Arkos2-2-SNDH',0
-      dc.b   'TC050',0
-      even
+    bra.w  sndh_init
+    bra.w  sndh_exit
+    bra.w  sndh_vbl
+
+    dc.b   'SNDH'
+    dc.b   'TITL','Remote entry #2',0
+    dc.b   'COMM','Who knows',0
+    dc.b   'RIPP','GGN',0
+    dc.b   'CONV','Arkos2-2-SNDH',0
+    dc.b   'TC050',0
+    even
 	
-  dc.b  'YEAR','2018',0
-  dc.b  'HDNS',0
-  even
+    dc.b  'YEAR','2018',0
+    dc.b  'HDNS',0
+    even
 
 
 sndh_init:
-  movem.l d0-a6,-(sp)
-
-  lea tune(pc),a0
-  bsr.w PLY_AKYst_Init
-  movem.l  (sp)+,d0-a6
-  rts
+    movem.l d0-a6,-(sp)
+    lea tune(pc),a0
+    bsr.w PLY_AKYst_Init
+	bsr as+4
+    movem.l  (sp)+,d0-a6
+    rts
 
 sndh_exit:
-  movem.l d0-a6,-(sp)
-    move.l  #$00000000,$FFFF8800
-    move.l  #$01010000,$FFFF8800
-    move.l  #$02020000,$FFFF8800
-    move.l  #$03030000,$FFFF8800
-    move.l  #$04040000,$FFFF8800
-    move.l  #$05050000,$FFFF8800
-    move.l  #$06060000,$FFFF8800
-    move.l  #$07070000,$FFFF8800
-    move.l  #$08080000,$FFFF8800
-    move.l  #$090A0000,$FFFF8800
-    move.l  #$0A0A0000,$FFFF8800
-    move.l  #$0B0B0000,$FFFF8800
-    move.l  #$0C0C0000,$FFFF8800
-  movem.l  (sp)+,d0-a6
-  rts
+    movem.l d0-a6,-(sp)
+i set 0
+	rept 14
+    move.l  #i,$FFFF8800
+i set i+$01010000
+	endr
+    movem.l  (sp)+,d0-a6
+    rts
 
 sndh_vbl:
-  movem.l d0-a6,-(sp)
-  lea tune(pc),a0
-  bsr.w  PLY_AKYst_Play
-  movem.l  (sp)+,d0-a6
-  rts
+    movem.l d0-a6,-(sp)
+    lea tune(pc),a0
+    bsr.w  PLY_AKYst_Play
+	bsr as+8
+    movem.l  (sp)+,d0-a6
+    rts
 
 player:
-  even
+    even
 SNDH_PLAYER=1                   ; turn on some sndh specific code for the player
 AVOID_SMC=1                     ; assemble the player without SMC stuff, so it should be fine for CPUs with cache
-  include  'PlayerAky.s'
-  even
+    include  'PlayerAky.s'
+    even
 
 tune:
 	.include "tune_filename.s"
 tune_end:
 
+	.if 1
+	include "z80.s"
+	.endif
 
 
 ;http://phf.atari.org
