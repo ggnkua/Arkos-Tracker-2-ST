@@ -6,5 +6,5 @@ if [%1] == [] (
 )
 
 echo 	.include "%~1">tune_filename.s
-rmac -fb ~Oall sndh.s
+rmac -fb sndh.s
 rln -z -n -a 0 x x sndh.o -o "%~n1.sndh"

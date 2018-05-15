@@ -10,6 +10,8 @@ show_cpu=1
 
 use_vbl=1                           ;if enabled, vbl is used instead of timer c
 
+disable_timers=1                    ;if 1, stops all MFP timers, for better CPU usage display
+
 UNROLLED_CODE=1                     ;Uncomment this line to enable unrolled slightly faster YM register reading code
 
 tune_freq = 200                     ;tune frequency in ticks per second
@@ -33,6 +35,27 @@ start:
     move sr,-(sp)
     move #$2700,sr
     .if use_vbl=1                   ;install our very own vbl
+
+    .if disable_timers=1
+    lea save_mfp(pc),a0
+    move.b $fffffa07.w,(a0)+        ;save MFP timer status
+    move.b $fffffa0b.w,(a0)+
+    move.b $fffffa0f.w,(a0)+
+    move.b $fffffa13.w,(a0)+
+    move.b $fffffa09.w,(a0)+
+    move.b $fffffa0d.w,(a0)+
+    move.b $fffffa11.w,(a0)+
+    move.b $fffffa15.w,(a0)+
+    clr.b $fffffa07.w               ;disable all timers
+    clr.b $fffffa0b.w
+    clr.b $fffffa0f.w
+    clr.b $fffffa13.w
+    clr.b $fffffa09.w
+    clr.b $fffffa0d.w
+    clr.b $fffffa11.w
+    clr.b $fffffa15.w
+    .endif
+    
     move.l  $70.w,old_vbl           ;so how do you turn the player on?
     move.l  #vbl,$70.w              ;(makes gesture of turning an engine key on) *trrrrrrrrrrrrrr*
     .else                           ;install our very own timer C
@@ -57,6 +80,20 @@ start:
     move #$2700,sr
     .if use_vbl=1
     move.l  old_vbl,$70.w           ;restore vbl
+
+    .if disable_timers=1
+    lea save_mfp(pc),a0
+    move.b (a0)+,$fffffa07.w        ;restore MFP timer status
+    move.b (a0)+,$fffffa0b.w
+    move.b (a0)+,$fffffa0f.w
+    move.b (a0)+,$fffffa13.w
+    move.b (a0)+,$fffffa09.w
+    move.b (a0)+,$fffffa0d.w
+    move.b (a0)+,$fffffa11.w
+    move.b (a0)+,$fffffa15.w
+    move.b #192,$fffffa23.w         ;kick timer C back into activity
+    .endif
+
     .else
     move.l  old_timer_c,$114.w      ;restore timer c
     move.b  #$C0,$FFFFFA23.w        ;and how would you stop the ym?
@@ -89,8 +126,14 @@ vbl:
     not.w $ffff8240.w
     .endif
     movem.l (sp)+,d0-a6    
+    .if disable_timers!=1
 old_vbl=*+2
     jmp 'GGN!'
+    .else
+    rte
+old_vbl: ds.l 1
+save_mfp:   ds.l 16
+    .endif
     .else
 timer_c:
     sub.w #tune_freq,timer_c_ctr    ;is it giiiirooo day tom?
