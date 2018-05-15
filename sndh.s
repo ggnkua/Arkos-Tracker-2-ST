@@ -31,19 +31,19 @@ sndh_init:
 
 sndh_exit:
   movem.l d0-a6,-(sp)
-    move.l  #$00000000,$FFFF8800
-    move.l  #$01010000,$FFFF8800
-    move.l  #$02020000,$FFFF8800
-    move.l  #$03030000,$FFFF8800
-    move.l  #$04040000,$FFFF8800
-    move.l  #$05050000,$FFFF8800
-    move.l  #$06060000,$FFFF8800
-    move.l  #$07070000,$FFFF8800
-    move.l  #$08080000,$FFFF8800
-    move.l  #$090A0000,$FFFF8800
-    move.l  #$0A0A0000,$FFFF8800
-    move.l  #$0B0B0000,$FFFF8800
-    move.l  #$0C0C0000,$FFFF8800
+    move.l  #$00000000,$FFFF8800.w
+    move.l  #$01010000,$FFFF8800.w
+    move.l  #$02020000,$FFFF8800.w
+    move.l  #$03030000,$FFFF8800.w
+    move.l  #$04040000,$FFFF8800.w
+    move.l  #$05050000,$FFFF8800.w
+    move.l  #$06060000,$FFFF8800.w
+    move.l  #$07070000,$FFFF8800.w
+    move.l  #$08080000,$FFFF8800.w
+    move.l  #$090A0000,$FFFF8800.w
+    move.l  #$0A0A0000,$FFFF8800.w
+    move.l  #$0B0B0000,$FFFF8800.w
+    move.l  #$0C0C0000,$FFFF8800.w
   movem.l  (sp)+,d0-a6
   rts
 

@@ -41,25 +41,9 @@
     .endif
     .endm
 
-; Nasty piece of rmac issue here - when invoked with -fb parameter
-; rmac will convert $ffffxxxx.w constants to $xxxx.l
-; No clever ideas about what to do for now, so this will have to do
-    .macro moveym value,address
-    .if ^^defined SNDH_PLAYER
-        move.b \value,\address
-    .else
-        move.b \value,\{address}.w
-    .endif
-    .endm
-
-    .macro moveymw value,address
-    .if ^^defined SNDH_PLAYER
-        move.w \value,\address
-    .else
-        move.w \value,\{address}.w
-    .endif
-    .endm
-
+;
+; Subroutine PLY_AKYst_ReadRegisterBlock as a macro, so it can be inlined with the code
+;
 	.macro readregs volume,frequency
 
 ;Generic code interpreting the RegisterBlock
@@ -126,9 +110,9 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise_End:
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolume:
         ;The volume is now in b0-b3.
 
-;        moveym d7,$ffff8800
-        moveym #\volume,$ffff8800
-        moveym d1,$ffff8802
+;        move.b d7,$ffff8800.w
+        move.b #\volume,$ffff8800.w
+        move.b d1,$ffff8802.w
 ;        add.w #(2<<8)+1,d7                                      ;Increases the volume register (low byte) and frequency register (high byte).
         ;Closes the sound channel.
         bset #PLY_AKYst_RRB_SoundChannelBit, d3
@@ -168,9 +152,9 @@ PLY_AKYst_RRB_IS_HO_AfterNoise:
         ;Closes the sound channel.
         bset #PLY_AKYst_RRB_SoundChannelBit,d3
 
-;        moveym d7,$ffff8800
-        moveym #\volume,$ffff8800
-        moveym d4,$ffff8802                                     ;(volume to 16).
+;        move.b d7,$ffff8800.w
+        move.b #\volume,$ffff8800.w
+        move.b d4,$ffff8802.w                                     ;(volume to 16).
 
 ;        add.w #$201,d7                                          ;Increases the volume register (low byte), and frequency register (high byte - mandatory!).
         rts
@@ -192,20 +176,20 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
 
         ;Reads the volume (now b0-b3).
         ;Note: we do NOT peform a "and %1111" because we know the bit 7 of the original byte is 0, so the bit 4 is currently 0. Else the hardware volume would be on!
-;        moveym d7,$ffff8800
-        moveym #\volume,$ffff8800
-        moveym d1,$ffff8802
+;        move.b d7,$ffff8800.w
+        move.b #\volume,$ffff8800.w
+        move.b d1,$ffff8802.w
 ;        addq.w #1,d7                                            ;Increases the volume register.
 
         ;Reads the software period.
-;        moveymw d7,$ffff8800
-        moveym #\frequency,$ffff8800
-        moveym (a1)+,$ffff8802
+;        move.w d7,$ffff8800.w
+        move.b #\frequency,$ffff8800.w
+        move.b (a1)+,$ffff8802.w
 ;        add.w #1<<8,d7                                          ;Increases the frequency register.
 
-;        moveymw d7,$ffff8800
-		moveym #\frequency+1,$ffff8800
-        moveym (a1)+,$ffff8802
+;        move.w d7,$ffff8800.w
+		move.b #\frequency+1,$ffff8800.w
+        move.b (a1)+,$ffff8802.w
 ;        add.w #1<<8,d7                                          ;Increases the frequency register.
 
         rts
@@ -241,21 +225,21 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
         movex.b d1,PLY_AKYst_PsgRegister13
 
         ;Reads the software period.
-;        moveymw d7,$ffff8800
-        moveym #\frequency,$ffff8802
-        moveym (a1)+,$ffff8802
+;        move.w d7,$ffff8800.w
+        move.b #\frequency,$ffff8802.w
+        move.b (a1)+,$ffff8802.w
                 
 ;        add.w #1<<8,d7                                          ;Increases the frequency register.
 
-;        moveymw d7,$ffff8800
-        moveym #\frequency+1,$ffff8802
-        moveym (a1)+,$ffff8802
+;        move.w d7,$ffff8800.w
+        move.b #\frequency+1,$ffff8802.w
+        move.b (a1)+,$ffff8802.w
 
 ;        add.w #1<<8,d7                                          ;Increases the frequency register.
 
-;        moveym d7,$ffff8800
-        moveym #\volume,$ffff8800
-        moveym d4,$ffff8802                                     ;(volume to 16).
+;        move.b d7,$ffff8800.w
+        move.b #\volume,$ffff8800.w
+        move.b d4,$ffff8802.w                                     ;(volume to 16).
 
 ;        addq.w #1,d7                                            ;Increases the volume register.
 
@@ -363,9 +347,9 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_Loop:
         bra.s PLY_AKYst_RRB_NIS_AfterVolume
 PLY_AKYst_RRB_NIS_Volume:
         and.b #%1111,d1
-;        moveym d7,$ffff8800
-        moveym #\frequency,$ffff8800
-        moveym d1,$ffff8802
+;        move.b d7,$ffff8800.w
+        move.b #\frequency,$ffff8800.w
+        move.b d1,$ffff8802.w
 PLY_AKYst_RRB_NIS_AfterVolume:
 
 ;        add.w #$201,d7                                          ;Next volume register (low byte) and frequency registers (high byte)
@@ -394,9 +378,9 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:
         move.b d1,d2
         ;Gets the volume (already shifted).
         and.b #%1111,d1
-;        moveym d7,$ffff8800
-        moveym #\frequency,$ffff8800
-        moveym d1,$ffff8802
+;        move.b d7,$ffff8800.w
+        move.b #\frequency,$ffff8800.w
+        move.b d1,$ffff8802.w
 ;        addq.w #1,d7                                            ;Increases the volume register.
 
         ;LSP? (Least Significant byte of Period). Was bit 6, but now shifted.
@@ -404,9 +388,9 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:
         bne.s PLY_AKYst_RRB_NIS_SoftwareOnly_LSP
         bra.s PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP
 PLY_AKYst_RRB_NIS_SoftwareOnly_LSP:
-;        moveymw d7,$ffff8800
-        moveym #\volume,$ffff8800
-        moveym (a1)+,$ffff8802
+;        move.w d7,$ffff8800.w
+        move.b #\volume,$ffff8800.w
+        move.b (a1)+,$ffff8802.w
                                                                 ;d7 high byte not incremented on purpose.
 PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP:
 
@@ -422,9 +406,9 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoise:
                                                                 ;Sends the MSB software frequency.
 ;        add.w #1<<8,d7                                          ;Was not increased before.
 
-;        moveymw d7,$ffff8800
-        moveymw #\frequency+1,$ffff8800
-        moveym d1,$ffff8802
+;        move.w d7,$ffff8800.w
+        move.w #\frequency+1,$ffff8800.w
+        move.b d1,$ffff8802.w
 
 ;        add.w #1<<8,d7                                          ;Increases the frequency register.
         
@@ -460,9 +444,9 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop:
         bset #PLY_AKYst_RRB_SoundChannelBit,d3
 
         ;Hardware volume.
-;        moveymw d7,$ffff8800
-        moveym #\volume,$ffff8800
-        moveym d4,$ffff8802                                     ;(16 = hardware volume).
+;        move.w d7,$ffff8800.w
+        move.b #\volume,$ffff8800.w
+        move.b d4,$ffff8802.w                                     ;(16 = hardware volume).
 
 ;        add.w #$201,d7                                          ;Increases the volume register (low byte), frequency register (high byte)
 
@@ -497,9 +481,9 @@ PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop:
 
         ;Hardware volume.
                                                                 ;Sends the volume.
-;        moveym d7,$ffff8800
-        moveym #\volume,$ffff8800
-        moveym d4,$ffff8802                                     ;(16 = hardware volume).
+;        move.b d7,$ffff8800.w
+        move.b #\volume,$ffff8800.w
+        move.b d4,$ffff8802.w                                     ;(16 = hardware volume).
 ;        addq.w #1,d7                                            ;Increases the volume register.
 
         ;LSB of hardware period?
@@ -523,9 +507,9 @@ PLY_AKYst_RRB_NIS_SAHH_AfterMSBH:
         bcs.s PLY_AKYst_RRB_NIS_SAHH_LSBS
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterLSBS
 PLY_AKYst_RRB_NIS_SAHH_LSBS:
-;        moveymw d7,$ffff8800
-        moveymw #\frequency,$ffff8800
-        moveym (a1)+,$ffff8802
+;        move.w d7,$ffff8800.w
+        move.w #\frequency,$ffff8800.w
+        move.b (a1)+,$ffff8802.w
                                                                 ;d7 high byte not increased on purpose.
 PLY_AKYst_RRB_NIS_SAHH_AfterLSBS:
        
@@ -537,9 +521,9 @@ PLY_AKYst_RRB_NIS_SAHH_MSBS:
                                                                 ;Sends the MSB software frequency.
 ;        add.w #1<<8,d7
 
-;        moveymw d7,$ffff8800
-        moveym #\frequency+1,$ffff8800
-        moveym (a1)+,$ffff8802
+;        move.w d7,$ffff8800.w
+        move.b #\frequency+1,$ffff8800.w
+        move.b (a1)+,$ffff8802.w
 
 ;        sub.w #1<<8,d7                                          ;Yup. Will be compensated below.
 PLY_AKYst_RRB_NIS_SAHH_AfterMSBS:
@@ -875,7 +859,7 @@ PLY_AKYst_Channel2_RegisterBlockLineState_Opcode: moveq #0,d1   ;if initial stat
     .else
         move.w PLY_AKYst_Channel2_RegisterBlockLineState_Opcode(pc),d1
     .endif
-        bsr.s PLY_AKYst_ReadRegisterBlock 
+        bsr PLY_AKYst_ReadRegisterBlock 
 PLY_AKYst_Channel2_RegisterBlock_Return:
         movex.w #PLY_AKYst_OPCODE_CZF,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
         movex.l a1,PLY_AKYst_Channel2_PtRegisterBlock           ;This is new pointer on the RegisterBlock.
@@ -900,7 +884,7 @@ PLY_AKYst_Channel3_RegisterBlockLineState_Opcode: moveq #0,d1   ;if initial stat
     .else
         move.w PLY_AKYst_Channel3_RegisterBlockLineState_Opcode(pc),d1
     .endif
-        bsr.s PLY_AKYst_ReadRegisterBlock
+        bsr PLY_AKYst_ReadRegisterBlock
 PLY_AKYst_Channel3_RegisterBlock_Return:
         movex.w #PLY_AKYst_OPCODE_CZF,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
         movex.l a1,PLY_AKYst_Channel3_PtRegisterBlock           ;This is new pointer on the RegisterBlock.
@@ -912,21 +896,21 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
 
 ;Register 7. Note that managing register 7 before 6/11/12 is done on purpose (the 6/11/12 registers are filled using OUTI).
 
-        moveym #7,$ffff8800
-        moveym d1,$ffff8802
+        move.b #7,$ffff8800.w
+        move.b d1,$ffff8802.w
 
 ;Register 6
-        moveym #6,$ffff8800
-        moveym PLY_AKYst_PsgRegister6(pc),$ffff8802
+        move.b #6,$ffff8800.w
+        move.b PLY_AKYst_PsgRegister6(pc),$ffff8802.w
 
 ;Register 11
-        moveym #11,$ffff8800
-        moveym PLY_AKYst_PsgRegister11(pc),$ffff8802
+        move.b #11,$ffff8800.w
+        move.b PLY_AKYst_PsgRegister11(pc),$ffff8802.w
                 
 
 ;Register 12
-        moveym #12,$ffff8800
-        moveym PLY_AKYst_PsgRegister12(pc),$ffff8802
+        move.b #12,$ffff8800.w
+        move.b PLY_AKYst_PsgRegister12(pc),$ffff8802.w
 
 
 ;Register 13
@@ -944,8 +928,8 @@ PLY_AKYst_PsgRegister13_Retrig equ * + 3
 PLY_AKYst_PsgRegister13_Change:
         movex.b d1,PLY_AKYst_PsgRegister13_Retrig
 
-        moveym #13,$ffff8800
-        moveym d1,$ffff8802
+        move.b #13,$ffff8800.w
+        move.b d1,$ffff8802.w
 PLY_AKYst_PsgRegister13_End:
 
 
@@ -1040,8 +1024,8 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise_End:
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolume:
         ;The volume is now in b0-b3.
 
-        moveym d7,$ffff8800
-        moveym d1,$ffff8802
+        move.b d7,$ffff8800.w
+        move.b d1,$ffff8802.w
         add.w #(2<<8)+1,d7                                      ;Increases the volume register (low byte) and frequency register (high byte).
         ;Closes the sound channel.
         bset #PLY_AKYst_RRB_SoundChannelBit, d3
@@ -1081,8 +1065,8 @@ PLY_AKYst_RRB_IS_HO_AfterNoise:
         ;Closes the sound channel.
         bset #PLY_AKYst_RRB_SoundChannelBit,d3
 
-        moveym d7,$ffff8800
-        moveym d4,$ffff8802                                     ;(volume to 16).
+        move.b d7,$ffff8800.w
+        move.b d4,$ffff8802.w                                     ;(volume to 16).
 
         add.w #$201,d7                                          ;Increases the volume register (low byte), and frequency register (high byte - mandatory!).
         rts
@@ -1104,17 +1088,17 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
 
         ;Reads the volume (now b0-b3).
         ;Note: we do NOT peform a "and %1111" because we know the bit 7 of the original byte is 0, so the bit 4 is currently 0. Else the hardware volume would be on!
-        moveym d7,$ffff8800
-        moveym d1,$ffff8802
+        move.b d7,$ffff8800.w
+        move.b d1,$ffff8802.w
         addq.w #1,d7                                            ;Increases the volume register.
 
         ;Reads the software period.
-        moveymw d7,$ffff8800
-        moveym (a1)+,$ffff8802
+        move.w d7,$ffff8800.w
+        move.b (a1)+,$ffff8802.w
         add.w #1<<8,d7                                          ;Increases the frequency register.
 
-        moveymw d7,$ffff8800
-        moveym (a1)+,$ffff8802
+        move.w d7,$ffff8800.w
+        move.b (a1)+,$ffff8802.w
         add.w #1<<8,d7                                          ;Increases the frequency register.
 
         rts
@@ -1150,18 +1134,18 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
         movex.b d1,PLY_AKYst_PsgRegister13
 
         ;Reads the software period.
-        moveymw d7,$ffff8800
-        moveym (a1)+,$ffff8802
+        move.w d7,$ffff8800.w
+        move.b (a1)+,$ffff8802.w
                 
         add.w #1<<8,d7                                          ;Increases the frequency register.
 
-        moveymw d7,$ffff8800
-        moveym (a1)+,$ffff8802
+        move.w d7,$ffff8800.w
+        move.b (a1)+,$ffff8802.w
 
         add.w #1<<8,d7                                          ;Increases the frequency register.
 
-        moveym d7,$ffff8800
-        moveym d4,$ffff8802                                     ;(volume to 16).
+        move.b d7,$ffff8800.w
+        move.b d4,$ffff8802.w                                     ;(volume to 16).
 
         addq.w #1,d7                                            ;Increases the volume register.
 
@@ -1269,8 +1253,8 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_Loop:
         bra.s PLY_AKYst_RRB_NIS_AfterVolume
 PLY_AKYst_RRB_NIS_Volume:
         and.b #%1111,d1
-        moveym d7,$ffff8800
-        moveym d1,$ffff8802
+        move.b d7,$ffff8800.w
+        move.b d1,$ffff8802.w
 PLY_AKYst_RRB_NIS_AfterVolume:
 
         add.w #$201,d7                                          ;Next volume register (low byte) and frequency registers (high byte)
@@ -1299,8 +1283,8 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:
         move.b d1,d2
         ;Gets the volume (already shifted).
         and.b #%1111,d1
-        moveym d7,$ffff8800
-        moveym d1,$ffff8802
+        move.b d7,$ffff8800.w
+        move.b d1,$ffff8802.w
         addq.w #1,d7                                            ;Increases the volume register.
 
         ;LSP? (Least Significant byte of Period). Was bit 6, but now shifted.
@@ -1308,8 +1292,8 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:
         bne.s PLY_AKYst_RRB_NIS_SoftwareOnly_LSP
         bra.s PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP
 PLY_AKYst_RRB_NIS_SoftwareOnly_LSP:
-        moveymw d7,$ffff8800
-        moveym (a1)+,$ffff8802
+        move.w d7,$ffff8800.w
+        move.b (a1)+,$ffff8802.w
                                                                 ;d7 high byte not incremented on purpose.
 PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP:
 
@@ -1325,8 +1309,8 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoise:
                                                                 ;Sends the MSB software frequency.
         add.w #1<<8,d7                                          ;Was not increased before.
 
-        moveymw d7,$ffff8800
-        moveym d1,$ffff8802
+        move.w d7,$ffff8800.w
+        move.b d1,$ffff8802.w
 
         add.w #1<<8,d7                                          ;Increases the frequency register.
         
@@ -1362,8 +1346,8 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop:
         bset #PLY_AKYst_RRB_SoundChannelBit,d3
 
         ;Hardware volume.
-        moveymw d7,$ffff8800
-        moveym d4,$ffff8802                                     ;(16 = hardware volume).
+        move.w d7,$ffff8800.w
+        move.b d4,$ffff8802.w                                     ;(16 = hardware volume).
 
         add.w #$201,d7                                          ;Increases the volume register (low byte), frequency register (high byte)
 
@@ -1398,8 +1382,8 @@ PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop:
 
         ;Hardware volume.
                                                                 ;Sends the volume.
-        moveym d7,$ffff8800
-        moveym d4,$ffff8802                                     ;(16 = hardware volume).
+        move.b d7,$ffff8800.w
+        move.b d4,$ffff8802.w                                     ;(16 = hardware volume).
         addq.w #1,d7                                            ;Increases the volume register.
 
         ;LSB of hardware period?
@@ -1423,8 +1407,8 @@ PLY_AKYst_RRB_NIS_SAHH_AfterMSBH:
         bcs.s PLY_AKYst_RRB_NIS_SAHH_LSBS
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterLSBS
 PLY_AKYst_RRB_NIS_SAHH_LSBS:
-        moveymw d7,$ffff8800
-        moveym (a1)+,$ffff8802
+        move.w d7,$ffff8800.w
+        move.b (a1)+,$ffff8802.w
                                                                 ;d7 high byte not increased on purpose.
 PLY_AKYst_RRB_NIS_SAHH_AfterLSBS:
        
@@ -1436,8 +1420,8 @@ PLY_AKYst_RRB_NIS_SAHH_MSBS:
                                                                 ;Sends the MSB software frequency.
         add.w #1<<8,d7
 
-        moveymw d7,$ffff8800
-        moveym (a1)+,$ffff8802
+        move.w d7,$ffff8800.w
+        move.b (a1)+,$ffff8802.w
 
         sub.w #1<<8,d7                                          ;Yup. Will be compensated below.
 PLY_AKYst_RRB_NIS_SAHH_AfterMSBS:
