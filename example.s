@@ -8,7 +8,9 @@ debug=0                             ;1=skips installing a timer for replay and i
                                     ;good for debugging the player but plays the tune in turbo mode :)
 show_cpu=1
 
-use_vbl=0                           ;if enabled, vbl is used instead of timer c
+use_vbl=1                           ;if enabled, vbl is used instead of timer c
+
+UNROLLED_CODE=1                     ;Uncomment this line to enable unrolled slightly faster YM register reading code
 
 tune_freq = 200                     ;tune frequency in ticks per second
 
@@ -82,7 +84,7 @@ vbl:
     .if show_cpu
     not.w $ffff8240.w
     .endif
-    bsr PLY_AKYst_Start+2           ;play that funky music
+    bsr.s PLY_AKYst_Start+2         ;play that funky music
     .if show_cpu
     not.w $ffff8240.w
     .endif
@@ -121,10 +123,10 @@ tune:
 ;    .include "tunes/UltraSyd - YM Type.s"
 ;    .include "tunes/Targhan - Midline Process - Carpet.s"
 ;    .include "tunes/Targhan - Midline Process - Molusk.s"
-;    .include "tunes/Targhan - DemoIzArt - End Part.s"
+    .include "tunes/Targhan - DemoIzArt - End Part.s"
 ;    .include "tunes/Pachelbel's Canon in D major 003.s"
 ;    .include "tunes/Interleave THIS! 015.s"
-    .include "tunes/Knightmare 200Hz 017.s"
+;    .include "tunes/Knightmare 200Hz 017.s"
 ;    .include "tunes/Ten Little Endians_015.s"
 ;    .include "tunes/Just add cream 020.s"
     .long                            ;pad to 4 bytes
