@@ -342,7 +342,7 @@ PLY_AKYst_Channel2_RegisterBlockLineState_Opcode: moveq #0,d1   ;if initial stat
     .else
         move.w PLY_AKYst_Channel2_RegisterBlockLineState_Opcode(pc),d1
     .endif
-        bsr PLY_AKYst_ReadRegisterBlock 
+        bsr.s PLY_AKYst_ReadRegisterBlock 
 PLY_AKYst_Channel2_RegisterBlock_Return:
         movex.w #PLY_AKYst_OPCODE_CZF,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
         movex.l a1,PLY_AKYst_Channel2_PtRegisterBlock           ;This is new pointer on the RegisterBlock.
@@ -367,7 +367,7 @@ PLY_AKYst_Channel3_RegisterBlockLineState_Opcode: moveq #0,d1   ;if initial stat
     .else
         move.w PLY_AKYst_Channel3_RegisterBlockLineState_Opcode(pc),d1
     .endif
-        bsr PLY_AKYst_ReadRegisterBlock
+        bsr.s PLY_AKYst_ReadRegisterBlock
 PLY_AKYst_Channel3_RegisterBlock_Return:
         movex.w #PLY_AKYst_OPCODE_CZF,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
         movex.l a1,PLY_AKYst_Channel3_PtRegisterBlock           ;This is new pointer on the RegisterBlock.
@@ -456,7 +456,6 @@ PLY_AKYst_RRB_BranchOnNonInitailState:
         ; Code from the bcs and above copied here so nothing will screw with the zero flag
         move.b (a1)+,d1
         
-        ;Not in the original code, but simplifies the stabilization.
         move.b d1,d2
         and.b #%00000011,d2
         add.b d2,d2
@@ -649,7 +648,6 @@ PLY_AKYst_RRB_NonInitialState:
         ; Code from the start of PLY_AKYst_ReadRegisterBlock copied here so nothing will screw with the zero flag        
         move.b (a1)+,d1
 
-        ;Not in the original code, but simplifies the stabilization.
         move.b d1,d2
         and.b #%00001111,d2                                      ;Keeps 4 bits to be able to detect the loop. (%1000)
         add.b d2,d2
@@ -856,7 +854,7 @@ PLY_AKYst_RRB_NIS_HardwareOnly_AfterMSB:
         
         ;Noise or retrig?
         rol.b #1,d1
-        bcs PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStop
+        bcs.s PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStop
         rts
 
 

@@ -15,8 +15,8 @@ To export a track from the tracker for use with these player follow these simple
   - Labels prefix: (leave blank)
   - Labels postfix: :
   - Little endian: check
+  - One mnemonic type per line: check
 - Go to File->Export->Export as AKY. Check "source file" and leave ASM labels prefix as "Main". Check "Encode to address" and type "0" in the field. Press "Export" and choose a filename.
-- sed -i -e "s/ : dc/\r\tdc/gI" filename.s
 - sed -i -e "s/\(dc.w Main_Subsong0_.[A-z|0-9|_]*\?\)/\1-Main_Subsong0/gI" filename.s
 
 You can now use the exported .s file directly with the player example source
