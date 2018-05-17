@@ -24,15 +24,16 @@ sndh_init:
     movem.l d0-a6,-(sp)
     lea tune(pc),a0
     bsr.w PLY_AKYst_Init
-	bsr as+4
+	bsr as+0
     movem.l  (sp)+,d0-a6
     rts
 
 sndh_exit:
     movem.l d0-a6,-(sp)
+	bsr as+4
 i set 0
 	rept 14
-    move.l  #i,$FFFF8800
+    move.l  #i,$FFFF8800.w
 i set i+$01010000
 	endr
     movem.l  (sp)+,d0-a6
@@ -42,6 +43,7 @@ sndh_vbl:
     movem.l d0-a6,-(sp)
     lea tune(pc),a0
     bsr.w  PLY_AKYst_Play
+    lea values_store(pc),a0
 	bsr as+8
     movem.l  (sp)+,d0-a6
     rts

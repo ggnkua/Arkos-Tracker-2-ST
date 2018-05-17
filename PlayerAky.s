@@ -381,23 +381,23 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
 
 ;        moveym #7,$ffff8800
 ;        moveym d1,$ffff8802
-        move.b d1,values_store+(7*4)
+        movex.b d1,values_store+(7*4)
 
 ;Register 6
 ;        moveym #6,$ffff8800
 ;        moveym PLY_AKYst_PsgRegister6(pc),$ffff8802
-        move.b d1,values_store+(6*4)
+        movex.b d1,values_store+(6*4)
 
 ;Register 11
 ;        moveym #11,$ffff8800
 ;        moveym PLY_AKYst_PsgRegister11(pc),$ffff8802
-        move.b d1,values_store+(11*4)
+        movex.b d1,values_store+(11*4)
                 
 
 ;Register 12
 ;        moveym #12,$ffff8800
 ;        moveym PLY_AKYst_PsgRegister12(pc),$ffff8802
-        move.b d1,values_store+(12*4)
+        movex.b d1,values_store+(12*4)
 
 
 ;Register 13
@@ -417,7 +417,7 @@ PLY_AKYst_PsgRegister13_Change:
 
 ;        moveym #13,$ffff8800
 ;        moveym d1,$ffff8802
-        move.b d1,values_store+(13*4)
+        movex.b d1,values_store+(13*4)
 
 PLY_AKYst_PsgRegister13_End:
 
@@ -516,7 +516,7 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolume:
 
 ;        moveym d7,$ffff8800
 ;        moveym d1,$ffff8802
-        lea values_store,a3
+        lea values_store(pc),a3
         move.w d7,d0
         ext.w d0
         add.w d0,d0
@@ -564,7 +564,7 @@ PLY_AKYst_RRB_IS_HO_AfterNoise:
 
 ;        moveym d7,$ffff8800
 ;        moveym d4,$ffff8802                                     ;(volume to 16).
-        lea values_store,a3
+        lea values_store(pc),a3
         move.w d7,d0
         ext.w d0
         add.w d0,d0
@@ -593,7 +593,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
         ;Note: we do NOT peform a "and %1111" because we know the bit 7 of the original byte is 0, so the bit 4 is currently 0. Else the hardware volume would be on!
 ;        moveym d7,$ffff8800
 ;        moveym d1,$ffff8802
-        lea values_store,a3
+        lea values_store(pc),a3
         move.w d7,d0
         ext.w d0
         add.w d0,d0
@@ -605,7 +605,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
         ;Reads the software period.
 ;        moveymw d7,$ffff8800
 ;        moveym (a1)+,$ffff8802
-        lea values_store,a3
+        lea values_store(pc),a3
         move.w d7,d0
         lsr.w #8,d0
         add.w d0,d0
@@ -616,7 +616,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
 
 ;        moveymw d7,$ffff8800
 ;        moveym (a1)+,$ffff8802
-        lea values_store,a3
+        lea values_store(pc),a3
         move.w d7,d0
         lsr.w #8,d0
         add.w d0,d0
@@ -660,7 +660,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
         ;Reads the software period.
 ;        moveymw d7,$ffff8800
 ;        moveym (a1)+,$ffff8802
-        lea values_store,a3
+        lea values_store(pc),a3
         move.w d7,d0
         lsr.w #8,d0
         add.w d0,d0
@@ -671,7 +671,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
 
 ;        moveymw d7,$ffff8800
 ;        moveym (a1)+,$ffff8802
-        lea values_store,a3
+        lea values_store(pc),a3
         move.w d7,d0
         lsr.w #8,d0
         add.w d0,d0
@@ -682,7 +682,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
 
 ;        moveym d7,$ffff8800
 ;        moveym d4,$ffff8802                                     ;(volume to 16).
-        lea values_store,a3
+        lea values_store(pc),a3
         move.w d7,d0
         add.w d0,d0
         add.w d0,d0
@@ -797,7 +797,7 @@ PLY_AKYst_RRB_NIS_Volume:
         and.b #%1111,d1
 ;        moveym d7,$ffff8800
 ;        moveym d1,$ffff8802
-        lea values_store,a3
+        lea values_store(pc),a3
         move.w d7,d0
         ext.w d0
         add.w d0,d0
@@ -834,7 +834,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:
         and.b #%1111,d1
 ;        moveym d7,$ffff8800
 ;        moveym d1,$ffff8802
-        lea values_store,a3
+        lea values_store(pc),a3
         move.w d7,d0
         ext.w d0
         add.w d0,d0
@@ -850,7 +850,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:
 PLY_AKYst_RRB_NIS_SoftwareOnly_LSP:
 ;        moveymw d7,$ffff8800
 ;        moveym (a1)+,$ffff8802
-        lea values_store,a3
+        lea values_store(pc),a3
         move.w d7,d0
         lsr.w #8,d0
         add.w d0,d0
@@ -874,7 +874,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoise:
 
 ;        moveymw d7,$ffff8800
 ;        moveym d1,$ffff8802
-        lea values_store,a3
+        lea values_store(pc),a3
         move.w d7,d0
         lsr.w #8,d0
         add.w d0,d0
@@ -917,7 +917,7 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop:
         ;Hardware volume.
 ;        moveymw d7,$ffff8800
 ;        moveym d4,$ffff8802                                     ;(16 = hardware volume).
-        lea values_store,a3
+        lea values_store(pc),a3
         move.w d7,d0
         lsr.w #8,d0
         add.w d0,d0
@@ -959,7 +959,7 @@ PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop:
                                                                 ;Sends the volume.
 ;        moveym d7,$ffff8800
 ;        moveym d4,$ffff8802                                     ;(16 = hardware volume).
-        lea values_store,a3
+        lea values_store(pc),a3
         move.w d7,d0
         add.w d0,d0
         add.w d0,d0
@@ -990,7 +990,7 @@ PLY_AKYst_RRB_NIS_SAHH_AfterMSBH:
 PLY_AKYst_RRB_NIS_SAHH_LSBS:
 ;        moveymw d7,$ffff8800
 ;        moveym (a1)+,$ffff8802
-        lea values_store,a3
+        lea values_store(pc),a3
         move.w d7,d0
         lsr.w #8,d0
         add.w d0,d0
@@ -1009,7 +1009,7 @@ PLY_AKYst_RRB_NIS_SAHH_MSBS:
 
 ;        moveymw d7,$ffff8800
 ;        moveym (a1)+,$ffff8802
-        lea values_store,a3
+        lea values_store(pc),a3
         move.w d7,d0
         lsr.w #8,d0
         add.w d0,d0
