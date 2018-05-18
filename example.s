@@ -9,8 +9,10 @@ debug=0                             ;1=skips installing a timer for replay and i
 show_cpu=1                          ;if 1, display a bar showing CPU usage
 use_vbl=1                           ;if enabled, vbl is used instead of timer c
 disable_timers=0                    ;if 1, stops all MFP timers, for better CPU usage display
-;UNROLLED_CODE=1                     ;Uncomment this line to enable unrolled slightly faster YM register reading code
-;SID_VOICES=1                        ;Uncomment this line to enable SID voices (takes more CPU time!)
+UNROLLED_CODE=0                     ;if 1, enable unrolled slightly faster YM register reading code
+SID_VOICES=0                        ;if 1, enable SID voices (takes more CPU time!)
+SNDH_PLAYER=0                       ;if 1, turn all player code PC relative
+AVOID_SMC=0                         ;if 1, assemble the player without SMC stuff, so it should be fine for CPUs with cache
 tune_freq = 050                     ;tune frequency in ticks per second
 
     pea start(pc)                   ;go to start with supervisor mode on
@@ -27,7 +29,7 @@ start:
 
     move.l #tune,a0
     bsr PLY_AKYst_Start+0           ;init player and tune
-    .if ^^defined SID_VOICES
+    .if SID_VOICES
     bsr as+0                        ;init SID voices player
     .endif
 
@@ -70,7 +72,7 @@ start:
     .if debug
     move.l #tune,a0  ;tell the player where to find the tune start
     bsr PLY_AKYst_Start+2           ;play that funky music
-    .if ^^defined SID_VOICES
+    .if SID_VOICES
     lea values_store(pc),a0
     bsr as+8
     .endif
@@ -85,7 +87,7 @@ start:
     .if use_vbl=1
     move.l  old_vbl,$70.w           ;restore vbl
 
-    .if ^^defined SID_VOICES
+    .if SID_VOICES
     bsr as+4
     .endif
     .if disable_timers=1
@@ -132,7 +134,7 @@ vbl:
     not.w $ffff8240.w
     .endif
     bsr.s PLY_AKYst_Start+2         ;play that funky music
-    .if ^^defined SID_VOICES
+    .if SID_VOICES
     lea values_store(pc),a0
     bsr as+8
     .endif
@@ -160,7 +162,7 @@ timer_c:
     move.l #tune,a0  ;tell the player where to find the tune start
     .if show_cpu
     bsr.s PLY_AKYst_Start+2         ;play that funky music
-    .if ^^defined SID_VOICES
+    .if SID_VOICES
     lea values_store(pc),a0
     bsr as+8
     .endif
@@ -177,7 +179,7 @@ timer_c_ctr: dc.w 200
 
     .include "PlayerAky.s"
 
-    .if ^^defined SID_VOICES
+    .if SID_VOICES
     .include "sid.s"
     .endif
 

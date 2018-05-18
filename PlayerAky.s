@@ -36,7 +36,7 @@
 ; from the same source
 
     .macro movex src,dst
-    .if ^^defined SNDH_PLAYER
+    .if SNDH_PLAYER
         move\! \src,\dst - PLY_AKYst_Init(a4)
     .else
         move\! \src,\dst
@@ -46,7 +46,7 @@
 ;
 ; Subroutine PLY_AKYst_ReadRegisterBlock as a macro, so it can be inlined with the code
 ;
-    .if ^^defined UNROLLED_CODE
+    .if UNROLLED_CODE
 
 PLY_AKYst_RRB_NoiseChannelBit equ 5                             ;Bit to modify to set/reset the noise channel.
 PLY_AKYst_RRB_SoundChannelBit equ 2                             ;Bit to modify to set/reset the sound channel.
@@ -114,7 +114,7 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise_End\~:
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolume\~:
         ;The volume is now in b0-b3.
 
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b #\volume,(a2)
         move.b d1,(a3)
     .else
@@ -158,7 +158,7 @@ PLY_AKYst_RRB_IS_HO_AfterNoise\~:
         ;Closes the sound channel.
         bset #PLY_AKYst_RRB_SoundChannelBit,d3
 
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b #\volume,(a2)
         move.b d4,(a3)                                     ;(volume to 16).
     .else
@@ -185,7 +185,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise\~:
 
         ;Reads the volume (now b0-b3).
         ;Note: we do NOT peform a "and %1111" because we know the bit 7 of the original byte is 0, so the bit 4 is currently 0. Else the hardware volume would be on!
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b #\volume,(a2)
         move.b d1,(a3)
     .else
@@ -194,7 +194,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise\~:
     .endif
 
         ;Reads the software period.
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b #\frequency,(a2)
         move.b (a1)+,(a3)
     .else
@@ -202,7 +202,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise\~:
         move.b (a1)+,4*\frequency(a3)
     .endif
 
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
 		move.b #\frequency+1,(a2)
         move.b (a1)+,(a3)
     .else
@@ -243,7 +243,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise\~:
         movex.b d1,PLY_AKYst_PsgRegister13
 
         ;Reads the software period.
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b #\frequency,(a2)
         move.b (a1)+,(a3)
     .else
@@ -251,7 +251,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise\~:
         move.b (a1)+,4*\frequency(a3)
     .endif
                 
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b #\frequency+1,(a2)
         move.b (a1)+,(a3)
     .else
@@ -259,7 +259,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise\~:
         move.b (a1)+,4*(\frequency+1)(a3)
     .endif
 
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b #\volume,(a2)
         move.b d4,(a3)                                     ;(volume to 16).
     .else
@@ -371,7 +371,7 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_Loop\~:
         bra.s PLY_AKYst_RRB_NIS_AfterVolume\~
 PLY_AKYst_RRB_NIS_Volume\~:
         and.b #%1111,d1
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b #\volume,(a2)
         move.b d1,(a3)
     .else
@@ -404,7 +404,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop\~:
         move.b d1,d2
         ;Gets the volume (already shifted).
         and.b #%1111,d1
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b #\volume,(a2)
         move.b d1,(a3)
     .else
@@ -417,7 +417,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop\~:
         bne.s PLY_AKYst_RRB_NIS_SoftwareOnly_LSP\~
         bra.s PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP\~
 PLY_AKYst_RRB_NIS_SoftwareOnly_LSP\~:
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b #\frequency,(a2)
         move.b (a1)+,(a3)
     .else
@@ -437,7 +437,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoise\~:
         move.b (a1)+,d1                                         ;Useless bits at the end, not a problem.
                                                                 ;Sends the MSB software frequency.
 
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b #\frequency+1,(a2)
         move.b d1,(a3)
     .else
@@ -478,7 +478,7 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop\~:
         bset #PLY_AKYst_RRB_SoundChannelBit,d3
 
         ;Hardware volume.
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b #\volume,(a2)
         move.b d4,(a3)                                     ;(16 = hardware volume).
     .else
@@ -517,7 +517,7 @@ PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop\~:
 
         ;Hardware volume.
                                                                 ;Sends the volume.
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b #\volume,(a2)
         move.b d4,(a3)                                     ;(16 = hardware volume).
     .else
@@ -546,7 +546,7 @@ PLY_AKYst_RRB_NIS_SAHH_AfterMSBH\~:
         bcs.s PLY_AKYst_RRB_NIS_SAHH_LSBS\~
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterLSBS\~
 PLY_AKYst_RRB_NIS_SAHH_LSBS\~:
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.w #\frequency,(a2)
         move.b (a1)+,(a3)
     .else
@@ -562,7 +562,7 @@ PLY_AKYst_RRB_NIS_SAHH_AfterLSBS\~:
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterMSBS\~
 PLY_AKYst_RRB_NIS_SAHH_MSBS\~:
                                                                 ;Sends the MSB software frequency.
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b #\frequency+1,(a2)
         move.b (a1)+,(a3)
     .else
@@ -622,7 +622,7 @@ readregs_out\~:
     .endif
 
 
-    .if !(^^defined AVOID_SMC)
+    .if !AVOID_SMC
 PLY_AKYst_OPCODE_SZF equ $7200                                  ;Opcode for "moveq #0,d0".
 PLY_AKYst_OPCODE_CZF  equ $72ff                                 ;Opcode for "moveq #-1,d0".
     .else
@@ -640,7 +640,7 @@ PLY_AKYst_Start:
 ;       Initializes the player.
 ;       a0.l=music address
 PLY_AKYst_Init:
-    .if ^^defined SNDH_PLAYER
+    .if SNDH_PLAYER
         lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
     .endif
 
@@ -672,13 +672,13 @@ PLY_AKYst_Play:
         lea $ffff8800.w,a2                                      ;cache YM registers
         lea $ffff8802.w,a3
 
-        .if ^^defined SNDH_PLAYER
+        .if SNDH_PLAYER
         lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
         .endif
 
 ;Linker.
 ;----------------------------------------
-    .if !(^^defined AVOID_SMC)
+    .if !AVOID_SMC
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_PatternFrameCounter equ * + 2
         move.w #1,d1                                            ;How many frames left before reading the next Pattern.
@@ -694,7 +694,7 @@ PLY_AKYst_PatternFrameCounter equ * + 2
 PLY_AKYst_PatternFrameCounter_Over:
 
 ;The pattern is over. Reads the next one.
-    .if !(^^defined AVOID_SMC)
+    .if !AVOID_SMC
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_PtLinker = * + 2
         lea 0.l,a6                                              ;Points on the Pattern of the linker.
@@ -727,7 +727,7 @@ PLY_AKYst_PatternFrameManagement_End:
 
 ;Reading the Track - channel 1.
 ;----------------------------------------
-    .if !(^^defined AVOID_SMC)
+    .if !AVOID_SMC
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock = * + 3
         move.b #1,d1                                            ;Frames to wait before reading the next RegisterBlock. 0 = finished.
@@ -741,7 +741,7 @@ PLY_AKYst_Channel1_RegisterBlock_Finished:
         ;This RegisterBlock is finished. Reads the next one from the Track.
         ;Obviously, starts at the initial state.
         movex.w #PLY_AKYst_OPCODE_SZF,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
-    .if !(^^defined AVOID_SMC)
+    .if !AVOID_SMC
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel1_PtTrack = * + 2
         lea 0(a0),a6                                            ;Points on the Track.
@@ -767,7 +767,7 @@ PLY_AKYst_Channel1_RegisterBlock_Process:
 
 ;Reading the Track - channel 2.
 ;----------------------------------------
-    .if !(^^defined AVOID_SMC)
+    .if !AVOID_SMC
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock = * + 3
         move.b #1,d1    ;Frames to wait before reading the next RegisterBlock. 0 = finished.
@@ -781,7 +781,7 @@ PLY_AKYst_Channel2_RegisterBlock_Finished:
         ;This RegisterBlock is finished. Reads the next one from the Track.
         ;Obviously, starts at the initial state.
         movex.w #PLY_AKYst_OPCODE_SZF,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
-    .if !(^^defined AVOID_SMC)
+    .if !AVOID_SMC
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel2_PtTrack = * + 2
         lea 0(a0),a6                                            ;Points on the Track.
@@ -809,7 +809,7 @@ PLY_AKYst_Channel2_RegisterBlock_Process:
 ;Reading the Track - channel 3.
 ;----------------------------------------
 ;PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock: ld a,1         ;Frames to wait before reading the next RegisterBlock. 0 = finished.
-    .if !(^^defined AVOID_SMC)
+    .if !AVOID_SMC
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock = * + 3
         move.b #1,d1    ;Frames to wait before reading the next RegisterBlock. 0 = finished.
@@ -823,7 +823,7 @@ PLY_AKYst_Channel3_RegisterBlock_Finished:
         ;This RegisterBlock is finished. Reads the next one from the Track.
         ;Obviously, starts at the initial state.
         movex.w #PLY_AKYst_OPCODE_SZF,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
-    .if !(^^defined AVOID_SMC)
+    .if !AVOID_SMC
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel3_PtTrack equ * + 2
         lea 0(a0),a6                                            ;Points on the Track.
@@ -861,7 +861,7 @@ PLY_AKYst_Channel3_RegisterBlock_Process:
 ;Reading the RegisterBlock - Channel 1
 ;----------------------------------------
 
-    .if !(^^defined UNROLLED_CODE)
+    .if !UNROLLED_CODE
         move.w #((0 * 256) + 8),d7                              ;d7 high byte = first frequency register, d7 low byte = first volume register.
     .endif
         move.w #$f690,d4                                        ;$90 used for both $80 for the PSG, and volume 16!
@@ -871,20 +871,20 @@ PLY_AKYst_Channel3_RegisterBlock_Process:
         move.w #%11100000,d3
 
 
-    .if !(^^defined AVOID_SMC)
+    .if !AVOID_SMC
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel1_PtRegisterBlock = * + 2
         lea 0.l,a1                                              ;Points on the data of the RegisterBlock to read.
     .else
         move.l PLY_AKYst_Channel1_PtRegisterBlock(pc),a1
     .endif
-    .if !(^^defined AVOID_SMC)
+    .if !AVOID_SMC
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel1_RegisterBlockLineState_Opcode: moveq #0,d1   ;if initial state, "moveq #0,d1" / "moveq #-1,d1" if non-initial state.
     .else
         move.w PLY_AKYst_Channel1_RegisterBlockLineState_Opcode(pc),d1
     .endif
-    .if !(^^defined UNROLLED_CODE)
+    .if !UNROLLED_CODE
         bsr PLY_AKYst_ReadRegisterBlock
     .else
         readregs 8,0
@@ -901,20 +901,20 @@ PLY_AKYst_Channel1_RegisterBlock_Return:
         lsr.b #1,d3
         
 
-    .if !(^^defined AVOID_SMC)
+    .if !AVOID_SMC
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel2_PtRegisterBlock equ * + 2
         lea 0.l,a1                                              ;Points on the data of the RegisterBlock to read.
     .else
         move.l PLY_AKYst_Channel2_PtRegisterBlock(pc),a1
     .endif
-    .if !(^^defined AVOID_SMC)
+    .if !AVOID_SMC
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel2_RegisterBlockLineState_Opcode: moveq #0,d1   ;if initial state, "moveq #0,d1" / "moveq #-1,d1" if non-initial state.
     .else
         move.w PLY_AKYst_Channel2_RegisterBlockLineState_Opcode(pc),d1
     .endif
-    .if !(^^defined UNROLLED_CODE)
+    .if !UNROLLED_CODE
         bsr PLY_AKYst_ReadRegisterBlock
     .else
         readregs 9,2
@@ -930,20 +930,20 @@ PLY_AKYst_Channel2_RegisterBlock_Return:
         ;Shifts the R7 for the next channels.
         lsr.b #1,d3
 
-    .if !(^^defined AVOID_SMC)
+    .if !AVOID_SMC
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel3_PtRegisterBlock equ * + 2
         lea 0.l,a1                                              ;Points on the data of the RegisterBlock to read.
     .else
         move.l PLY_AKYst_Channel3_PtRegisterBlock(pc),a1
     .endif
-    .if !(^^defined AVOID_SMC)
+    .if !AVOID_SMC
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel3_RegisterBlockLineState_Opcode: moveq #0,d1   ;if initial state, "moveq #0,d1" / "moveq #-1,d1" if non-initial state.
     .else
         move.w PLY_AKYst_Channel3_RegisterBlockLineState_Opcode(pc),d1
     .endif
-    .if !(^^defined UNROLLED_CODE)
+    .if !UNROLLED_CODE
         bsr PLY_AKYst_ReadRegisterBlock
     .else
         readregs 10,4
@@ -959,7 +959,7 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
 
 ;Register 7. Note that managing register 7 before 6/11/12 is done on purpose (the 6/11/12 registers are filled using OUTI).
 
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b #7,(a2)
         move.b d1,(a3)
     .else
@@ -967,7 +967,7 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
     .endif
 
 ;Register 6
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b #6,(a2)
         move.b PLY_AKYst_PsgRegister6(pc),(a3)
     .else
@@ -975,7 +975,7 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
     .endif
 
 ;Register 11
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b #11,(a2)
         move.b PLY_AKYst_PsgRegister11(pc),(a3)
     .else
@@ -983,7 +983,7 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
     .endif       
 
 ;Register 12
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b #12,(a2)
         move.b PLY_AKYst_PsgRegister12(pc),(a3)
     .else
@@ -994,7 +994,7 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
 ;Register 13
 PLY_AKYst_PsgRegister13_Code:
         move.b PLY_AKYst_PsgRegister13(pc),d1
-    .if !(^^defined AVOID_SMC)
+    .if !AVOID_SMC
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_PsgRegister13_Retrig equ * + 3
         cmp.b #255,d1                                           ;If IsRetrig?, force the R13 to be triggered.
@@ -1006,7 +1006,7 @@ PLY_AKYst_PsgRegister13_Retrig equ * + 3
 PLY_AKYst_PsgRegister13_Change:
         movex.b d1,PLY_AKYst_PsgRegister13_Retrig
 
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b #13,(a2)
         move.b d1,(a3)
     .else
@@ -1020,7 +1020,7 @@ PLY_AKYst_PsgRegister13_End:
 PLY_AKYst_Exit:
         rts
 
-    .if ^^defined AVOID_SMC
+    .if AVOID_SMC
 PLY_AKYst_PatternFrameCounter:                      .ds.w 1
 PLY_AKYst_PtLinker:                                 .ds.l 1
 PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock:     .ds.b 1
@@ -1042,7 +1042,7 @@ PLY_AKYst_Channel3_RegisterBlockLineState_Opcode:   .ds.w 1
 
 
 
-    .if !(^^defined UNROLLED_CODE)
+    .if !UNROLLED_CODE
 ;Generic code interpreting the RegisterBlock
 ;IN:    a1 = First byte.
 ;       Carry = 0 = initial state, 1 = non-initial state.
@@ -1107,7 +1107,7 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise_End:
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolume:
         ;The volume is now in b0-b3.
 
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b d7,(a2)
         move.b d1,(a3)
     .else
@@ -1158,7 +1158,7 @@ PLY_AKYst_RRB_IS_HO_AfterNoise:
         ;Closes the sound channel.
         bset #PLY_AKYst_RRB_SoundChannelBit,d3
 
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b d7,(a2)
         move.b d4,(a3)                                     ;(volume to 16).
     .else
@@ -1190,7 +1190,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
 
         ;Reads the volume (now b0-b3).
         ;Note: we do NOT peform a "and %1111" because we know the bit 7 of the original byte is 0, so the bit 4 is currently 0. Else the hardware volume would be on!
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b d7,(a2)
         move.b d1,(a3)
     .else
@@ -1205,7 +1205,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
         addq.w #1,d7                                            ;Increases the volume register.
 
         ;Reads the software period.
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.w d7,(a2)
         move.b (a1)+,(a3)
     .else
@@ -1219,7 +1219,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
 
         add.w #1<<8,d7                                          ;Increases the frequency register.
 
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.w d7,(a2)
         move.b (a1)+,(a3)
     .else
@@ -1266,7 +1266,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
         movex.b d1,PLY_AKYst_PsgRegister13
 
         ;Reads the software period.
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.w d7,(a2)
         move.b (a1)+,(a3)
     .else
@@ -1280,7 +1280,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
        
         add.w #1<<8,d7                                          ;Increases the frequency register.
 
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.w d7,(a2)
         move.b (a1)+,(a3)
     .else
@@ -1294,7 +1294,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
 
         add.w #1<<8,d7                                          ;Increases the frequency register.
 
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b d7,(a2)
         move.b d4,(a3)                                     ;(volume to 16).
     .else
@@ -1411,7 +1411,7 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_Loop:
         bra.s PLY_AKYst_RRB_NIS_AfterVolume
 PLY_AKYst_RRB_NIS_Volume:
         and.b #%1111,d1
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b d7,(a2)
         move.b d1,(a3)
     .else
@@ -1451,7 +1451,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:
         move.b d1,d2
         ;Gets the volume (already shifted).
         and.b #%1111,d1
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b d7,(a2)
         move.b d1,(a3)
     .else
@@ -1470,7 +1470,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:
         bne.s PLY_AKYst_RRB_NIS_SoftwareOnly_LSP
         bra.s PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP
 PLY_AKYst_RRB_NIS_SoftwareOnly_LSP:
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.w d7,(a2)
         move.b (a1)+,(a3)
     .else
@@ -1496,7 +1496,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoise:
                                                                 ;Sends the MSB software frequency.
         add.w #1<<8,d7                                          ;Was not increased before.
 
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.w d7,(a2)
         move.b d1,(a3)
     .else
@@ -1542,7 +1542,7 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop:
         bset #PLY_AKYst_RRB_SoundChannelBit,d3
 
         ;Hardware volume.
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b d7,(a2)
         move.b d4,(a3)                                     ;(16 = hardware volume).
     .else
@@ -1587,7 +1587,7 @@ PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop:
 
         ;Hardware volume.
                                                                 ;Sends the volume.
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.b d7,(a2)
         move.b d4,(a3)                                     ;(16 = hardware volume).
     .else
@@ -1621,7 +1621,7 @@ PLY_AKYst_RRB_NIS_SAHH_AfterMSBH:
         bcs.s PLY_AKYst_RRB_NIS_SAHH_LSBS
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterLSBS
 PLY_AKYst_RRB_NIS_SAHH_LSBS:
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.w d7,(a2)
         move.b (a1)+,(a3)
     .else
@@ -1643,7 +1643,7 @@ PLY_AKYst_RRB_NIS_SAHH_MSBS:
                                                                 ;Sends the MSB software frequency.
         add.w #1<<8,d7
 
-    .if !(^^defined SID_VOICES)
+    .if !SID_VOICES
         move.w d7,(a2)
         move.b (a1)+,(a3)
     .else

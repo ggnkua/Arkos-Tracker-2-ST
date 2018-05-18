@@ -3,7 +3,10 @@
 ; based on the official source from http://sndh.atari.org
 ;
 
-;SID_VOICES=1                        ;Uncomment this line to enable SID voices (takes more CPU time!)
+SNDH_PLAYER=1                   ;if 1, turn on some sndh specific code for the player
+AVOID_SMC=1                     ;if 1, assemble the player without SMC stuff, so it should be fine for CPUs with cache
+SID_VOICES=0                    ;if 1, enable SID voices (takes more CPU time!)
+UNROLLED_CODE=0                 ;if 1, enable unrolled slightly faster YM register reading code
 
     bra.w  sndh_init
     bra.w  sndh_exit
@@ -26,7 +29,7 @@ sndh_init:
     movem.l d0-a6,-(sp)
     lea tune(pc),a0
     bsr.w PLY_AKYst_Init
-    .if ^^defined SID_VOICES
+    .if SID_VOICES
 	bsr as+0
     .endif
     movem.l  (sp)+,d0-a6
@@ -34,7 +37,7 @@ sndh_init:
 
 sndh_exit:
     movem.l d0-a6,-(sp)
-    .if ^^defined SID_VOICES
+    .if SID_VOICES
 	bsr as+4
     .endif
 i set 0
@@ -49,7 +52,7 @@ sndh_vbl:
     movem.l d0-a6,-(sp)
     lea tune(pc),a0
     bsr.w  PLY_AKYst_Play
-    .if ^^defined SID_VOICES
+    .if SID_VOICES
     lea values_store(pc),a0
 	bsr as+8
     .endif
@@ -58,8 +61,6 @@ sndh_vbl:
 
 player:
     even
-SNDH_PLAYER=1                   ; turn on some sndh specific code for the player
-AVOID_SMC=1                     ; assemble the player without SMC stuff, so it should be fine for CPUs with cache
     include  'PlayerAky.s'
     even
 
@@ -67,7 +68,7 @@ tune:
 	.include "tune_filename.s"
 tune_end:
 
-	.if ^^defined SID_VOICES
+	.if SID_VOICES
 	include "sid.s"
 	.endif
 
