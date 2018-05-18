@@ -118,7 +118,6 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolume\~:
         move.b #\volume,(a2)
         move.b d1,(a3)
     .else
-        lea values_store(pc),a3
         move.b d1,4*\volume(a3)
     .endif
         ;Closes the sound channel.
@@ -162,7 +161,6 @@ PLY_AKYst_RRB_IS_HO_AfterNoise\~:
         move.b #\volume,(a2)
         move.b d4,(a3)                                     ;(volume to 16).
     .else
-        lea values_store(pc),a3
         move.b d4,4*\volume(a3)
     .endif
 
@@ -189,7 +187,6 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise\~:
         move.b #\volume,(a2)
         move.b d1,(a3)
     .else
-        lea values_store(pc),a3
         move.b d1,4*\volume(a3)
     .endif
 
@@ -198,7 +195,6 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise\~:
         move.b #\frequency,(a2)
         move.b (a1)+,(a3)
     .else
-        lea values_store(pc),a3
         move.b (a1)+,4*\frequency(a3)
     .endif
 
@@ -206,7 +202,6 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise\~:
 		move.b #\frequency+1,(a2)
         move.b (a1)+,(a3)
     .else
-        lea values_store(pc),a3
         move.b (a1)+,4*(\frequency+1)(a3)
     .endif
 
@@ -247,7 +242,6 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise\~:
         move.b #\frequency,(a2)
         move.b (a1)+,(a3)
     .else
-        lea values_store(pc),a3
         move.b (a1)+,4*\frequency(a3)
     .endif
                 
@@ -255,7 +249,6 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise\~:
         move.b #\frequency+1,(a2)
         move.b (a1)+,(a3)
     .else
-        lea values_store(pc),a3
         move.b (a1)+,4*(\frequency+1)(a3)
     .endif
 
@@ -263,7 +256,6 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise\~:
         move.b #\volume,(a2)
         move.b d4,(a3)                                     ;(volume to 16).
     .else
-        lea values_store(pc),a3
         move.b d4,4*\volume(a3)
     .endif
 
@@ -375,7 +367,6 @@ PLY_AKYst_RRB_NIS_Volume\~:
         move.b #\volume,(a2)
         move.b d1,(a3)
     .else
-        lea values_store(pc),a3
         move.b d1,4*\volume(a3)
     .endif
 PLY_AKYst_RRB_NIS_AfterVolume\~:
@@ -408,7 +399,6 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop\~:
         move.b #\volume,(a2)
         move.b d1,(a3)
     .else
-        lea values_store(pc),a3
         move.b d1,4*\volume(a3)
     .endif
 
@@ -421,7 +411,6 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_LSP\~:
         move.b #\frequency,(a2)
         move.b (a1)+,(a3)
     .else
-        lea values_store(pc),a3
         move.b (a1)+,4*\frequency(a3)
     .endif
 
@@ -441,7 +430,6 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoise\~:
         move.b #\frequency+1,(a2)
         move.b d1,(a3)
     .else
-        lea values_store(pc),a3
         move.b d1,4*(\frequency+1)(a3)
     .endif
 
@@ -482,7 +470,6 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop\~:
         move.b #\volume,(a2)
         move.b d4,(a3)                                     ;(16 = hardware volume).
     .else
-        lea values_store(pc),a3
         move.b d4,4*\volume(a3)
     .endif
 
@@ -521,7 +508,6 @@ PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop\~:
         move.b #\volume,(a2)
         move.b d4,(a3)                                     ;(16 = hardware volume).
     .else
-        lea values_store(pc),a3
         move.b d4,4*\volume(a3)
     .endif
 
@@ -550,7 +536,6 @@ PLY_AKYst_RRB_NIS_SAHH_LSBS\~:
         move.w #\frequency,(a2)
         move.b (a1)+,(a3)
     .else
-        lea values_store(pc),a3
         move.b (a1)+,4*\frequency(a3)
     .endif
 
@@ -566,7 +551,6 @@ PLY_AKYst_RRB_NIS_SAHH_MSBS\~:
         move.b #\frequency+1,(a2)
         move.b (a1)+,(a3)
     .else
-        lea values_store(pc),a3
         move.b (a1)+,4*(\frequency+1)(a3)
     .endif
 
@@ -669,8 +653,12 @@ PLY_AKYst_Init_SkipHeaderEnd:
 
 PLY_AKYst_Play:
 
+        .if SID_VOICES
+        lea values_store+2(pc),a3
+        .else
         lea $ffff8800.w,a2                                      ;cache YM registers
         lea $ffff8802.w,a3
+        .endif
 
         .if SNDH_PLAYER
         lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
@@ -963,7 +951,7 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
         move.b #7,(a2)
         move.b d1,(a3)
     .else
-        movex.b d1,values_store+(7*4)
+        move.b d1,(7*4)(a3)
     .endif
 
 ;Register 6
@@ -971,7 +959,7 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
         move.b #6,(a2)
         move.b PLY_AKYst_PsgRegister6(pc),(a3)
     .else
-        movex.b PLY_AKYst_PsgRegister6(pc),values_store+(6*4)
+        move.b PLY_AKYst_PsgRegister6(pc),(6*4)(a3)
     .endif
 
 ;Register 11
@@ -979,7 +967,7 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
         move.b #11,(a2)
         move.b PLY_AKYst_PsgRegister11(pc),(a3)
     .else
-        movex.b PLY_AKYst_PsgRegister11(pc),values_store+(11*4)
+        move.b PLY_AKYst_PsgRegister11(pc),(11*4)(a3)
     .endif       
 
 ;Register 12
@@ -987,7 +975,7 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
         move.b #12,(a2)
         move.b PLY_AKYst_PsgRegister12(pc),(a3)
     .else
-        movex.b PLY_AKYst_PsgRegister12(pc),values_store+(12*4)
+        move.b PLY_AKYst_PsgRegister12(pc),(12*4)(a3)
     .endif
 
 
@@ -1010,7 +998,7 @@ PLY_AKYst_PsgRegister13_Change:
         move.b #13,(a2)
         move.b d1,(a3)
     .else
-        movex.b d1,values_store+(13*4)
+        move.b d1,(13*4)(a3)
     .endif
 
 PLY_AKYst_PsgRegister13_End:
@@ -1111,7 +1099,6 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolume:
         move.b d7,(a2)
         move.b d1,(a3)
     .else
-        lea values_store(pc),a3
         move.w d7,d0
         ext.w d0
         add.w d0,d0
@@ -1162,7 +1149,6 @@ PLY_AKYst_RRB_IS_HO_AfterNoise:
         move.b d7,(a2)
         move.b d4,(a3)                                     ;(volume to 16).
     .else
-        lea values_store(pc),a3
         move.w d7,d0
         ext.w d0
         add.w d0,d0
@@ -1194,7 +1180,6 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
         move.b d7,(a2)
         move.b d1,(a3)
     .else
-        lea values_store(pc),a3
         move.w d7,d0
         ext.w d0
         add.w d0,d0
@@ -1209,7 +1194,6 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
         move.w d7,(a2)
         move.b (a1)+,(a3)
     .else
-        lea values_store(pc),a3
         move.w d7,d0
         lsr.w #8,d0
         add.w d0,d0
@@ -1223,7 +1207,6 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise:
         move.w d7,(a2)
         move.b (a1)+,(a3)
     .else
-        lea values_store(pc),a3
         move.w d7,d0
         lsr.w #8,d0
         add.w d0,d0
@@ -1270,7 +1253,6 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
         move.w d7,(a2)
         move.b (a1)+,(a3)
     .else
-        lea values_store(pc),a3
         move.w d7,d0
         lsr.w #8,d0
         add.w d0,d0
@@ -1284,7 +1266,6 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
         move.w d7,(a2)
         move.b (a1)+,(a3)
     .else
-        lea values_store(pc),a3
         move.w d7,d0
         lsr.w #8,d0
         add.w d0,d0
@@ -1298,7 +1279,6 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
         move.b d7,(a2)
         move.b d4,(a3)                                     ;(volume to 16).
     .else
-        lea values_store(pc),a3
         move.w d7,d0
         add.w d0,d0
         add.w d0,d0
@@ -1415,7 +1395,6 @@ PLY_AKYst_RRB_NIS_Volume:
         move.b d7,(a2)
         move.b d1,(a3)
     .else
-        lea values_store(pc),a3
         move.w d7,d0
         ext.w d0
         add.w d0,d0
@@ -1455,7 +1434,6 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:
         move.b d7,(a2)
         move.b d1,(a3)
     .else
-        lea values_store(pc),a3
         move.w d7,d0
         ext.w d0
         add.w d0,d0
@@ -1474,7 +1452,6 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_LSP:
         move.w d7,(a2)
         move.b (a1)+,(a3)
     .else
-        lea values_store(pc),a3
         move.w d7,d0
         lsr.w #8,d0
         add.w d0,d0
@@ -1500,7 +1477,6 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoise:
         move.w d7,(a2)
         move.b d1,(a3)
     .else
-        lea values_store(pc),a3
         move.w d7,d0
         lsr.w #8,d0
         add.w d0,d0
@@ -1546,7 +1522,6 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop:
         move.b d7,(a2)
         move.b d4,(a3)                                     ;(16 = hardware volume).
     .else
-        lea values_store(pc),a3
         move.w d7,d0
         lsr.w #8,d0
         add.w d0,d0
@@ -1591,7 +1566,6 @@ PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop:
         move.b d7,(a2)
         move.b d4,(a3)                                     ;(16 = hardware volume).
     .else
-        lea values_store(pc),a3
         move.w d7,d0
         add.w d0,d0
         add.w d0,d0
@@ -1625,7 +1599,6 @@ PLY_AKYst_RRB_NIS_SAHH_LSBS:
         move.w d7,(a2)
         move.b (a1)+,(a3)
     .else
-        lea values_store(pc),a3
         move.w d7,d0
         lsr.w #8,d0
         add.w d0,d0
@@ -1647,7 +1620,6 @@ PLY_AKYst_RRB_NIS_SAHH_MSBS:
         move.w d7,(a2)
         move.b (a1)+,(a3)
     .else
-        lea values_store(pc),a3
         move.w d7,d0
         lsr.w #8,d0
         add.w d0,d0

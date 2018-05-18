@@ -4,45 +4,14 @@
 ;	+4 Quit
 ;	+8 Call per frame passing A0 (YM table)
 
-;    pea start
-;    move.w #$26,-(sp)
-;    trap #14
-;    addq.l #6,sp
-;
-;    clr.w -(sp)
-;    trap #1
-;
-;start:
-;    bsr sndh_init
-;    lea sndh_vbl,a0
-;    bsr as+0
-;
-;	move.l $70.w,old_vbl
-;    move.l #ourvbl,$70.w
-;
-;.wait:  cmp.b #57,$fffffc02.w
-;    bne.s .wait
-;
-;	move.l old_vbl,$70.w
-;
-;    bsr as+4
-;    bsr sndh_exit
-;
-;    rts
-;
-;old_vbl: ds.l 1
-;
-;ourvbl:
-;    movem.l d0-a6,-(sp)
-;    bsr sndh_vbl
-;    lea values_store,a0
-;    bsr as+8
-;    movem.l (sp)+,d0-a6
-;    rte
+values_store:
+i set 0
+    rept 16
+    dc.l i
+i set i+$01000000
+    endr
 
-values_store:   ds.l 16
-
-as:
+sid_emu:
 	bra	ini	; the three branches at the top of file.
 	bra	exit
 	bra	play
@@ -69,26 +38,26 @@ play:
 pat1:		;lea	0,a0
 	clr.l	d0
 	clr.l	d1
-	move.b	((4*8)+0)(a0),d0
-	move.b	((4*1)+0)(a0),d1
+	move.b	((4*8)+2)(a0),d0
+	move.b	((4*1)+2)(a0),d1
 	lsl	#8,d1
-	add.b	((4*0)+0)(a0),d1
+	add.b	((4*0)+2)(a0),d1
 	bsr	CALC_A
 
 	clr.l	d0
 	clr.l	d1
-	move.b	((4*9)+0)(a0),d0
-	move.b	((4*3)+0)(a0),d1
+	move.b	((4*9)+2)(a0),d0
+	move.b	((4*3)+2)(a0),d1
 	lsl	#8,d1
-	add.b	((4*2)+0)(a0),d1
+	add.b	((4*2)+2)(a0),d1
 	bsr	CALC_B
 
 	clr.l	d0
 	clr.l	d1
-	move.b	((4*10)+0)(a0),d0
-	move.b	((4*5)+0)(a0),d1
+	move.b	((4*10)+2)(a0),d0
+	move.b	((4*5)+2)(a0),d1
 	lsl	#8,d1
-	add.b	((4*4)+0)(a0),d1
+	add.b	((4*4)+2)(a0),d1
 	bsr	CALC_D
 	RTS
 
@@ -109,39 +78,16 @@ spc	equ	2
 	MOVE	#$2700,SR
 
 	LEA	$FFFF8800.w,A1
-;pat2	lea	0,a0
-	MOVE.B	#$00,(A1)
-	MOVE.B	((4*0)+0)(A0),2(A1)
-
-	MOVE.B	#$01,(A1)
-	MOVE.B	((4*1)+0)(A0),2(A1)
-
-	MOVE.B	#$02,(A1)
-	MOVE.B	((4*2)+0)(A0),2(A1)
-
-	MOVE.B	#$03,(A1)
-	MOVE.B	((4*3)+0)(A0),2(A1)
-
-	MOVE.B	#$04,(A1)
-	MOVE.B	((4*4)+0)(A0),2(A1)
-
-	MOVE.B	#$05,(A1)
-	MOVE.B	((4*5)+0)(A0),2(A1)
-
-	MOVE.B	#$06,(A1)
-	MOVE.B	((4*6)+0)(A0),2(A1)
-
-	MOVE.B	#$07,(A1)
-	MOVE.B	((4*7)+0)(A0),D0
-	OR.B	#$C0,D0
-	MOVE.B	D0,2(A1)
+    movem.l (a0),d0-d7
+    or.w #$c000,d7
+    movem.l d0-d7,(a1)
 
 
-	MOVE.B	((4*8)+0)(A0),D1
-	MOVE.B	((4*9)+0)(A0),D2
-	MOVE.B	((4*10)+0)(A0),D3
+	MOVE.B	((4*8)+2)(A0),D1
+	MOVE.B	((4*9)+2)(A0),D2
+	MOVE.B	((4*10)+2)(A0),D3
 
-NORAU0:	BTST	#3,D0
+NORAU0:	BTST	#3+8,D7
 	BNE.S	NORAU1
 	MOVE.B	#$08,(A1)
 	SUB.B	#1,D1
@@ -150,7 +96,7 @@ NORAU0:	BTST	#3,D0
 OK1:	MOVE.B	D1,2(A1)
 	BSR	NO_TA
 
-NORAU1:	BTST	#4,D0
+NORAU1:	BTST	#4+8,D7
 	BNE.S	NORAU2
 	MOVE.B	#$09,(A1)
 	SUB.B	#1,D2
@@ -159,7 +105,7 @@ NORAU1:	BTST	#4,D0
 OK2:	MOVE.B	D2,2(A1)
 	BSR	NO_TB
 
-NORAU2:	BTST	#5,D0
+NORAU2:	BTST	#5+8,D7
 	BNE.S	NORAU3
 	MOVE.B	#$0A,(A1)
 	SUB.B	#1,D3
@@ -412,10 +358,5 @@ TIMER_D2:
 	sub.l	#$12,$110.w
 	RTE
 
-blah:	ds.l	16
-ym:	ds.l	11
-
-
 endmus:
-zx:
 

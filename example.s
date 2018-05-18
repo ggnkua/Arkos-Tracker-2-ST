@@ -10,7 +10,7 @@ show_cpu=1                          ;if 1, display a bar showing CPU usage
 use_vbl=1                           ;if enabled, vbl is used instead of timer c
 disable_timers=0                    ;if 1, stops all MFP timers, for better CPU usage display
 UNROLLED_CODE=0                     ;if 1, enable unrolled slightly faster YM register reading code
-SID_VOICES=0                        ;if 1, enable SID voices (takes more CPU time!)
+SID_VOICES=1                        ;if 1, enable SID voices (takes more CPU time!)
 SNDH_PLAYER=0                       ;if 1, turn all player code PC relative
 AVOID_SMC=0                         ;if 1, assemble the player without SMC stuff, so it should be fine for CPUs with cache
 tune_freq = 050                     ;tune frequency in ticks per second
@@ -27,10 +27,10 @@ start:
     move.b $484.w,-(sp)             ;save old keyclick state
     clr.b $484.w                    ;keyclick off, key repeat off
 
-    move.l #tune,a0
+    lea tune,a0
     bsr PLY_AKYst_Start+0           ;init player and tune
     .if SID_VOICES
-    bsr as+0                        ;init SID voices player
+    bsr sid_emu+0                   ;init SID voices player
     .endif
 
     .if !debug
@@ -70,7 +70,7 @@ start:
 .waitspace:
 
     .if debug
-    move.l #tune,a0  ;tell the player where to find the tune start
+    lea tune,a0                     ;tell the player where to find the tune start
     bsr PLY_AKYst_Start+2           ;play that funky music
     .if SID_VOICES
     lea values_store(pc),a0
@@ -88,7 +88,7 @@ start:
     move.l  old_vbl,$70.w           ;restore vbl
 
     .if SID_VOICES
-    bsr as+4
+    bsr sid_emu+4
     .endif
     .if disable_timers=1
     lea save_mfp(pc),a0
@@ -136,7 +136,7 @@ vbl:
     bsr.s PLY_AKYst_Start+2         ;play that funky music
     .if SID_VOICES
     lea values_store(pc),a0
-    bsr as+8
+    bsr sid_emu+8
     .endif
     .if show_cpu
     not.w $ffff8240.w
@@ -159,7 +159,7 @@ timer_c:
     .if show_cpu
     not.w $ffff8240.w
     .endif
-    move.l #tune,a0  ;tell the player where to find the tune start
+    lea tune,a0                     ;tell the player where to find the tune start
     .if show_cpu
     bsr.s PLY_AKYst_Start+2         ;play that funky music
     .if SID_VOICES
@@ -190,8 +190,8 @@ tune:
 ;    .include "tunes/UltraSyd - YM Type.s"
 ;    .include "tunes/Targhan - Midline Process - Carpet.s"
 ;    .include "tunes/Targhan - Midline Process - Molusk.s"
-    .include "tunes/Targhan - DemoIzArt - End Part.s"
-;    .include "tunes/Pachelbel's Canon in D major 003.s"
+;    .include "tunes/Targhan - DemoIzArt - End Part.s"
+    .include "tunes/Pachelbel's Canon in D major 003.s"
 ;    .include "tunes/Interleave THIS! 015.s"
 ;    .include "tunes/Knightmare 200Hz 017.s"
 ;    .include "tunes/Ten Little Endians_015.s"

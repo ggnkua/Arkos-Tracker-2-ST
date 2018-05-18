@@ -30,7 +30,7 @@ sndh_init:
     lea tune(pc),a0
     bsr.w PLY_AKYst_Init
     .if SID_VOICES
-	bsr as+0
+	bsr sid_emu+0
     .endif
     movem.l  (sp)+,d0-a6
     rts
@@ -38,7 +38,7 @@ sndh_init:
 sndh_exit:
     movem.l d0-a6,-(sp)
     .if SID_VOICES
-	bsr as+4
+	bsr sid_emu+4
     .endif
 i set 0
 	rept 14
@@ -54,7 +54,7 @@ sndh_vbl:
     bsr.w  PLY_AKYst_Play
     .if SID_VOICES
     lea values_store(pc),a0
-	bsr as+8
+	bsr sid_emu+8
     .endif
     movem.l  (sp)+,d0-a6
     rts
