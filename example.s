@@ -11,7 +11,7 @@ use_vbl=1                           ;if enabled, vbl is used instead of timer c
 disable_timers=0                    ;if 1, stops all MFP timers, for better CPU usage display
 UNROLLED_CODE=0                     ;if 1, enable unrolled slightly faster YM register reading code
 SID_VOICES=1                        ;if 1, enable SID voices (takes more CPU time!)
-SNDH_PLAYER=0                       ;if 1, turn all player code PC relative
+PC_REL_CODE=0                       ;if 1, make code PC relative (helps if you move the routine around, like for example SNDH)
 AVOID_SMC=0                         ;if 1, assemble the player without SMC stuff, so it should be fine for CPUs with cache
 tune_freq = 050                     ;tune frequency in ticks per second
 
@@ -74,7 +74,7 @@ start:
     bsr PLY_AKYst_Start+2           ;play that funky music
     .if SID_VOICES
     lea values_store(pc),a0
-    bsr as+8
+    bsr sid_emu+8
     .endif
     .endif
 
@@ -129,7 +129,7 @@ vbl:
 .wait: dbra d0,.wait
     .endif
 
-    lea tune,a0                 ;tell the player where to find the tune start
+    lea tune,a0                     ;tell the player where to find the tune start
     .if show_cpu
     not.w $ffff8240.w
     .endif
@@ -164,7 +164,7 @@ timer_c:
     bsr.s PLY_AKYst_Start+2         ;play that funky music
     .if SID_VOICES
     lea values_store(pc),a0
-    bsr as+8
+    bsr sid_emu+8
     .endif
     .endif
     not.w $ffff8240.w

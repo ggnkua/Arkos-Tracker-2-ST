@@ -14,12 +14,12 @@
 ; Note that the source makes use of macros, so take a look at their definitions (after these messages end) before reading the code
 
 ; Equates that control code generation:
-; SNDH_PLAYER   - off by default, define this to produce slower SNDH compatible code (i.e. no absolute addressing)
+; PC_REL_CODE   - off by default, define this to produce slower SNDH compatible code (i.e. no absolute addressing)
 ; AVOID_SMC     - off by default, define this to produce slower but more compatible code, friendly for cache endabled CPUs
 ; UNROLLED_CODE - off by default, define this to produce unrolled code which will be slightly faster
 ; SID_VOICES    - off by default, define this to use SID style voices
 ;
-; Note that if you define SNDH_PLAYER you should also want to define AVOID_SMC as well. SNDH files are meant to be compatible with all platforms
+; Note that if you define want to create SNDH files, you should enable PC_REL_CODE and AVOID_SMC as well. SNDH files are meant to be compatible with all platforms
 
 ; Stuff TODO:
 ; - (done) Get rid of that silly 64k alignment requirement
@@ -36,20 +36,20 @@
 ; from the same source
 
     .macro movex src,dst
-    .if SNDH_PLAYER
+    .if PC_REL_CODE
         move\! \src,\dst - PLY_AKYst_Init(a4)
     .else
         move\! \src,\dst
     .endif
     .endm
 
+PLY_AKYst_RRB_NoiseChannelBit equ 5                             ;Bit to modify to set/reset the noise channel.
+PLY_AKYst_RRB_SoundChannelBit equ 2                             ;Bit to modify to set/reset the sound channel.
+
 ;
 ; Subroutine PLY_AKYst_ReadRegisterBlock as a macro, so it can be inlined with the code
 ;
     .if UNROLLED_CODE
-
-PLY_AKYst_RRB_NoiseChannelBit equ 5                             ;Bit to modify to set/reset the noise channel.
-PLY_AKYst_RRB_SoundChannelBit equ 2                             ;Bit to modify to set/reset the sound channel.
 
 	.macro readregs volume,frequency
 
@@ -624,7 +624,7 @@ PLY_AKYst_Start:
 ;       Initializes the player.
 ;       a0.l=music address
 PLY_AKYst_Init:
-    .if SNDH_PLAYER
+    .if PC_REL_CODE
         lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
     .endif
 
@@ -660,7 +660,7 @@ PLY_AKYst_Play:
         lea $ffff8802.w,a3
         .endif
 
-        .if SNDH_PLAYER
+        .if PC_REL_CODE
         lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
         .endif
 
@@ -1073,9 +1073,6 @@ PLY_AKYst_IS_JPTable:
 ;       d3 = updated (ONLY bit 2 and 5).
 ;       d7 (low byte) = Volume register increased of 1 (*** IMPORTANT! The code MUST increase it, even if not using it! ***)
 ;       d7 (high byte) = LSB frequency register, increased of 2 (see above).
-
-PLY_AKYst_RRB_NoiseChannelBit equ 5                             ;Bit to modify to set/reset the noise channel.
-PLY_AKYst_RRB_SoundChannelBit equ 2                             ;Bit to modify to set/reset the sound channel.
 
 
 PLY_AKYst_RRB_IS_NoSoftwareNoHardware:

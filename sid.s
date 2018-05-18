@@ -1,4 +1,3 @@
-; Z80 with SID
 
 ; Usage -	+0 Init passing music driver address A0
 ;	+4 Quit
@@ -25,10 +24,8 @@ flag:	dc.w	0
 ini:
 	bsr	INITC
 	rts
-;    bsr sndh_vbl
 
 exit:	bsr	CBACK
-	;include	h:\sndh\clrym.s
         rts
 
 play:	

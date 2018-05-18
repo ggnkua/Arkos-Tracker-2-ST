@@ -3,7 +3,7 @@
 ; based on the official source from http://sndh.atari.org
 ;
 
-SNDH_PLAYER=1                   ;if 1, turn on some sndh specific code for the player
+PC_REL_CODE=1                   ;if 1, make code PC relative (helps if you move the routine around, like for example SNDH)
 AVOID_SMC=1                     ;if 1, assemble the player without SMC stuff, so it should be fine for CPUs with cache
 SID_VOICES=0                    ;if 1, enable SID voices (takes more CPU time!)
 UNROLLED_CODE=0                 ;if 1, enable unrolled slightly faster YM register reading code
