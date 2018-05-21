@@ -10,6 +10,11 @@ i set 0
 i set i+$01000000
     endr
 
+chan_a_sid_on:  ds.b 1
+chan_b_sid_on:  ds.b 1
+chan_c_sid_on:  ds.b 1
+  .even
+
 sid_emu:
 	bra	ini	; the three branches at the top of file.
 	bra	exit
@@ -28,11 +33,17 @@ ini:
 exit:	bsr	CBACK
         rts
 
+
 play:	
 
 	bsr.s	SIDEMU
 
-pat1:		;lea	0,a0
+
+  tst.b chan_a_sid_on
+  beq.s .skip_a
+
+;pat1:
+  ;lea	0,a0
 	clr.l	d0
 	clr.l	d1
 	move.b	((4*8)+2)(a0),d0
@@ -40,6 +51,11 @@ pat1:		;lea	0,a0
 	lsl	#8,d1
 	add.b	((4*0)+2)(a0),d1
 	bsr	CALC_A
+	
+.skip_a:
+  tst.b chan_b_sid_on
+  beq.s .skip_b
+
 
 	clr.l	d0
 	clr.l	d1
@@ -49,6 +65,11 @@ pat1:		;lea	0,a0
 	add.b	((4*2)+2)(a0),d1
 	bsr	CALC_B
 
+.skip_b:
+
+  tst.b chan_c_sid_on
+  beq.s .skip_c
+
 	clr.l	d0
 	clr.l	d1
 	move.b	((4*10)+2)(a0),d0
@@ -56,6 +77,8 @@ pat1:		;lea	0,a0
 	lsl	#8,d1
 	add.b	((4*4)+2)(a0),d1
 	bsr	CALC_D
+.skip_c:
+
 	RTS
 
 
@@ -84,33 +107,57 @@ spc	equ	2
 	MOVE.B	((4*9)+2)(A0),D2
 	MOVE.B	((4*10)+2)(A0),D3
 
-NORAU0:	BTST	#3+8,D7
-	BNE.S	NORAU1
+  tst.b chan_a_sid_on
+  bne.s .chan_a_sid
+  move.b #8,(a1)
+  bra.s .OK1
+.chan_a_sid:
+
+.NORAU0:
+	BTST	#3+8,D7
+	BNE.S	.NORAU1
 	MOVE.B	#$08,(A1)
 	SUB.B	#1,D1
-	BPL.S	OK1
+	BPL.S	.OK1
 	MOVEQ	#0,D1
-OK1:	MOVE.B	D1,2(A1)
+.OK1:
+  MOVE.B	D1,2(A1)
 	BSR	NO_TA
 
-NORAU1:	BTST	#4+8,D7
-	BNE.S	NORAU2
+.NORAU1:
+  tst.b chan_b_sid_on
+  bne.s .chan_b_sid
+  move.b #9,(a1)
+  bra.s .OK2
+.chan_b_sid:
+
+	BTST	#4+8,D7
+	BNE.S	.NORAU2
 	MOVE.B	#$09,(A1)
 	SUB.B	#1,D2
-	BPL.S	OK2
+	BPL.S	.OK2
 	MOVEQ	#0,D2
-OK2:	MOVE.B	D2,2(A1)
+.OK2:
+  MOVE.B	D2,2(A1)
 	BSR	NO_TB
 
-NORAU2:	BTST	#5+8,D7
-	BNE.S	NORAU3
+.NORAU2:
+  tst.b chan_c_sid_on
+  bne.s .chan_c_sid
+  move.b #10,(a1)
+  bra.s .OK3
+.chan_c_sid:
+
+	BTST	#5+8,D7
+	BNE.S	.NORAU3
 	MOVE.B	#$0A,(A1)
 	SUB.B	#1,D3
-	BPL.S	OK3
+	BPL.S	.OK3
 	MOVEQ	#0,D3
-OK3:	MOVE.B	D3,2(A1)
+.OK3:
+  MOVE.B	D3,2(A1)
 	BSR	NO_TD
-NORAU3:
+.NORAU3:
 
 	MOVE	(SP)+,SR
 	RTS

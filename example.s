@@ -4,6 +4,39 @@
 ; Uses rmac for assembling (probably not a big problem converting to devpac/vasm format)
 ;
 
+;--------------------------------------------------------------
+;-- Pre-processing of events
+;
+; # Export "you_never_can_tell.events.s"
+; # Copy that file to "you_never_can_tell.events.words.s"
+; # The very last dc.w is the loopback label. Change the dc.w to dc.l
+; # Change all dc.b's to dc.w
+;
+;-- Pre-processing of events
+;--------------------------------------------------------------
+;-- Using events to turn on/off SID on channels
+;
+; # In this file, set:
+;     SID_VOICES=1
+;     USE_EVENTS=1
+;     USE_SID_EVENTS=1
+; # In Arkos Tracker 2, all events starting with F (F0, F1, F2 etc up to FF)
+;   are now SID events. The lowest three bits control which channels are SID-
+;   enabled. Timers used are ABD (for channels ABC, respectively).
+;   The bit pattern is 1111 xABC, which means:
+;     F0 - No channels use SID - no timers
+;     F1 - Only channel C uses SID - timer D only
+;     F2 - Only channel B uses SID - timer B only
+;     F3 - Channels B and C use SID - timer B and D
+;     F4 - Only channel A uses SID - timer A only
+;     F5 - Channels A and C use SID - timer A and D
+;     F6 - Channels A and B use SID - timer A and B
+;     F7 - All channels use SID - timers A, B and D
+;
+;-- Using events to turn on/off SID on channels
+;--------------------------------------------------------------
+
+
 debug=0                             ;1=skips installing a timer for replay and instead calls the player in succession
                                     ;good for debugging the player but plays the tune in turbo mode :)
 show_cpu=1                          ;if 1, display a bar showing CPU usage
@@ -13,7 +46,14 @@ UNROLLED_CODE=0                     ;if 1, enable unrolled slightly faster YM re
 SID_VOICES=1                        ;if 1, enable SID voices (takes more CPU time!)
 PC_REL_CODE=0                       ;if 1, make code PC relative (helps if you move the routine around, like for example SNDH)
 AVOID_SMC=0                         ;if 1, assemble the player without SMC stuff, so it should be fine for CPUs with cache
-tune_freq = 050                     ;tune frequency in ticks per second
+tune_freq =  50                     ;tune frequency in ticks per second
+USE_EVENTS=1                        ;if 1, include events, and parse them
+USE_SID_EVENTS=1                    ;if 1, use events to control SID.
+                                    ;  $Fn=sid setting, where n bits are xABC for which voice to use SID
+
+EVENT_CHANNEL_A_MASK equ 4
+EVENT_CHANNEL_B_MASK equ 2
+EVENT_CHANNEL_C_MASK equ 1
 
     pea start(pc)                   ;go to start with supervisor mode on
     move.w #$26,-(sp)
@@ -23,6 +63,26 @@ tune_freq = 050                     ;tune frequency in ticks per second
     trap #1
 
 start:
+
+    .if SID_VOICES
+    clr.b chan_a_sid_on
+    clr.b chan_b_sid_on
+    clr.b chan_c_sid_on
+    .endif ; .if SID_VOICES
+    
+    .if USE_EVENTS
+    ; reset event pos to start of event list
+    lea tune_events,a0
+    move.l a0,events_pos
+    move.w (a0),event_counter
+    .endif ; .if USE_EVENTS
+    
+    
+;    .if SID_VOICES
+;    move.b #1,chan_a_sid_on
+;    ;move.b #1,chan_b_sid_on
+;    ;move.b #1,chan_c_sid_on
+;    .endif ; .if SID_VOICES
 
     move.b $484.w,-(sp)             ;save old keyclick state
     clr.b $484.w                    ;keyclick off, key repeat off
@@ -136,6 +196,70 @@ vbl:
     .if show_cpu
     not.w $ffff8240.w
     .endif
+
+      ;########################################################
+      ;## Parse tune events
+
+      .if USE_EVENTS
+      movem.l d0/a0,-(sp)
+      ;clr.b $ffffc123.w
+      clr.b event_flag
+.event_do_count:
+      move.w event_counter,d0
+      subq #1,d0
+      bne.s .nohit
+.event_read_val:
+      ; time to read value
+      move.l events_pos,a0
+      addq #2,a0
+      move.w (a0)+,d0
+      move.b d0,event_byte
+      move.b #1,event_flag ; there's a new event value to fetch
+      move.w (a0),d0
+      bne.s .noloopback
+      ; loopback
+      addq #2,a0
+      move.l (a0),a0
+      move.l a0,events_pos
+      bra.s .event_do_count
+.noloopback:
+      move.l a0,events_pos
+      ;subq #1,d0
+      ;beq.s .event_read_val      
+.nohit:
+      move.w d0,event_counter
+      ;done
+      movem.l (sp)+,d0/a0
+      .endif ; .if USE_EVENTS
+
+      .if USE_SID_EVENTS
+      tst.b event_flag
+      beq.s .no_event
+      movem.l d0-d1,-(sp)
+        ;moveq #0,d0 ; debug only
+      move.b event_byte,d0
+        ;clr.b $ffffc123.w
+      move.b d0,d1
+      and.b #$f0,d1
+      cmp.b #$f0,d1
+      bne .no_sid_event
+      move.b d0,d1
+      and.b #EVENT_CHANNEL_A_MASK,d1
+      move.b d1,chan_a_sid_on
+      move.b d0,d1
+      and.b #EVENT_CHANNEL_B_MASK,d1
+      move.b d1,chan_b_sid_on
+      move.b d0,d1
+      and.b #EVENT_CHANNEL_C_MASK,d1
+      move.b d1,chan_c_sid_on
+.no_sid_event:
+      movem.l (sp)+,d0-d1
+.no_event:
+      .endif ; .if USE_SID_EVENTS
+
+      ;## Parse tune events
+      ;########################################################
+
     bsr.s PLY_AKYst_Start+2         ;play that funky music
     .if SID_VOICES
     lea values_store(pc),a0
@@ -156,7 +280,8 @@ save_mfp:   ds.l 16
     .else
 timer_c:
     sub.w #tune_freq,timer_c_ctr    ;is it giiiirooo day tom?
-    bgt.s timer_c_jump              ;sadly derek, no it's not giro day
+    ;bgt.s timer_c_jump              ;sadly derek, no it's not giro day
+    bgt timer_c_jump              ;sadly derek, no it's not giro day
     add.w #200,timer_c_ctr          ;it is giro day, let's reset the 200Hz counter
     movem.l d0-a6,-(sp)             ;save all registers, just to be on the safe side
     .if show_cpu
@@ -164,6 +289,70 @@ timer_c:
     .endif
     lea tune,a0                     ;tell the player where to find the tune start
     .if show_cpu
+
+      ;########################################################
+      ;## Parse tune events
+
+      .if USE_EVENTS
+      movem.l d0/a0,-(sp)
+      ;clr.b $ffffc123.w
+      clr.b event_flag
+.event_do_count:
+      move.w event_counter,d0
+      subq #1,d0
+      bne.s .nohit
+.event_read_val:
+      ; time to read value
+      move.l events_pos,a0
+      addq #2,a0
+      move.w (a0)+,d0
+      move.b d0,event_byte
+      move.b #1,event_flag ; there's a new event value to fetch
+      move.w (a0),d0
+      bne.s .noloopback
+      ; loopback
+      addq #2,a0
+      move.l (a0),a0
+      move.l a0,events_pos
+      bra.s .event_do_count
+.noloopback:
+      move.l a0,events_pos
+      ;subq #1,d0
+      ;beq.s .event_read_val      
+.nohit:
+      move.w d0,event_counter
+      ;done
+      movem.l (sp)+,d0/a0
+      .endif ; .if USE_EVENTS
+
+      .if USE_SID_EVENTS
+      tst.b event_flag
+      beq.s .no_event
+      movem.l d0-d1,-(sp)
+        ;moveq #0,d0 ; debug only
+      move.b event_byte,d0
+        ;clr.b $ffffc123.w
+      move.b d0,d1
+      and.b #$f0,d1
+      cmp.b #$f0,d1
+      bne .no_sid_event
+      move.b d0,d1
+      and.b #EVENT_CHANNEL_A_MASK,d1
+      move.b d1,chan_a_sid_on
+      move.b d0,d1
+      and.b #EVENT_CHANNEL_B_MASK,d1
+      move.b d1,chan_b_sid_on
+      move.b d0,d1
+      and.b #EVENT_CHANNEL_C_MASK,d1
+      move.b d1,chan_c_sid_on
+.no_sid_event:
+      movem.l (sp)+,d0-d1
+.no_event:
+      .endif ; .if USE_SID_EVENTS
+
+      ;## Parse tune events
+      ;########################################################
+
     bsr.s PLY_AKYst_Start+2         ;play that funky music
     .if SID_VOICES
     lea values_store(pc),a0
@@ -188,17 +377,35 @@ timer_c_ctr: dc.w 200
 
     .data
 
+  .if USE_EVENTS
+events_pos: ds.l 1
+event_counter: ds.w 1
+event_byte: dc.b 0
+event_flag: dc.b 0
+  .even
+tune_events:
+    .include "tunes/SID_Test_001.events.words.s"
+;    .include "tunes/knightmare.events.words.s"
+;    .include "tunes/you_never_can_tell.events.words.s"
+  .even
+  .endif ; .if USE_EVENTS
+
 tune:
 ;   .include "tunes/UltraSyd - Fractal.s"
 ;    .include "tunes/UltraSyd - YM Type.s"
 ;    .include "tunes/Targhan - Midline Process - Carpet.s"
 ;    .include "tunes/Targhan - Midline Process - Molusk.s"
 ;    .include "tunes/Targhan - DemoIzArt - End Part.s"
-    .include "tunes/Pachelbel's Canon in D major 003.s"
+;    .include "tunes/Pachelbel's Canon in D major 003.s"
 ;    .include "tunes/Interleave THIS! 015.s"
 ;    .include "tunes/Knightmare 200Hz 017.s"
 ;    .include "tunes/Ten Little Endians_015.s"
 ;    .include "tunes/Just add cream 020.s"
+
+    .include "tunes/SID_Test_001.aky.s"
+;    .include "tunes/knightmare.aky.s"
+;    .include "tunes/you_never_can_tell.aky.s"
+
     .long                            ;pad to 4 bytes
 tune_end:
 
