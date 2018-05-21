@@ -16,9 +16,9 @@ chan_c_sid_on:  ds.b 1
   .even
 
 sid_emu:
-	bra	ini	; the three branches at the top of file.
-	bra	exit
-	bra	play
+;	bra	sid_ini	; the three branches at the top of file.
+;	bra	sid_exit
+;	bra	sid_play
 
 	dc.b	'Grazey 3 Sid Voice Player'
 	dc.b	"SID voices install on TA,TB,TD"
@@ -26,15 +26,15 @@ sid_emu:
 	even
 flag:	dc.w	0
 
-ini:
+sid_ini:
 	bsr	INITC
 	rts
 
-exit:	bsr	CBACK
+sid_exit:	bsr	CBACK
         rts
 
 
-play:	
+sid_play:	
 
 	bsr.s	SIDEMU
 

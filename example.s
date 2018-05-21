@@ -78,19 +78,13 @@ start:
     .endif ; .if USE_EVENTS
     
     
-;    .if SID_VOICES
-;    move.b #1,chan_a_sid_on
-;    ;move.b #1,chan_b_sid_on
-;    ;move.b #1,chan_c_sid_on
-;    .endif ; .if SID_VOICES
-
     move.b $484.w,-(sp)             ;save old keyclick state
     clr.b $484.w                    ;keyclick off, key repeat off
 
     lea tune,a0
-    bsr PLY_AKYst_Start+0           ;init player and tune
+    bsr PLY_AKYst_Init              ;init player and tune
     .if SID_VOICES
-    bsr sid_emu+0                   ;init SID voices player
+    bsr sid_ini                     ;init SID voices player
     .endif
 
     .if !debug
@@ -131,10 +125,10 @@ start:
 
     .if debug
     lea tune,a0                     ;tell the player where to find the tune start
-    bsr PLY_AKYst_Start+2           ;play that funky music
+    bsr PLY_AKYst_Play              ;play that funky music
     .if SID_VOICES
     lea values_store(pc),a0
-    bsr sid_emu+8
+    bsr sid_play
     .endif
     .endif
 
@@ -148,7 +142,7 @@ start:
     move.l  old_vbl,$70.w           ;restore vbl
 
     .if SID_VOICES
-    bsr sid_emu+4
+    bsr sid_exit
     .endif
     .if disable_timers=1
     lea save_mfp(pc),a0
@@ -165,7 +159,7 @@ start:
 
     .else
     .if SID_VOICES
-    bsr sid_emu+4
+    bsr sid_exit
     .endif
     move.l  old_timer_c,$114.w      ;restore timer c
     move.b  #$C0,$FFFFFA23.w        ;and how would you stop the ym?
@@ -242,7 +236,7 @@ vbl:
       move.b d0,d1
       and.b #$f0,d1
       cmp.b #$f0,d1
-      bne .no_sid_event
+      bne.s .no_sid_event
       move.b d0,d1
       and.b #EVENT_CHANNEL_A_MASK,d1
       move.b d1,chan_a_sid_on
@@ -260,10 +254,10 @@ vbl:
       ;## Parse tune events
       ;########################################################
 
-    bsr.s PLY_AKYst_Start+2         ;play that funky music
+    bsr.s PLY_AKYst_Play            ;play that funky music
     .if SID_VOICES
     lea values_store(pc),a0
-    bsr sid_emu+8
+    bsr sid_play
     .endif
     .if show_cpu
     not.w $ffff8240.w
@@ -288,7 +282,6 @@ timer_c:
     not.w $ffff8240.w
     .endif
     lea tune,a0                     ;tell the player where to find the tune start
-    .if show_cpu
 
       ;########################################################
       ;## Parse tune events
@@ -335,7 +328,7 @@ timer_c:
       move.b d0,d1
       and.b #$f0,d1
       cmp.b #$f0,d1
-      bne .no_sid_event
+      bne.s .no_sid_event
       move.b d0,d1
       and.b #EVENT_CHANNEL_A_MASK,d1
       move.b d1,chan_a_sid_on
@@ -353,13 +346,14 @@ timer_c:
       ;## Parse tune events
       ;########################################################
 
-    bsr.s PLY_AKYst_Start+2         ;play that funky music
+    bsr.s PLY_AKYst_Play            ;play that funky music
     .if SID_VOICES
     lea values_store(pc),a0
-    bsr sid_emu+8
-    .endif
-    .endif
+    bsr sid_play
+    .if show_cpu
     not.w $ffff8240.w
+    .endif
+    .endif
     movem.l (sp)+,d0-a6             ;restore registers
 
 old_timer_c=*+2
