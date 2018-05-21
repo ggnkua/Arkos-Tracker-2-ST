@@ -104,6 +104,9 @@ start:
     .endif
 
     .else
+    .if SID_VOICES
+    bsr sid_emu+4
+    .endif
     move.l  old_timer_c,$114.w      ;restore timer c
     move.b  #$C0,$FFFFFA23.w        ;and how would you stop the ym?
     .endif
