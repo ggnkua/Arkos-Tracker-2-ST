@@ -40,16 +40,24 @@
 debug=0                             ;1=skips installing a timer for replay and instead calls the player in succession
                                     ;good for debugging the player but plays the tune in turbo mode :)
 show_cpu=1                          ;if 1, display a bar showing CPU usage
-use_vbl=1                           ;if enabled, vbl is used instead of timer c
+use_vbl=0                           ;if enabled, vbl is used instead of timer c
 disable_timers=0                    ;if 1, stops all MFP timers, for better CPU usage display
 UNROLLED_CODE=0                     ;if 1, enable unrolled slightly faster YM register reading code
 SID_VOICES=1                        ;if 1, enable SID voices (takes more CPU time!)
 PC_REL_CODE=0                       ;if 1, make code PC relative (helps if you move the routine around, like for example SNDH)
 AVOID_SMC=0                         ;if 1, assemble the player without SMC stuff, so it should be fine for CPUs with cache
-tune_freq =  50                     ;tune frequency in ticks per second
+tune_freq = 200                     ;tune frequency in ticks per second
 USE_EVENTS=1                        ;if 1, include events, and parse them
 USE_SID_EVENTS=1                    ;if 1, use events to control SID.
                                     ;  $Fn=sid setting, where n bits are xABC for which voice to use SID
+
+  ; error checking illegal combination of USE_EVENTS and USE_SID_EVENTS
+  .if USE_SID_EVENTS=1
+    .if USE_EVENTS=0
+      error
+      dc.b "You can't use sid events if USE_EVENTS is 0"
+    .endif ; .if USE_EVENTS=0
+  .endif ; .if USE_SID_EVENTS=1
 
 EVENT_CHANNEL_A_MASK equ 4
 EVENT_CHANNEL_B_MASK equ 2
@@ -85,7 +93,7 @@ start:
     bsr PLY_AKYst_Init              ;init player and tune
     .if SID_VOICES
     bsr sid_ini                     ;init SID voices player
-    .endif
+    .endif ; .if SID_VOICES
 
     .if !debug
     move sr,-(sp)
@@ -110,16 +118,16 @@ start:
     clr.b $fffffa0d.w
     clr.b $fffffa11.w
     clr.b $fffffa15.w
-    .endif
+    .endif ; .if disable_timers=1
     
     move.l  $70.w,old_vbl           ;so how do you turn the player on?
     move.l  #vbl,$70.w              ;(makes gesture of turning an engine key on) *trrrrrrrrrrrrrr*
-    .else                           ;install our very own timer C
+    .else ; .if use_vbl=1           ;install our very own timer C
     move.l  $114.w,old_timer_c      ;so how do you turn the player on?
     move.l  #timer_c,$114.w         ;(makes gesture of turning an engine key on) *trrrrrrrrrrrrrr*
-    .endif
+    .endif ; .if use_vbl=1
     move (sp)+,sr                   ;enable interrupts - tune will start playing
-    .endif
+    .endif ; .if !debug
     
 .waitspace:
 
@@ -129,8 +137,8 @@ start:
     .if SID_VOICES
     lea values_store(pc),a0
     bsr sid_play
-    .endif
-    .endif
+    .endif ; .if SID_VOICES
+    .endif ; .if debug
 
     cmp.b #57,$fffffc02.w           ;wait for space keypress
     bne.s .waitspace
@@ -166,7 +174,7 @@ start:
     .endif
 i set 0
     rept 14
-    move.l  #i,$FFFF8800.w          ;(makes gensture of turning an engine key off) just turn it off!
+    move.l  #i,$FFFF8800.w          ;(makes gesture of turning an engine key off) just turn it off!
 i set i+$01010000
     endr
     move (sp)+,sr                   ;enable interrupts - tune will stop playing
@@ -182,21 +190,20 @@ vbl:
     movem.l d0-a6,-(sp)
 
     .if 0
-    move.w #2047,d0                 ;small softwre pause so we can see the cpu time
+    move.w #2047,d0                 ;small software pause so we can see the cpu time
 .wait: dbra d0,.wait
-    .endif
+    .endif ; .if 0
 
     lea tune,a0                     ;tell the player where to find the tune start
     .if show_cpu
     not.w $ffff8240.w
-    .endif
+    .endif ; .if show_cpu
 
       ;########################################################
       ;## Parse tune events
 
       .if USE_EVENTS
       movem.l d0/a0,-(sp)
-      ;clr.b $ffffc123.w
       clr.b event_flag
 .event_do_count:
       move.w event_counter,d0
@@ -215,11 +222,10 @@ vbl:
       addq #2,a0
       move.l (a0),a0
       move.l a0,events_pos
+      move.w (a0),event_counter
       bra.s .event_do_count
 .noloopback:
       move.l a0,events_pos
-      ;subq #1,d0
-      ;beq.s .event_read_val      
 .nohit:
       move.w d0,event_counter
       ;done
@@ -230,9 +236,7 @@ vbl:
       tst.b event_flag
       beq.s .no_event
       movem.l d0-d1,-(sp)
-        ;moveq #0,d0 ; debug only
       move.b event_byte,d0
-        ;clr.b $ffffc123.w
       move.b d0,d1
       and.b #$f0,d1
       cmp.b #$f0,d1
@@ -258,20 +262,20 @@ vbl:
     .if SID_VOICES
     lea values_store(pc),a0
     bsr sid_play
-    .endif
+    .endif ; .if SID_VOICES
     .if show_cpu
     not.w $ffff8240.w
-    .endif
+    .endif ; .if show_cpu
     movem.l (sp)+,d0-a6    
     .if disable_timers!=1
 old_vbl=*+2
     jmp 'GGN!'
-    .else
+    .else ; .if disable_timers!=1
     rte
 old_vbl: ds.l 1
 save_mfp:   ds.l 16
-    .endif
-    .else
+    .endif ; .if disable_timers!=1
+    .else ; .if use_vbl=1
 timer_c:
     sub.w #tune_freq,timer_c_ctr    ;is it giiiirooo day tom?
     ;bgt.s timer_c_jump              ;sadly derek, no it's not giro day
@@ -280,7 +284,7 @@ timer_c:
     movem.l d0-a6,-(sp)             ;save all registers, just to be on the safe side
     .if show_cpu
     not.w $ffff8240.w
-    .endif
+    .endif ; .if show_cpu
     lea tune,a0                     ;tell the player where to find the tune start
 
       ;########################################################
@@ -288,7 +292,6 @@ timer_c:
 
       .if USE_EVENTS
       movem.l d0/a0,-(sp)
-      ;clr.b $ffffc123.w
       clr.b event_flag
 .event_do_count:
       move.w event_counter,d0
@@ -307,11 +310,10 @@ timer_c:
       addq #2,a0
       move.l (a0),a0
       move.l a0,events_pos
+      move.w (a0),event_counter
       bra.s .event_do_count
 .noloopback:
       move.l a0,events_pos
-      ;subq #1,d0
-      ;beq.s .event_read_val      
 .nohit:
       move.w d0,event_counter
       ;done
@@ -322,9 +324,7 @@ timer_c:
       tst.b event_flag
       beq.s .no_event
       movem.l d0-d1,-(sp)
-        ;moveq #0,d0 ; debug only
       move.b event_byte,d0
-        ;clr.b $ffffc123.w
       move.b d0,d1
       and.b #$f0,d1
       cmp.b #$f0,d1
@@ -350,24 +350,24 @@ timer_c:
     .if SID_VOICES
     lea values_store(pc),a0
     bsr sid_play
+    .endif ; .if SID_VOICES
     .if show_cpu
     not.w $ffff8240.w
-    .endif
-    .endif
+    .endif ; .if show_cpu
     movem.l (sp)+,d0-a6             ;restore registers
 
 old_timer_c=*+2
 timer_c_jump:
     jmp 'AKY!'                      ;jump to the old timer C vector
 timer_c_ctr: dc.w 200
-    .endif
-    .endif
+    .endif ; .if use_vbl=1
+    .endif ; .if !debug
 
     .include "PlayerAky.s"
 
     .if SID_VOICES
     .include "sid.s"
-    .endif
+    .endif ; .if SID_VOICES
 
     .data
 
@@ -378,9 +378,13 @@ event_byte: dc.b 0
 event_flag: dc.b 0
   .even
 tune_events:
-    .include "tunes/SID_Test_001.events.words.s"
-;    .include "tunes/knightmare.events.words.s"
+;    .include "tunes/SID_Test_001.events.words.s"
+    .include "tunes/knightmare.events.words.s"
 ;    .include "tunes/you_never_can_tell.events.words.s"
+
+;    .include "tunes/ten_little_endians.events.words.s"
+;    .include "tunes/just_add_cream.events.words.s"
+;    .include "tunes/interleave_this.events.words.s"
   .even
   .endif ; .if USE_EVENTS
 
@@ -396,9 +400,13 @@ tune:
 ;    .include "tunes/Ten Little Endians_015.s"
 ;    .include "tunes/Just add cream 020.s"
 
-    .include "tunes/SID_Test_001.aky.s"
-;    .include "tunes/knightmare.aky.s"
+;    .include "tunes/SID_Test_001.aky.s"
+    .include "tunes/knightmare.aky.s"
 ;    .include "tunes/you_never_can_tell.aky.s"
+
+;    .include "tunes/ten_little_endians.aky.s"
+;    .include "tunes/just_add_cream.aky.s"
+;    .include "tunes/interleave_this.aky.s"
 
     .long                            ;pad to 4 bytes
 tune_end:
