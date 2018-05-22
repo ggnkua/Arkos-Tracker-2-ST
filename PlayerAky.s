@@ -1277,6 +1277,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise:
         move.b d4,(a3)                                     ;(volume to 16).
     .else
         move.w d7,d0
+        ext.w d0
         add.w d0,d0
         add.w d0,d0
         move.b d4,(a3,d0.w)
@@ -1564,6 +1565,7 @@ PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop:
         move.b d4,(a3)                                     ;(16 = hardware volume).
     .else
         move.w d7,d0
+        ext.w d0
         add.w d0,d0
         add.w d0,d0
         move.b d4,(a3,d0.w)
