@@ -65,7 +65,7 @@ player:
     even
 
 tune:
-	.include "tune_filename.s"
+	.include "tunes/Just add cream 022.s"
 tune_end:
 
 	.if SID_VOICES
