@@ -719,7 +719,7 @@ PLY_AKYst_RRB_NIS_HardwareOnly_AfterMSB\~:
         
         ;Noise or retrig?
         rol.b #1,d1
-        bcs PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStop\~
+        bcs.s PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStop\~
   .if \subroutine
         rts
   .else
