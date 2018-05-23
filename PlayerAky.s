@@ -967,7 +967,9 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
         move.b #11,(a2)
         move.b PLY_AKYst_PsgRegister11(pc),(a3)
     .else
-        move.b PLY_AKYst_PsgRegister11(pc),(11*4)(a3)
+        lea $ffff8800.w,a2                                      ;we're going to write these values immediately to the YM so we might as well load an address register
+        move.b #11,$ffff8800.w
+        move.b PLY_AKYst_PsgRegister11(pc),$ffff8802.w
     .endif       
 
 ;Register 12
@@ -975,7 +977,8 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
         move.b #12,(a2)
         move.b PLY_AKYst_PsgRegister12(pc),(a3)
     .else
-        move.b PLY_AKYst_PsgRegister12(pc),(12*4)(a3)
+        move.b #12,(a2)
+        move.b PLY_AKYst_PsgRegister12(pc),2(a2)
     .endif
 
 
@@ -998,7 +1001,8 @@ PLY_AKYst_PsgRegister13_Change:
         move.b #13,(a2)
         move.b d1,(a3)
     .else
-        move.b d1,(13*4)(a3)
+        move.b #13,(a2)
+        move.b d1,2(a2)
     .endif
 
 PLY_AKYst_PsgRegister13_End:
