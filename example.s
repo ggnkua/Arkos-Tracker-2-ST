@@ -51,11 +51,15 @@ USE_EVENTS=1                        ;if 1, include events, and parse them
 USE_SID_EVENTS=1                    ;if 1, use events to control SID.
                                     ;  $Fn=sid setting, where n bits are xABC for which voice to use SID
 
-  ; error checking illegal combination of USE_EVENTS and USE_SID_EVENTS
+  ; error checking illegal combination of SID_VOICES, USE_EVENTS and USE_SID_EVENTS
   .if USE_SID_EVENTS=1
     .if USE_EVENTS=0
       error
       dc.b "You can't use sid events if USE_EVENTS is 0"
+    .endif ; .if USE_EVENTS=0
+    .if SID_VOICES=0
+      error
+      dc.b "You can't use sid events if SID_VOICES is 0"
     .endif ; .if USE_EVENTS=0
   .endif ; .if USE_SID_EVENTS=1
 
