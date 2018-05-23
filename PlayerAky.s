@@ -882,6 +882,13 @@ PLY_AKYst_RRB_NIS_S_NOR_Noise\~:
         bra.s readregs_out\~
   .endif
 PLY_AKYst_RRB_NIS_S_NOR_SetNoise\~:
+        ;Sets the noise.
+        movex.b d1,PLY_AKYst_PsgRegister6 
+  .if \subroutine
+        rts
+  .else
+;        bra.s readregs_out\~
+  .endif
 
 readregs_out\~:
 	.endm
