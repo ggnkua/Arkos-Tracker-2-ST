@@ -22,12 +22,8 @@
 ; Note that if you define want to create SNDH files, you should enable PC_REL_CODE and AVOID_SMC as well. SNDH files are meant to be compatible with all platforms
 
 ; Stuff TODO:
-; - (done) Get rid of that silly 64k alignment requirement
-; - Clean up register usage
-; - (done) Remove all CPC leftovers, like some magic constant loads
-; - (done) SMC stuff can potentially break machines with cache like TT and Falcon, either provide alternative or get rid of SMC in all cases if there's something faster
-; - In PLY_AKYst_RRB_NIS_ManageLoop there is an auto-even of address happening due to the way the data is exported. This can be fixed by a) Exporting all data as words, b) pre-parsing the tune during init, finding odd addresses, even them and patch all affected offsets
-; - (done) PLY_AKYst_ReadRegisterBlock can be macro'd in order to be inlined. Also the ym registers will be then known, so they can get encoded as constants
+; @ Clean up register usage
+; @ In PLY_AKYst_RRB_NIS_ManageLoop there is an auto-even of address happening due to the way the data is exported. This can be fixed by a) Exporting all data as words, b) pre-parsing the tune during init, finding odd addresses, even them and patch all affected offsets
         
 ; Macros for sndh or normal player.
 ; In sndh mode the player has to be position independent, and that mostly boils down
@@ -35,6 +31,7 @@
 ; one format or the other, just so both versions of the player can be generated
 ; from the same source
 
+    .if ^^defined movex
     .macro movex src,dst
     .if PC_REL_CODE
         move\! \src,\dst - PLY_AKYst_Init(a4)
@@ -42,6 +39,7 @@
         move\! \src,\dst
     .endif
     .endm
+    .endif
 
 PLY_AKYst_RRB_NoiseChannelBit equ 5                             ;Bit to modify to set/reset the noise channel.
 PLY_AKYst_RRB_SoundChannelBit equ 2                             ;Bit to modify to set/reset the sound channel.

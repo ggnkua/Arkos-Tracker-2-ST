@@ -67,6 +67,111 @@ EVENT_CHANNEL_A_MASK equ 4
 EVENT_CHANNEL_B_MASK equ 2
 EVENT_CHANNEL_C_MASK equ 1
 
+;
+; Event parser, in macro form (let's not waste a bsr and rts!)
+; Note: movex macro is defined in PlayerAky.s
+;
+    .macro clrx dst
+    .if PC_REL_CODE
+        clr\! \dst - PLY_AKYst_Init(a4)
+    .else
+        clr\! \dst
+    .endif
+    .endm
+    .macro tstx dst
+    .if PC_REL_CODE
+        tst\! \dst - PLY_AKYst_Init(a4)
+    .else
+        tst\! \dst
+    .endif
+    .endm
+    .macro movex src,dst
+    .if PC_REL_CODE
+        move\! \src,\dst - PLY_AKYst_Init(a4)
+    .else
+        move\! \src,\dst
+    .endif
+    .endm
+
+	.macro parse_events
+      ;########################################################
+      ;## Parse tune events
+
+      .if USE_EVENTS
+      .if PC_REL_CODE
+      movem.l d0/a0/a4,-(sp)
+      lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
+      .else
+      movem.l d0/a0,-(sp)
+      .endif
+      clrx.b event_flag
+.event_do_count:
+      move.w event_counter(pc),d0
+      subq #1,d0
+      bne.s .nohit
+.event_read_val:
+      ; time to read value
+      move.l events_pos(pc),a0
+      addq #2,a0
+      move.w (a0)+,d0
+      movex.b d0,event_byte
+      movex.b #1,event_flag ; there's a new event value to fetch
+      move.w (a0),d0
+      bne.s .noloopback
+      ; loopback
+      addq #2,a0
+      move.l (a0),a0
+      movex.l a0,events_pos
+      movex.w (a0),event_counter
+      bra.s .event_do_count
+.noloopback:
+      movex.l a0,events_pos
+.nohit:
+      movex.w d0,event_counter
+      ;done
+      .if PC_REL_CODE
+      movem.l (sp)+,d0/a0/a4
+      .else
+      movem.l (sp)+,d0/a0
+      .endif
+      .endif ; .if USE_EVENTS
+
+      .if USE_SID_EVENTS
+      .if PC_REL_CODE
+      movem.l d0/d1/a4,-(sp)
+      lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
+      .else
+      movem.l d0-d1,-(sp)
+      .endif
+      tstx.b event_flag
+      beq.s .no_event
+      move.b event_byte(pc),d0
+      move.b d0,d1
+      and.b #$f0,d1
+      cmp.b #$f0,d1
+      bne.s .no_sid_event
+      move.b d0,d1
+      and.b #EVENT_CHANNEL_A_MASK,d1
+      movex.b d1,chan_a_sid_on
+      move.b d0,d1
+      and.b #EVENT_CHANNEL_B_MASK,d1
+      movex.b d1,chan_b_sid_on
+      move.b d0,d1
+      and.b #EVENT_CHANNEL_C_MASK,d1
+      movex.b d1,chan_c_sid_on
+.no_sid_event:
+.no_event:
+      .if PC_REL_CODE
+      movem.l (sp)+,d0/d1/a4
+      .else
+      movem.l (sp)+,d0-d1
+      .endif     
+      .endif ; .if USE_SID_EVENTS
+
+      ;## Parse tune events
+      ;########################################################
+	.endm
+
     pea start(pc)                   ;go to start with supervisor mode on
     move.w #$26,-(sp)
     trap #14
@@ -77,16 +182,18 @@ EVENT_CHANNEL_C_MASK equ 1
 start:
 
     .if SID_VOICES
-    clr.b chan_a_sid_on
-    clr.b chan_b_sid_on
-    clr.b chan_c_sid_on
+    lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
+    clrx.b chan_a_sid_on
+    clrx.b chan_b_sid_on
+    clrx.b chan_c_sid_on
     .endif ; .if SID_VOICES
     
     .if USE_EVENTS
+    lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
     ; reset event pos to start of event list
-    lea tune_events,a0
-    move.l a0,events_pos
-    move.w (a0),event_counter
+    lea tune_events(pc),a0
+    movex.l a0,events_pos
+    movex.w (a0),event_counter
     .endif ; .if USE_EVENTS
     
     
@@ -203,64 +310,7 @@ vbl:
     not.w $ffff8240.w
     .endif ; .if show_cpu
 
-      ;########################################################
-      ;## Parse tune events
-
-      .if USE_EVENTS
-      movem.l d0/a0,-(sp)
-      clr.b event_flag
-.event_do_count:
-      move.w event_counter,d0
-      subq #1,d0
-      bne.s .nohit
-.event_read_val:
-      ; time to read value
-      move.l events_pos,a0
-      addq #2,a0
-      move.w (a0)+,d0
-      move.b d0,event_byte
-      move.b #1,event_flag ; there's a new event value to fetch
-      move.w (a0),d0
-      bne.s .noloopback
-      ; loopback
-      addq #2,a0
-      move.l (a0),a0
-      move.l a0,events_pos
-      move.w (a0),event_counter
-      bra.s .event_do_count
-.noloopback:
-      move.l a0,events_pos
-.nohit:
-      move.w d0,event_counter
-      ;done
-      movem.l (sp)+,d0/a0
-      .endif ; .if USE_EVENTS
-
-      .if USE_SID_EVENTS
-      tst.b event_flag
-      beq.s .no_event
-      movem.l d0-d1,-(sp)
-      move.b event_byte,d0
-      move.b d0,d1
-      and.b #$f0,d1
-      cmp.b #$f0,d1
-      bne.s .no_sid_event
-      move.b d0,d1
-      and.b #EVENT_CHANNEL_A_MASK,d1
-      move.b d1,chan_a_sid_on
-      move.b d0,d1
-      and.b #EVENT_CHANNEL_B_MASK,d1
-      move.b d1,chan_b_sid_on
-      move.b d0,d1
-      and.b #EVENT_CHANNEL_C_MASK,d1
-      move.b d1,chan_c_sid_on
-.no_sid_event:
-      movem.l (sp)+,d0-d1
-.no_event:
-      .endif ; .if USE_SID_EVENTS
-
-      ;## Parse tune events
-      ;########################################################
+	parse_events
 
     bsr.s PLY_AKYst_Play            ;play that funky music
     .if SID_VOICES
@@ -292,64 +342,7 @@ timer_c:
     .endif ; .if show_cpu
     lea tune,a0                     ;tell the player where to find the tune start
 
-      ;########################################################
-      ;## Parse tune events
-
-      .if USE_EVENTS
-      movem.l d0/a0,-(sp)
-      clr.b event_flag
-.event_do_count:
-      move.w event_counter,d0
-      subq #1,d0
-      bne.s .nohit
-.event_read_val:
-      ; time to read value
-      move.l events_pos,a0
-      addq #2,a0
-      move.w (a0)+,d0
-      move.b d0,event_byte
-      move.b #1,event_flag ; there's a new event value to fetch
-      move.w (a0),d0
-      bne.s .noloopback
-      ; loopback
-      addq #2,a0
-      move.l (a0),a0
-      move.l a0,events_pos
-      move.w (a0),event_counter
-      bra.s .event_do_count
-.noloopback:
-      move.l a0,events_pos
-.nohit:
-      move.w d0,event_counter
-      ;done
-      movem.l (sp)+,d0/a0
-      .endif ; .if USE_EVENTS
-
-      .if USE_SID_EVENTS
-      tst.b event_flag
-      beq.s .no_event
-      movem.l d0-d1,-(sp)
-      move.b event_byte,d0
-      move.b d0,d1
-      and.b #$f0,d1
-      cmp.b #$f0,d1
-      bne.s .no_sid_event
-      move.b d0,d1
-      and.b #EVENT_CHANNEL_A_MASK,d1
-      move.b d1,chan_a_sid_on
-      move.b d0,d1
-      and.b #EVENT_CHANNEL_B_MASK,d1
-      move.b d1,chan_b_sid_on
-      move.b d0,d1
-      and.b #EVENT_CHANNEL_C_MASK,d1
-      move.b d1,chan_c_sid_on
-.no_sid_event:
-      movem.l (sp)+,d0-d1
-.no_event:
-      .endif ; .if USE_SID_EVENTS
-
-      ;## Parse tune events
-      ;########################################################
+	parse_events
 
     bsr.s PLY_AKYst_Play            ;play that funky music
     .if SID_VOICES

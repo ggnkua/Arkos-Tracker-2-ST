@@ -8,7 +8,7 @@ debug=0                             ;1=skips installing a timer for replay and i
                                     ;good for debugging the player but plays the tune in turbo mode :)
 showcpu=0
 
-tune_freq = 50                      ;tune frequency in ticks per second (not sure if this will ever change)
+tune_freq = 200                     ;tune frequency in ticks per second
 
 	pea start(pc)                   ;go to start with supervisor mode on
 	move.w #$26,-(sp)
@@ -73,7 +73,7 @@ timer_c_ctr: dc.w 200
 	
 	.even
 tune:
-	.incbin "Interleave THIS! 015.sndh"
+	.incbin "snd.snd"
 ;   .include "UltraSyd - Fractal.s"
 ;	.include "UltraSyd - YM Type.s"
 ;	.include "Targhan - Midline Process - Carpet.s"

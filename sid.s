@@ -39,7 +39,7 @@ sid_play:
 	bsr.s	SIDEMU
 
 
-  tst.b chan_a_sid_on
+  tstx.b chan_a_sid_on
   beq.s .skip_a
 
 ;pat1:
@@ -53,7 +53,7 @@ sid_play:
 	bsr	CALC_A
 	
 .skip_a:
-  tst.b chan_b_sid_on
+  tstx.b chan_b_sid_on
   beq.s .skip_b
 
 
@@ -67,7 +67,7 @@ sid_play:
 
 .skip_b:
 
-  tst.b chan_c_sid_on
+  tstx.b chan_c_sid_on
   beq.s .skip_c
 
 	clr.l	d0
@@ -107,7 +107,7 @@ spc	equ	2
 	MOVE.B	((4*9)+2)(A0),D2
 	MOVE.B	((4*10)+2)(A0),D3
 
-  tst.b chan_a_sid_on
+  tstx.b chan_a_sid_on
   bne.s .chan_a_sid
   move.b #8,(a1)
   bra.s .OK1
@@ -125,7 +125,7 @@ spc	equ	2
 	BSR	NO_TA
 
 .NORAU1:
-  tst.b chan_b_sid_on
+  tstx.b chan_b_sid_on
   bne.s .chan_b_sid
   move.b #9,(a1)
   bra.s .OK2
@@ -142,7 +142,7 @@ spc	equ	2
 	BSR	NO_TB
 
 .NORAU2:
-  tst.b chan_c_sid_on
+  tstx.b chan_c_sid_on
   bne.s .chan_c_sid
   move.b #10,(a1)
   bra.s .OK3

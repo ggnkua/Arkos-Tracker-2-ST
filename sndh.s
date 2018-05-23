@@ -3,10 +3,126 @@
 ; based on the official source from http://sndh.atari.org
 ;
 
+; @bug event loops are not pc relative! crashy crashy on tune loop!
+
 PC_REL_CODE=1                   ;if 1, make code PC relative (helps if you move the routine around, like for example SNDH)
 AVOID_SMC=1                     ;if 1, assemble the player without SMC stuff, so it should be fine for CPUs with cache
-SID_VOICES=0                    ;if 1, enable SID voices (takes more CPU time!)
+SID_VOICES=1                    ;if 1, enable SID voices (takes more CPU time!)
 UNROLLED_CODE=0                 ;if 1, enable unrolled slightly faster YM register reading code
+USE_EVENTS=1                        ;if 1, include events, and parse them
+USE_SID_EVENTS=1                    ;if 1, use events to control SID.
+                                    ;  $Fn=sid setting, where n bits are xABC for which voice to use SID
+
+
+EVENT_CHANNEL_A_MASK equ 4
+EVENT_CHANNEL_B_MASK equ 2
+EVENT_CHANNEL_C_MASK equ 1
+
+;
+; Event parser, in macro form (let's not waste a bsr and rts!)
+; Note: movex macro is defined in PlayerAky.s
+;
+    .macro clrx dst
+    .if PC_REL_CODE
+        clr\! \dst - PLY_AKYst_Init(a4)
+    .else
+        clr\! \dst
+    .endif
+    .endm
+    .macro tstx dst
+    .if PC_REL_CODE
+        tst\! \dst - PLY_AKYst_Init(a4)
+    .else
+        tst\! \dst
+    .endif
+    .endm
+    .macro movex src,dst
+    .if PC_REL_CODE
+        move\! \src,\dst - PLY_AKYst_Init(a4)
+    .else
+        move\! \src,\dst
+    .endif
+    .endm
+
+	.macro parse_events
+      ;########################################################
+      ;## Parse tune events
+
+      .if USE_EVENTS
+      .if PC_REL_CODE
+      movem.l d0/a0/a4,-(sp)
+      lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
+      .else
+      movem.l d0/a0,-(sp)
+      .endif
+      clrx.b event_flag
+.event_do_count:
+      move.w event_counter(pc),d0
+      subq #1,d0
+      bne.s .nohit
+.event_read_val:
+      ; time to read value
+      move.l events_pos(pc),a0
+      addq #2,a0
+      move.w (a0)+,d0
+      movex.b d0,event_byte
+      movex.b #1,event_flag ; there's a new event value to fetch
+      move.w (a0),d0
+      bne.s .noloopback
+      ; loopback
+      addq #2,a0
+      move.l (a0),a0
+      movex.l a0,events_pos
+      movex.w (a0),event_counter
+      bra.s .event_do_count
+.noloopback:
+      movex.l a0,events_pos
+.nohit:
+      movex.w d0,event_counter
+      ;done
+      .if PC_REL_CODE
+      movem.l (sp)+,d0/a0/a4
+      .else
+      movem.l (sp)+,d0/a0
+      .endif
+      .endif ; .if USE_EVENTS
+
+      .if USE_SID_EVENTS
+      .if PC_REL_CODE
+      movem.l d0/d1/a4,-(sp)
+      lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
+      .else
+      movem.l d0-d1,-(sp)
+      .endif
+
+      tstx.b event_flag
+      beq.s .no_event
+      move.b event_byte(pc),d0
+      move.b d0,d1
+      and.b #$f0,d1
+      cmp.b #$f0,d1
+      bne.s .no_sid_event
+      move.b d0,d1
+      and.b #EVENT_CHANNEL_A_MASK,d1
+      movex.b d1,chan_a_sid_on
+      move.b d0,d1
+      and.b #EVENT_CHANNEL_B_MASK,d1
+      movex.b d1,chan_b_sid_on
+      move.b d0,d1
+      and.b #EVENT_CHANNEL_C_MASK,d1
+      movex.b d1,chan_c_sid_on
+.no_sid_event:
+.no_event:
+      .if PC_REL_CODE
+      movem.l (sp)+,d0/d1/a4
+      .else
+      movem.l (sp)+,d0-d1
+      .endif     
+      .endif ; .if USE_SID_EVENTS
+
+      ;## Parse tune events
+      ;########################################################
+	.endm
 
     bra.w  sndh_init
     bra.w  sndh_exit
@@ -17,7 +133,7 @@ UNROLLED_CODE=0                 ;if 1, enable unrolled slightly faster YM regist
     dc.b   'COMM','Who knows',0
     dc.b   'RIPP','GGN',0
     dc.b   'CONV','Arkos2-2-SNDH',0
-    dc.b   'TC050',0
+    dc.b   'TC200',0
     even
 	
     dc.b  'YEAR','2018',0
@@ -27,10 +143,26 @@ UNROLLED_CODE=0                 ;if 1, enable unrolled slightly faster YM regist
 
 sndh_init:
     movem.l d0-a6,-(sp)
+
+    .if SID_VOICES
+    lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
+    clrx.b chan_a_sid_on
+    clrx.b chan_b_sid_on
+    clrx.b chan_c_sid_on
+    .endif ; .if SID_VOICES
+    
+    .if USE_EVENTS
+    lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
+    ; reset event pos to start of event list
+    lea tune_events(pc),a0
+    movex.l a0,events_pos
+    movex.w (a0),event_counter
+    .endif ; .if USE_EVENTS
+
     lea tune(pc),a0
     bsr.w PLY_AKYst_Init
     .if SID_VOICES
-	bsr sid_emu+0
+	bsr sid_ini
     .endif
     movem.l  (sp)+,d0-a6
     rts
@@ -38,7 +170,7 @@ sndh_init:
 sndh_exit:
     movem.l d0-a6,-(sp)
     .if SID_VOICES
-	bsr sid_emu+4
+	bsr sid_exit
     .endif
 i set 0
 	rept 14
@@ -51,10 +183,11 @@ i set i+$01010000
 sndh_vbl:
     movem.l d0-a6,-(sp)
     lea tune(pc),a0
+    parse_events
     bsr.w  PLY_AKYst_Play
     .if SID_VOICES
     lea values_store(pc),a0
-	bsr sid_emu+8
+	bsr sid_play
     .endif
     movem.l  (sp)+,d0-a6
     rts
@@ -65,12 +198,24 @@ player:
     even
 
 tune:
-	.include "tunes/Just add cream 022.s"
+    .include "tunes/knightmare.aky.s"
 tune_end:
+
+tune_events:
+    .include "tunes/knightmare.events.words.s"
+    .even
 
 	.if SID_VOICES
 	include "sid.s"
 	.endif
+
+  .if USE_EVENTS
+events_pos: ds.l 1
+event_counter: ds.w 1
+event_byte: dc.b 0
+event_flag: dc.b 0
+  .even
+  .endif
 
 
 ;http://phf.atari.org
