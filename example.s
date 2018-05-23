@@ -277,9 +277,10 @@ save_mfp:   ds.l 16
     .endif ; .if disable_timers!=1
     .else ; .if use_vbl=1
 timer_c:
+	move.w #$2500,sr                ;mask out all interrupts apart from MFP
     sub.w #tune_freq,timer_c_ctr    ;is it giiiirooo day tom?
     ;bgt.s timer_c_jump              ;sadly derek, no it's not giro day
-    bgt timer_c_jump              ;sadly derek, no it's not giro day
+    bgt timer_c_jump                ;sadly derek, no it's not giro day
     add.w #200,timer_c_ctr          ;it is giro day, let's reset the 200Hz counter
     movem.l d0-a6,-(sp)             ;save all registers, just to be on the safe side
     .if show_cpu
