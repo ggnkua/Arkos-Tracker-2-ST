@@ -51,17 +51,21 @@ USE_EVENTS=1                        ;if 1, include events, and parse them
 USE_SID_EVENTS=1                    ;if 1, use events to control SID.
                                     ;  $Fn=sid setting, where n bits are xABC for which voice to use SID
 
+    if _VASM_=1
+    include "vasm.s"
+    endif
+
   ; error checking illegal combination of SID_VOICES, USE_EVENTS and USE_SID_EVENTS
-  .if USE_SID_EVENTS=1
-    .if USE_EVENTS=0
+  if USE_SID_EVENTS=1
+    if USE_EVENTS=0
       error
       dc.b "You can't use sid events if USE_EVENTS is 0"
-    .endif ; .if USE_EVENTS=0
-    .if SID_VOICES=0
+    endif ; .if USE_EVENTS=0
+    if SID_VOICES=0
       error
       dc.b "You can't use sid events if SID_VOICES is 0"
-    .endif ; .if USE_EVENTS=0
-  .endif ; .if USE_SID_EVENTS=1
+    endif ; .if USE_EVENTS=0
+  endif ; .if USE_SID_EVENTS=1
 
 EVENT_CHANNEL_A_MASK equ 4
 EVENT_CHANNEL_B_MASK equ 2
@@ -71,39 +75,40 @@ EVENT_CHANNEL_C_MASK equ 1
 ; Event parser, in macro form (let's not waste a bsr and rts!)
 ; Note: movex macro is defined in PlayerAky.s
 ;
-    .macro clrx dst
-    .if PC_REL_CODE
+    if _RMAC_=1
+    macro clrx dst
+    if PC_REL_CODE
         clr\! \dst - PLY_AKYst_Init(a4)
-    .else
+    else
         clr\! \dst
-    .endif
-    .endm
-    .macro tstx dst
-    .if PC_REL_CODE
+    endif
+    endm
+    macro tstx dst
+    if PC_REL_CODE
         tst\! \dst - PLY_AKYst_Init(a4)
-    .else
+    else
         tst\! \dst
-    .endif
-    .endm
-    .macro movex src,dst
-    .if PC_REL_CODE
+    endif
+    endm
+    macro movex src,dst
+    if PC_REL_CODE
         move\! \src,\dst - PLY_AKYst_Init(a4)
-    .else
+    else
         move\! \src,\dst
-    .endif
-    .endm
+    endif
+    endm
 
-	.macro parse_events
+	macro parse_events
       ;########################################################
       ;## Parse tune events
 
-      .if USE_EVENTS
-      .if PC_REL_CODE
+      if USE_EVENTS
+      if PC_REL_CODE
       movem.l d0/a0/a4,-(sp)
       lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
-      .else
+      else
       movem.l d0/a0,-(sp)
-      .endif
+      endif
       clrx.b event_flag
 .event_do_count:
       move.w event_counter(pc),d0
@@ -129,20 +134,20 @@ EVENT_CHANNEL_C_MASK equ 1
 .nohit:
       movex.w d0,event_counter
       ;done
-      .if PC_REL_CODE
+      if PC_REL_CODE
       movem.l (sp)+,d0/a0/a4
-      .else
+      else
       movem.l (sp)+,d0/a0
-      .endif
-      .endif ; .if USE_EVENTS
+      endif
+      endif ; .if USE_EVENTS
 
-      .if USE_SID_EVENTS
-      .if PC_REL_CODE
+      if USE_SID_EVENTS
+      if PC_REL_CODE
       movem.l d0/d1/a4,-(sp)
       lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
-      .else
+      else
       movem.l d0-d1,-(sp)
-      .endif
+      endif
       tstx.b event_flag
       beq.s .no_event
       move.b event_byte(pc),d0
@@ -161,16 +166,17 @@ EVENT_CHANNEL_C_MASK equ 1
       movex.b d1,chan_c_sid_on
 .no_sid_event:
 .no_event:
-      .if PC_REL_CODE
+      if PC_REL_CODE
       movem.l (sp)+,d0/d1/a4
-      .else
+      else
       movem.l (sp)+,d0-d1
-      .endif     
-      .endif ; .if USE_SID_EVENTS
+      endif     
+      endif ; .if USE_SID_EVENTS
 
       ;## Parse tune events
       ;########################################################
-	.endm
+	endm
+    endif
 
     pea start(pc)                   ;go to start with supervisor mode on
     move.w #$26,-(sp)
@@ -181,20 +187,20 @@ EVENT_CHANNEL_C_MASK equ 1
 
 start:
 
-    .if SID_VOICES
+    if SID_VOICES
     lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
     clrx.b chan_a_sid_on
     clrx.b chan_b_sid_on
     clrx.b chan_c_sid_on
-    .endif ; .if SID_VOICES
+    endif ; .if SID_VOICES
     
-    .if USE_EVENTS
+    if USE_EVENTS
     lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
     ; reset event pos to start of event list
     lea tune_events(pc),a0
     movex.l a0,events_pos
     movex.w (a0),event_counter
-    .endif ; .if USE_EVENTS
+    endif ; .if USE_EVENTS
     
     
     move.b $484.w,-(sp)             ;save old keyclick state
@@ -202,16 +208,16 @@ start:
 
     lea tune,a0
     bsr PLY_AKYst_Init              ;init player and tune
-    .if SID_VOICES
+    if SID_VOICES
     bsr sid_ini                     ;init SID voices player
-    .endif ; .if SID_VOICES
+    endif ; .if SID_VOICES
 
-    .if !debug
+    if !debug
     move sr,-(sp)
     move #$2700,sr
-    .if use_vbl=1                   ;install our very own vbl
+    if use_vbl=1                   ;install our very own vbl
 
-    .if disable_timers=1
+    if disable_timers=1
     lea save_mfp(pc),a0
     move.b $fffffa07.w,(a0)+        ;save MFP timer status
     move.b $fffffa0b.w,(a0)+
@@ -229,41 +235,41 @@ start:
     clr.b $fffffa0d.w
     clr.b $fffffa11.w
     clr.b $fffffa15.w
-    .endif ; .if disable_timers=1
+    endif ; .if disable_timers=1
     
     move.l  $70.w,old_vbl           ;so how do you turn the player on?
     move.l  #vbl,$70.w              ;(makes gesture of turning an engine key on) *trrrrrrrrrrrrrr*
-    .else ; .if use_vbl=1           ;install our very own timer C
+    else ; .if use_vbl=1           ;install our very own timer C
     move.l  $114.w,old_timer_c      ;so how do you turn the player on?
     move.l  #timer_c,$114.w         ;(makes gesture of turning an engine key on) *trrrrrrrrrrrrrr*
-    .endif ; .if use_vbl=1
+    endif ; .if use_vbl=1
     move (sp)+,sr                   ;enable interrupts - tune will start playing
-    .endif ; .if !debug
+    endif ; .if !debug
     
 .waitspace:
 
-    .if debug
+    if debug
     lea tune,a0                     ;tell the player where to find the tune start
     bsr PLY_AKYst_Play              ;play that funky music
-    .if SID_VOICES
+    if SID_VOICES
     lea values_store(pc),a0
     bsr sid_play
-    .endif ; .if SID_VOICES
-    .endif ; .if debug
+    endif ; .if SID_VOICES
+    endif ; .if debug
 
     cmp.b #57,$fffffc02.w           ;wait for space keypress
     bne.s .waitspace
 
-    .if !debug
+    if !debug
     move sr,-(sp)
     move #$2700,sr
-    .if use_vbl=1
+    if use_vbl=1
     move.l  old_vbl,$70.w           ;restore vbl
 
-    .if SID_VOICES
+    if SID_VOICES
     bsr sid_exit
-    .endif
-    .if disable_timers=1
+    endif
+    if disable_timers=1
     lea save_mfp(pc),a0
     move.b (a0)+,$fffffa07.w        ;restore MFP timer status
     move.b (a0)+,$fffffa0b.w
@@ -274,62 +280,62 @@ start:
     move.b (a0)+,$fffffa11.w
     move.b (a0)+,$fffffa15.w
     move.b #192,$fffffa23.w         ;kick timer C back into activity
-    .endif
+    endif
 
-    .else
-    .if SID_VOICES
+    else
+    if SID_VOICES
     bsr sid_exit
-    .endif
+    endif
     move.l  old_timer_c,$114.w      ;restore timer c
     move.b  #$C0,$FFFFFA23.w        ;and how would you stop the ym?
-    .endif
+    endif
 i set 0
     rept 14
     move.l  #i,$FFFF8800.w          ;(makes gesture of turning an engine key off) just turn it off!
 i set i+$01010000
     endr
     move (sp)+,sr                   ;enable interrupts - tune will stop playing
-    .endif
+    endif
     
     move.b (sp)+,$484.w             ;restore keyclick state
 
     rts                             ;bye!
 
-    .if !debug
-    .if use_vbl=1
+    if !debug
+    if use_vbl=1
 vbl:
     movem.l d0-a6,-(sp)
 
-    .if 0
+    if 0
     move.w #2047,d0                 ;small software pause so we can see the cpu time
 .wait: dbra d0,.wait
-    .endif ; .if 0
+    endif ; .if 0
 
     lea tune,a0                     ;tell the player where to find the tune start
-    .if show_cpu
+    if show_cpu
     not.w $ffff8240.w
-    .endif ; .if show_cpu
+    endif ; .if show_cpu
 
 	parse_events
 
     bsr.s PLY_AKYst_Play            ;play that funky music
-    .if SID_VOICES
+    if SID_VOICES
     lea values_store(pc),a0
     bsr sid_play
-    .endif ; .if SID_VOICES
-    .if show_cpu
+    endif ; .if SID_VOICES
+    if show_cpu
     not.w $ffff8240.w
-    .endif ; .if show_cpu
+    endif ; .if show_cpu
     movem.l (sp)+,d0-a6    
-    .if disable_timers!=1
+    if disable_timers!=1
 old_vbl=*+2
     jmp 'GGN!'
-    .else ; .if disable_timers!=1
+    else ; .if disable_timers!=1
     rte
 old_vbl: ds.l 1
 save_mfp:   ds.l 16
-    .endif ; .if disable_timers!=1
-    .else ; .if use_vbl=1
+    endif ; .if disable_timers!=1
+    else ; .if use_vbl=1
 timer_c:
 	move.w #$2500,sr                ;mask out all interrupts apart from MFP
     sub.w #tune_freq,timer_c_ctr    ;is it giiiirooo day tom?
@@ -337,54 +343,54 @@ timer_c:
     bgt timer_c_jump                ;sadly derek, no it's not giro day
     add.w #200,timer_c_ctr          ;it is giro day, let's reset the 200Hz counter
     movem.l d0-a6,-(sp)             ;save all registers, just to be on the safe side
-    .if show_cpu
+    if show_cpu
     not.w $ffff8240.w
-    .endif ; .if show_cpu
+    endif ; .if show_cpu
     lea tune,a0                     ;tell the player where to find the tune start
 
 	parse_events
 
     bsr.s PLY_AKYst_Play            ;play that funky music
-    .if SID_VOICES
+    if SID_VOICES
     lea values_store(pc),a0
     bsr sid_play
-    .endif ; .if SID_VOICES
-    .if show_cpu
+    endif ; .if SID_VOICES
+    if show_cpu
     not.w $ffff8240.w
-    .endif ; .if show_cpu
+    endif ; .if show_cpu
     movem.l (sp)+,d0-a6             ;restore registers
 
 old_timer_c=*+2
 timer_c_jump:
     jmp 'AKY!'                      ;jump to the old timer C vector
 timer_c_ctr: dc.w 200
-    .endif ; .if use_vbl=1
-    .endif ; .if !debug
+    endif ; .if use_vbl=1
+    endif ; .if !debug
 
-    .include "PlayerAky.s"
+    include "PlayerAky.s"
 
-    .if SID_VOICES
-    .include "sid.s"
-    .endif ; .if SID_VOICES
+    if SID_VOICES
+    include "sid.s"
+    endif ; .if SID_VOICES
 
-    .data
+    data
 
-  .if USE_EVENTS
+  if USE_EVENTS
 events_pos: ds.l 1
 event_counter: ds.w 1
 event_byte: dc.b 0
 event_flag: dc.b 0
-  .even
+  even
 tune_events:
 ;    .include "tunes/SID_Test_001.events.words.s"
-    .include "tunes/knightmare.events.words.s"
+    include "tunes/knightmare.events.words.s"
 ;    .include "tunes/you_never_can_tell.events.words.s"
 
 ;    .include "tunes/ten_little_endians.events.words.s"
 ;    .include "tunes/just_add_cream.events.words.s"
 ;    .include "tunes/interleave_this.events.words.s"
-  .even
-  .endif ; .if USE_EVENTS
+  even
+  endif ; .if USE_EVENTS
 
 tune:
 ;   .include "tunes/UltraSyd - Fractal.s"
@@ -399,15 +405,25 @@ tune:
 ;    .include "tunes/Just add cream 020.s"
 
 ;    .include "tunes/SID_Test_001.aky.s"
-    .include "tunes/knightmare.aky.s"
+    if _RMAC_=1
+    include "tunes/knightmare.aky.s"
+    endif
+    if _VASM_=1
+    include "tunes/knightmare.aky_vasm.s"
+    endif
 ;    .include "tunes/you_never_can_tell.aky.s"
 
 ;    .include "tunes/ten_little_endians.aky.s"
 ;    .include "tunes/just_add_cream.aky.s"
 ;    .include "tunes/interleave_this.aky.s"
 
-    .long                            ;pad to 4 bytes
+    if _RMAC_=1
+    long                            ;pad to 4 bytes
+    endif
+    if _VASM_=1
+    even
+    endif
 tune_end:
 
-    .bss
+    bss
 

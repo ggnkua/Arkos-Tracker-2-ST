@@ -13,7 +13,7 @@ i set i+$01000000
 chan_a_sid_on:  ds.b 1
 chan_b_sid_on:  ds.b 1
 chan_c_sid_on:  ds.b 1
-  .even
+  even
 
 sid_emu:
 ;	bra	sid_ini	; the three branches at the top of file.
