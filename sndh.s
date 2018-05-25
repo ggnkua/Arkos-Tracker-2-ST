@@ -199,11 +199,13 @@ player:
 
 tune:
     .include "tunes/knightmare.aky.s"
+    .long
 tune_end:
 
 tune_events:
     .include "tunes/knightmare.events.words.s"
     .even
+tune_events_end:
 
 	.if SID_VOICES
 	include "sid.s"

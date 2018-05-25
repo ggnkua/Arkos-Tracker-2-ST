@@ -11,11 +11,11 @@ rem ##   # outputs:
 rem ##   #   knightmare.aky.s
 rem ##   #   knightmare.events.words.s
 
-if "%1"=="" (
+if '%1'=='' (
 	echo usage: conv_aks source.aks dest_stub
     exit /b
 )
-if "%2"=="" (
+if '%2'=='' (
 	echo usage: conv_aks source.aks dest_stub
     exit /b
 )

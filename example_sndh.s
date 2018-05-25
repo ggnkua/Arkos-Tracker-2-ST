@@ -73,7 +73,7 @@ timer_c_ctr: dc.w 200
 	
 	.even
 tune:
-	.incbin "snd.snd"
+	.incbin "sndh.sndh"
 ;   .include "UltraSyd - Fractal.s"
 ;	.include "UltraSyd - YM Type.s"
 ;	.include "Targhan - Midline Process - Carpet.s"
