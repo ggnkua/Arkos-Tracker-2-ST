@@ -51,6 +51,9 @@ tune_freq = 200                     ;tune frequency in ticks per second
 USE_EVENTS=1                        ;if 1, include events, and parse them
 USE_SID_EVENTS=1                    ;if 1, use events to control SID.
                                     ;  $Fn=sid setting, where n bits are xABC for which voice to use SID
+DUMP_SONG=0                         ;if 1, produce a YM dump of the tune. DOES NOT WORK WITH SID OR EVENTS YET!
+DUMP_SONG_SKIP_FRAMES_FROM_START=0  ;if dumping, how many frames we should skip from the start
+DUMP_SONG_FRAMES_AMOUNT=50*60       ;if dumping, the number of frames to dump
 
 ; Include vasm compatible macros if we're assembling under it
     if _VASM_=1
@@ -211,6 +214,46 @@ start:
     bsr sid_ini                     ;init SID voices player
     endif ; .if SID_VOICES
 
+    if DUMP_SONG                    ; Let's dump the tune!
+    move.w $ffff8240.w,-(sp)
+    lea tune(pc),a0
+    ; First, skip as many frames as the user requested
+    move.w #DUMP_SONG_SKIP_FRAMES_FROM_START-1,d7
+    blt.s .skip_frames_done
+.skip_frames:
+    movem.l d0-a6,-(sp)
+    bsr PLY_AKYst_Play
+    movem.l (sp)+,d0-a6
+    dbra d7,.skip_frames
+.skip_frames_done:
+
+    ; Now, start dumping
+    ;TODO: error out if DUMP_SONG_FRAMES_AMOUNT<0!
+    move.w #DUMP_SONG_FRAMES_AMOUNT-1,d7
+    lea dump_buffer,a6
+.dumpframes:
+    clr.w (a6)
+    movem.l d0-a6,-(sp)
+    bsr PLY_AKYst_Play
+    movem.l (sp)+,d0-a6
+    moveq #13-1,d6
+    move.w #(13)*4+2,d1
+    moveq #0,d0
+    tst.w (a6)+
+    beq.s .fill_longs
+    moveq #14-1,d6
+    move.w #(14)*4+2,d1
+.fill_longs:
+    move.w 2(a6),d0
+    move.l d0,(a6,d1.w)
+    move.l d0,(a6)+
+    add.l #$01000000,d0
+    dbra d6,.fill_longs
+    add.w #$135,$ffff8240.w
+    dbra d7,.dumpframes
+    move.w (sp)+,$ffff8240.w
+    endif
+
     if !debug
     move sr,-(sp)
     move #$2700,sr
@@ -255,6 +298,11 @@ start:
     bsr sid_play
     endif ; .if SID_VOICES
     endif ; .if debug
+
+    if DUMP_SONG
+    cmp.w #DUMP_SONG_FRAMES_AMOUNT,current_frame
+    beq.s exit
+    endif
 
     cmp.b #57,$fffffc02.w           ;wait for space keypress
     bne.s .waitspace
@@ -311,6 +359,30 @@ vbl:
 .wait: dbra d0,.wait
     endif ; .if vbl_pause
 
+    if DUMP_SONG
+    if show_cpu
+    not.w $ffff8240.w
+    endif ; .if show_cpu
+        move.l song_buffer_pos(pc),a0
+        tst.w (a0)+
+        bne.s play_dump_14_regs
+        lea $ffff8800.w,a1
+        movem.l (a0)+,d0-d7/a2-a6
+        movem.l d0-d7/a2-a6,(a1)
+        move.l a0,song_buffer_pos
+        bra.s play_dump_out
+play_dump_14_regs:
+        movem.l (a0)+,d0-d7/a1-a6
+        move.l a0,song_buffer_pos
+        lea $ffff8800.w,a0
+        movem.l d0-d7/a1-a6,(a0)
+play_dump_out:
+    if show_cpu
+    not.w $ffff8240.w
+    endif ; .if show_cpu
+    addq.w #1,current_frame
+
+    else
 
     lea tune,a0                     ;tell the player where to find the tune start
     if show_cpu
@@ -327,6 +399,7 @@ vbl:
     if show_cpu
     not.w $ffff8240.w
     endif ; .if show_cpu
+    endif ; if DUMP_SONG
     movem.l (sp)+,d0-a6    
     if disable_timers!=1
 old_vbl=*+2
@@ -375,6 +448,11 @@ timer_c_ctr: dc.w 200
     endif ; .if SID_VOICES
 
     data
+
+    if DUMP_SONG
+song_buffer_pos:
+    dc.l dump_buffer
+    endif
 
   if USE_EVENTS
 events_pos: ds.l 1
@@ -428,3 +506,15 @@ tune_end:
 
     bss
 
+    if DUMP_SONG
+; Each YM dump frame consists of:
+; 1 word that specifies wheter we load the hardware envelope values (0=no)
+; Either: 13 longwords containing YM registers 0-12
+;         14 longwords containing YM registers 0-13 (with hardware envelope)
+current_frame:
+    ds.w 1
+dump_dummy:
+    ds.l 1
+dump_buffer:
+    ds.w DUMP_SONG_FRAMES_AMOUNT*(14*2+1)
+    endif
