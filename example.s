@@ -187,7 +187,7 @@ EVENT_CHANNEL_C_MASK equ 1
 
 start:
 
-    if SID_VOICES
+    if SID_VOICES & USE_SID_EVENTS
     lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
     clrx.b chan_a_sid_on
     clrx.b chan_b_sid_on
@@ -201,7 +201,6 @@ start:
     movex.l a0,events_pos
     movex.w (a0),event_counter
     endif ; .if USE_EVENTS
-    
     
     move.b $484.w,-(sp)             ;save old keyclick state
     clr.b $484.w                    ;keyclick off, key repeat off
@@ -292,7 +291,7 @@ start:
 i set 0
     rept 14
     move.l  #i,$FFFF8800.w          ;(makes gesture of turning an engine key off) just turn it off!
-i set i+$01010000
+i set i+$01000000
     endr
     move (sp)+,sr                   ;enable interrupts - tune will stop playing
     endif
@@ -306,10 +305,11 @@ i set i+$01010000
 vbl:
     movem.l d0-a6,-(sp)
 
-    if 0
+    if vbl_pause
     move.w #2047,d0                 ;small software pause so we can see the cpu time
 .wait: dbra d0,.wait
-    endif ; .if 0
+    endif ; .if vbl_pause
+
 
     lea tune,a0                     ;tell the player where to find the tune start
     if show_cpu
@@ -362,7 +362,7 @@ timer_c:
 
 old_timer_c=*+2
 timer_c_jump:
-    jmp 'AKY!'                      ;jump to the old timer C vector
+    jmp 'XIA!'                      ;jump to the old timer C vector
 timer_c_ctr: dc.w 200
     endif ; .if use_vbl=1
     endif ; .if !debug

@@ -39,8 +39,10 @@ sid_play:
 	bsr.s	SIDEMU
 
 
+    if USE_SID_EVENTS
   tstx.b chan_a_sid_on
   beq.s .skip_a
+    endif
 
 ;pat1:
   ;lea	0,a0
@@ -52,9 +54,11 @@ sid_play:
 	add.b	((4*0)+2)(a0),d1
 	bsr	CALC_A
 	
+    if USE_SID_EVENTS
 .skip_a:
   tstx.b chan_b_sid_on
   beq.s .skip_b
+    endif
 
 
 	clr.l	d0
@@ -65,10 +69,12 @@ sid_play:
 	add.b	((4*2)+2)(a0),d1
 	bsr	CALC_B
 
+    if USE_SID_EVENTS
 .skip_b:
-
   tstx.b chan_c_sid_on
   beq.s .skip_c
+    endif
+
 
 	clr.l	d0
 	clr.l	d1
@@ -77,7 +83,9 @@ sid_play:
 	lsl	#8,d1
 	add.b	((4*4)+2)(a0),d1
 	bsr	CALC_D
+    if USE_SID_EVENTS
 .skip_c:
+    endif
 
 	RTS
 
@@ -107,11 +115,13 @@ spc	equ	2
 	MOVE.B	((4*9)+2)(A0),D2
 	MOVE.B	((4*10)+2)(A0),D3
 
+    if USE_SID_EVENTS
   tstx.b chan_a_sid_on
   bne.s .chan_a_sid
   move.b #8,(a1)
   bra.s .OK1
 .chan_a_sid:
+    endif
 
 .NORAU0:
 	BTST	#3+8,D7
@@ -125,11 +135,13 @@ spc	equ	2
 	BSR	NO_TA
 
 .NORAU1:
+    if USE_SID_EVENTS
   tstx.b chan_b_sid_on
   bne.s .chan_b_sid
   move.b #9,(a1)
   bra.s .OK2
 .chan_b_sid:
+    endif
 
 	BTST	#4+8,D7
 	BNE.S	.NORAU2
@@ -142,11 +154,13 @@ spc	equ	2
 	BSR	NO_TB
 
 .NORAU2:
+    if USE_SID_EVENTS
   tstx.b chan_c_sid_on
   bne.s .chan_c_sid
   move.b #10,(a1)
   bra.s .OK3
 .chan_c_sid:
+    endif
 
 	BTST	#5+8,D7
 	BNE.S	.NORAU3
