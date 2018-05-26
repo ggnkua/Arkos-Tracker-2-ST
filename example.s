@@ -40,7 +40,8 @@
 debug=0                             ;1=skips installing a timer for replay and instead calls the player in succession
                                     ;good for debugging the player but plays the tune in turbo mode :)
 show_cpu=1                          ;if 1, display a bar showing CPU usage
-use_vbl=0                           ;if enabled, vbl is used instead of timer c
+use_vbl=1                           ;if 1, vbl is used instead of timer c
+vbl_pause=1                         ;if 1, a small pause is inserted in the vbl code so the cpu usage is visible
 disable_timers=0                    ;if 1, stops all MFP timers, for better CPU usage display
 UNROLLED_CODE=0                     ;if 1, enable unrolled slightly faster YM register reading code
 SID_VOICES=1                        ;if 1, enable SID voices (takes more CPU time!)
@@ -51,6 +52,7 @@ USE_EVENTS=1                        ;if 1, include events, and parse them
 USE_SID_EVENTS=1                    ;if 1, use events to control SID.
                                     ;  $Fn=sid setting, where n bits are xABC for which voice to use SID
 
+; Include vasm compatible macros if we're assembling under it
     if _VASM_=1
     include "vasm.s"
     endif
@@ -58,12 +60,10 @@ USE_SID_EVENTS=1                    ;if 1, use events to control SID.
   ; error checking illegal combination of SID_VOICES, USE_EVENTS and USE_SID_EVENTS
   if USE_SID_EVENTS=1
     if USE_EVENTS=0
-      error
-      dc.b "You can't use sid events if USE_EVENTS is 0"
+      error "You can't use sid events if USE_EVENTS is 0"
     endif ; .if USE_EVENTS=0
     if SID_VOICES=0
-      error
-      dc.b "You can't use sid events if SID_VOICES is 0"
+      error "You can't use sid events if SID_VOICES is 0"
     endif ; .if USE_EVENTS=0
   endif ; .if USE_SID_EVENTS=1
 
@@ -259,6 +259,7 @@ start:
     cmp.b #57,$fffffc02.w           ;wait for space keypress
     bne.s .waitspace
 
+exit:
     if !debug
     move sr,-(sp)
     move #$2700,sr
