@@ -1,6 +1,15 @@
 # ST version of Arkos tracker 2 player 
 
-http://www.julien-nevo.com/arkostracker/
+Get the tracker from http://www.julien-nevo.com/arkostracker/
+
+## Summary of attractive features (i.e. why should one use this thing?)
+
+* Compose on PC/Mac/Linux with all the comforts of modern UIs and resolutions, then export and play the tune on a ST
+* SID voices support that can be turned on and off using song events, so CPU usage can be controlled easier
+* Fairly fast replay routine:
+  * The vanilla version takes less than 3 scanlines on a plain Atari ST
+  * The moderately optimised version takes about 2 scanlines (on a plain Atari ST)
+  * The "register dump" version takes about 1/2 scanline
 
 # How to export
 
@@ -8,7 +17,7 @@ To export a track from the tracker for use with these player follow these simple
 
 - Open a command line, type:
 
-SongToAky -reladr --labelPrefix "Main_" -spbyte "dc.b" -spword "dc.w" -sppostlbl ":" -spomt "your_tune.aks" "your_tune.s"
+`SongToAky -reladr --labelPrefix "Main_" -spbyte "dc.b" -spword "dc.w" -sppostlbl ":" -spomt "your_tune.aks" "your_tune.s"`
 
 Song will be auto converted to the proper format for you.
 
@@ -30,6 +39,9 @@ Alternatively you can do the same from inside the tracker:
   - Little endian: check
   - One mnemonic type per line: check
 - Go to File->Export->Export as AKY. Check "source file" and leave ASM labels prefix as "Main". Check "Encode to address" and type "0" in the field. Check "Encode all addresses as relative to the song start: check". Press "Export" and choose a filename.
+
+If you're a vasm user then the .s has to be post-processed for now. The following command should do the required changes:
+`sed -e "s/ + /+/gI" -e "s/ - /-/gI" -e "s/, /,/gI" -e "s/dc.b\(.*\); Duration./dcbx\1; Duration./gI" -e "s/dc.b 8\t; Loop/dcbx 8\t; Loop/gI" -e "s/dc.b 8$/dcbx 8/gI" tune.aky.s > tune.aky_vasm.s`
 
 You can now use the exported .s file directly with the player example source.
 
