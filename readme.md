@@ -1,6 +1,6 @@
 ST version of Arkos tracker 2 player - http://www.julien-nevo.com/arkostracker/
 
-#Export
+# How to export
 
 To export a track from the tracker for use with these player follow these simple steps: (current for v2 alpha 4)
 
@@ -31,7 +31,7 @@ Alternatively you can do the same from inside the tracker:
 
 You can now use the exported .s file directly with the player example source.
 
-#Flavours
+# Flavours
 
 As seen at the top of the main player source (PlayerAky.s) or the example (example.s) there are a lot of options for using the player, which can be overwhelming. So this section will attempt to cover as many cases as possible so the programmer can configure the player to suit his/her needs.
 
@@ -54,7 +54,7 @@ The player will dump 13 or 14 longwords plus one word each time it's called. The
 ---------|---------------------------------------------------
 `$0000XX00` | First YM register
 `$0100XX00` | Second YM register
-    ...     |       ...
+...         |       ...
 `$0C00XX00` | Thirteenth YM register
 `$0D00XX00` | **Optional** Fourteenth YM register
 
@@ -68,7 +68,7 @@ or (for 14 longwords)
         movem.l d0-d7/a1-a6,(a0) 
 assuming that `a0` points to the data to be played.
 
-In `example.s` there is sample code to illustrate how to dump and replay a tune. First of all, `DUMP_SONG` has to be set to non-zero. There are two other equates that help fine tune the dumping: `DUMP_SONG_SKIP_FRAMES_FROM_START` that tells the dumping routine to skip as many frames from the beginning of the tune as required, and `DUMP_SONG_FRAMES_AMOUNT` that contains the amount of frames to be dumped. A suitable buffer has to be defined in order to store the data. For simplicity's sake this is allocated as `DUMP_SONG_FRAMES_AMOUNT`**(14**4+2) bytes, which means that space is allocated for the worst case. If memory is really tight a trick here would be for the programmer to allocate the RAM, then run the dumping, then inspecting the RAM to actually determine how many bytes are required.
+In `example.s` there is sample code to illustrate how to dump and replay a tune. First of all, `DUMP_SONG` has to be set to non-zero. There are two other equates that help fine tune the dumping: `DUMP_SONG_SKIP_FRAMES_FROM_START` that tells the dumping routine to skip as many frames from the beginning of the tune as required, and `DUMP_SONG_FRAMES_AMOUNT` that contains the amount of frames to be dumped. A suitable buffer has to be defined in order to store the data. For simplicity's sake this is allocated as `DUMP_SONG_FRAMES_AMOUNT`\*(14\*4+2) bytes, which means that space is allocated for the worst case. If memory is really tight a trick here would be for the programmer to allocate the RAM, then run the dumping, then inspecting the RAM to actually determine how many bytes are required.
 
 ## `USE_SID_EVENTS`
 
@@ -82,7 +82,7 @@ In Arkos Tracker 2, all events starting with F (F0, F1, F2 etc up to FF) are now
      F6 - Channels A and B use SID - timer A and B
      F7 - All channels use SID - timers A, B and D
 
-#SNDH
+# SNDH
 
 There follows a semi-automatic process to create a SNDH compliant file:
 
@@ -98,7 +98,7 @@ There follows a semi-automatic process to create a SNDH compliant file:
 
 If everything went fine then a file called `sndh.sndh` should be created and can be played by any compliant SNDH player.
 
-#Code maturity
+# Code maturity
 
 As discussed above the player has a few different code paths depending on the switches defined. Not all of them are equally optimised, so the following table will present the situation in detail:
 
@@ -114,7 +114,7 @@ In addition to this, the code in `example.s` for `USE_EVENTS` and `USE_SID_EVENT
 
 Finally the whole code inside `sid.s` should also be treated as reference. There seem to be lots of room for speedups but this will potentially lead to non system friendly code. So this is postponed for now.
 
-#Credits
+# Credits
 
 - Original player source and tracker by Targhan/Arkos
 - Conversion by GGN/KUA software productions
