@@ -33,6 +33,25 @@ Alternatively you can do the same from inside the tracker:
 
 You can now use the exported .s file directly with the player example source.
 
+# How to use it in your projects
+
+The files that the player uses are the following:
+
+File | Description
+-----|------------
+PlayerAky.s | The main player code
+sid.s | (*optional*) The SID player code
+example.s | (*optional*) Example code on how to call the player in various ways
+build.bat | Windows batch script to assemble example.s using the **rmac** assembler (also `build_vasm.bat` for **vasm** assembler)
+sndh.s | Skeleton code for creating a SNDH file
+sndh.bat | Windows batch script to generate a SNDH file
+
+In its simplest form, you can simple include `PlayerAky.s` in your project. Initialise the player by calling `PLY_AKYst_Start` with `a0` pointing to the song data you have exported. Then, every tick of your replay frequency (50Hz, 200Hz etc) simply call `PLY_AKYst_Start+2` again with `a0` pointing to the song data. Instead of `PLY_AKYst_Start+0/+2` you can also use `PLY_AKYst_Init`/`PLY_AKYst_Play`.
+
+If you plan to use SID voices you also have to include `sid.s`. In addition to the initialisation above you also have to call `sid_ini`. Finally each timer tick you need to call `sid_play` after the player itself.
+
+To restore the system to its initial state, call `sid_exit` (if applicable) and zero YM registers 0 to 13.
+
 # Flavours
 
 As seen at the top of the main player source (PlayerAky.s) or the example (example.s) there are a lot of options for using the player, which can be overwhelming. So this section will attempt to cover as many cases as possible so the programmer can configure the player to suit his/her needs.
@@ -48,6 +67,12 @@ Equate | Description
 `DUMP_SONG` | This will force the player to not output any data to the PSG directly but instead write data to a buffer. See below for more details
 `USE_EVENTS` | Turns on event processing. The events are external to the player, check out `example.s` for sample code.
 `USE_SID_EVENTS` | Similar to `USE_EVENTS`, the difference being that this can process events that turn SID channels on and off. See below for more details
+
+# Derivative versions
+
+It can be quite daunting to read the player source with all the different codepaths in the same file, so a few convenience versions of the player are generated. These are inside the `generated_players` and can be included in your projects instead of the main player. They can also be used as a base to create your own custom or optimised versions. The filename of each version contains the "on" switches it was generated with.
+
+Because of the way these sources are generated, they are not supported, nor any optimisations/fixes for them will be accepted. Please incorporate any changes to the main player source and submit that.
 
 ## `DUMP_SONG` explained further
 
