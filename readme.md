@@ -1,4 +1,6 @@
-ST version of Arkos tracker 2 player - http://www.julien-nevo.com/arkostracker/
+# ST version of Arkos tracker 2 player 
+
+http://www.julien-nevo.com/arkostracker/
 
 # How to export
 
@@ -37,8 +39,9 @@ As seen at the top of the main player source (PlayerAky.s) or the example (examp
 
 For all switches assume that they are off only when they are assinged the value of 0, otherwise they will be on. The switches that influence the player greatly are the following:
 
+Equate | Description
+-------|------------
 `UNROLLED_CODE` | This will use unrolled code which is faster than the plain code
-----------------|----------------------------------------------------------------------------
 `SID_VOICES` | This will enable SID voices for all 3 channels. Consumes vastly greater amounts of CPU time
 `PC_REL_CODE` | Turns the code into PC relative. Handy if you want to relocate the player in RAM
 `AVOID_SMC` | Normally the player uses self-modifying code (*SMC*) to gain performance. However this might cause problems on machines that use caches. This switch will use a different code path that avoids SMC, at the cost of some performance.
@@ -50,8 +53,9 @@ For all switches assume that they are off only when they are assinged the value 
 
 The player will dump 13 or 14 longwords plus one word each time it's called. The reason for different sizes has to do with whether the hardware envelope is being triggered or not. In more details, the data is presented below.
 
+Value | Comment
+------|--------
 `flag.w` | If non-zero, the player has dumped 14 YM registers
----------|---------------------------------------------------
 `$0000XX00` | First YM register
 `$0100XX00` | Second YM register
 ...         |       ...
@@ -117,6 +121,6 @@ Finally the whole code inside `sid.s` should also be treated as reference. There
 # Credits
 
 - Original player source and tracker by Targhan/Arkos
-- Conversion by GGN/KUA software productions
+- Conversion by GGN/KÜA software productions
 - Additional code by Excellence in Art
 - SID voices source provided by Grazey of the PHF based on code by Abyss and Tao of Cream
