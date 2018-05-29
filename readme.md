@@ -45,6 +45,7 @@ example.s | (*optional*) Example code on how to call the player in various ways
 build.bat | Windows batch script to assemble example.s using the **rmac** assembler (also `build_vasm.bat` for **vasm** assembler)
 sndh.s | Skeleton code for creating a SNDH file
 sndh.bat | Windows batch script to generate a SNDH file
+vasm.s | (*optional*) extra macros when you assemble with **vasm** assembler
 
 In its simplest form, you can simple include `PlayerAky.s` in your project. Initialise the player by calling `PLY_AKYst_Start` with `a0` pointing to the song data you have exported. Then, every tick of your replay frequency (50Hz, 200Hz etc) simply call `PLY_AKYst_Start+2` again with `a0` pointing to the song data. Instead of `PLY_AKYst_Start+0/+2` you can also use `PLY_AKYst_Init`/`PLY_AKYst_Play`.
 
