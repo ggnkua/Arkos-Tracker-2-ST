@@ -14,12 +14,15 @@
 ; Note that the source makes use of macros, so take a look at their definitions (after these messages end) before reading the code
 
 ; Equates that control code generation:
-; PC_REL_CODE   - off by default, define this to produce slower SNDH compatible code (i.e. no absolute addressing)
-; AVOID_SMC     - off by default, define this to produce slower but more compatible code, friendly for cache endabled CPUs
-; UNROLLED_CODE - off by default, define this to produce unrolled code which will be slightly faster
-; SID_VOICES    - off by default, define this to use SID style voices
+
+;UNROLLED_CODE - if 1, enable unrolled slightly faster YM register reading code
+;SID_VOICES    - if 1, enable SID voices (takes more CPU time!)
+;PC_REL_CODE   - if 1, make code PC relative (helps if you move the routine around, like for example SNDH)
+;AVOID_SMC     - if 1, assemble the player without SMC stuff, 
+;DUMP_SONG     - if 1, produce a YM dump of the tune. DOES NOT WORK WITH SID OR EVENTS YET!
 ;
 ; Note that if you define want to create SNDH files, you should enable PC_REL_CODE and AVOID_SMC as well. SNDH files are meant to be compatible with all platforms
+;
 
 ; Stuff TODO:
 ; @ Clean up register usage
@@ -32,7 +35,7 @@
 ; from the same source
 
     if _RMAC_=1
-    .if ^^defined movex
+    .if !(^^macdef movex)
     .macro movex src,dst
     .if PC_REL_CODE
         move\! \src,\dst - PLY_AKYst_Init(a4)
