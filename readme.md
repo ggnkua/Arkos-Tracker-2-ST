@@ -4,12 +4,12 @@ Get the tracker from http://www.julien-nevo.com/arkostracker/
 
 ## Summary of attractive features (i.e. why should one use this thing?)
 
-* Compose on PC/Mac/Linux with all the comforts of modern UIs and resolutions, then export and play the tune on a ST
-* SID voices support that can be turned on and off using song events, so CPU usage can be controlled easier
-* Fairly fast replay routine:
-  * The vanilla version takes less than 3 scanlines on a plain Atari ST
-  * The moderately optimised version takes about 2 scanlines (on a plain Atari ST)
-  * The "register dump" version takes about 1/2 scanline
+- Compose on PC/Mac/Linux with all the comforts of modern UIs and resolutions, then export and play the tune on a ST
+- SID voices support that can be turned on and off using song events, so CPU usage can be controlled easier
+- Fairly fast replay routine:
+  - The vanilla version takes less than 3 scanlines on a plain Atari ST
+  - The moderately optimised version takes about 2 scanlines (on a plain Atari ST)
+  - The "register dump" version takes about 1/2 scanline
 
 # How to export
 
