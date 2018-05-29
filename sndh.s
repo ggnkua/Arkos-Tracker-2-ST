@@ -12,6 +12,7 @@ UNROLLED_CODE=0                 ;if 1, enable unrolled slightly faster YM regist
 USE_EVENTS=1                        ;if 1, include events, and parse them
 USE_SID_EVENTS=1                    ;if 1, use events to control SID.
                                     ;  $Fn=sid setting, where n bits are xABC for which voice to use SID
+DUMP_SONG=0                         ;if 1, produce a YM dump of the tune. DOES NOT WORK WITH SID OR EVENTS YET!
 
 
 EVENT_CHANNEL_A_MASK equ 4
@@ -144,7 +145,7 @@ EVENT_CHANNEL_C_MASK equ 1
 sndh_init:
     movem.l d0-a6,-(sp)
 
-    .if SID_VOICES
+    .if SID_VOICES & USE_SID_EVENTS
     lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
     clrx.b chan_a_sid_on
     clrx.b chan_b_sid_on
