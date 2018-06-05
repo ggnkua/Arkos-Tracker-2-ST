@@ -40,9 +40,6 @@ Alternatively you can do the same from inside the tracker:
   - One mnemonic type per line: check
 - Go to File->Export->Export as AKY. Check "source file" and leave ASM labels prefix as "Main". Check "Encode to address" and type "0" in the field. Check "Encode all addresses as relative to the song start: check". Press "Export" and choose a filename.
 
-If you're a vasm user then the .s has to be post-processed for now. The following command should do the required changes:
-`sed -e "s/ + /+/gI" -e "s/ - /-/gI" -e "s/, /,/gI" -e "s/dc.b\(.*\); Duration./dcbx\1; Duration./gI" -e "s/dc.b 8\t; Loop/dcbx 8\t; Loop/gI" -e "s/dc.b 8$/dcbx 8/gI" tune.aky.s > tune.aky_vasm.s`
-
 You can now use the exported .s file directly with the player example source.
 
 # How to use it in your projects
