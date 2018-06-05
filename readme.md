@@ -159,3 +159,4 @@ Finally the whole code inside `sid.s` should also be treated as reference. There
 - Conversion by GGN/KÜA software productions
 - Additional code by Excellence in Art
 - SID voices source provided by Grazey of the PHF based on code by Abyss and Tao of Cream
+- Some vasm help from @realmml
