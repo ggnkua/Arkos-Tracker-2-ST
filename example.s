@@ -40,8 +40,8 @@
 debug=0                             ;1=skips installing a timer for replay and instead calls the player in succession
                                     ;good for debugging the player but plays the tune in turbo mode :)
 show_cpu=1                          ;if 1, display a bar showing CPU usage
-use_vbl=1                           ;if 1, vbl is used instead of timer c
-vbl_pause=1                         ;if 1, a small pause is inserted in the vbl code so the cpu usage is visible
+use_vbl=0                           ;if 1, vbl is used instead of timer c
+vbl_pause=0                         ;if 1, a small pause is inserted in the vbl code so the cpu usage is visible
 disable_timers=0                    ;if 1, stops all MFP timers, for better CPU usage display
 UNROLLED_CODE=0                     ;if 1, enable unrolled slightly faster YM register reading code
 SID_VOICES=1                        ;if 1, enable SID voices (takes more CPU time!)
@@ -484,12 +484,7 @@ tune:
 ;    .include "tunes/Just add cream 020.s"
 
 ;    .include "tunes/SID_Test_001.aky.s"
-    if _RMAC_=1
     include "tunes/knightmare.aky.s"
-    endif
-    if _VASM_=1
-    include "tunes/knightmare.aky_vasm.s"
-    endif
 ;    .include "tunes/you_never_can_tell.aky.s"
 
 ;    .include "tunes/ten_little_endians.aky.s"
