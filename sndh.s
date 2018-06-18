@@ -203,10 +203,12 @@ tune:
     .long
 tune_end:
 
+    .if USE_EVENTS
 tune_events:
     .include "tunes/knightmare.events.words.s"
     .even
 tune_events_end:
+    .endif
 
 	.if SID_VOICES
 	include "sid.s"
