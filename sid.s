@@ -16,12 +16,9 @@ chan_c_sid_on:  ds.b 1
   even
 
 sid_emu:
-;    bra    sid_ini    ; the three branches at the top of file.
-;    bra    sid_exit
-;    bra    sid_play
-
-    dc.b    'Grazey 3 Sid Voice Player'
-    dc.b    "SID voices install on TA,TB,TD"
+    dc.b    'Grazey 3 Sid Voice Player.'
+    dc.b    'SID voices install on TA,TB,TD.'
+    dc.b    'Extensions by GGN and XiA"
     dc.b    0
     even
 flag:    dc.w    0
@@ -31,7 +28,7 @@ sid_ini:
     rts
 
 sid_exit:    bsr    CBACK
-        rts
+    rts
 
 
 sid_play:    
@@ -39,12 +36,11 @@ sid_play:
     bsr.s    SIDEMU
 
     if USE_SID_EVENTS
-  tstx.b chan_a_sid_on
-  beq.s .skip_a
+    tstx.b chan_a_sid_on
+    beq.s .skip_a
     endif
 
 ;pat1:
-  ;lea    0,a0
     clr.l    d0
     clr.l    d1
     move.b    ((4*8)+2)(a0),d0
@@ -55,8 +51,8 @@ sid_play:
     
     if USE_SID_EVENTS
 .skip_a:
-  tstx.b chan_b_sid_on
-  beq.s .skip_b
+    tstx.b chan_b_sid_on
+    beq.s .skip_b
     endif
 
     clr.l    d0
@@ -69,8 +65,8 @@ sid_play:
 
     if USE_SID_EVENTS
 .skip_b:
-  tstx.b chan_c_sid_on
-  beq.s .skip_c
+    tstx.b chan_c_sid_on
+    beq.s .skip_c
     endif
 
     clr.l    d0
@@ -167,7 +163,7 @@ spc    equ    2
     BPL.S    .OK3
     MOVEQ    #0,D3
 .OK3:
-  MOVE.B    D3,2(A1)
+    MOVE.B    D3,2(A1)
     BSR    NO_TD
 .NORAU3:
 
