@@ -70,9 +70,9 @@ DUMP_SONG_FRAMES_AMOUNT=50*60       ;if dumping, the number of frames to dump
     endif ; .if USE_EVENTS=0
   endif ; .if USE_SID_EVENTS=1
 
-EVENT_CHANNEL_A_MASK equ 4
-EVENT_CHANNEL_B_MASK equ 2
-EVENT_CHANNEL_C_MASK equ 1
+EVENT_CHANNEL_A_MASK equ 8+4
+EVENT_CHANNEL_B_MASK equ 8+2
+EVENT_CHANNEL_C_MASK equ 8+1
 
 ;
 ; Event parser, in macro form (let's not waste a bsr and rts!)
@@ -159,13 +159,23 @@ EVENT_CHANNEL_C_MASK equ 1
       cmp.b #$f0,d1
       bne.s .no_sid_event
       move.b d0,d1
+; lsl.b #4 below explained:
+; for sid events, d1 is going to be $f0 to $ff
+; we mask this with the channel mask (bit 0, 1 or 2) and keep bit 3 intact too.
+; if we shift this left by 4 places then it's $00 to $f0 with $10 increments.
+; after this transformation, if we test d1 as a byte, the positive values will
+; mean "turn channel off", the negative ones "turn channel on" and 0 value
+; will do nothing.
       and.b #EVENT_CHANNEL_A_MASK,d1
+      lsl.b #4,d1
       movex.b d1,chan_a_sid_on
       move.b d0,d1
       and.b #EVENT_CHANNEL_B_MASK,d1
+      lsl.b #4,d1
       movex.b d1,chan_b_sid_on
       move.b d0,d1
       and.b #EVENT_CHANNEL_C_MASK,d1
+      lsl.b #4,d1
       movex.b d1,chan_c_sid_on
 .no_sid_event:
 .no_event:

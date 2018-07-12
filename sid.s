@@ -110,10 +110,12 @@ spc    equ    2
     MOVE.B    ((4*10)+2)(A0),D3
 
     if USE_SID_EVENTS
-  tstx.b chan_a_sid_on
-  bne.s .chan_a_sid
-  move.b #8,(a1)
-  bra.s .OK1
+    move.b #8,(a1)
+    tstx.b chan_a_sid_on
+    bgt.s OK1          ;turn sid channel off
+    blt.s .NORAU0      ;turn sid channel on
+    move.b d1,2(a1)    ;just write value to the PSG and don't touch timer
+    bra.s channel_b
 .chan_a_sid:
     endif
 
@@ -125,18 +127,21 @@ spc    equ    2
     BPL.S    .OK1
     MOVEQ    #0,D1
 .OK1:
-  MOVE.B    D1,2(A1)
+    MOVE.B    D1,2(A1)
     BSR    NO_TA
 
-.NORAU1:
+channel_b:
     if USE_SID_EVENTS
-  tstx.b chan_b_sid_on
-  bne.s .chan_b_sid
-  move.b #9,(a1)
-  bra.s .OK2
+    move.b #9,(a1)
+    tstx.b chan_b_sid_on
+    bgt.s OK2          ;turn sid channel off
+    blt.s .NORAU1      ;turn sid channel on
+    move.b d1,2(a1)    ;just write value to the PSG and don't touch timer
+    bra.s channel_c
 .chan_b_sid:
     endif
 
+.NORAU1:
     BTST    #4+8,D7
     BNE.S    .NORAU2
     MOVE.B    #$09,(A1)
@@ -144,18 +149,21 @@ spc    equ    2
     BPL.S    .OK2
     MOVEQ    #0,D2
 .OK2:
-  MOVE.B    D2,2(A1)
+    MOVE.B    D2,2(A1)
     BSR    NO_TB
 
-.NORAU2:
+channel_c:
     if USE_SID_EVENTS
-  tstx.b chan_c_sid_on
-  bne.s .chan_c_sid
-  move.b #10,(a1)
-  bra.s .OK3
+    move.b #10,(a1)
+    tstx.b chan_c_sid_on
+    bgt.s OK3          ;turn sid channel off
+    blt.s .NORAU2      ;turn sid channel on
+    move.b d1,2(a1)    ;just write value to the PSG and don't touch timer
+    bra.s .NORAU3
 .chan_c_sid:
     endif
 
+.NORAU2:
     BTST    #5+8,D7
     BNE.S    .NORAU3
     MOVE.B    #$0A,(A1)
