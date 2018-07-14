@@ -144,6 +144,13 @@ EVENT_CHANNEL_C_MASK equ 8+1
       endif
       endif ; .if USE_EVENTS
 
+;
+; SID events are in the range of $f0-$ff
+; For opcodes $f0 and $f8 no write on channel enable registers is performed
+; The rationale for this is that previous state will be unchanged
+; The same applies for opcodes that shouldn't affect channels. For example, $f1
+; will turn off channel C's SID voices, BUT it won't affect the other two!
+;
       if USE_SID_EVENTS
       if PC_REL_CODE
       movem.l d0/d1/a4,-(sp)
@@ -168,14 +175,20 @@ EVENT_CHANNEL_C_MASK equ 8+1
 ; will do nothing.
       and.b #EVENT_CHANNEL_A_MASK,d1
       lsl.b #4,d1
+      beq.s .skip_chan_a                ;don't write anything if it's 0 (keep old state)
       movex.b d1,chan_a_sid_on
+.skip_chan_a:
       move.b d0,d1
       and.b #EVENT_CHANNEL_B_MASK,d1
       lsl.b #4,d1
+      beq.s .skip_chan_b                ;don't write anything if it's 0 (keep old state)
       movex.b d1,chan_b_sid_on
+.skip_chan_b:
       move.b d0,d1
       and.b #EVENT_CHANNEL_C_MASK,d1
       lsl.b #4,d1
+      beq.s .skip_chan_c                ;don't write anything if it's 0 (keep old state)
+.skip_chan_c:
       movex.b d1,chan_c_sid_on
 .no_sid_event:
 .no_event:
