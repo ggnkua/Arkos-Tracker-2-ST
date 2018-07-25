@@ -18,7 +18,7 @@ chan_c_sid_on:  ds.b 1
 sid_emu:
     dc.b    'Grazey 3 Sid Voice Player.'
     dc.b    'SID voices install on TA,TB,TD.'
-    dc.b    'Extensions by GGN and XiA"
+    dc.b    'Extensions by GGN and XiA'
     dc.b    0
     even
 flag:    dc.w    0
@@ -112,10 +112,10 @@ spc    equ    2
     if USE_SID_EVENTS
     move.b #8,(a1)
     tstx.b chan_a_sid_on
-    bgt.s OK1          ;turn sid channel off
+    bgt.s .OK1         ;turn sid channel off
     blt.s .NORAU0      ;turn sid channel on
     move.b d1,2(a1)    ;just write value to the PSG and don't touch timer
-    bra.s channel_b
+    bra.s .channel_b
 .chan_a_sid:
     endif
 
@@ -130,14 +130,14 @@ spc    equ    2
     MOVE.B    D1,2(A1)
     BSR    NO_TA
 
-channel_b:
+.channel_b:
     if USE_SID_EVENTS
     move.b #9,(a1)
     tstx.b chan_b_sid_on
-    bgt.s OK2          ;turn sid channel off
+    bgt.s .OK2         ;turn sid channel off
     blt.s .NORAU1      ;turn sid channel on
     move.b d1,2(a1)    ;just write value to the PSG and don't touch timer
-    bra.s channel_c
+    bra.s .channel_c
 .chan_b_sid:
     endif
 
@@ -152,11 +152,11 @@ channel_b:
     MOVE.B    D2,2(A1)
     BSR    NO_TB
 
-channel_c:
+.channel_c:
     if USE_SID_EVENTS
     move.b #10,(a1)
     tstx.b chan_c_sid_on
-    bgt.s OK3          ;turn sid channel off
+    bgt.s .OK3         ;turn sid channel off
     blt.s .NORAU2      ;turn sid channel on
     move.b d1,2(a1)    ;just write value to the PSG and don't touch timer
     bra.s .NORAU3
