@@ -274,8 +274,8 @@ CALC_A:                    ; Timer routs
     CMP.W    #$0010,D1
     BLE.S    NO_TA
 
-    lea    TIMER_A1+4(pc),a4
-    MOVE.B    D0,(a4)    
+    lea    TIMER_A1+4(pc),a6
+    MOVE.B    D0,(a6)    
 
     LEA    TIMER_TAB(PC),A2
     CLR.L    D2
@@ -330,8 +330,8 @@ MAKE_TIMER_B:
     CMP.W    #$0010,D1
     BLE.S    NO_TB
 
-    lea    TIMER_B1+4(pc),a4
-    move.b    d0,(a4)
+    lea    TIMER_B1+4(pc),a6
+    move.b    d0,(a6)
 
     LEA    TIMER_TAB(PC),A2
     CLR.L    D2
@@ -376,8 +376,8 @@ MAKE_TIMER_D:
     CMP.W    #$0010,D1
     BLE.S    NO_TD
 
-    lea    TIMER_D1+4(pc),a4
-    move.b    d0,(a4)
+    lea    TIMER_D1+4(pc),a6
+    move.b    d0,(a6)
 
     LEA    TIMER_TAB(PC),A2
     CLR.L    D2

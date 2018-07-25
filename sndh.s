@@ -51,10 +51,10 @@ EVENT_CHANNEL_C_MASK equ 1
 
       .if USE_EVENTS
       .if PC_REL_CODE
-      movem.l d0/a0/a4,-(sp)
+      movem.l d0/a0/a1/a4,-(sp)
       lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
       .else
-      movem.l d0/a0,-(sp)
+      movem.l d0/a0/a1,-(sp)
       .endif
       clrx.b event_flag
 .event_do_count:
@@ -72,7 +72,9 @@ EVENT_CHANNEL_C_MASK equ 1
       bne.s .noloopback
       ; loopback
       addq #2,a0
-      move.l (a0),a0
+      move.w (a0),a0
+      lea tune_events(pc),a1
+      add.l a1,a0
       movex.l a0,events_pos
       movex.w (a0),event_counter
       bra.s .event_do_count
@@ -82,9 +84,9 @@ EVENT_CHANNEL_C_MASK equ 1
       movex.w d0,event_counter
       ;done
       .if PC_REL_CODE
-      movem.l (sp)+,d0/a0/a4
+      movem.l (sp)+,d0/a0/a1/a4
       .else
-      movem.l (sp)+,d0/a0
+      movem.l (sp)+,d0/a0/a1
       .endif
       .endif ; .if USE_EVENTS
 
@@ -130,9 +132,9 @@ EVENT_CHANNEL_C_MASK equ 1
     bra.w  sndh_vbl
 
     dc.b   'SNDH'
-    dc.b   'TITL','Remote entry #2',0
-    dc.b   'COMM','Who knows',0
-    dc.b   'RIPP','GGN',0
+    dc.b   'TITL','Knightmare in-game song 1',0
+    dc.b   'COMM','Per Almered (XiA)',0
+    dc.b   'RIPP','Original (not ripped)',0
     dc.b   'CONV','Arkos2-2-SNDH',0
     dc.b   'TC200',0
     even

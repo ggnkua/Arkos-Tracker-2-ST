@@ -8,7 +8,7 @@ debug=0                             ;1=skips installing a timer for replay and i
                                     ;good for debugging the player but plays the tune in turbo mode :)
 showcpu=0
 
-tune_freq = 50                     ;tune frequency in ticks per second
+tune_freq = 200                     ;tune frequency in ticks per second
 
 	pea start(pc)                   ;go to start with supervisor mode on
 	move.w #$26,-(sp)
