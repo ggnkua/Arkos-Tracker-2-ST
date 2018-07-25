@@ -3,8 +3,6 @@
 ; based on the official source from http://sndh.atari.org
 ;
 
-; @bug event loops are not pc relative! crashy crashy on tune loop!
-
 PC_REL_CODE=1                   ;if 1, make code PC relative (helps if you move the routine around, like for example SNDH)
 AVOID_SMC=1                     ;if 1, assemble the player without SMC stuff, so it should be fine for CPUs with cache
 SID_VOICES=1                    ;if 1, enable SID voices (takes more CPU time!)
@@ -205,10 +203,12 @@ tune:
     .long
 tune_end:
 
+    .if USE_EVENTS
 tune_events:
     .include "tunes/knightmare.events.words.s"
     .even
 tune_events_end:
+    .endif
 
 	.if SID_VOICES
 	include "sid.s"
