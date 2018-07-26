@@ -188,8 +188,8 @@ EVENT_CHANNEL_C_MASK equ 8+1
       and.b #EVENT_CHANNEL_C_MASK,d1
       lsl.b #4,d1
       beq.s .skip_chan_c                ;don't write anything if it's 0 (keep old state)
-.skip_chan_c:
       movex.b d1,chan_c_sid_on
+.skip_chan_c:
 .no_sid_event:
 .no_event:
       if PC_REL_CODE
