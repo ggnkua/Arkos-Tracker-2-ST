@@ -37,7 +37,7 @@ sid_play:
 
     if USE_SID_EVENTS
     tstx.b chan_a_sid_on
-    beq.s .skip_a
+    bgt.s .skip_a
     endif
 
 ;pat1:
@@ -52,7 +52,7 @@ sid_play:
     if USE_SID_EVENTS
 .skip_a:
     tstx.b chan_b_sid_on
-    beq.s .skip_b
+    bgt.s .skip_b
     endif
 
     clr.l    d0
@@ -66,7 +66,7 @@ sid_play:
     if USE_SID_EVENTS
 .skip_b:
     tstx.b chan_c_sid_on
-    beq.s .skip_c
+    bgt.s .skip_c
     endif
 
     clr.l    d0
