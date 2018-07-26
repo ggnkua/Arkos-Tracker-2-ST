@@ -233,4 +233,4 @@ Events_Loop:
 	dc.w 0
 
 	dc.w 0	; End of sequence.
-	dc.l Events_Loop	; Loops here.
+	dc.w Events_Loop-Events	; Loops here.

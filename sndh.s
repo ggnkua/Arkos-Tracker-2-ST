@@ -3,8 +3,6 @@
 ; based on the official source from http://sndh.atari.org
 ;
 
-; @bug event loops are not pc relative! crashy crashy on tune loop!
-
 PC_REL_CODE=1                   ;if 1, make code PC relative (helps if you move the routine around, like for example SNDH)
 AVOID_SMC=1                     ;if 1, assemble the player without SMC stuff, so it should be fine for CPUs with cache
 SID_VOICES=1                    ;if 1, enable SID voices (takes more CPU time!)
@@ -51,10 +49,10 @@ EVENT_CHANNEL_C_MASK equ 1
 
       .if USE_EVENTS
       .if PC_REL_CODE
-      movem.l d0/a0/a4,-(sp)
+      movem.l d0/a0/a1/a4,-(sp)
       lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
       .else
-      movem.l d0/a0,-(sp)
+      movem.l d0/a0/a1,-(sp)
       .endif
       clrx.b event_flag
 .event_do_count:
@@ -72,7 +70,9 @@ EVENT_CHANNEL_C_MASK equ 1
       bne.s .noloopback
       ; loopback
       addq #2,a0
-      move.l (a0),a0
+      move.w (a0),a0
+      lea tune_events(pc),a1
+      add.l a1,a0
       movex.l a0,events_pos
       movex.w (a0),event_counter
       bra.s .event_do_count
@@ -82,9 +82,9 @@ EVENT_CHANNEL_C_MASK equ 1
       movex.w d0,event_counter
       ;done
       .if PC_REL_CODE
-      movem.l (sp)+,d0/a0/a4
+      movem.l (sp)+,d0/a0/a1/a4
       .else
-      movem.l (sp)+,d0/a0
+      movem.l (sp)+,d0/a0/a1
       .endif
       .endif ; .if USE_EVENTS
 
