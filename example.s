@@ -24,15 +24,22 @@
 ;   are now SID events. The lowest three bits control which channels are SID-
 ;   enabled. Timers used are ABD (for channels ABC, respectively).
 ;   The bit pattern is 1111 xABC, which means:
-;     F0 - No channels use SID - no timers
-;     F1 - Only channel C uses SID - timer D only
-;     F2 - Only channel B uses SID - timer B only
-;     F3 - Channels B and C use SID - timer B and D
-;     F4 - Only channel A uses SID - timer A only
-;     F5 - Channels A and C use SID - timer A and D
-;     F6 - Channels A and B use SID - timer A and B
-;     F7 - All channels use SID - timers A, B and D
-;
+;     %0000 : $F0 [unused]
+;     %0001 : $F1 set channel C to SID off
+;     %0010 : $F2 set channel B to SID off
+;     %0011 : $F3 set channels B and C to SID off
+;     %0100 : $F4 set channel A to SID off
+;     %0101 : $F5 set channels A and C to SID off
+;     %0110 : $F6 set channels A and B to SID off
+;     %0111 : $F7 all channels SID off
+;     %1000 : $F8 [unused]
+;     %1001 : $F9 set channel C to SID on
+;     %1010 : $FA set channel B to SID on
+;     %1011 : $FB set channels B and C to SID on
+;     %1100 : $FC set channel A to SID on
+;     %1101 : $FD set channels A and C to SID on
+;     %1110 : $FE set channels A and B to SID on
+;     %1111 : $FF all channels SID on
 ;-- Using events to turn on/off SID on channels
 ;--------------------------------------------------------------
 

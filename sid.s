@@ -40,7 +40,6 @@ sid_play:
     bgt.s .skip_a
     endif
 
-;pat1:
     clr.l    d0
     clr.l    d1
     move.b    ((4*8)+2)(a0),d0
@@ -121,7 +120,7 @@ spc    equ    2
 
 .NORAU0:
     BTST    #3+8,D7
-    BNE.S    .NORAU1
+    BNE.S    .channel_b
     MOVE.B    #$08,(A1)
     SUB.B    #1,D1
     BPL.S    .OK1
@@ -143,7 +142,7 @@ spc    equ    2
 
 .NORAU1:
     BTST    #4+8,D7
-    BNE.S    .NORAU2
+    BNE.S    .channel_c
     MOVE.B    #$09,(A1)
     SUB.B    #1,D2
     BPL.S    .OK2
