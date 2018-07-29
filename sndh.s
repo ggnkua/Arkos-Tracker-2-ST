@@ -13,9 +13,9 @@ USE_SID_EVENTS=1                    ;if 1, use events to control SID.
 DUMP_SONG=0                         ;if 1, produce a YM dump of the tune. DOES NOT WORK WITH SID OR EVENTS YET!
 
 
-EVENT_CHANNEL_A_MASK equ 4
-EVENT_CHANNEL_B_MASK equ 2
-EVENT_CHANNEL_C_MASK equ 1
+EVENT_CHANNEL_A_MASK equ 8+4
+EVENT_CHANNEL_B_MASK equ 8+2
+EVENT_CHANNEL_C_MASK equ 8+1
 
 ;
 ; Event parser, in macro form (let's not waste a bsr and rts!)
