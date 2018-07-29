@@ -109,47 +109,47 @@ EVENT_CHANNEL_C_MASK equ 8+1
     endm
 
 	macro parse_events
-      ;########################################################
-      ;## Parse tune events
+    ;########################################################
+    ;## Parse tune events
 
-      if USE_EVENTS
-      if PC_REL_CODE
-      movem.l d0/a0/a4,-(sp)
-      lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
-      else
-      movem.l d0/a0,-(sp)
-      endif
-      clrx.b event_flag
+    if USE_EVENTS
+    if PC_REL_CODE
+    movem.l d0/a0/a4,-(sp)
+    lea PLY_AKYst_Init(pc),a4       ; base pointer for PC relative stores
+    else
+    movem.l d0/a0,-(sp)
+    endif
+    clrx.b event_flag
 .event_do_count:
-      move.w event_counter(pc),d0
-      subq #1,d0
-      bne.s .nohit
+    move.w event_counter(pc),d0
+    subq #1,d0
+    bne.s .nohit
 .event_read_val:
-      ; time to read value
-      move.l events_pos(pc),a0
-      addq #2,a0
-      move.w (a0)+,d0
-      movex.b d0,event_byte
-      movex.b #1,event_flag ; there's a new event value to fetch
-      move.w (a0),d0
-      bne.s .noloopback
-      ; loopback
-      addq #2,a0
-      move.l (a0),a0
-      movex.l a0,events_pos
-      movex.w (a0),event_counter
-      bra.s .event_do_count
+    ; time to read value
+    move.l events_pos(pc),a0
+    addq #2,a0
+    move.w (a0)+,d0
+    movex.b d0,event_byte
+    movex.b #1,event_flag           ; there's a new event value to fetch
+    move.w (a0),d0
+    bne.s .noloopback
+    ; loopback
+    addq #2,a0
+    move.l (a0),a0
+    movex.l a0,events_pos
+    movex.w (a0),event_counter
+    bra.s .event_do_count
 .noloopback:
-      movex.l a0,events_pos
+    movex.l a0,events_pos
 .nohit:
-      movex.w d0,event_counter
-      ;done
-      if PC_REL_CODE
-      movem.l (sp)+,d0/a0/a4
-      else
-      movem.l (sp)+,d0/a0
-      endif
-      endif ; .if USE_EVENTS
+    movex.w d0,event_counter
+    ;done
+    if PC_REL_CODE
+    movem.l (sp)+,d0/a0/a4
+    else
+    movem.l (sp)+,d0/a0
+    endif
+    endif ; .if USE_EVENTS
 
 ;
 ; SID events are in the range of $f0-$ff
@@ -158,21 +158,22 @@ EVENT_CHANNEL_C_MASK equ 8+1
 ; The same applies for opcodes that shouldn't affect channels. For example, $f1
 ; will turn off channel C's SID voices, BUT it won't affect the other two!
 ;
-      if USE_SID_EVENTS
-      if PC_REL_CODE
-      movem.l d0/d1/a4,-(sp)
-      lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
-      else
-      movem.l d0-d1,-(sp)
-      endif
-      tstx.b event_flag
-      beq.s .no_event
-      move.b event_byte(pc),d0
-      move.b d0,d1
-      and.b #$f0,d1
-      cmp.b #$f0,d1
-      bne.s .no_sid_event
-      move.b d0,d1
+    if USE_SID_EVENTS
+    if PC_REL_CODE
+    movem.l d0/d1/a4,-(sp)
+    lea PLY_AKYst_Init(pc),a4       ; base pointer for PC relative stores
+    else
+    movem.l d0-d1,-(sp)
+    endif
+    tstx.b event_flag
+    beq.s .no_event
+    move.b event_byte(pc),d0
+    move.b d0,d1
+    and.b #$f0,d1
+    cmp.b #$f0,d1
+    bne.s .no_sid_event
+    move.b d0,d1
+    move.b d0,$ffff8240.w
 ; lsl.b #4 below explained:
 ; for sid events, d1 is going to be $f0 to $ff
 ; we mask this with the channel mask (bit 0, 1 or 2) and keep bit 3 intact too.
@@ -180,34 +181,34 @@ EVENT_CHANNEL_C_MASK equ 8+1
 ; after this transformation, if we test d1 as a byte, the positive values will
 ; mean "turn channel off", the negative ones "turn channel on" and 0 value
 ; will do nothing.
-      and.b #EVENT_CHANNEL_A_MASK,d1
-      lsl.b #4,d1
-      beq.s .skip_chan_a                ;don't write anything if it's 0 (keep old state)
-      movex.b d1,chan_a_sid_on
+    and.b #EVENT_CHANNEL_A_MASK,d1
+    lsl.b #4,d1
+    beq.s .skip_chan_a              ;don't write anything if it's 0 (keep old state)
+    movex.b d1,chan_a_sid_on
 .skip_chan_a:
-      move.b d0,d1
-      and.b #EVENT_CHANNEL_B_MASK,d1
-      lsl.b #4,d1
-      beq.s .skip_chan_b                ;don't write anything if it's 0 (keep old state)
-      movex.b d1,chan_b_sid_on
+    move.b d0,d1
+    and.b #EVENT_CHANNEL_B_MASK,d1
+    lsl.b #4,d1
+    beq.s .skip_chan_b               ;don't write anything if it's 0 (keep old state)
+    movex.b d1,chan_b_sid_on
 .skip_chan_b:
-      move.b d0,d1
-      and.b #EVENT_CHANNEL_C_MASK,d1
-      lsl.b #4,d1
-      beq.s .skip_chan_c                ;don't write anything if it's 0 (keep old state)
-      movex.b d1,chan_c_sid_on
+    move.b d0,d1
+    and.b #EVENT_CHANNEL_C_MASK,d1
+    lsl.b #4,d1
+    beq.s .skip_chan_c              ;don't write anything if it's 0 (keep old state)
+    movex.b d1,chan_c_sid_on
 .skip_chan_c:
 .no_sid_event:
 .no_event:
-      if PC_REL_CODE
-      movem.l (sp)+,d0/d1/a4
-      else
-      movem.l (sp)+,d0-d1
-      endif     
-      endif ; .if USE_SID_EVENTS
+    if PC_REL_CODE
+    movem.l (sp)+,d0/d1/a4
+    else
+    movem.l (sp)+,d0-d1
+    endif     
+    endif ; .if USE_SID_EVENTS
 
-      ;## Parse tune events
-      ;########################################################
+    ;## Parse tune events
+    ;########################################################
 	endm
     endif
 
@@ -221,14 +222,14 @@ EVENT_CHANNEL_C_MASK equ 8+1
 start:
 
     if SID_VOICES & USE_SID_EVENTS
-    lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
+    lea PLY_AKYst_Init(pc),a4       ;base pointer for PC relative stores
     clrx.b chan_a_sid_on
     clrx.b chan_b_sid_on
     clrx.b chan_c_sid_on
     endif ; .if SID_VOICES
     
     if USE_EVENTS
-    lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
+    lea PLY_AKYst_Init(pc),a4       ;base pointer for PC relative stores
     ; reset event pos to start of event list
     lea tune_events(pc),a0
     movex.l a0,events_pos
@@ -287,7 +288,7 @@ start:
     if !debug
     move sr,-(sp)
     move #$2700,sr
-    if use_vbl=1                   ;install our very own vbl
+    if use_vbl=1                    ;install our very own vbl
 
     if disable_timers=1
     lea save_mfp(pc),a0
@@ -311,7 +312,7 @@ start:
     
     move.l  $70.w,old_vbl           ;so how do you turn the player on?
     move.l  #vbl,$70.w              ;(makes gesture of turning an engine key on) *trrrrrrrrrrrrrr*
-    else ; .if use_vbl=1           ;install our very own timer C
+    else ; .if use_vbl=1            ;install our very own timer C
     move.l  $114.w,old_timer_c      ;so how do you turn the player on?
     move.l  #timer_c,$114.w         ;(makes gesture of turning an engine key on) *trrrrrrrrrrrrrr*
     endif ; .if use_vbl=1
@@ -393,19 +394,19 @@ vbl:
     if show_cpu
     not.w $ffff8240.w
     endif ; .if show_cpu
-        move.l song_buffer_pos(pc),a0
-        tst.w (a0)+
-        bne.s play_dump_14_regs
-        lea $ffff8800.w,a1
-        movem.l (a0)+,d0-d7/a2-a6
-        movem.l d0-d7/a2-a6,(a1)
-        move.l a0,song_buffer_pos
-        bra.s play_dump_out
+    move.l song_buffer_pos(pc),a0
+    tst.w (a0)+
+    bne.s play_dump_14_regs
+    lea $ffff8800.w,a1
+    movem.l (a0)+,d0-d7/a2-a6
+    movem.l d0-d7/a2-a6,(a1)
+    move.l a0,song_buffer_pos
+    bra.s play_dump_out
 play_dump_14_regs:
-        movem.l (a0)+,d0-d7/a1-a6
-        move.l a0,song_buffer_pos
-        lea $ffff8800.w,a0
-        movem.l d0-d7/a1-a6,(a0)
+    movem.l (a0)+,d0-d7/a1-a6
+    move.l a0,song_buffer_pos
+    lea $ffff8800.w,a0
+    movem.l d0-d7/a1-a6,(a0)
 play_dump_out:
     if show_cpu
     not.w $ffff8240.w
@@ -443,7 +444,6 @@ save_mfp:   ds.l 16
 timer_c:
 	move.w #$2500,sr                ;mask out all interrupts apart from MFP
     sub.w #tune_freq,timer_c_ctr    ;is it giiiirooo day tom?
-    ;bgt.s timer_c_jump              ;sadly derek, no it's not giro day
     bgt timer_c_jump                ;sadly derek, no it's not giro day
     add.w #200,timer_c_ctr          ;it is giro day, let's reset the 200Hz counter
     movem.l d0-a6,-(sp)             ;save all registers, just to be on the safe side
