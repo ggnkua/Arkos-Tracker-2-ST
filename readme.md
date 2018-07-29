@@ -112,14 +112,22 @@ In `example.s` there is sample code to illustrate how to dump and replay a tune.
 ## `USE_SID_EVENTS`
 
 In Arkos Tracker 2, all events starting with F (F0, F1, F2 etc up to FF) are now SID events. The lowest three bits control which channels are SID-enabled. Timers used are ABD (for channels ABC, respectively). The bit pattern is 1111 xABC, which means:
-     F0 - No channels use SID - no timers
-     F1 - Only channel C uses SID - timer D only
-     F2 - Only channel B uses SID - timer B only
-     F3 - Channels B and C use SID - timer B and D
-     F4 - Only channel A uses SID - timer A only
-     F5 - Channels A and C use SID - timer A and D
-     F6 - Channels A and B use SID - timer A and B
-     F7 - All channels use SID - timers A, B and D
+     F0 - [unused]
+     F1 - set channel C to SID off
+     F2 - set channel B to SID off
+     F3 - set channels B and C to SID off
+     F4 - set channel A to SID off
+     F5 - set channels A and C to SID off
+     F6 - set channels A and B to SID off
+     F7 - all channels SID off
+     F8 - [unused]
+     F9 - set channel C to SID on
+     FA - set channel B to SID on
+     FB - set channels B and C to SID on
+     FC - set channel A to SID on
+     FD - set channels A and C to SID on
+     FE - set channels A and B to SID on
+     FF - all channels SID on
 
 # SNDH
 
