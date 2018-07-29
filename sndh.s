@@ -88,38 +88,53 @@ EVENT_CHANNEL_C_MASK equ 1
       .endif
       .endif ; .if USE_EVENTS
 
-      .if USE_SID_EVENTS
-      .if PC_REL_CODE
-      movem.l d0/d1/a4,-(sp)
-      lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
-      .else
-      movem.l d0-d1,-(sp)
-      .endif
-
-      tstx.b event_flag
-      beq.s .no_event
-      move.b event_byte(pc),d0
-      move.b d0,d1
-      and.b #$f0,d1
-      cmp.b #$f0,d1
-      bne.s .no_sid_event
-      move.b d0,d1
-      and.b #EVENT_CHANNEL_A_MASK,d1
-      movex.b d1,chan_a_sid_on
-      move.b d0,d1
-      and.b #EVENT_CHANNEL_B_MASK,d1
-      movex.b d1,chan_b_sid_on
-      move.b d0,d1
-      and.b #EVENT_CHANNEL_C_MASK,d1
-      movex.b d1,chan_c_sid_on
+    if USE_SID_EVENTS
+    if PC_REL_CODE
+    movem.l d0/d1/a4,-(sp)
+    lea PLY_AKYst_Init(pc),a4       ; base pointer for PC relative stores
+    else
+    movem.l d0-d1,-(sp)
+    endif
+    tstx.b event_flag
+    beq.s .no_event
+    move.b event_byte(pc),d0
+    move.b d0,d1
+    and.b #$f0,d1
+    cmp.b #$f0,d1
+    bne.s .no_sid_event
+    move.b d0,d1
+; lsl.b #4 below explained:
+; for sid events, d1 is going to be $f0 to $ff
+; we mask this with the channel mask (bit 0, 1 or 2) and keep bit 3 intact too.
+; if we shift this left by 4 places then it's $00 to $f0 with $10 increments.
+; after this transformation, if we test d1 as a byte, the positive values will
+; mean "turn channel off", the negative ones "turn channel on" and 0 value
+; will do nothing.
+    and.b #EVENT_CHANNEL_A_MASK,d1
+    lsl.b #4,d1
+    beq.s .skip_chan_a              ;don't write anything if it's 0 (keep old state)
+    movex.b d1,chan_a_sid_on
+.skip_chan_a:
+    move.b d0,d1
+    and.b #EVENT_CHANNEL_B_MASK,d1
+    lsl.b #4,d1
+    beq.s .skip_chan_b               ;don't write anything if it's 0 (keep old state)
+    movex.b d1,chan_b_sid_on
+.skip_chan_b:
+    move.b d0,d1
+    and.b #EVENT_CHANNEL_C_MASK,d1
+    lsl.b #4,d1
+    beq.s .skip_chan_c              ;don't write anything if it's 0 (keep old state)
+    movex.b d1,chan_c_sid_on
+.skip_chan_c:
 .no_sid_event:
 .no_event:
-      .if PC_REL_CODE
-      movem.l (sp)+,d0/d1/a4
-      .else
-      movem.l (sp)+,d0-d1
-      .endif     
-      .endif ; .if USE_SID_EVENTS
+    if PC_REL_CODE
+    movem.l (sp)+,d0/d1/a4
+    else
+    movem.l (sp)+,d0-d1
+    endif     
+    endif ; .if USE_SID_EVENTS
 
       ;## Parse tune events
       ;########################################################
