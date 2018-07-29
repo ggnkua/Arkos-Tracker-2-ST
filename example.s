@@ -369,7 +369,7 @@ exit:
     move.b  #$C0,$FFFFFA23.w        ;and how would you stop the ym?
     endif
 i set 0
-    rept 14
+    rept 13
     move.l  #i,$FFFF8800.w          ;(makes gesture of turning an engine key off) just turn it off!
 i set i+$01000000
     endr
