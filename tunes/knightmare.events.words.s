@@ -4,233 +4,47 @@
 
 Events:
 	dc.w 1	; Wait for 0 frames.
-	dc.w 240
+	dc.w 247
 
-	dc.w 384	; Wait for 383 frames.
-	dc.w 240
-
-	dc.w 384	; Wait for 383 frames.
-	dc.w 240
-
-	dc.w 384	; Wait for 383 frames.
-	dc.w 240
-
-	dc.w 384	; Wait for 383 frames.
-	dc.w 240
-
-	dc.w 384	; Wait for 383 frames.
-	dc.w 240
-
-	dc.w 384	; Wait for 383 frames.
-	dc.w 240
-
-	dc.w 384	; Wait for 383 frames.
-	dc.w 240
-
-	dc.w 384	; Wait for 383 frames.
-	dc.w 240
-
-	dc.w 384	; Wait for 383 frames.
-	dc.w 240
-
-	dc.w 384	; Wait for 383 frames.
-	dc.w 240
-
-	dc.w 384	; Wait for 383 frames.
-	dc.w 240
-
-	dc.w 384	; Wait for 383 frames.
-	dc.w 240
-
-	dc.w 642	; Wait for 641 frames.
-	dc.w 240
-
-	dc.w 448	; Wait for 447 frames.
+	dc.w 5698	; Wait for 5697 frames.
 	dc.w 0
 
 Events_Loop:
 	dc.w 1	; Wait for 0 frames.
-	dc.w 244
+	dc.w 252
 
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
+	dc.w 10752	; Wait for 10751 frames.
+	dc.w 254
 
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 246
-
-	dc.w 672	; Wait for 671 frames.
-	dc.w 246
-
-	dc.w 384	; Wait for 383 frames.
-	dc.w 247
+	dc.w 1056	; Wait for 1055 frames.
+	dc.w 255
 
 	dc.w 346	; Wait for 345 frames.
-	dc.w 244
+	dc.w 243
 
-	dc.w 98	; Wait for 97 frames.
-	dc.w 244
+	dc.w 5474	; Wait for 5473 frames.
+	dc.w 254
 
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 244
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 246
-
-	dc.w 672	; Wait for 671 frames.
-	dc.w 246
-
-	dc.w 384	; Wait for 383 frames.
-	dc.w 247
+	dc.w 1056	; Wait for 1055 frames.
+	dc.w 255
 
 	dc.w 346	; Wait for 345 frames.
-	dc.w 244
+	dc.w 243
 
 	dc.w 98	; Wait for 97 frames.
-	dc.w 240
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 240
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 240
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 240
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 240
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 240
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 240
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 240
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 240
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 240
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 240
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 240
-
-	dc.w 448	; Wait for 447 frames.
-	dc.w 246
-
-	dc.w 672	; Wait for 671 frames.
-	dc.w 246
-
-	dc.w 384	; Wait for 383 frames.
 	dc.w 247
+
+	dc.w 5376	; Wait for 5375 frames.
+	dc.w 254
+
+	dc.w 1056	; Wait for 1055 frames.
+	dc.w 255
 
 	dc.w 310	; Wait for 309 frames.
-	dc.w 244
+	dc.w 243
 
 	dc.w 134	; Wait for 133 frames.
 	dc.w 0
 
 	dc.w 0	; End of sequence.
-	dc.w Events_Loop-Events	; Loops here.
+	dc.l Events_Loop	; Loops here.

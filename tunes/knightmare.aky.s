@@ -426,22 +426,22 @@ Subsong0_LinkerLoop:	; Loops here.
 ; The tracks.
 Subsong0_Track_12:
 	dc.b 48	; Duration.
-	dc.w Subsong0_RegisterBlock_135 - Subsong0
+	dc.w Subsong0_RegisterBlock_0 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_164 - Subsong0
+	dc.w Subsong0_RegisterBlock_29 - Subsong0
 
 	dc.b 24	; Duration.
 	dc.w Subsong0_RegisterBlock_243 - Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Subsong0_RegisterBlock_138 - Subsong0
+	dc.w Subsong0_RegisterBlock_376 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_138 - Subsong0
+	dc.w Subsong0_RegisterBlock_376 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_138 - Subsong0
+	dc.w Subsong0_RegisterBlock_376 - Subsong0
 
 	dc.b 48	; Duration.
 	dc.w Subsong0_RegisterBlock_379 - Subsong0
@@ -456,26 +456,26 @@ Subsong0_Track_12:
 	dc.w Subsong0_RegisterBlock_382 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_169 - Subsong0
+	dc.w Subsong0_RegisterBlock_10 - Subsong0
 
 	dc.b 24	; Duration.
 	dc.w Subsong0_RegisterBlock_473 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_161 - Subsong0
+	dc.w Subsong0_RegisterBlock_12 - Subsong0
 
 Subsong0_Track_15:
 	dc.b 48	; Duration.
-	dc.w Subsong0_RegisterBlock_164 - Subsong0
+	dc.w Subsong0_RegisterBlock_29 - Subsong0
 
 	dc.b 24	; Duration.
 	dc.w Subsong0_RegisterBlock_473 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_164 - Subsong0
+	dc.w Subsong0_RegisterBlock_29 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_156 - Subsong0
+	dc.w Subsong0_RegisterBlock_21 - Subsong0
 
 	dc.b 24	; Duration.
 	dc.w Subsong0_RegisterBlock_18 - Subsong0
@@ -487,57 +487,57 @@ Subsong0_Track_15:
 	dc.w Subsong0_RegisterBlock_18 - Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Subsong0_RegisterBlock_156 - Subsong0
+	dc.w Subsong0_RegisterBlock_21 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_157 - Subsong0
+	dc.w Subsong0_RegisterBlock_22 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_156 - Subsong0
+	dc.w Subsong0_RegisterBlock_21 - Subsong0
 
 	dc.b 24	; Duration.
 	dc.w Subsong0_RegisterBlock_382 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_156 - Subsong0
+	dc.w Subsong0_RegisterBlock_21 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_161 - Subsong0
+	dc.w Subsong0_RegisterBlock_12 - Subsong0
 
 	dc.b 24	; Duration.
 	dc.w Subsong0_RegisterBlock_382 - Subsong0
 
 Subsong0_Track_18:
 	dc.b 144	; Duration.
-	dc.w Subsong0_RegisterBlock_164 - Subsong0
+	dc.w Subsong0_RegisterBlock_29 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_167 - Subsong0
+	dc.w Subsong0_RegisterBlock_489 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_135 - Subsong0
+	dc.w Subsong0_RegisterBlock_0 - Subsong0
 
 	dc.b 48	; Duration.
-	dc.w Subsong0_RegisterBlock_167 - Subsong0
+	dc.w Subsong0_RegisterBlock_489 - Subsong0
 
 	dc.b 96	; Duration.
-	dc.w Subsong0_RegisterBlock_164 - Subsong0
+	dc.w Subsong0_RegisterBlock_29 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_169 - Subsong0
+	dc.w Subsong0_RegisterBlock_10 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_161 - Subsong0
+	dc.w Subsong0_RegisterBlock_12 - Subsong0
 
 Subsong0_Track_21:
 	dc.b 72	; Duration.
-	dc.w Subsong0_RegisterBlock_164 - Subsong0
+	dc.w Subsong0_RegisterBlock_29 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_167 - Subsong0
+	dc.w Subsong0_RegisterBlock_489 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_135 - Subsong0
+	dc.w Subsong0_RegisterBlock_0 - Subsong0
 
 	dc.b 24	; Duration.
 	dc.w Subsong0_RegisterBlock_40 - Subsong0
@@ -549,72 +549,48 @@ Subsong0_Track_21:
 	dc.w Subsong0_RegisterBlock_40 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_135 - Subsong0
+	dc.w Subsong0_RegisterBlock_0 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_167 - Subsong0
+	dc.w Subsong0_RegisterBlock_489 - Subsong0
 
 	dc.b 96	; Duration.
-	dc.w Subsong0_RegisterBlock_164 - Subsong0
+	dc.w Subsong0_RegisterBlock_29 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_169 - Subsong0
+	dc.w Subsong0_RegisterBlock_10 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_161 - Subsong0
+	dc.w Subsong0_RegisterBlock_12 - Subsong0
 
 Subsong0_Track_24:
 	dc.b 12	; Duration.
-	dc.w Subsong0_RegisterBlock_196 - Subsong0
+	dc.w Subsong0_RegisterBlock_49 - Subsong0
 
 	dc.b 180	; Duration.
+	dc.w Subsong0_RegisterBlock_50 - Subsong0
+
+	dc.b 48	; Duration.
+	dc.w Subsong0_RegisterBlock_198 - Subsong0
+
+	dc.b 24	; Duration.
+	dc.w Subsong0_RegisterBlock_208 - Subsong0
+
+	dc.b 48	; Duration.
+	dc.w Subsong0_RegisterBlock_198 - Subsong0
+
+	dc.b 24	; Duration.
 	dc.w Subsong0_RegisterBlock_197 - Subsong0
-
-	dc.b 48	; Duration.
-	dc.w Subsong0_RegisterBlock_198 - Subsong0
-
-	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_199 - Subsong0
-
-	dc.b 48	; Duration.
-	dc.w Subsong0_RegisterBlock_198 - Subsong0
-
-	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_54 - Subsong0
 
 	dc.b 48	; Duration.
 	dc.w Subsong0_RegisterBlock_198 - Subsong0
 
 Subsong0_Track_27:
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_135 - Subsong0
+	dc.w Subsong0_RegisterBlock_0 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_58 - Subsong0
-
-	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_198 - Subsong0
-
-	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_60 - Subsong0
-
-	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_208 - Subsong0
-
-	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_60 - Subsong0
-
-	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_208 - Subsong0
-
-	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_198 - Subsong0
-
-	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_135 - Subsong0
-
-	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_58 - Subsong0
+	dc.w Subsong0_RegisterBlock_199 - Subsong0
 
 	dc.b 24	; Duration.
 	dc.w Subsong0_RegisterBlock_198 - Subsong0
@@ -623,13 +599,37 @@ Subsong0_Track_27:
 	dc.w Subsong0_RegisterBlock_60 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_208 - Subsong0
+	dc.w Subsong0_RegisterBlock_61 - Subsong0
 
 	dc.b 24	; Duration.
 	dc.w Subsong0_RegisterBlock_60 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_208 - Subsong0
+	dc.w Subsong0_RegisterBlock_61 - Subsong0
+
+	dc.b 24	; Duration.
+	dc.w Subsong0_RegisterBlock_198 - Subsong0
+
+	dc.b 24	; Duration.
+	dc.w Subsong0_RegisterBlock_0 - Subsong0
+
+	dc.b 24	; Duration.
+	dc.w Subsong0_RegisterBlock_199 - Subsong0
+
+	dc.b 24	; Duration.
+	dc.w Subsong0_RegisterBlock_198 - Subsong0
+
+	dc.b 24	; Duration.
+	dc.w Subsong0_RegisterBlock_60 - Subsong0
+
+	dc.b 24	; Duration.
+	dc.w Subsong0_RegisterBlock_61 - Subsong0
+
+	dc.b 24	; Duration.
+	dc.w Subsong0_RegisterBlock_60 - Subsong0
+
+	dc.b 24	; Duration.
+	dc.w Subsong0_RegisterBlock_61 - Subsong0
 
 	dc.b 24	; Duration.
 	dc.w Subsong0_RegisterBlock_198 - Subsong0
@@ -676,46 +676,46 @@ Subsong0_Track_30:
 	dc.w Subsong0_RegisterBlock_485 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_231 - Subsong0
-
-	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_223 - Subsong0
-
-	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_90 - Subsong0
-
-	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_225 - Subsong0
-
-	dc.b 24	; Duration.
 	dc.w Subsong0_RegisterBlock_235 - Subsong0
 
 	dc.b 24	; Duration.
 	dc.w Subsong0_RegisterBlock_227 - Subsong0
 
 	dc.b 24	; Duration.
+	dc.w Subsong0_RegisterBlock_90 - Subsong0
+
+	dc.b 24	; Duration.
+	dc.w Subsong0_RegisterBlock_91 - Subsong0
+
+	dc.b 24	; Duration.
+	dc.w Subsong0_RegisterBlock_92 - Subsong0
+
+	dc.b 24	; Duration.
+	dc.w Subsong0_RegisterBlock_93 - Subsong0
+
+	dc.b 24	; Duration.
 	dc.w Subsong0_RegisterBlock_94 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_229 - Subsong0
-
-	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_96 - Subsong0
-
-	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_231 - Subsong0
-
-	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_98 - Subsong0
-
-	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_233 - Subsong0
+	dc.w Subsong0_RegisterBlock_95 - Subsong0
 
 	dc.b 24	; Duration.
 	dc.w Subsong0_RegisterBlock_225 - Subsong0
 
 	dc.b 24	; Duration.
 	dc.w Subsong0_RegisterBlock_235 - Subsong0
+
+	dc.b 24	; Duration.
+	dc.w Subsong0_RegisterBlock_98 - Subsong0
+
+	dc.b 24	; Duration.
+	dc.w Subsong0_RegisterBlock_99 - Subsong0
+
+	dc.b 24	; Duration.
+	dc.w Subsong0_RegisterBlock_91 - Subsong0
+
+	dc.b 24	; Duration.
+	dc.w Subsong0_RegisterBlock_92 - Subsong0
 
 	dc.b 12	; Duration.
 	dc.w Subsong0_RegisterBlock_102 - Subsong0
@@ -762,13 +762,13 @@ Subsong0_Track_31:
 
 Subsong0_Track_33:
 	dc.b 12	; Duration.
-	dc.w Subsong0_RegisterBlock_239 - Subsong0
+	dc.w Subsong0_RegisterBlock_118 - Subsong0
 
 	dc.b 180	; Duration.
 	dc.w Subsong0_RegisterBlock_119 - Subsong0
 
 	dc.b 192	; Duration.
-	dc.w Subsong0_RegisterBlock_241 - Subsong0
+	dc.w Subsong0_RegisterBlock_120 - Subsong0
 
 Subsong0_Track_34:
 	dc.b 48	; Duration.
@@ -827,22 +827,22 @@ Subsong0_Track_132:
 	dc.w Subsong0_RegisterBlock_138 - Subsong0
 
 	dc.b 56	; Duration.
-	dc.w Subsong0_RegisterBlock_379 - Subsong0
+	dc.w Subsong0_RegisterBlock_141 - Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Subsong0_RegisterBlock_379 - Subsong0
+	dc.w Subsong0_RegisterBlock_141 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_379 - Subsong0
+	dc.w Subsong0_RegisterBlock_141 - Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Subsong0_RegisterBlock_382 - Subsong0
+	dc.w Subsong0_RegisterBlock_144 - Subsong0
 
 	dc.b 24	; Duration.
 	dc.w Subsong0_RegisterBlock_169 - Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Subsong0_RegisterBlock_473 - Subsong0
+	dc.w Subsong0_RegisterBlock_146 - Subsong0
 
 	dc.b 24	; Duration.
 	dc.w Subsong0_RegisterBlock_161 - Subsong0
@@ -852,7 +852,7 @@ Subsong0_Track_135:
 	dc.w Subsong0_RegisterBlock_164 - Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Subsong0_RegisterBlock_473 - Subsong0
+	dc.w Subsong0_RegisterBlock_146 - Subsong0
 
 	dc.b 24	; Duration.
 	dc.w Subsong0_RegisterBlock_164 - Subsong0
@@ -861,13 +861,13 @@ Subsong0_Track_135:
 	dc.w Subsong0_RegisterBlock_156 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_18 - Subsong0
+	dc.w Subsong0_RegisterBlock_153 - Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Subsong0_RegisterBlock_382 - Subsong0
+	dc.w Subsong0_RegisterBlock_144 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_18 - Subsong0
+	dc.w Subsong0_RegisterBlock_153 - Subsong0
 
 	dc.b 56	; Duration.
 	dc.w Subsong0_RegisterBlock_156 - Subsong0
@@ -879,7 +879,7 @@ Subsong0_Track_135:
 	dc.w Subsong0_RegisterBlock_156 - Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Subsong0_RegisterBlock_382 - Subsong0
+	dc.w Subsong0_RegisterBlock_144 - Subsong0
 
 	dc.b 24	; Duration.
 	dc.w Subsong0_RegisterBlock_156 - Subsong0
@@ -888,7 +888,7 @@ Subsong0_Track_135:
 	dc.w Subsong0_RegisterBlock_161 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_382 - Subsong0
+	dc.w Subsong0_RegisterBlock_144 - Subsong0
 
 Subsong0_Track_138:
 	dc.b 168	; Duration.
@@ -923,13 +923,13 @@ Subsong0_Track_141:
 	dc.w Subsong0_RegisterBlock_135 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_40 - Subsong0
+	dc.w Subsong0_RegisterBlock_175 - Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Subsong0_RegisterBlock_485 - Subsong0
+	dc.w Subsong0_RegisterBlock_176 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_40 - Subsong0
+	dc.w Subsong0_RegisterBlock_175 - Subsong0
 
 	dc.b 32	; Duration.
 	dc.w Subsong0_RegisterBlock_135 - Subsong0
@@ -997,7 +997,7 @@ Subsong0_Track_144:
 	dc.w Subsong0_RegisterBlock_198 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_54 - Subsong0
+	dc.w Subsong0_RegisterBlock_201 - Subsong0
 
 	dc.b 56	; Duration.
 	dc.w Subsong0_RegisterBlock_198 - Subsong0
@@ -1007,19 +1007,19 @@ Subsong0_Track_147:
 	dc.w Subsong0_RegisterBlock_135 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_58 - Subsong0
+	dc.w Subsong0_RegisterBlock_205 - Subsong0
 
 	dc.b 32	; Duration.
 	dc.w Subsong0_RegisterBlock_198 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_60 - Subsong0
+	dc.w Subsong0_RegisterBlock_93 - Subsong0
 
 	dc.b 32	; Duration.
 	dc.w Subsong0_RegisterBlock_208 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_60 - Subsong0
+	dc.w Subsong0_RegisterBlock_93 - Subsong0
 
 	dc.b 32	; Duration.
 	dc.w Subsong0_RegisterBlock_208 - Subsong0
@@ -1031,19 +1031,19 @@ Subsong0_Track_147:
 	dc.w Subsong0_RegisterBlock_135 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_58 - Subsong0
+	dc.w Subsong0_RegisterBlock_205 - Subsong0
 
 	dc.b 32	; Duration.
 	dc.w Subsong0_RegisterBlock_198 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_60 - Subsong0
+	dc.w Subsong0_RegisterBlock_93 - Subsong0
 
 	dc.b 32	; Duration.
 	dc.w Subsong0_RegisterBlock_208 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_60 - Subsong0
+	dc.w Subsong0_RegisterBlock_93 - Subsong0
 
 	dc.b 32	; Duration.
 	dc.w Subsong0_RegisterBlock_208 - Subsong0
@@ -1053,7 +1053,7 @@ Subsong0_Track_147:
 
 Subsong0_Track_150:
 	dc.b 32	; Duration.
-	dc.w Subsong0_RegisterBlock_485 - Subsong0
+	dc.w Subsong0_RegisterBlock_176 - Subsong0
 
 	dc.b 24	; Duration.
 	dc.w Subsong0_RegisterBlock_231 - Subsong0
@@ -1074,13 +1074,13 @@ Subsong0_Track_150:
 	dc.w Subsong0_RegisterBlock_227 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_94 - Subsong0
+	dc.w Subsong0_RegisterBlock_228 - Subsong0
 
 	dc.b 32	; Duration.
 	dc.w Subsong0_RegisterBlock_229 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_96 - Subsong0
+	dc.w Subsong0_RegisterBlock_230 - Subsong0
 
 	dc.b 32	; Duration.
 	dc.w Subsong0_RegisterBlock_231 - Subsong0
@@ -1098,10 +1098,10 @@ Subsong0_Track_150:
 	dc.w Subsong0_RegisterBlock_235 - Subsong0
 
 	dc.b 12	; Duration.
-	dc.w Subsong0_RegisterBlock_102 - Subsong0
+	dc.w Subsong0_RegisterBlock_236 - Subsong0
 
 	dc.b 12	; Duration.
-	dc.w Subsong0_RegisterBlock_103 - Subsong0
+	dc.w Subsong0_RegisterBlock_237 - Subsong0
 
 Subsong0_Track_153:
 	dc.b 16	; Duration.
@@ -1487,22 +1487,22 @@ Subsong0_Track_194:
 
 Subsong0_Track_36:
 	dc.b 48	; Duration.
-	dc.w Subsong0_RegisterBlock_135 - Subsong0
+	dc.w Subsong0_RegisterBlock_0 - Subsong0
 
 	dc.b 24	; Duration.
-	dc.w Subsong0_RegisterBlock_164 - Subsong0
+	dc.w Subsong0_RegisterBlock_29 - Subsong0
 
 	dc.b 25	; Duration.
-	dc.w Subsong0_RegisterBlock_164 - Subsong0
+	dc.w Subsong0_RegisterBlock_29 - Subsong0
 
 	dc.b 56	; Duration.
-	dc.w Subsong0_RegisterBlock_138 - Subsong0
+	dc.w Subsong0_RegisterBlock_376 - Subsong0
 
 	dc.b 31	; Duration.
-	dc.w Subsong0_RegisterBlock_138 - Subsong0
+	dc.w Subsong0_RegisterBlock_376 - Subsong0
 
 	dc.b 33	; Duration.
-	dc.w Subsong0_RegisterBlock_138 - Subsong0
+	dc.w Subsong0_RegisterBlock_376 - Subsong0
 
 	dc.b 73	; Duration.
 	dc.w Subsong0_RegisterBlock_379 - Subsong0
@@ -1745,13 +1745,13 @@ Subsong0_Track_200:
 
 Subsong0_Track_160:
 	dc.b 32	; Duration.
-	dc.w Subsong0_RegisterBlock_164 - Subsong0
+	dc.w Subsong0_RegisterBlock_29 - Subsong0
 
 	dc.b 24	; Duration.
 	dc.w Subsong0_RegisterBlock_243 - Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Subsong0_RegisterBlock_164 - Subsong0
+	dc.w Subsong0_RegisterBlock_29 - Subsong0
 
 	dc.b 56	; Duration.
 	dc.w Subsong0_RegisterBlock_490 - Subsong0
@@ -1760,7 +1760,7 @@ Subsong0_Track_160:
 	dc.w Subsong0_RegisterBlock_243 - Subsong0
 
 	dc.b 56	; Duration.
-	dc.w Subsong0_RegisterBlock_164 - Subsong0
+	dc.w Subsong0_RegisterBlock_29 - Subsong0
 
 	dc.b 36	; Duration.
 	dc.w Subsong0_RegisterBlock_243 - Subsong0
@@ -1815,13 +1815,13 @@ Subsong0_Track_201:
 	dc.w Subsong0_RegisterBlock_243 - Subsong0
 
 	dc.b 36	; Duration.
-	dc.w Subsong0_RegisterBlock_167 - Subsong0
+	dc.w Subsong0_RegisterBlock_489 - Subsong0
 
 	dc.b 36	; Duration.
-	dc.w Subsong0_RegisterBlock_167 - Subsong0
+	dc.w Subsong0_RegisterBlock_489 - Subsong0
 
 	dc.b 52	; Duration.
-	dc.w Subsong0_RegisterBlock_167 - Subsong0
+	dc.w Subsong0_RegisterBlock_489 - Subsong0
 
 	dc.b 220	; Duration.
 	dc.w Subsong0_RegisterBlock_490 - Subsong0
@@ -1831,13 +1831,13 @@ Subsong0_Track_201:
 
 Subsong0_Track_202:
 	dc.b 32	; Duration.
-	dc.w Subsong0_RegisterBlock_164 - Subsong0
+	dc.w Subsong0_RegisterBlock_29 - Subsong0
 
 	dc.b 24	; Duration.
 	dc.w Subsong0_RegisterBlock_243 - Subsong0
 
 	dc.b 32	; Duration.
-	dc.w Subsong0_RegisterBlock_164 - Subsong0
+	dc.w Subsong0_RegisterBlock_29 - Subsong0
 
 	dc.b 56	; Duration.
 	dc.w Subsong0_RegisterBlock_490 - Subsong0
@@ -1846,7 +1846,7 @@ Subsong0_Track_202:
 	dc.w Subsong0_RegisterBlock_243 - Subsong0
 
 	dc.b 56	; Duration.
-	dc.w Subsong0_RegisterBlock_164 - Subsong0
+	dc.w Subsong0_RegisterBlock_29 - Subsong0
 
 	dc.b 36	; Duration.
 	dc.w Subsong0_RegisterBlock_243 - Subsong0
@@ -1937,10 +1937,134 @@ Subsong0_RegisterBlock_243_Loop:
 
 
 Subsong0_RegisterBlock_241:
-	dc.b 57	; Initial State: software only.
+	dc.b 65	; Initial State: software only.
 	dc.b 119, 0	; Software period.
 
-	dc.b 29	; Non-initial State, software only.
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
 
 	dc.b 29	; Non-initial State, software only.
 
@@ -2066,9 +2190,9 @@ Subsong0_RegisterBlock_241:
 
 	dc.b 29	; Non-initial State, software only.
 
-	dc.b 25	; Non-initial State, software only.
+	dc.b 29	; Non-initial State, software only.
 
-	dc.b 25	; Non-initial State, software only.
+	dc.b 29	; Non-initial State, software only.
 
 	dc.b 25	; Non-initial State, software only.
 
@@ -2193,137 +2317,13 @@ Subsong0_RegisterBlock_241:
 	dc.b 25	; Non-initial State, software only.
 
 	dc.b 25	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
 
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
+	dc.b 25	; Non-initial State, software only.
 
-	dc.b 21	; Non-initial State, software only.
+	dc.b 25	; Non-initial State, software only.
 
 Subsong0_RegisterBlock_241_Loop:
-	dc.b 17	; Non-initial State, software only.
+	dc.b 21	; Non-initial State, software only.
 
 	dc.b 8	; Loop to index 192.
 	dc.w Subsong0_RegisterBlock_241_Loop - Subsong0
@@ -2482,6 +2482,628 @@ Subsong0_RegisterBlock_520_Loop:
 
 
 Subsong0_RegisterBlock_197:
+	dc.b 33	; Initial State: software only.
+	dc.b 239, 0	; Software period.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 17	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
+
+Subsong0_RegisterBlock_197_Loop:
+	dc.b 37	; Non-initial State, software only.
+
+	dc.b 8	; Loop to index 159.
+	dc.w Subsong0_RegisterBlock_197_Loop - Subsong0
+
+
+Subsong0_RegisterBlock_240:
+	dc.b 73	; Initial State: software only.
+	dc.b 124, 0	; Software period.
+
+	dc.b 101	; Non-initial State, software only.
+	dc.b 123	; New LSB for software period.
+
+	dc.b 37	; Non-initial State, software only.
+
+	dc.b 101	; Non-initial State, software only.
+	dc.b 122	; New LSB for software period.
+
+	dc.b 37	; Non-initial State, software only.
+
+	dc.b 101	; Non-initial State, software only.
+	dc.b 121	; New LSB for software period.
+
+	dc.b 37	; Non-initial State, software only.
+
+	dc.b 101	; Non-initial State, software only.
+	dc.b 120	; New LSB for software period.
+
+Subsong0_RegisterBlock_240_Loop:
+	dc.b 101	; Non-initial State, software only.
+	dc.b 119	; New LSB for software period.
+
+	dc.b 8	; Loop to index 8.
+	dc.w Subsong0_RegisterBlock_240_Loop - Subsong0
+
+
+Subsong0_RegisterBlock_120:
+	dc.b 57	; Initial State: software only.
+	dc.b 119, 0	; Software period.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+Subsong0_RegisterBlock_120_Loop:
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 8	; Loop to index 128.
+	dc.w Subsong0_RegisterBlock_120_Loop - Subsong0
+
+
+Subsong0_RegisterBlock_50:
 	dc.b 25	; Initial State: software only.
 	dc.b 239, 0	; Software period.
 
@@ -2549,264 +3171,22 @@ Subsong0_RegisterBlock_197:
 
 	dc.b 17	; Non-initial State, software only.
 
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 21	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 25	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
-	dc.b 29	; Non-initial State, software only.
-
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_473 + 12 - Subsong0	; Optimization: goto common Block at index 10.
+	dc.w Subsong0_RegisterBlock_197 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
-Subsong0_RegisterBlock_240:
+Subsong0_RegisterBlock_119:
 	dc.b 65	; Initial State: software only.
-	dc.b 124, 0	; Software period.
+	dc.b 126, 0	; Software period.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 97	; Non-initial State, software only.
+	dc.b 125	; New LSB for software period.
+
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 97	; Non-initial State, software only.
+	dc.b 124	; New LSB for software period.
 
 	dc.b 97	; Non-initial State, software only.
 	dc.b 123	; New LSB for software period.
@@ -2826,44 +3206,13 @@ Subsong0_RegisterBlock_240:
 	dc.b 97	; Non-initial State, software only.
 	dc.b 120	; New LSB for software period.
 
-Subsong0_RegisterBlock_240_Loop:
+Subsong0_RegisterBlock_119_Loop:
 	dc.b 97	; Non-initial State, software only.
 	dc.b 119	; New LSB for software period.
 
-	dc.b 8	; Loop to index 8.
-	dc.w Subsong0_RegisterBlock_240_Loop - Subsong0
+	dc.b 8	; Loop to index 12.
+	dc.w Subsong0_RegisterBlock_119_Loop - Subsong0
 
-
-Subsong0_RegisterBlock_120:
-	dc.b 57	; Initial State: software only.
-	dc.b 119, 0	; Software period.
-
-	dc.b 8
-	dc.w Subsong0_RegisterBlock_241 + 3 - Subsong0	; Optimization: goto common Block at index 1.
-
-Subsong0_RegisterBlock_50:
-	dc.b 25	; Initial State: software only.
-	dc.b 239, 0	; Software period.
-
-	dc.b 8
-	dc.w Subsong0_RegisterBlock_197 + 3 - Subsong0	; Optimization: goto common Block at index 1.
-
-Subsong0_RegisterBlock_119:
-	dc.b 65	; Initial State: software only.
-	dc.b 126, 0	; Software period.
-
-	dc.b 33	; Non-initial State, software only.
-
-	dc.b 97	; Non-initial State, software only.
-	dc.b 125	; New LSB for software period.
-
-	dc.b 33	; Non-initial State, software only.
-
-	dc.b 97	; Non-initial State, software only.
-	dc.b 124	; New LSB for software period.
-
-	dc.b 8
-	dc.w Subsong0_RegisterBlock_240 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_397:
 	dc.b 57	; Initial State: software only.
@@ -3315,11 +3664,33 @@ Subsong0_RegisterBlock_397:
 
 
 Subsong0_RegisterBlock_164:
-	dc.b 105	; Initial State: software only.
+	dc.b 113	; Initial State: software only.
 	dc.b 239, 0	; Software period.
 
-	dc.b 8
-	dc.w Subsong0_RegisterBlock_473 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.b 57	; Non-initial State, software only.
+
+	dc.b 53	; Non-initial State, software only.
+
+	dc.b 53	; Non-initial State, software only.
+
+	dc.b 49	; Non-initial State, software only.
+
+	dc.b 49	; Non-initial State, software only.
+
+	dc.b 45	; Non-initial State, software only.
+
+	dc.b 45	; Non-initial State, software only.
+
+	dc.b 41	; Non-initial State, software only.
+
+	dc.b 41	; Non-initial State, software only.
+
+Subsong0_RegisterBlock_164_Loop:
+	dc.b 37	; Non-initial State, software only.
+
+	dc.b 8	; Loop to index 10.
+	dc.w Subsong0_RegisterBlock_164_Loop - Subsong0
+
 
 Subsong0_RegisterBlock_29:
 	dc.b 105	; Initial State: software only.
@@ -4163,7 +4534,7 @@ Subsong0_RegisterBlock_383:
 	dc.b 29	; Non-initial State, software only.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_241 + 98 - Subsong0	; Optimization: goto common Block at index 96.
+	dc.w Subsong0_RegisterBlock_241 + 162 - Subsong0	; Optimization: goto common Block at index 160.
 
 Subsong0_RegisterBlock_382:
 	dc.b 105	; Initial State: software only.
@@ -4173,39 +4544,46 @@ Subsong0_RegisterBlock_382:
 	dc.w Subsong0_RegisterBlock_473 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_135:
-	dc.b 105	; Initial State: software only.
+	dc.b 113	; Initial State: software only.
 	dc.b 201, 0	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_473 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.w Subsong0_RegisterBlock_164 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_138:
-	dc.b 105	; Initial State: software only.
+	dc.b 113	; Initial State: software only.
 	dc.b 188, 3	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_473 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.w Subsong0_RegisterBlock_164 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_141:
-	dc.b 105	; Initial State: software only.
+	dc.b 113	; Initial State: software only.
 	dc.b 36, 3	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_473 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.w Subsong0_RegisterBlock_164 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+
+Subsong0_RegisterBlock_149:
+	dc.b 113	; Initial State: software only.
+	dc.b 239, 0	; Software period.
+
+	dc.b 8
+	dc.w Subsong0_RegisterBlock_164 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_156:
-	dc.b 105	; Initial State: software only.
+	dc.b 113	; Initial State: software only.
 	dc.b 170, 1	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_473 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.w Subsong0_RegisterBlock_164 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_167:
-	dc.b 105	; Initial State: software only.
+	dc.b 113	; Initial State: software only.
 	dc.b 213, 0	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_473 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.w Subsong0_RegisterBlock_164 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_184:
 	dc.b 131	; Initial State : software and hardware.
@@ -4381,6 +4759,13 @@ Subsong0_RegisterBlock_316:
 	dc.b 8
 	dc.w Subsong0_RegisterBlock_520 + 15 - Subsong0	; Optimization: goto common Block at index 6.
 
+Subsong0_RegisterBlock_376:
+	dc.b 105	; Initial State: software only.
+	dc.b 188, 3	; Software period.
+
+	dc.b 8
+	dc.w Subsong0_RegisterBlock_473 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+
 Subsong0_RegisterBlock_389:
 	dc.b 97	; Initial State: software only.
 	dc.b 119, 7	; Software period.
@@ -4440,6 +4825,13 @@ Subsong0_RegisterBlock_483:
 Subsong0_RegisterBlock_485:
 	dc.b 105	; Initial State: software only.
 	dc.b 159, 0	; Software period.
+
+	dc.b 8
+	dc.w Subsong0_RegisterBlock_473 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+
+Subsong0_RegisterBlock_489:
+	dc.b 105	; Initial State: software only.
+	dc.b 213, 0	; Software period.
 
 	dc.b 8
 	dc.w Subsong0_RegisterBlock_473 + 3 - Subsong0	; Optimization: goto common Block at index 1.
@@ -4592,54 +4984,71 @@ Subsong0_RegisterBlock_396:
 
 	dc.b 37	; Non-initial State, software only.
 
-	dc.b 33	; Non-initial State, software only.
+	dc.b 8
+	dc.w Subsong0_RegisterBlock_241 + 64 - Subsong0	; Optimization: goto common Block at index 62.
 
-	dc.b 33	; Non-initial State, software only.
+Subsong0_RegisterBlock_136:
+	dc.b 113	; Initial State: software only.
+	dc.b 239, 0	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_241 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.w Subsong0_RegisterBlock_164 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_144:
-	dc.b 105	; Initial State: software only.
+	dc.b 113	; Initial State: software only.
 	dc.b 102, 1	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_473 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.w Subsong0_RegisterBlock_164 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_146:
-	dc.b 105	; Initial State: software only.
+	dc.b 113	; Initial State: software only.
 	dc.b 45, 1	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_473 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.w Subsong0_RegisterBlock_164 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+
+Subsong0_RegisterBlock_152:
+	dc.b 113	; Initial State: software only.
+	dc.b 170, 1	; Software period.
+
+	dc.b 8
+	dc.w Subsong0_RegisterBlock_164 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_157:
-	dc.b 105	; Initial State: software only.
+	dc.b 113	; Initial State: software only.
 	dc.b 24, 2	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_473 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.w Subsong0_RegisterBlock_164 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_161:
-	dc.b 105	; Initial State: software only.
+	dc.b 113	; Initial State: software only.
 	dc.b 12, 1	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_473 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.w Subsong0_RegisterBlock_164 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+
+Subsong0_RegisterBlock_165:
+	dc.b 113	; Initial State: software only.
+	dc.b 213, 0	; Software period.
+
+	dc.b 8
+	dc.w Subsong0_RegisterBlock_164 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_169:
-	dc.b 105	; Initial State: software only.
+	dc.b 113	; Initial State: software only.
 	dc.b 63, 1	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_473 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.w Subsong0_RegisterBlock_164 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_176:
-	dc.b 105	; Initial State: software only.
+	dc.b 113	; Initial State: software only.
 	dc.b 159, 0	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_473 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.w Subsong0_RegisterBlock_164 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_185:
 	dc.b 131	; Initial State : software and hardware.
@@ -4696,63 +5105,63 @@ Subsong0_RegisterBlock_193:
 	dc.w Subsong0_RegisterBlock_520 + 15 - Subsong0	; Optimization: goto common Block at index 6.
 
 Subsong0_RegisterBlock_199:
-	dc.b 57	; Initial State: software only.
+	dc.b 65	; Initial State: software only.
 	dc.b 239, 0	; Software period.
 
 	dc.b 8
 	dc.w Subsong0_RegisterBlock_241 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_208:
-	dc.b 49	; Initial State: software only.
+	dc.b 57	; Initial State: software only.
 	dc.b 239, 0	; Software period.
 
 	dc.b 8
 	dc.w Subsong0_RegisterBlock_241 + 66 - Subsong0	; Optimization: goto common Block at index 64.
 
 Subsong0_RegisterBlock_223:
-	dc.b 65	; Initial State: software only.
+	dc.b 73	; Initial State: software only.
 	dc.b 201, 0	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_473 + 12 - Subsong0	; Optimization: goto common Block at index 10.
+	dc.w Subsong0_RegisterBlock_197 + 161 - Subsong0	; Optimization: goto common Block at index 159.
 
 Subsong0_RegisterBlock_225:
-	dc.b 57	; Initial State: software only.
+	dc.b 65	; Initial State: software only.
 	dc.b 159, 0	; Software period.
 
 	dc.b 8
 	dc.w Subsong0_RegisterBlock_241 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_227:
-	dc.b 57	; Initial State: software only.
+	dc.b 65	; Initial State: software only.
 	dc.b 201, 0	; Software period.
 
 	dc.b 8
 	dc.w Subsong0_RegisterBlock_241 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_229:
-	dc.b 105	; Initial State: software only.
+	dc.b 113	; Initial State: software only.
 	dc.b 150, 0	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_473 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.w Subsong0_RegisterBlock_164 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_231:
-	dc.b 65	; Initial State: software only.
+	dc.b 73	; Initial State: software only.
 	dc.b 179, 0	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_473 + 12 - Subsong0	; Optimization: goto common Block at index 10.
+	dc.w Subsong0_RegisterBlock_197 + 161 - Subsong0	; Optimization: goto common Block at index 159.
 
 Subsong0_RegisterBlock_233:
-	dc.b 57	; Initial State: software only.
+	dc.b 65	; Initial State: software only.
 	dc.b 150, 0	; Software period.
 
 	dc.b 8
 	dc.w Subsong0_RegisterBlock_241 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_235:
-	dc.b 57	; Initial State: software only.
+	dc.b 65	; Initial State: software only.
 	dc.b 179, 0	; Software period.
 
 	dc.b 8
@@ -5235,49 +5644,49 @@ Subsong0_RegisterBlock_52:
 	dc.b 239, 0	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_241 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.w Subsong0_RegisterBlock_241 + 66 - Subsong0	; Optimization: goto common Block at index 64.
 
 Subsong0_RegisterBlock_54:
 	dc.b 33	; Initial State: software only.
 	dc.b 239, 0	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_241 + 194 - Subsong0	; Optimization: goto common Block at index 192.
+	dc.w Subsong0_RegisterBlock_197 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_58:
 	dc.b 65	; Initial State: software only.
 	dc.b 239, 0	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_473 + 12 - Subsong0	; Optimization: goto common Block at index 10.
+	dc.w Subsong0_RegisterBlock_241 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_60:
 	dc.b 49	; Initial State: software only.
 	dc.b 201, 0	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_241 + 66 - Subsong0	; Optimization: goto common Block at index 64.
+	dc.w Subsong0_RegisterBlock_241 + 130 - Subsong0	; Optimization: goto common Block at index 128.
 
 Subsong0_RegisterBlock_61:
 	dc.b 49	; Initial State: software only.
 	dc.b 239, 0	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_241 + 66 - Subsong0	; Optimization: goto common Block at index 64.
+	dc.w Subsong0_RegisterBlock_241 + 130 - Subsong0	; Optimization: goto common Block at index 128.
 
 Subsong0_RegisterBlock_88:
 	dc.b 65	; Initial State: software only.
 	dc.b 179, 0	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_473 + 12 - Subsong0	; Optimization: goto common Block at index 10.
+	dc.w Subsong0_RegisterBlock_241 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_89:
 	dc.b 65	; Initial State: software only.
 	dc.b 201, 0	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_473 + 12 - Subsong0	; Optimization: goto common Block at index 10.
+	dc.w Subsong0_RegisterBlock_241 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_90:
 	dc.b 1	; Initial State: software only.
@@ -5291,28 +5700,28 @@ Subsong0_RegisterBlock_91:
 	dc.b 159, 0	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_241 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.w Subsong0_RegisterBlock_241 + 66 - Subsong0	; Optimization: goto common Block at index 64.
 
 Subsong0_RegisterBlock_92:
 	dc.b 57	; Initial State: software only.
 	dc.b 179, 0	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_241 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.w Subsong0_RegisterBlock_241 + 66 - Subsong0	; Optimization: goto common Block at index 64.
 
 Subsong0_RegisterBlock_93:
 	dc.b 57	; Initial State: software only.
 	dc.b 201, 0	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_241 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.w Subsong0_RegisterBlock_241 + 66 - Subsong0	; Optimization: goto common Block at index 64.
 
 Subsong0_RegisterBlock_94:
 	dc.b 57	; Initial State: software only.
 	dc.b 213, 0	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_241 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.w Subsong0_RegisterBlock_241 + 66 - Subsong0	; Optimization: goto common Block at index 64.
 
 Subsong0_RegisterBlock_95:
 	dc.b 105	; Initial State: software only.
@@ -5326,7 +5735,7 @@ Subsong0_RegisterBlock_96:
 	dc.b 159, 0	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_473 + 12 - Subsong0	; Optimization: goto common Block at index 10.
+	dc.w Subsong0_RegisterBlock_241 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_98:
 	dc.b 1	; Initial State: software only.
@@ -5340,7 +5749,35 @@ Subsong0_RegisterBlock_99:
 	dc.b 150, 0	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_241 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.w Subsong0_RegisterBlock_241 + 66 - Subsong0	; Optimization: goto common Block at index 64.
+
+Subsong0_RegisterBlock_145:
+	dc.b 113	; Initial State: software only.
+	dc.b 63, 1	; Software period.
+
+	dc.b 8
+	dc.w Subsong0_RegisterBlock_164 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+
+Subsong0_RegisterBlock_147:
+	dc.b 113	; Initial State: software only.
+	dc.b 12, 1	; Software period.
+
+	dc.b 8
+	dc.w Subsong0_RegisterBlock_164 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+
+Subsong0_RegisterBlock_153:
+	dc.b 113	; Initial State: software only.
+	dc.b 146, 1	; Software period.
+
+	dc.b 8
+	dc.w Subsong0_RegisterBlock_164 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+
+Subsong0_RegisterBlock_175:
+	dc.b 113	; Initial State: software only.
+	dc.b 179, 0	; Software period.
+
+	dc.b 8
+	dc.w Subsong0_RegisterBlock_164 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_188:
 	dc.b 131	; Initial State : software and hardware.
@@ -5349,6 +5786,41 @@ Subsong0_RegisterBlock_188:
 
 	dc.b 8
 	dc.w Subsong0_RegisterBlock_311 + 5 - Subsong0	; Optimization: goto common Block at index 1.
+
+Subsong0_RegisterBlock_201:
+	dc.b 41	; Initial State: software only.
+	dc.b 239, 0	; Software period.
+
+	dc.b 8
+	dc.w Subsong0_RegisterBlock_241 + 194 - Subsong0	; Optimization: goto common Block at index 192.
+
+Subsong0_RegisterBlock_205:
+	dc.b 73	; Initial State: software only.
+	dc.b 239, 0	; Software period.
+
+	dc.b 8
+	dc.w Subsong0_RegisterBlock_197 + 161 - Subsong0	; Optimization: goto common Block at index 159.
+
+Subsong0_RegisterBlock_222:
+	dc.b 73	; Initial State: software only.
+	dc.b 179, 0	; Software period.
+
+	dc.b 8
+	dc.w Subsong0_RegisterBlock_197 + 161 - Subsong0	; Optimization: goto common Block at index 159.
+
+Subsong0_RegisterBlock_228:
+	dc.b 65	; Initial State: software only.
+	dc.b 213, 0	; Software period.
+
+	dc.b 8
+	dc.w Subsong0_RegisterBlock_241 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+
+Subsong0_RegisterBlock_230:
+	dc.b 73	; Initial State: software only.
+	dc.b 159, 0	; Software period.
+
+	dc.b 8
+	dc.w Subsong0_RegisterBlock_197 + 161 - Subsong0	; Optimization: goto common Block at index 159.
 
 Subsong0_RegisterBlock_264:
 	dc.b 76	; Initial State: no software, no hardware.
@@ -5647,8 +6119,12 @@ Subsong0_RegisterBlock_505:
 
 
 Subsong0_RegisterBlock_196:
-	dc.b 65	; Initial State: software only.
+	dc.b 73	; Initial State: software only.
 	dc.b 239, 0	; Software period.
+
+	dc.b 37	; Non-initial State, software only.
+
+	dc.b 33	; Non-initial State, software only.
 
 	dc.b 33	; Non-initial State, software only.
 
@@ -5663,51 +6139,52 @@ Subsong0_RegisterBlock_196:
 	dc.b 21	; Non-initial State, software only.
 
 	dc.b 21	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
-
-	dc.b 17	; Non-initial State, software only.
 
 	dc.b 8
 	dc.w Subsong0_RegisterBlock_197 + 3 - Subsong0	; Optimization: goto common Block at index 1.
 
 Subsong0_RegisterBlock_239:
-	dc.b 105	; Initial State: software only.
+	dc.b 113	; Initial State: software only.
 	dc.b 133, 0	; Software period.
 
-	dc.b 117	; Non-initial State, software only.
+	dc.b 121	; Non-initial State, software only.
 	dc.b 132	; New LSB for software period.
+
+	dc.b 53	; Non-initial State, software only.
+
+	dc.b 117	; Non-initial State, software only.
+	dc.b 131	; New LSB for software period.
 
 	dc.b 49	; Non-initial State, software only.
 
 	dc.b 113	; Non-initial State, software only.
-	dc.b 131	; New LSB for software period.
+	dc.b 130	; New LSB for software period.
 
 	dc.b 45	; Non-initial State, software only.
 
 	dc.b 109	; Non-initial State, software only.
-	dc.b 130	; New LSB for software period.
+	dc.b 129	; New LSB for software period.
+
+	dc.b 105	; Non-initial State, software only.
+	dc.b 128	; New LSB for software period.
 
 	dc.b 41	; Non-initial State, software only.
 
-	dc.b 105	; Non-initial State, software only.
-	dc.b 129	; New LSB for software period.
-
 	dc.b 101	; Non-initial State, software only.
-	dc.b 128	; New LSB for software period.
+	dc.b 127	; New LSB for software period.
 
 	dc.b 37	; Non-initial State, software only.
 
-	dc.b 97	; Non-initial State, software only.
-	dc.b 127	; New LSB for software period.
-
-	dc.b 33	; Non-initial State, software only.
-
-	dc.b 97	; Non-initial State, software only.
+	dc.b 101	; Non-initial State, software only.
 	dc.b 126	; New LSB for software period.
 
-	dc.b 8
-	dc.w Subsong0_RegisterBlock_119 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.b 37	; Non-initial State, software only.
+
+	dc.b 101	; Non-initial State, software only.
+	dc.b 125	; New LSB for software period.
+
+	dc.b 37	; Non-initial State, software only.
+
 
 Subsong0_RegisterBlock_246:
 	dc.b 131	; Initial State : software and hardware.
@@ -5744,15 +6221,29 @@ Subsong0_RegisterBlock_49:
 	dc.b 65	; Initial State: software only.
 	dc.b 239, 0	; Software period.
 
+	dc.b 33	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_196 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.w Subsong0_RegisterBlock_491 + 21 - Subsong0	; Optimization: goto common Block at index 19.
 
 Subsong0_RegisterBlock_102:
 	dc.b 57	; Initial State: software only.
 	dc.b 134, 0	; Software period.
 
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_241 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.w Subsong0_RegisterBlock_241 + 66 - Subsong0	; Optimization: goto common Block at index 64.
 
 Subsong0_RegisterBlock_103:
 	dc.b 49	; Initial State: software only.
@@ -5779,6 +6270,56 @@ Subsong0_RegisterBlock_118:
 	dc.b 105	; Initial State: software only.
 	dc.b 133, 0	; Software period.
 
+	dc.b 117	; Non-initial State, software only.
+	dc.b 132	; New LSB for software period.
+
+	dc.b 49	; Non-initial State, software only.
+
+	dc.b 113	; Non-initial State, software only.
+	dc.b 131	; New LSB for software period.
+
+	dc.b 45	; Non-initial State, software only.
+
+	dc.b 109	; Non-initial State, software only.
+	dc.b 130	; New LSB for software period.
+
+	dc.b 41	; Non-initial State, software only.
+
+	dc.b 105	; Non-initial State, software only.
+	dc.b 129	; New LSB for software period.
+
+	dc.b 101	; Non-initial State, software only.
+	dc.b 128	; New LSB for software period.
+
+	dc.b 37	; Non-initial State, software only.
+
+	dc.b 97	; Non-initial State, software only.
+	dc.b 127	; New LSB for software period.
+
+	dc.b 33	; Non-initial State, software only.
+
+
+Subsong0_RegisterBlock_236:
+	dc.b 65	; Initial State: software only.
+	dc.b 134, 0	; Software period.
+
 	dc.b 8
-	dc.w Subsong0_RegisterBlock_239 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+	dc.w Subsong0_RegisterBlock_241 + 3 - Subsong0	; Optimization: goto common Block at index 1.
+
+Subsong0_RegisterBlock_237:
+	dc.b 57	; Initial State: software only.
+	dc.b 134, 0	; Software period.
+
+	dc.b 29	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 25	; Non-initial State, software only.
+
+	dc.b 21	; Non-initial State, software only.
+
+	dc.b 8
+	dc.w Subsong0_RegisterBlock_49 + 8 - Subsong0	; Optimization: goto common Block at index 6.
 

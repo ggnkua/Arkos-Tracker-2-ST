@@ -174,7 +174,7 @@ sndh_exit:
 	bsr sid_exit
     .endif
 i set 0
-	rept 13
+	rept 14
     move.l  #i,$FFFF8800.w
 i set i+$01010000
 	endr

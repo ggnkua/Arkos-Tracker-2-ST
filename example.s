@@ -173,7 +173,6 @@ EVENT_CHANNEL_C_MASK equ 8+1
     cmp.b #$f0,d1
     bne.s .no_sid_event
     move.b d0,d1
-    move.b d0,$ffff8240.w
 ; lsl.b #4 below explained:
 ; for sid events, d1 is going to be $f0 to $ff
 ; we mask this with the channel mask (bit 0, 1 or 2) and keep bit 3 intact too.
@@ -369,7 +368,7 @@ exit:
     move.b  #$C0,$FFFFFA23.w        ;and how would you stop the ym?
     endif
 i set 0
-    rept 13
+    rept 14
     move.l  #i,$FFFF8800.w          ;(makes gesture of turning an engine key off) just turn it off!
 i set i+$01000000
     endr
@@ -493,6 +492,7 @@ event_flag: dc.b 0
 tune_events:
 ;    .include "tunes/SID_Test_001.events.words.s"
     include "tunes/knightmare.events.words.s"
+;    include "test_new_sid_event_002.events.words.s"
 ;    .include "tunes/you_never_can_tell.events.words.s"
 
 ;    .include "tunes/ten_little_endians.events.words.s"
@@ -515,6 +515,7 @@ tune:
 
 ;    .include "tunes/SID_Test_001.aky.s"
     include "tunes/knightmare.aky.s"
+;    include "test_new_sid_event_002.aky.s"
 ;    .include "tunes/you_never_can_tell.aky.s"
 
 ;    .include "tunes/ten_little_endians.aky.s"
