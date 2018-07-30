@@ -175,6 +175,9 @@ sndh_init:
     movex.w (a0),event_counter
     .endif ; .if USE_EVENTS
 
+    move.b #7,$ffff8800.w                                   ;let's behave and save I/O port settings
+    movex.b $ffff8800.w,old_io_port_value
+
     lea tune(pc),a0
     bsr.w PLY_AKYst_Init
     .if SID_VOICES
@@ -182,6 +185,9 @@ sndh_init:
     .endif
     movem.l  (sp)+,d0-a6
     rts
+
+old_io_port_value: ds.b 1
+    even
 
 sndh_exit:
     movem.l d0-a6,-(sp)
@@ -191,8 +197,10 @@ sndh_exit:
 i set 0
 	rept 14
     move.l  #i,$FFFF8800.w
-i set i+$01010000
+i set i+$01000000
 	endr
+    move.b #7,$ffff8800.w                                   ;let's behave and restore I/O port settings
+    move.b old_io_port_value(pc),$ffff8802.w
     movem.l  (sp)+,d0-a6
     rts
 
