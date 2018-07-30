@@ -371,11 +371,13 @@ exit:
     move.l  old_timer_c,$114.w      ;restore timer c
     move.b  #$C0,$FFFFFA23.w        ;and how would you stop the ym?
     endif
-i set 0
-    rept 14
-    move.l  #i,$FFFF8800.w          ;(makes gesture of turning an engine key off) just turn it off!
-i set i+$01000000
-    endr
+    moveq #14-1,d0
+    moveq #0,d1
+reset_psg: move.l d1,$ffff8800.w    ;(makes gesture of turning an engine key off)
+    add.l #$01000000,d1
+    dbra d0,reset_psg
+    move.b #7,$ffff8800.w           ;let's behave and restore I/O port settings
+    move.b old_io_port_value(pc),$ffff8802.w
     move (sp)+,sr                   ;enable interrupts - tune will stop playing
     endif
     
@@ -497,37 +499,12 @@ event_byte: dc.b 0
 event_flag: dc.b 0
   even
 tune_events:
-;    .include "tunes/SID_Test_001.events.words.s"
     include "tunes/knightmare.events.words.s"
-;    include "test_new_sid_event_002.events.words.s"
-;    .include "tunes/you_never_can_tell.events.words.s"
-
-;    .include "tunes/ten_little_endians.events.words.s"
-;    .include "tunes/just_add_cream.events.words.s"
-;    .include "tunes/interleave_this.events.words.s"
   even
   endif ; .if USE_EVENTS
 
 tune:
-;   .include "tunes/UltraSyd - Fractal.s"
-;    .include "tunes/UltraSyd - YM Type.s"
-;    .include "tunes/Targhan - Midline Process - Carpet.s"
-;    .include "tunes/Targhan - Midline Process - Molusk.s"
-;    .include "tunes/Targhan - DemoIzArt - End Part.s"
-;    .include "tunes/Pachelbel's Canon in D major 003.s"
-;    .include "tunes/Interleave THIS! 015.s"
-;    .include "tunes/Knightmare 200Hz 017.s"
-;    .include "tunes/Ten Little Endians_015.s"
-;    .include "tunes/Just add cream 020.s"
-
-;    .include "tunes/SID_Test_001.aky.s"
-    include "tunes/knightmare.aky.s"
-;    include "test_new_sid_event_002.aky.s"
-;    .include "tunes/you_never_can_tell.aky.s"
-
-;    .include "tunes/ten_little_endians.aky.s"
-;    .include "tunes/just_add_cream.aky.s"
-;    .include "tunes/interleave_this.aky.s"
+    .include "tunes/Knightmare.aky.s"
 
     if _RMAC_=1
     long                            ;pad to 4 bytes

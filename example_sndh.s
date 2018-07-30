@@ -22,7 +22,7 @@ start:
     move.b $484.w,-(sp)             ;save old keyclick state
     clr.b $484.w                    ;keyclick off, key repeat off
 
-	bsr tune+0                      ;init player and tune
+	bsr.s tune+0                    ;init player and tune
 
 	move sr,-(sp)                   ;install our very own timer C
 	move #$2700,sr
@@ -39,7 +39,7 @@ start:
 	move #$2700,sr
     move.l  old_timer_c,$114.w      ;restore timer c
     move.b  #$C0,$FFFFFA23.w        ;and how would you stop the ym?
-	bsr tune+4
+	bsr.s tune+4
 	move (sp)+,sr                   ;enable interrupts - tune will stop playing
     
     move.b (sp)+,$484.w             ;restore keyclick state
@@ -55,7 +55,7 @@ timer_c:
 	.if showcpu
     not.w $ffff8240.w
 	.endif
-	bsr tune+8
+	bsr.s tune+8
 	.if showcpu
     not.w $ffff8240.w
 	.endif

@@ -194,11 +194,11 @@ sndh_exit:
     .if SID_VOICES
 	bsr sid_exit
     .endif
-i set 0
-	rept 14
-    move.l  #i,$FFFF8800.w
-i set i+$01000000
-	endr
+    moveq #14-1,d0
+    moveq #0,d1
+reset_psg: move.l d1,$ffff8800.w
+    add.l #$01000000,d1
+    dbra d0,reset_psg
     move.b #7,$ffff8800.w                                   ;let's behave and restore I/O port settings
     move.b old_io_port_value(pc),$ffff8802.w
     movem.l  (sp)+,d0-a6
