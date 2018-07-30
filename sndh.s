@@ -166,9 +166,12 @@ sndh_init:
     clrx.b chan_b_sid_on
     clrx.b chan_c_sid_on
     .endif ; .if SID_VOICES
+
+    .if PC_REL_CODE
+    lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
+    .endif
     
     .if USE_EVENTS
-    lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
     ; reset event pos to start of event list
     lea tune_events(pc),a0
     movex.l a0,events_pos

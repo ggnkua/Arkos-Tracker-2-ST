@@ -241,7 +241,7 @@ start:
     clr.b $484.w                    ;keyclick off, key repeat off
 
     move.b #7,$ffff8800.w                                   ;let's behave and save I/O port settings
-    movex.b $ffff8800.w,old_io_port_value
+    move.b $ffff8800.w,old_io_port_value
     lea tune,a0
     bsr PLY_AKYst_Init              ;init player and tune
     if SID_VOICES
