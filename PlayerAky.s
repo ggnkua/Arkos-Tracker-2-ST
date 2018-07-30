@@ -1167,7 +1167,9 @@ PLY_AKYst_Channel3_RegisterBlock_Process:
         
         ;In d3, R7 with default values: fully sound-open but noise-close.
         ;R7 has been shift twice to the left, it will be shifted back as the channels are treated.
-        move.w #%11100000,d3
+        ;Bits 6 and 7 are also set (bits 8 and 9 in the instruction below) - at least bit 6 is crucial to be
+        ;set as the Falcon's internal IDE drives might switch off otherwise!
+        move.w #%1111100000,d3
 
 
     if !AVOID_SMC
