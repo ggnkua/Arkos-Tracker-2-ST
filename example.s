@@ -43,18 +43,20 @@
 ;-- Using events to turn on/off SID on channels
 ;--------------------------------------------------------------
 
-
+; Equates for this source
 debug=0                             ;1=skips installing a timer for replay and instead calls the player in succession
                                     ;good for debugging the player but plays the tune in turbo mode :)
 show_cpu=1                          ;if 1, display a bar showing CPU usage
 use_vbl=0                           ;if 1, vbl is used instead of timer c
 vbl_pause=0                         ;if 1, a small pause is inserted in the vbl code so the cpu usage is visible
 disable_timers=0                    ;if 1, stops all MFP timers, for better CPU usage display
+tune_freq=200                       ;tune frequency in ticks per second
+
+; Player equates
 UNROLLED_CODE=0                     ;if 1, enable unrolled slightly faster YM register reading code
-SID_VOICES=1                        ;if 1, enable SID voices (takes more CPU time!)
 PC_REL_CODE=0                       ;if 1, make code PC relative (helps if you move the routine around, like for example SNDH)
 AVOID_SMC=0                         ;if 1, assemble the player without SMC stuff, so it should be fine for CPUs with cache
-tune_freq=200                       ;tune frequency in ticks per second
+SID_VOICES=1                        ;if 1, enable SID voices (takes more CPU time!)
 USE_EVENTS=1                        ;if 1, include events, and parse them
 USE_SID_EVENTS=1                    ;if 1, use events to control SID.
                                     ;  $Fn=sid setting, where n bits are xABC for which voice to use SID

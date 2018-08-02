@@ -74,13 +74,7 @@ timer_c_ctr: dc.w 200
 	.even
 tune:
 	.incbin "sndh.sndh"
-;   .include "UltraSyd - Fractal.s"
-;	.include "UltraSyd - YM Type.s"
-;	.include "Targhan - Midline Process - Carpet.s"
-;	.include "Targhan - Midline Process - Molusk.s"
-;	.include "Pachelbel's Canon in D major 003.s"
-;	.long				            ;pad to 4 bytes
-;tune_end:
+tune_end:
 
 	.bss
 

@@ -7,19 +7,17 @@ PC_REL_CODE=1                   ;if 1, make code PC relative (helps if you move 
 AVOID_SMC=1                     ;if 1, assemble the player without SMC stuff, so it should be fine for CPUs with cache
 SID_VOICES=1                    ;if 1, enable SID voices (takes more CPU time!)
 UNROLLED_CODE=0                 ;if 1, enable unrolled slightly faster YM register reading code
-USE_EVENTS=1                        ;if 1, include events, and parse them
-USE_SID_EVENTS=1                    ;if 1, use events to control SID.
-                                    ;  $Fn=sid setting, where n bits are xABC for which voice to use SID
-DUMP_SONG=0                         ;if 1, produce a YM dump of the tune. DOES NOT WORK WITH SID OR EVENTS YET!
-
+USE_EVENTS=1                    ;if 1, include events, and parse them
+USE_SID_EVENTS=1                ;if 1, use events to control SID.
+                                ;  $Fn=sid setting, where n bits are xABC for which voice to use SID
+DUMP_SONG=0                     ;if 1, produce a YM dump of the tune. DOES NOT WORK WITH SID OR EVENTS YET!
 
 EVENT_CHANNEL_A_MASK equ 8+4
 EVENT_CHANNEL_B_MASK equ 8+2
 EVENT_CHANNEL_C_MASK equ 8+1
 
 ;
-; Event parser, in macro form (let's not waste a bsr and rts!)
-; Note: movex macro is defined in PlayerAky.s
+; Macros that ensure PC relative code
 ;
     .macro clrx dst
     .if PC_REL_CODE
@@ -43,50 +41,53 @@ EVENT_CHANNEL_C_MASK equ 8+1
     .endif
     .endm
 
+;
+; Event parser, in macro form (let's not waste a bsr and rts!)
+;
 	.macro parse_events
-      ;########################################################
-      ;## Parse tune events
+    ;########################################################
+    ;## Parse tune events
 
-      .if USE_EVENTS
-      .if PC_REL_CODE
-      movem.l d0/a0/a1/a4,-(sp)
-      lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
-      .else
-      movem.l d0/a0/a1,-(sp)
-      .endif
-      clrx.b event_flag
+    .if USE_EVENTS
+    .if PC_REL_CODE
+    movem.l d0/a0/a1/a4,-(sp)
+    lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
+    .else
+    movem.l d0/a0/a1,-(sp)
+    .endif
+    clrx.b event_flag
 .event_do_count:
-      move.w event_counter(pc),d0
-      subq #1,d0
-      bne.s .nohit
+    move.w event_counter(pc),d0
+    subq #1,d0
+    bne.s .nohit
 .event_read_val:
-      ; time to read value
-      move.l events_pos(pc),a0
-      addq #2,a0
-      move.w (a0)+,d0
-      movex.b d0,event_byte
-      movex.b #1,event_flag ; there's a new event value to fetch
-      move.w (a0),d0
-      bne.s .noloopback
-      ; loopback
-      addq #2,a0
-      move.w (a0),a0
-      lea tune_events(pc),a1
-      add.l a1,a0
-      movex.l a0,events_pos
-      movex.w (a0),event_counter
-      bra.s .event_do_count
+    ; time to read value
+    move.l events_pos(pc),a0
+    addq #2,a0
+    move.w (a0)+,d0
+    movex.b d0,event_byte
+    movex.b #1,event_flag ; there's a new event value to fetch
+    move.w (a0),d0
+    bne.s .noloopback
+    ; loopback
+    addq #2,a0
+    move.w (a0),a0
+    lea tune_events(pc),a1
+    add.l a1,a0
+    movex.l a0,events_pos
+    movex.w (a0),event_counter
+    bra.s .event_do_count
 .noloopback:
-      movex.l a0,events_pos
+    movex.l a0,events_pos
 .nohit:
-      movex.w d0,event_counter
-      ;done
-      .if PC_REL_CODE
-      movem.l (sp)+,d0/a0/a1/a4
-      .else
-      movem.l (sp)+,d0/a0/a1
-      .endif
-      .endif ; .if USE_EVENTS
+    movex.w d0,event_counter
+    ;done
+    .if PC_REL_CODE
+    movem.l (sp)+,d0/a0/a1/a4
+    .else
+    movem.l (sp)+,d0/a0/a1
+    .endif
+    .endif ; .if USE_EVENTS
 
     if USE_SID_EVENTS
     if PC_REL_CODE
@@ -136,8 +137,8 @@ EVENT_CHANNEL_C_MASK equ 8+1
     endif     
     endif ; .if USE_SID_EVENTS
 
-      ;## Parse tune events
-      ;########################################################
+    ;## Parse tune events
+    ;########################################################
 	.endm
 
     bra.w  sndh_init

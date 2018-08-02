@@ -51,9 +51,11 @@ File | Description
 PlayerAky.s | The main player code
 sid.s | (*optional*) The SID player code
 example.s | (*optional*) Example code on how to call the player in various ways
+example_sndh.s | (*optional*) Example code on how to play a SNDH file
 build.bat | Windows batch script to assemble example.s using the **rmac** assembler (also `build_vasm.bat` for **vasm** assembler)
 sndh.s | Skeleton code for creating a SNDH file
-sndh.bat | Windows batch script to generate a SNDH file
+build_sndh.bat | Windows batch script to generate a SNDH file
+build_sndh_prg.bat | Windows batch script to generate a program which plays a SNDH file
 vasm.s | (*optional*) extra macros when you assemble with **vasm** assembler
 
 In its simplest form, you can simple include `PlayerAky.s` in your project. Initialise the player by calling `PLY_AKYst_Start` with `a0` pointing to the song data you have exported. Then, every tick of your replay frequency (50Hz, 200Hz etc) simply call `PLY_AKYst_Start+2` again with `a0` pointing to the song data. Instead of `PLY_AKYst_Start+0/+2` you can also use `PLY_AKYst_Init`/`PLY_AKYst_Play`.
@@ -129,7 +131,11 @@ In Arkos Tracker 2, all events starting with F (F0, F1, F2 etc up to FF) are now
      FE - set channels A and B to SID on
      FF - all channels SID on
 
+Note that SID voices are _not_ supported inside the trakcer, so the only way to listen to them is to create a SNDH or assemble the tune as a ST prg.
+
 # SNDH
+
+Note that in order to create SNDH files you *must* have rmac and rln inside the `bin` folder. The Windows versions are supplied inside the repository. Windows, Mac etc users should get and compile rmac and rln from http://shamusworld.gotdns.org/git/rmac and http://shamusworld.gotdns.org/git/rln (just CDing to the directories and typing `make` should be all that's needed provided a sane build system)
 
 There follows a semi-automatic process to create a SNDH compliant file:
 
@@ -141,7 +147,7 @@ There follows a semi-automatic process to create a SNDH compliant file:
   - Do **not** change `PC_REL_CODE` or `AVOID_SMC`!
   - Change the `TITL`, `COMM`, `RIPP`, `CONV`, `YEAR` fields
   - Set the replay frequency. Recommended is to use `TCxxx` where `xxx` is the frequency the tune was composed
-- Run `sndh.bat`.
+- Run `build_sndh.bat`.
 
 If everything went fine then a file called `sndh.sndh` should be created and can be played by any compliant SNDH player.
 
@@ -168,3 +174,4 @@ Finally the whole code inside `sid.s` should also be treated as reference. There
 - Additional code by Excellence in Art
 - SID voices source provided by Grazey of the PHF based on code by Abyss and Tao of Cream
 - Some vasm help from @realmml
+- Falcon tips and testing by Evil/DHS and Grazey/PHF
