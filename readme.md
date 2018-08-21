@@ -25,7 +25,7 @@ Song will be auto converted to the proper format for you.
 Alternatively you can do the same from inside the tracker:
 
 - Open the tune you want to export
-- Go to Edit->Song properties, and check the "PSG list" field, the frequency should me 2000000Hz. If not, click "edit" and change the tick box to "2000000 Hz (Atari ST)"
+- Go to Edit->Song properties, and check the "PSG list" field, the frequency should be 2000000Hz. If not, click "edit" and change the tick box to "2000000 Hz (Atari ST)"
 - (One time only setup) Go to File->Setup and click "source properties". Press the "+" button to create a new profile, name it something like "68000, with comments". Then fill in the fields as follows:
   - Current address declaration: ;
   - Comment declaration: ;
@@ -38,7 +38,10 @@ Alternatively you can do the same from inside the tracker:
   - Labels postfix: :
   - Little endian: check
   - One mnemonic type per line: check
-- Go to File->Export->Export as AKY. Check "source file" and leave ASM labels prefix as "Main". Check "Encode to address" and type "0" in the field. Check "Encode all addresses as relative to the song start: check". Press "Export" and choose a filename.
+- Go to File->Export->Export as AKY. Check "source file" and leave ASM labels prefix as "Main".
+- Check "Encode to address" and type "0" in the field.
+- Check "Encode all addresses as relative to the song start: check". *Note* this is present on versions 2.0.0a3 and later! Please update your tracker if this option is not available!
+- Press "Export" and choose a filename.
 
 You can now use the exported .s file directly with the player example source.
 
