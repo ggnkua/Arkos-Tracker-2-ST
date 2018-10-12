@@ -50,17 +50,17 @@ show_cpu=1                          ;if 1, display a bar showing CPU usage
 use_vbl=0                           ;if 1, vbl is used instead of timer c
 vbl_pause=0                         ;if 1, a small pause is inserted in the vbl code so the cpu usage is visible
 disable_timers=0                    ;if 1, stops all MFP timers, for better CPU usage display
-tune_freq=200                       ;tune frequency in ticks per second
+tune_freq=50                        ;tune frequency in ticks per second
 
 ; Player equates
 UNROLLED_CODE=0                     ;if 1, enable unrolled slightly faster YM register reading code
 PC_REL_CODE=0                       ;if 1, make code PC relative (helps if you move the routine around, like for example SNDH)
 AVOID_SMC=0                         ;if 1, assemble the player without SMC stuff, so it should be fine for CPUs with cache
-SID_VOICES=1                        ;if 1, enable SID voices (takes more CPU time!)
-USE_EVENTS=1                        ;if 1, include events, and parse them
-USE_SID_EVENTS=1                    ;if 1, use events to control SID.
+SID_VOICES=0                        ;if 1, enable SID voices (takes more CPU time!)
+USE_EVENTS=0                        ;if 1, include events, and parse them
+USE_SID_EVENTS=0                    ;if 1, use events to control SID.
                                     ;  $Fn=sid setting, where n bits are xABC for which voice to use SID
-DUMP_SONG=0                         ;if 1, produce a YM dump of the tune. DOES NOT WORK WITH SID OR EVENTS YET!
+DUMP_SONG=1                         ;if 1, produce a YM dump of the tune. DOES NOT WORK WITH SID OR EVENTS YET!
 DUMP_SONG_SKIP_FRAMES_FROM_START=0  ;if dumping, how many frames we should skip from the start
 DUMP_SONG_FRAMES_AMOUNT=50*60       ;if dumping, the number of frames to dump
 
@@ -406,18 +406,18 @@ vbl:
     endif ; .if show_cpu
     move.l song_buffer_pos(pc),a0
     tst.w (a0)+
-    bne.s play_dump_14_regs
+    bne.s .play_dump_14_regs
     lea $ffff8800.w,a1
     movem.l (a0)+,d0-d7/a2-a6
     movem.l d0-d7/a2-a6,(a1)
     move.l a0,song_buffer_pos
-    bra.s play_dump_out
-play_dump_14_regs:
+    bra.s .play_dump_out
+.play_dump_14_regs:
     movem.l (a0)+,d0-d7/a1-a6
     move.l a0,song_buffer_pos
     lea $ffff8800.w,a0
     movem.l d0-d7/a1-a6,(a0)
-play_dump_out:
+.play_dump_out:
     if show_cpu
     not.w $ffff8240.w
     endif ; .if show_cpu
@@ -457,21 +457,62 @@ timer_c:
     bgt timer_c_jump                ;sadly derek, no it's not giro day
     add.w #200,timer_c_ctr          ;it is giro day, let's reset the 200Hz counter
     movem.l d0-a6,-(sp)             ;save all registers, just to be on the safe side
-    if show_cpu
-    not.w $ffff8240.w
-    endif ; .if show_cpu
+
+
     lea tune,a0                     ;tell the player where to find the tune start
 
 	parse_events
 
-    bsr.s PLY_AKYst_Play            ;play that funky music
-    if SID_VOICES
-    lea values_store(pc),a0
-    bsr sid_play
-    endif ; .if SID_VOICES
+    if DUMP_SONG
     if show_cpu
     not.w $ffff8240.w
     endif ; .if show_cpu
+    move.l song_buffer_pos(pc),a0
+    tst.w (a0)+
+    bne.s .play_dump_14_regs
+    lea $ffff8800.w,a1
+    movem.l (a0)+,d0-d7/a2-a6
+    movem.l d0-d7/a2-a6,(a1)
+    move.l a0,song_buffer_pos
+    bra.s .play_dump_out
+.play_dump_14_regs:
+    movem.l (a0)+,d0-d7/a1-a6
+    move.l a0,song_buffer_pos
+    lea $ffff8800.w,a0
+    movem.l d0-d7/a1-a6,(a0)
+.play_dump_out:
+
+    if show_cpu
+    not.w $ffff8240.w
+    endif ; .if show_cpu
+
+    addq.w #1,current_frame
+
+    else
+
+    if show_cpu
+    not.w $ffff8240.w
+    endif ; .if show_cpu
+
+    bsr.s PLY_AKYst_Play            ;play that funky music
+
+    if show_cpu
+    not.w $ffff8240.w
+    endif ; .if show_cpu
+
+    endif
+
+    if SID_VOICES
+    if show_cpu
+    not.w $ffff8240.w
+    endif ; .if show_cpu
+    lea values_store(pc),a0
+    bsr sid_play
+    if show_cpu
+    not.w $ffff8240.w
+    endif ; .if show_cpu
+    endif ; .if SID_VOICES
+
     movem.l (sp)+,d0-a6             ;restore registers
 
 old_timer_c=*+2
@@ -506,7 +547,7 @@ tune_events:
   endif ; .if USE_EVENTS
 
 tune:
-    .include "tunes/Knightmare.aky.s"
+    .include "tunes/just_add_cream.aky.s"
 
     if _RMAC_=1
     long                            ;pad to 4 bytes
