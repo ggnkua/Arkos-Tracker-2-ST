@@ -170,7 +170,7 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise_End\@:
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolume\@:
         ;The volume is now in b0-b3.
   if \3
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.b d7,(a2)
         move.b d1,(a3)
     else
@@ -185,7 +185,7 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolume\@:
         bset #PLY_AKYst_RRB_SoundChannelBit,d3
         rts
   else
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.b #\volume,(a2)
         move.b d1,(a3)
     else
@@ -230,7 +230,7 @@ PLY_AKYst_RRB_IS_HO_AfterNoise\@:
         bset #PLY_AKYst_RRB_SoundChannelBit,d3
 
   if \3
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.b d7,(a2)
         move.b d4,(a3)                                     ;(volume to 16).
     else
@@ -243,7 +243,7 @@ PLY_AKYst_RRB_IS_HO_AfterNoise\@:
         add.w #$201,d7                                          ;Increases the volume register (low byte), and frequency register (high byte - mandatory!).
         rts
   else
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.b #\volume,(a2)
         move.b d4,(a3)                                     ;(volume to 16).
     else
@@ -270,7 +270,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise\@:
         ;Reads the volume (now b0-b3).
         ;Note: we do NOT peform a "and %1111" because we know the bit 7 of the original byte is 0, so the bit 4 is currently 0. Else the hardware volume would be on!
   if \3
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.b d7,(a2)
         move.b d1,(a3)
     else
@@ -282,7 +282,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise\@:
     endif
         addq.w #1,d7                                            ;Increases the volume register.
   else
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.b #\volume,(a2)
         move.b d1,(a3)
     else
@@ -292,7 +292,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise\@:
 
         ;Reads the software period.
   if \3
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.w d7,(a2)
         move.b (a1)+,(a3)
     else
@@ -304,7 +304,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise\@:
     endif
         add.w #1<<8,d7                                          ;Increases the frequency register.
   else
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.b #\frequency,(a2)
         move.b (a1)+,(a3)
     else
@@ -313,7 +313,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise\@:
   endif
 
   if \3
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.w d7,(a2)
         move.b (a1)+,(a3)
     else
@@ -326,7 +326,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise\@:
         add.w #1<<8,d7                                          ;Increases the frequency register.
         rts
   else
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
 		move.b #\frequency+1,(a2)
         move.b (a1)+,(a3)
     else
@@ -366,7 +366,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise\@:
 
         ;Reads the software period.
   if \3
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.w d7,(a2)
         move.b (a1)+,(a3)
     else
@@ -378,7 +378,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise\@:
     endif       
         add.w #1<<8,d7                                          ;Increases the frequency register.
   else
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.b #\frequency,(a2)
         move.b (a1)+,(a3)
     else
@@ -387,7 +387,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise\@:
   endif       
          
   if \3
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.w d7,(a2)
         move.b (a1)+,(a3)
     else
@@ -399,7 +399,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise\@:
     endif
         add.w #1<<8,d7                                          ;Increases the frequency register.
   else
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.b #\frequency+1,(a2)
         move.b (a1)+,(a3)
     else
@@ -408,7 +408,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise\@:
   endif
 
   if \3
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.b d7,(a2)
         move.b d4,(a3)                                     ;(volume to 16).
     else
@@ -424,7 +424,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise\@:
         movex.b (a1)+,PLY_AKYst_PsgRegister11+1
         rts
   else
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.b #\volume,(a2)
         move.b d4,(a3)                                     ;(volume to 16).
     else
@@ -536,7 +536,7 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_Loop\@:
 PLY_AKYst_RRB_NIS_Volume\@:
         and.b #%1111,d1
   if \3
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.b d7,(a2)
         move.b d1,(a3)
     else
@@ -547,7 +547,7 @@ PLY_AKYst_RRB_NIS_Volume\@:
         move.b d1,(a3,d0.w)
     endif
   else
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.b #\volume,(a2)
         move.b d1,(a3)
     else
@@ -590,7 +590,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop\@:
         ;Gets the volume (already shifted).
         and.b #%1111,d1
   if \3
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.b d7,(a2)
         move.b d1,(a3)
     else
@@ -602,7 +602,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop\@:
     endif
         addq.w #1,d7                                            ;Increases the volume register.
   else
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.b #\volume,(a2)
         move.b d1,(a3)
     else
@@ -616,7 +616,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop\@:
         bra.s PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP\@
 PLY_AKYst_RRB_NIS_SoftwareOnly_LSP\@:
   if \3
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.w d7,(a2)
         move.b (a1)+,(a3)
     else
@@ -628,7 +628,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_LSP\@:
     endif
                                                                 ;d7 high byte not incremented on purpose.
   else
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.b #\frequency,(a2)
         move.b (a1)+,(a3)
     else
@@ -655,7 +655,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoise\@:
 
   if \3
         add.w #1<<8,d7                                          ;Was not increased before.
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.w d7,(a2)
         move.b d1,(a3)
     else
@@ -667,7 +667,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoise\@:
     endif
         add.w #1<<8,d7                                          ;Increases the frequency register.
   else
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.b #\frequency+1,(a2)
         move.b d1,(a3)
     else
@@ -719,7 +719,7 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop\@:
 
         ;Hardware volume.
   if \3
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.b d7,(a2)
         move.b d4,(a3)                                     ;(16 = hardware volume).
     else
@@ -731,7 +731,7 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop\@:
     endif
         add.w #$201,d7                                          ;Increases the volume register (low byte), frequency register (high byte)
   else
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.b #\volume,(a2)
         move.b d4,(a3)                                     ;(16 = hardware volume).
     else
@@ -773,7 +773,7 @@ PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop\@:
         ;Hardware volume.
                                                                 ;Sends the volume.
   if \3
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.b d7,(a2)
         move.b d4,(a3)                                     ;(16 = hardware volume).
     else
@@ -785,7 +785,7 @@ PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop\@:
     endif
         addq.w #1,d7                                            ;Increases the volume register.
   else
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.b #\volume,(a2)
         move.b d4,(a3)                                     ;(16 = hardware volume).
     else
@@ -814,7 +814,7 @@ PLY_AKYst_RRB_NIS_SAHH_AfterMSBH\@:
         bra.s PLY_AKYst_RRB_NIS_SAHH_AfterLSBS\@
 PLY_AKYst_RRB_NIS_SAHH_LSBS\@:
   if \3
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.w d7,(a2)
         move.b (a1)+,(a3)
     else
@@ -826,7 +826,7 @@ PLY_AKYst_RRB_NIS_SAHH_LSBS\@:
     endif
                                                                 ;d7 high byte not increased on purpose.
   else
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.w #\frequency,(a2)
         move.b (a1)+,(a3)
     else
@@ -844,7 +844,7 @@ PLY_AKYst_RRB_NIS_SAHH_MSBS\@:
                                                                 ;Sends the MSB software frequency.
   if \3
         add.w #1<<8,d7
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.w d7,(a2)
         move.b (a1)+,(a3)
     else
@@ -856,7 +856,7 @@ PLY_AKYst_RRB_NIS_SAHH_MSBS\@:
     endif
         sub.w #1<<8,d7                                          ;Yup. Will be compensated below.
   else
-    if !SID_VOICES
+    if !(SID_VOICES|DUMP_SONG)
         move.b #\frequency+1,(a2)
         move.b (a1)+,(a3)
     else
