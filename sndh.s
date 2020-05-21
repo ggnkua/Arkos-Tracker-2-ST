@@ -9,7 +9,7 @@ PC_REL_CODE=1                   ; DO NOT CHANGE if 1, make code PC relative (hel
 AVOID_SMC=1                     ; DO NOT CHANGE if 1, assemble the player without SMC stuff, so it should be fine for CPUs with cache
 SID_VOICES=0                    ; if 1, enable SID voices (takes more CPU time!)
 UNROLLED_CODE=1                 ; if 1, enable unrolled slightly faster YM register reading code
-USE_EVENTS=0                    ; if 1, include events, and parse them
+USE_EVENTS=1                    ; if 1, include events, and parse them
 USE_SID_EVENTS=0                ; if 1, use events to control SID.
                                 ;   $Fn=sid setting, where n bits are xABC for which voice to use SID
 DUMP_SONG=0                     ; if 1, produce a YM dump of the tune. DOES NOT WORK WITH SID OR EVENTS YET!
@@ -160,6 +160,13 @@ EVENT_CHANNEL_C_MASK equ 8+1
     dc.b  'HDNS',0
     even
 
+  .if USE_EVENTS
+events_pos: ds.l 1
+event_counter: ds.w 1
+event_byte: dc.b 0
+event_flag: dc.b 0
+  .even
+  .endif
 
 sndh_init:
     movem.l d0-a6,-(sp)
@@ -244,15 +251,6 @@ player:
 	.if SID_VOICES
 	include "sid.s"
 	.endif
-
-  .if USE_EVENTS
-events_pos: ds.l 1
-event_counter: ds.w 1
-event_byte: dc.b 0
-event_flag: dc.b 0
-  .even
-  .endif
-
 
 ;http://phf.atari.org
 
