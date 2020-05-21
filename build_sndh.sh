@@ -8,9 +8,15 @@ usage()
 }
 
 if [ "$1" == "" ]; then usage; fi
-#if [ "$2" == "" ]; then usage; fi
-#if [ "$3" == "" ]; then usage; fi
-#if [ "$4" == "" ]; then usage; fi
+if [ "$2" == "" ]; then usage; fi
+if [ "$3" == "" ]; then usage; fi
+if [ "$4" == "" ]; then usage; fi
+
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Darwin*)    extension="mac";;
+    *)          extension="linux";;
+esac
 
 underscore="${1// /_}"
 no_extension="${1//\.aks/}"
@@ -37,4 +43,4 @@ echo    dc.b   \'RIPP\',\'Nobody\',0        >> sndh_header.s
 echo    dc.b   \'CONV\',\'Arkos2-2-SNDH\',0 >> sndh_header.s
 echo    dc.b   \'TC$4\',0                 >> sndh_header.s
 
-bin/rmac_linux -fr -D_RMAC_=1 -D_VASM_=0 sndh.s -o "$1.sndh"
+bin/rmac_$extension -fr -D_RMAC_=1 -D_VASM_=0 sndh.s -o "$1.sndh"
