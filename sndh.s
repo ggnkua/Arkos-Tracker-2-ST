@@ -7,10 +7,10 @@
 
 PC_REL_CODE=1                   ; DO NOT CHANGE if 1, make code PC relative (helps if you move the routine around, like for example SNDH)
 AVOID_SMC=1                     ; DO NOT CHANGE if 1, assemble the player without SMC stuff, so it should be fine for CPUs with cache
-SID_VOICES=0                    ; if 1, enable SID voices (takes more CPU time!)
+;SID_VOICES=0                    ; if 1, enable SID voices (takes more CPU time!)
 UNROLLED_CODE=1                 ; if 1, enable unrolled slightly faster YM register reading code
-USE_EVENTS=1                    ; if 1, include events, and parse them
-USE_SID_EVENTS=0                ; if 1, use events to control SID.
+;USE_EVENTS=1                    ; if 1, include events, and parse them
+;USE_SID_EVENTS=0                ; if 1, use events to control SID.
                                 ;   $Fn=sid setting, where n bits are xABC for which voice to use SID
 DUMP_SONG=0                     ; if 1, produce a YM dump of the tune. DOES NOT WORK WITH SID OR EVENTS YET!
 
@@ -235,17 +235,6 @@ player:
     include  'PlayerAky.s'
     even
 
-;tune:
-;    .include FILENAME
-;    .long
-;tune_end:
-;
-;    .if USE_EVENTS
-;tune_events:
-;    .include FILENAME_EVENTS
-;    .even
-;tune_events_end:
-;    .endif
     include "sndh_filenames.s"
 
 	.if SID_VOICES

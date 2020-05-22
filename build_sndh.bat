@@ -1,5 +1,5 @@
 @echo off
-rem build_sndh filename.aks "title" "composer" frequency_in_Hz
+rem build_sndh filename.aks "title" "composer" frequency_in_Hz [SID_VOICES] [USE_EVENTS] [SID_EVENTS]
 
 if '%1'=='' goto :USAGE
 if '%2'=='' goto :USAGE
@@ -28,13 +28,48 @@ echo    dc.b   'RIPP','Nobody',0        >> sndh_header.s
 echo    dc.b   'CONV','Arkos2-2-SNDH',0 >> sndh_header.s
 echo    dc.b   'TC%4',0                 >> sndh_header.s
 
-bin\rmac -fr -D_RMAC_=1 -D_VASM_=0 sndh.s -o "%~n1.sndh"
+rem Parse the rest of the paramters, if any
+set SID_VOICES=0
+set USE_EVENTS=0
+set SID_EVENTS=0
+
+rem skip first four parameters
+set filename=%~n1
+shift
+shift
+shift
+shift
+
+:parseloop
+if not "%1"=="" (
+
+	if /i "%1"=="SID_VOICES" (
+        set SID_VOICES=1
+	) else if /i "%1"=="USE_EVENTS" (
+		set USE_EVENTS=1
+	) else if /i "%1"=="SID_EVENTS" (
+		set SID_EVENTS=1
+	) else (
+		echo Invalid parameter passed! "%1"
+		goto :USAGE
+	)
+
+	shift
+	goto :parseloop
+)
+
+bin\rmac -fr -D_RMAC_=1 -D_VASM_=0 -DSID_VOICES=%SID_VOICES% -DUSE_EVENTS=%USE_EVENTS% -DUSE_SID_EVENTS=%SID_EVENTS% sndh.s -o "%filename%.sndh"
 
 goto GOODBYE
 
 :USAGE
-echo usage: build.sndh filename.aks "title" "composer" frequency_in_Hz
+echo usage: build.sndh filename.aks "title" "composer" frequency_in_Hz [SID_VOICES] [USE_EVENTS] [SID_EVENTS]
+echo (paramters in brackets are optional)
 
 :GOODBYE
 set str=
 set underscore=
+set SID_VOICES=
+set USE_EVENTS=
+set SID_EVENTS=
+

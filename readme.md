@@ -138,19 +138,27 @@ Note that SID voices are _not_ supported inside the trakcer, so the only way to 
 
 # SNDH
 
-Note that in order to create SNDH files you *must* have rmac and rln inside the `bin` folder. The Windows versions are supplied inside the repository. Windows, Mac etc users should get and compile rmac and rln from http://shamusworld.gotdns.org/git/rmac and http://shamusworld.gotdns.org/git/rln (just CDing to the directories and typing `make` should be all that's needed provided a sane build system)
+Note that in order to create SNDH files you *must* have rmac inside the `bin` folder. The Windows versions are supplied inside the repository. Mac users should get and compile rmac and rln from http://shamusworld.gotdns.org/git/rmac (just CDing to the directories and typing `make` should be all that's needed provided a sane build system)
 
-There follows a semi-automatic process to create a SNDH compliant file:
+There is a script that automatically creates a SNDH compilant file, in both *.bat* and *bash* flavours, called **build_sndh.bat** and **build_sndh.sh** respectively. Their usage is as follows:
 
-- First, the tune has to be exported as explained above.
-- If SID events are required, these also have to be exported (using `conv_aks.bat`)
-- Edit `sndh.s`
-  - Enable or disable `SID_VOICES`
-  - Enable or disable `USE_EVENTS`/`USE_SID_EVENTS`
-  - Do **not** change `PC_REL_CODE` or `AVOID_SMC`!
-  - Change the `TITL`, `COMM`, `RIPP`, `CONV`, `YEAR` fields
-  - Set the replay frequency. Recommended is to use `TCxxx` where `xxx` is the frequency the tune was composed
-- Run `build_sndh.bat`.
+'build_sndh.bat filename.aks title composer frequency_in_Hz [SID_VOICES] [USE_EVENTS] [SID_EVENTS]'
+'./build_sndh.sh filename.aks title composer frequency_in_Hz [SID_VOICES] [USE_EVENTS] [SID_EVENTS]'
+
+Where:
+
+- *filename* is the path and filename of the tune to be converted
+- *title* is the song title to be included in the SNDH header. Enclose in double quotes if there are spaces
+- *composer* is the song's composer. Again, enclose in double quotes if needed
+- *frequency_in_Hz* the song's play frequency. This should match the tune's frequency in Arkos Tracker 2
+- *SID_VOICES* is an optional paramter that enables SID voices
+- *USE_EVENTS* is an optional paramter that enables events
+- *SID_EVENTS* is an optional paramter that enables SID events
+
+Examples usage:
+
+'./build_sndh.sh "Love Potion Level 4 (Hello) 001 (looped) with events.aks" "Love Potion Level 4 (Hello)" "XiA" 50 SID_VOICES USE_EVENTS'
+'build_sndh.bat "Love Potion Level 4 (Hello) 001 (looped) with events.aks" "Love Potion Level 4 (Hello)" "XiA" 50 SID_VOICES USE_EVENTS'
 
 If everything went fine then a file called `sndh.sndh` should be created and can be played by any compliant SNDH player.
 

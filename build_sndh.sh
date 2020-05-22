@@ -3,7 +3,8 @@ set -e
 
 usage()
 {
-    echo usage: build.sndh filename.aks "title" "composer" frequency_in_Hz
+    echo usage: build.sndh filename.aks "title" "composer" frequency_in_Hz [SID_VOICES] [USE_EVENTS] [SID_EVENTS]
+    echo '(paramters in brackets are optional)'
     exit 1
 }
 
@@ -26,7 +27,7 @@ no_path_underscore="${no_path// /_}"
 ./conv_aks.sh "$1" $no_path_underscore
 
 echo tune:                                       > sndh_filenames.s
-echo     .include \"$no_path_underscore.aky.s\"          >> sndh_filenames.s
+echo     .include \"$no_path_underscore.aky.s\" >> sndh_filenames.s
 echo     .long                                  >> sndh_filenames.s
 echo tune_end:                                  >> sndh_filenames.s
 echo     .if USE_EVENTS                         >> sndh_filenames.s
@@ -36,11 +37,38 @@ echo     .even                                  >> sndh_filenames.s
 echo tune_events_end:                           >> sndh_filenames.s
 echo     .endif                                 >> sndh_filenames.s
 
-echo    dc.b   \'SNDH\'                    > sndh_header.s
-echo    dc.b   \'TITL\',\'$2\',0           >> sndh_header.s
-echo    dc.b   \'COMM\',\'$3\',0           >> sndh_header.s
+echo    dc.b   \'SNDH\'                      > sndh_header.s
+echo    dc.b   \'TITL\',\'$2\',0            >> sndh_header.s
+echo    dc.b   \'COMM\',\'$3\',0            >> sndh_header.s
 echo    dc.b   \'RIPP\',\'Nobody\',0        >> sndh_header.s
 echo    dc.b   \'CONV\',\'Arkos2-2-SNDH\',0 >> sndh_header.s
-echo    dc.b   \'TC$4\',0                 >> sndh_header.s
+echo    dc.b   \'TC$4\',0                   >> sndh_header.s
 
-bin/rmac_$extension -fr -D_RMAC_=1 -D_VASM_=0 sndh.s -o "$1.sndh"
+# Parse the rest of the paramters, if any
+SID_VOICES="0"
+USE_EVENTS="0"
+SID_EVENTS="0"
+
+# skip first four parameters
+filename=$1
+shift
+shift
+shift
+shift
+
+while [[ $# -gt 0 ]]; do
+    if [ "$1" == "SID_VOICES" ]; then
+        SID_VOICES="1"
+	elif [ "$1" == "USE_EVENTS" ]; then
+		USE_EVENTS=1
+	elif [ "$1" == "SID_EVENTS" ]; then
+		SID_EVENTS=1
+	else
+		echo Invalid parameter passed! "$1"
+        usage
+    fi
+
+	shift
+done
+
+bin/rmac_$extension -fr -D_RMAC_=1 -D_VASM_=0 -DSID_VOICES=$SID_VOICES -DUSE_EVENTS=$USE_EVENTS -DUSE_SID_EVENTS=$SID_EVENTS sndh.s -o "$no_path.sndh"
