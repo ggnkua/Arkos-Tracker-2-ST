@@ -143,6 +143,7 @@ Note that in order to create SNDH files you *must* have rmac inside the `bin` fo
 There is a script that automatically creates a SNDH compilant file, in both *.bat* and *bash* flavours, called **build_sndh.bat** and **build_sndh.sh** respectively. Their usage is as follows:
 
 'build_sndh.bat filename.aks title composer frequency_in_Hz [SID_VOICES] [USE_EVENTS] [SID_EVENTS]'
+
 './build_sndh.sh filename.aks title composer frequency_in_Hz [SID_VOICES] [USE_EVENTS] [SID_EVENTS]'
 
 Where:
@@ -158,9 +159,10 @@ Where:
 Examples usage:
 
 './build_sndh.sh "Love Potion Level 4 (Hello) 001 (looped) with events.aks" "Love Potion Level 4 (Hello)" "XiA" 50 SID_VOICES USE_EVENTS'
+
 'build_sndh.bat "Love Potion Level 4 (Hello) 001 (looped) with events.aks" "Love Potion Level 4 (Hello)" "XiA" 50 SID_VOICES USE_EVENTS'
 
-If everything went fine then a file called `sndh.sndh` should be created and can be played by any compliant SNDH player.
+If everything went fine then a file called `filename.sndh` should be created and can be played by any compliant SNDH player.
 
 # Code maturity
 
