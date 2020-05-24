@@ -25,8 +25,8 @@ set -e
 
 unameOut="$(uname -s)"
 case "${unameOut}" in
-    Darwin*)    extension="mac";;
-    *)          extension="linux";;
+    Darwin*)    extension="mac";SED=gsed;;
+    *)          extension="linux";SED=sed;;
 esac
 
 bin/SongToAky_$extension -spbig -adr 0 -spadr ";" --sourceProfile 68000 -sppostlbl ":" -reladr -spomt "$1" $2.aky.s
@@ -34,12 +34,9 @@ bin/SongToEvents_$extension -spbig -adr 0 -spadr ";" --sourceProfile 68000 -sppo
 
 # Take care of endianess swap. Seems to be required for versions at least 2.0.0a8 and later
 # Do not use for earlier versions!
-# TODO: does osx require gsed here?
-sed -i -e "s/\( *dc.b \)\([[:digit:]]\+\), \([[:digit:]]\+\)/\1\3,\2/gI" $2.aky.s
+$SED -i -e "s/\( *dc.b \)\([[:digit:]]\+\), \([[:digit:]]\+\)/\1\3,\2/gI" $2.aky.s
 
-# Take care of endianess swap. Seems to be required for versions at least 2.0.0a8 and later
-# Do not use for earlier versions!
-# TODO: does osx require gsed here?
-sed -i -e "s/dc\.b/dc.w/gI" -e "s/dc\.w Events_/dc.l Events_/gI" $2.events.words.s
+# Convert event values to word size and labels to longwords
+$SED -i -e "s/dc\.b/dc.w/gI" -e "s/dc\.w Events_/dc.l Events_/gI" $2.events.words.s
 echo
 
