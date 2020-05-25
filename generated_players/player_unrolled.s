@@ -206,7 +206,9 @@ PLY_AKYst_Channel3_RegisterBlock_Process:
         move.w #$f690,d4                                        ;$90 used for both $80 for the PSG, and volume 16!
         ;In d3, R7 with default values: fully sound-open but noise-close.
         ;R7 has been shift twice to the left, it will be shifted back as the channels are treated.
-        move.w #%11100000,d3
+        ;Bits 6 and 7 are also set (bits 8 and 9 in the instruction below) - at least bit 6 is crucial to be
+        ;set as the Falcon's internal IDE drives might switch off otherwise!
+        move.w #%1111100000,d3
 * SMC - DO NOT OPTIMISE!
 PLY_AKYst_Channel1_PtRegisterBlock = *+2
         lea 0.l,a1                                              ;Points on the data of the RegisterBlock to read.
@@ -789,7 +791,7 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoiseM76:
         bclr #PLY_AKYst_RRB_NoiseChannelBit,d4
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise_EndM76:
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolumeM76:
-        move.b #$a,(a2)
+        move.b #$A,(a2)
         move.b d1,(a3)
         bset #PLY_AKYst_RRB_SoundChannelBit, d3
 PLY_AKYst_RRB_IS_HardwareOnlyM76:
@@ -812,7 +814,7 @@ PLY_AKYst_RRB_IS_HO_AfterNoiseM76:
         move.b (a1)+,PLY_AKYst_PsgRegister11
         move.b (a1)+,PLY_AKYst_PsgRegister11+$1
         bset #PLY_AKYst_RRB_SoundChannelBit,d3
-        move.b #$a,(a2)
+        move.b #$A,(a2)
         move.b d4,(a3)                                     
 PLY_AKYst_RRB_IS_SoftwareOnlyM76:
         lsr.b #1,d1
@@ -822,7 +824,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_NoiseM76:
         move.b (a1)+,PLY_AKYst_PsgRegister6
         bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
 PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoiseM76:
-        move.b #$a,(a2)
+        move.b #$A,(a2)
         move.b d1,(a3)
         move.b #$4,(a2)
         move.b (a1)+,(a3)
@@ -849,7 +851,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoiseM76:
         move.b (a1)+,(a3)
         move.b #$4+1,(a2)
         move.b (a1)+,(a3)
-        move.b #$a,(a2)
+        move.b #$A,(a2)
         move.b d4,(a3)                                     
         move.b (a1)+,PLY_AKYst_PsgRegister11
         move.b (a1)+,PLY_AKYst_PsgRegister11+$1
@@ -911,7 +913,7 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_LoopM76:
         bra.s PLY_AKYst_RRB_NIS_AfterVolumeM76
 PLY_AKYst_RRB_NIS_VolumeM76:
         and.b #%1111,d1
-        move.b #$a,(a2)
+        move.b #$A,(a2)
         move.b d1,(a3)
 PLY_AKYst_RRB_NIS_AfterVolumeM76:
         btst #7 - 2,d2
@@ -923,7 +925,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnlyM76:
 PLY_AKYst_RRB_NIS_SoftwareOnly_LoopM76:
         move.b d1,d2
         and.b #%1111,d1
-        move.b #$a,(a2)
+        move.b #$A,(a2)
         move.b d1,(a3)
         btst #6 - 2,d2
         bne.s PLY_AKYst_RRB_NIS_SoftwareOnly_LSPM76
@@ -953,7 +955,7 @@ PLY_AKYst_RRB_NIS_HardwareOnly_LoopM76:
         and.b #%1110,d1
         move.b d1,PLY_AKYst_PsgRegister13
         bset #PLY_AKYst_RRB_SoundChannelBit,d3
-        move.b #$a,(a2)
+        move.b #$A,(a2)
         move.b d4,(a3)                                     
         move.b d2,d1
         rol.b #2,d1
@@ -972,7 +974,7 @@ PLY_AKYst_RRB_NIS_HardwareOnly_AfterMSBM76:
         bcs.s PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStopM76
 PLY_AKYst_RRB_NIS_SoftwareAndHardwareM76:
 PLY_AKYst_RRB_NIS_SoftwareAndHardware_LoopM76:
-        move.b #$a,(a2)
+        move.b #$A,(a2)
         move.b d4,(a3)                                     
         ror.b #1,d1
         bcs.s PLY_AKYst_RRB_NIS_SAHH_LSBHM76

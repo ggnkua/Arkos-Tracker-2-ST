@@ -23,7 +23,7 @@ bin\SongToEvents -adr 0 -spadr ; --sourceProfile 68000 -sppostlbl ":" -spomt %1 
 
 rem Take care of endianess swap. Seems to be required for versions at least 2.0.0a8 and later
 rem Do not use for earlier versions!
-sed -i -e "s/\( *dc.b \)\([[:digit:]]\+\), \([[:digit:]]\+\)/\1\3,\2/gI" %2.aky.s
+bin\sed -i -e "s/\( *dc.b \)\([[:digit:]]\+\), \([[:digit:]]\+\)/\1\3,\2/gI" %2.aky.s
 
 rem Convert event values to word size and labels to longwords
 bin\sed -i -e "s/dc\.b/dc.w/gI" -e "s/dc\.w Events_/dc.l Events_/gI" %2.events.words.s

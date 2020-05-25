@@ -114,7 +114,7 @@ events_ptr: dc.l 0
 	
 	.even
 tune:
-	.incbin "sndh.sndh"
+	.incbin "tunes/Love Potion Level 4 (Hello) 001 (looped) with events.sndh"
 tune_end:
 
 	.bss

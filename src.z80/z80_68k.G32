@@ -1,0 +1,1280 @@
+Mode StrSpace 0 'Fucking vb :P
+
+Enum address_decimal, address_hex, address_expression
+
+Dim print_original_code As Int = 0
+
+Open "PlayerAkg.asm" for Input As # 1
+Open "PlayerAkg.s" for Output As # 2
+
+Print # 2; "; Convention:"
+Print # 2; "; d0,d1,d2,a0,a1=general scratch registers"
+Print # 2; "; d0 upper word must be 0 before starting"
+Print # 2; "; d6,d7=SR cache"
+Print # 2; "; Registers:"
+Print # 2; ".abs $384"
+Print # 2; "reg_af: ds.w 1"
+Print # 2; "reg_bc: ds.w 1"
+Print # 2; "reg_de: ds.w 1"
+Print # 2; "reg_hl: ds.w 1"
+Print # 2; "reg_ix: ds.w 1"
+Print # 2; "reg_iy: ds.w 1"
+Print # 2; "reg_af_: ds.w 1"
+Print # 2; "reg_bc_: ds.w 1"
+Print # 2; "reg_de_: ds.w 1"
+Print # 2; "reg_hl_: ds.w 1"
+Print # 2; "reg_sp: ds.w 1"
+Print # 2; ".68000"
+Print # 2; "reg_a=reg_af"
+Print # 2; "reg_f=reg_af+1"
+Print # 2; "reg_b=reg_bc"
+Print # 2; "reg_c=reg_bc+1"
+Print # 2; "reg_d=reg_de"
+Print # 2; "reg_e=reg_de+1"
+Print # 2; "reg_h=reg_hl"
+Print # 2; "reg_l=reg_hl+1"
+Print # 2; "reg_ixh=reg_ix"
+Print # 2; "reg_ixl=reg_ix+1"
+Print # 2; "reg_iyh=reg_iy"
+Print # 2; "reg_iyl=reg_iy+1"
+Print # 2; "clear_carry_extend_negative_mask=%1111111111100110"
+Print # 2; "clear_carry_extend_mask=%1111111111101110"
+Print # 2; "get_carry_extend_mask=%0000000000010001"
+Dim lin$
+Dim l$, r$
+Dim char$
+Dim temp$
+Dim reg$
+
+Dim comment_index As Int
+Dim colon_index As Int
+Dim cur_line = 0
+
+Repeat
+  Line Input # 1, lin$
+  Inc cur_line
+
+  If print_original_code
+    Print # 2; ";;;;;"; lin$
+  EndIf
+
+  If lin$ = ""
+    Print # 2
+    GoTo skip_line
+  EndIf
+
+  'Check for starting label
+  colon_index = 0
+  comment_index = 0
+  char$ = Left$(lin$, 1)
+  If char$ <> " " 'And char$ <> Chr$(9)
+    If char$ = ";"
+      ' line starts with comment, skip it
+      Print # 2; lin$
+      GoTo skip_line
+    EndIf
+    ' line has a label, record it
+    colon_index = 1
+    Repeat
+      char$ = Mid$(lin$, colon_index, 1)
+      Inc colon_index
+    Until char$ = ":" Or char$ = " " Or char$ = ""
+    Dec colon_index
+    ' If we don't have EQU then we're sure it's a label
+    ' So let's slap a colon there just in case the label termintes with space
+    If InStr(Lower$(lin$), " equ ") = 0 And InStr(Lower$(lin$), "=") = 0
+      Mid$(lin$, colon_index, 1) = ":"
+    EndIf
+
+    ' Check for labels of the format ram_XXXX_label_name (or byte_... or word_...)
+    ' Those need to be relolated to the start of the actual spectrum binary
+    ' They will not work in a mixed code/data source as 68k instructions are larger than z80
+    ' which means that virtual_ram_start can't reside at the start of the source code.
+    'If Left$(lin$, 4) = "ram_"
+    'Print # 2; Left$(lin$, colon_index - 1); "=virtual_ram_start+$"; Mid$(lin$, 5, 4)
+    'Mid$(lin$, 1, 1) = "_"
+    'EndIf
+
+    ' print label immediately
+    Print # 2; Left$(lin$, colon_index);
+    ' trim label from input string
+    l$ = Right$(lin$, Len(lin$) - colon_index)
+  Else
+    l$ = lin$
+  EndIf
+
+  l$ = LTrim(l$)
+  If l$ = ""
+    Print # 2
+    GoTo skip_line
+  EndIf
+
+  char$ = Left$(l$, 1)
+  If char$ = ";"
+    ' commented line, print it and get out
+    Print # 2; l$
+    GoTo skip_line
+  EndIf
+
+  ' Print some spaces to align the opcode or directive
+  If colon_index < 24
+    Print # 2; Space$(24 - colon_index);
+  EndIf
+  r$ = ""
+
+  ' get opcode/directive in l$
+  break_by_spaces(l$, r$)
+
+  Select Case Lower(l$)
+  Case "segment"
+    ' Pffft, like who cares
+    Print # 2
+  Case "org"
+    ' Pffft, like who cares
+    Print # 2
+  Case "end"
+    ' Pffft, like who cares
+    Print # 2
+  Case "ds"
+    case_ds:
+    ' just pass that along
+    l$ = LTrim$(r$)
+    break_by_spaces(l$, r$)
+    If Left$(l$, 1) = "#"
+      Print # 2; "ds.b $"; Right$(l$, Len(l$) - 1)
+    Else
+      Print # 2; "ds.b "; l$
+    EndIf
+  Case "equ"
+    ' just pass that along
+    case_equ:
+    l$ = LTrim$(r$)
+    break_by_spaces(l$, r$)
+    If Left$(l$, 1) = "#"
+      Print # 2; "equ $"; Right$(l$, Len(l$) - 1)
+    Else
+      Print # 2; "equ "; l$
+    EndIf
+  Case "="
+    GoTo case_equ
+  Case "ifdef"
+'##E#
+    Print # 2; "if ^^defined"; r$
+  Case "defs"
+    GoTo case_ds
+  Case "defb"
+    case_defm:
+    r$ = LTrim$(r$)
+    Local many_iterations As Int = 0
+    Print # 2; "dc.b";
+    Repeat
+      l$ = r$
+      If Left$(l$, 1) = """"
+        ' It's a string, let's copy it verbatim
+        Local string_i% = 2
+        While Mid$(l$, string_i, 1) <> """"
+          Inc string_i
+        Wend
+        If many_iterations
+          Print # 2; ",";
+        EndIf
+        Print # 2; " "; Left$(l$, string_i);
+        l$ = Right$(l$, Len(l$) - string_i)
+        break_by_comma(l$, r$)
+        GoTo dc_string_copied
+      EndIf
+
+      break_by_comma(l$, r$)
+      l$ = Trim$(l$)
+      r$ = LTrim$(r$)
+      If r$ = ""
+        ' yes, there might be a db line with comment ending with comma. ffs.
+        break_by_spaces(l$, r$)
+        r$ = ""
+      EndIf
+      If many_iterations
+        Print # 2; ",";
+      Else
+        If l$ = r$
+          break_by_spaces(l$, r$)
+          r$ = ""
+        EndIf
+      EndIf
+      If Right$(l$, 1) = ";"
+        ' a comment starts immediately after the last value, so remove it
+        l$ = Left$(l$, Len(l$) - 1)
+      EndIf
+      If Left$(l$, 1) = "#"
+        Print # 2; " $"; Right$(l$, Len(l$) - 1);
+      Else
+        If many_iterations = 0
+          Print # 2; " ";
+        EndIf
+        Print # 2; l$;
+      EndIf
+      dc_string_copied:
+      many_iterations = 1
+      ' l$=r$ means that we won't get caught in an infinite loop if there's only one value for db
+      ' (in that case break_by_comma will not change l$ or r$, and they are equalised at the loop start)
+    Until Left$(r$, 1) = ";" Or r$ = ""
+    Print # 2
+  Case "defm"
+    GoTo case_defm
+  Case "defw"
+    l$ = Lower(LTrim$(r$))
+    break_by_spaces(l$, r$)
+    reSub l$, "#", "$"
+    Print # 2; "dc.w " + l$
+  Case ".ascii"
+    Print # 2; "dc.b "; r$
+  Case "nop"
+    ' just pass that along
+    Print # 2; l$; r$
+  Case "dec"
+    l$ = LTrim$(r$)
+    If l$ = ""
+      Print # 2; "*****************dec without operand?"
+      GoTo skip_line
+    EndIf
+    break_by_spaces(l$, r$)
+    print_unary("dec", "subq", Lower(l$))
+  Case  "inc"
+    l$ = LTrim$(r$)
+    If l$ = ""
+      Print # 2; "*****************inc without operand?"
+      GoTo skip_line
+    EndIf
+    break_by_spaces(l$, r$)
+    print_unary("inc", "addq", Lower(l$))
+  Case "exx"
+    ' could probably use move.l to swap 2 registers at the same time
+    ' but lol who cares at this point
+    Print # 2;             "move.w reg_bc.w,d0"
+    Print # 2; Space$(24); "move.w reg_bc_.w,reg_bc.w"
+    Print # 2; Space$(24); "move.w d0,reg_bc_.w"
+    Print # 2; Space$(24); "move.w reg_de.w,d0"
+    Print # 2; Space$(24); "move.w reg_de_.w,reg_de"
+    Print # 2; Space$(24); "move.w d0,reg_de.w"
+    Print # 2; Space$(24); "move.w reg_hl.w,d0"
+    Print # 2; Space$(24); "move.w reg_hl_.w,reg_hl.w"
+    Print # 2; Space$(24); "move.w d0,reg_hl.w"
+  Case "ex"
+    ' not going to cover all cases for now
+    Local comment$
+    r$ = Lower$(r$)
+    l$ = LTrim(r$)
+    break_by_comma(l$, r$)
+    l$ = Trim$(l$)
+    break_by_spaces(r$, comment$)
+    'r$ = Trim$(r$)
+    If l$ = "af" And r$ = "af'"
+      Print # 2;             "move.w reg_af.w,d0" + comment$
+      Print # 2; Space$(24); "move.w reg_af_.w,reg_af"
+      Print # 2; Space$(24); "move.w d0,reg_af_"
+    Else If l$ = "de" And r$ = "hl"
+      Print # 2;             "move.w reg_de.w,d0" + comment$
+      Print # 2; Space$(24); "move.w reg_hl.w,reg_de"
+      Print # 2; Space$(24); "move.w d0,reg_hl"
+    Else
+      Print # 2; "*****************unsupported, please add! ex:"`l$`r$
+    EndIf
+  Case "add"
+    print_two_regs("add", "add", Lower(r$))
+  Case "adc"
+    print_two_regs("adc", "addx", Lower(r$))
+  Case "sbc"
+    print_two_regs("sbc", "subx", Lower(r$))
+  Case "sub"
+    print_accumulator("sub", "sub", Lower(r$), False)
+  Case "and"
+    print_accumulator("and", "and", Lower(r$), True)
+  Case "xor"
+    print_accumulator("xor", "eor", Lower(r$), True)
+  Case "or"
+    print_accumulator("or", "or", Lower(r$), True)
+  Case "cp"
+    print_accumulator("cp", "cmp", Lower(r$), False)
+  Case "sla"
+    print_one_reg("sla", "asl.b ", Lower(r$))
+  Case "sra"
+    print_one_reg("sra", "asr.b ", Lower(r$))
+  Case "srl"
+    print_one_reg("srl", "lsr.b ", Lower(r$))
+  Case "sll"
+    print_one_reg("srl", "lsl.b ", Lower(r$))
+  Case "rl"
+    print_one_reg("rl", "roxl.b ", Lower(r$))
+  Case "rr"
+    print_one_reg("rr", "roxl.b ", Lower(r$))
+  Case "rlc"
+    print_one_reg("rlc", "rol.b ", Lower(r$))
+  Case "rrc"
+    print_one_reg("rrc", "ror.b ", Lower(r$))
+  Case "push"
+    r$ = LTrim$(r$)
+    break_by_spaces(r$, comment$)
+    r$ = Lower$(Trim$(r$))
+    Print # 2; "move.w reg_" + r$; ".w,-(sp)"; comment$
+  Case "pop"
+    r$ = LTrim$(r$)
+    break_by_spaces(r$, comment$)
+    r$ = Lower$(Trim$(r$))
+    Print # 2; "move.w (sp)+,reg_" + r$; ".w"; comment$
+  Case "set"
+    print_bit("set", "bset #", Lower(r$))
+  Case "res"
+    print_bit("res", "bclr #", Lower(r$))
+  Case "bit"
+    print_bit("bit", "btst #", Lower(r$))
+  Case "ret"
+    r$ = LTrim$(r$)
+    break_by_spaces(r$, comment$)
+    Select Case Lower(r$)
+    Case "nz" 'Z
+      Print # 2;             "move d7,sr" + comment$
+      Print # 2; Space$(24); "beq.s *+4"
+      Print # 2; Space$(24); "rts"
+    Case "nc" 'C
+      Print # 2;             "move d7,sr" + comment$
+      Print # 2; Space$(24); "bcs.s *+4"
+      Print # 2; Space$(24); "rts"
+    Case "po" 'V
+      Print # 2;             "move d7,sr" + comment$
+      Print # 2; Space$(24); "bvs.s *+4"
+      Print # 2; Space$(24); "rts"
+    Case "p" 'N
+      Print # 2;             "move d7,sr" + comment$
+      Print # 2; Space$(24); "bge.s *+4"
+      Print # 2; Space$(24); "rts"
+    Case "z" 'Z
+      Print # 2;             "move d7,sr" + comment$
+      Print # 2; Space$(24); "bne.s *+4"
+      Print # 2; Space$(24); "rts"
+    Case "c" 'C
+      Print # 2;             "move d7,sr" + comment$
+      Print # 2; Space$(24); "bcc.s *+4"
+      Print # 2; Space$(24); "rts"
+    Case "pe" 'V
+      Print # 2;             "move d7,sr" + comment$
+      Print # 2; Space$(24); "bvc.s *+4"
+      Print # 2; Space$(24); "rts"
+    Case "m" 'N
+      Print # 2;             "move d7,sr" + comment$
+      Print # 2; Space$(24); "bmi.s *+4"
+      Print # 2; Space$(24); "rts"
+    Default
+      Print # 2;             "rts" + comment$
+    EndSelect
+  Case "call"
+    l$ = LTrim(r$)
+    break_by_comma(l$, r$)
+    If Left$(r$, 1) = "#"
+      r$ = convert_hex_branch_offset(r$)
+    EndIf
+    Select Case Lower(l$)
+    Case "nz" 'Z
+      Print # 2;             "move d7,sr"
+      Print # 2; Space$(24); "beq.s *+8"
+      Print # 2; Space$(24); "jsr " + r$
+    Case "nc" 'C
+      Print # 2;             "move d7,sr"
+      Print # 2; Space$(24); "bcs.s *+8"
+      Print # 2; Space$(24); "jsr " + r$
+    Case "po" 'V
+      Print # 2;             "move d7,sr"
+      Print # 2; Space$(24); "bvs.s *+8"
+      Print # 2; Space$(24); "jsr " + r$
+    Case "p" 'N
+      Print # 2;             "move d7,sr"
+      Print # 2; Space$(24); "bge.s *+8"
+      Print # 2; Space$(24); "jsr " + r$
+    Case "z" 'Z
+      Print # 2;             "move d7,sr"
+      Print # 2; Space$(24); "bne.s *+8"
+      Print # 2; Space$(24); "jsr " + r$
+    Case "c" 'C
+      Print # 2;             "move d7,sr"
+      Print # 2; Space$(24); "bcc.s *+8"
+      Print # 2; Space$(24); "jsr " + r$
+    Case "pe" 'V
+      Print # 2;             "move d7,sr"
+      Print # 2; Space$(24); "bvc.s *+8"
+      Print # 2; Space$(24); "jsr " + r$
+    Case "m" 'N
+      Print # 2;             "move d7,sr"
+      Print # 2; Space$(24); "bmi.s *+8"
+      Print # 2; Space$(24); "jsr " + r$
+    Default
+      Print # 2;             "jsr " + l$
+    EndSelect
+  Case "jp"
+    l$ = LTrim(r$)
+    break_by_comma(l$, r$)
+    If Left$(r$, 1) = "#"
+      r$ = convert_hex_branch_offset(r$)
+    EndIf
+    Select Case Lower(l$)
+    Case "nz" 'Z
+      Print # 2;             "move d7,sr"
+      Print # 2; Space$(24); "beq.s *+8"
+      Print # 2; Space$(24); "jmp " + r$
+    Case "nc" 'C
+      Print # 2;             "move d7,sr"
+      Print # 2; Space$(24); "bcs.s *+8"
+      Print # 2; Space$(24); "jmp " + r$
+    Case "po" 'V
+      Print # 2;             "move d7,sr"
+      Print # 2; Space$(24); "bvs.s *+8"
+      Print # 2; Space$(24); "jmp " + r$
+    Case "p" 'N
+      Print # 2;             "move d7,sr"
+      Print # 2; Space$(24); "bge.s *+8"
+      Print # 2; Space$(24); "jmp " + r$
+    Case "z" 'Z
+      Print # 2;             "move d7,sr"
+      Print # 2; Space$(24); "bne.s *+8"
+      Print # 2; Space$(24); "jmp " + r$
+    Case "c" 'C
+      Print # 2;             "move d7,sr"
+      Print # 2; Space$(24); "bcc.s *+8"
+      Print # 2; Space$(24); "jmp " + r$
+    Case "pe" 'V
+      Print # 2;             "move d7,sr"
+      Print # 2; Space$(24); "bvc.s *+8"
+      Print # 2; Space$(24); "jmp " + r$
+    Case "m" 'N
+      Print # 2;             "move d7,sr"
+      Print # 2; Space$(24); "bmi.s *+8"
+      Print # 2; Space$(24); "jmp " + r$
+    Case "(hl)"
+      Print # 2;             "move.w reg_hl.w,d0"
+      Print # 2; Space$(24); "lea (a6,d0.l),a0"
+      Print # 2; Space$(24); "jmp (a0)"
+    Case "(ix)"
+      Print # 2;             "move.w reg_ix.w,d0"
+      Print # 2; Space$(24); "lea (a6,d0.l),a0"
+      Print # 2; Space$(24); "jmp (a0)"
+    Case "(iy)"
+      Print # 2;             "move.w reg_iy.w,d0"
+      Print # 2; Space$(24); "lea (a6,d0.l),a0"
+      Print # 2; Space$(24); "jmp (a0)"
+    Default
+      Print # 2;             "jmp " + l$
+    EndSelect
+  Case "jr"
+    l$ = LTrim(r$)
+    break_by_comma(l$, r$)
+    If Left$(r$, 1) = "#"
+      r$ = convert_hex_branch_offset(r$)
+    EndIf
+    Select Case Lower(LTrim$(l$))
+    Case "nz"
+      Print # 2;             "move d7,sr"
+      Print # 2; Space$(24); "bne " + r$
+    Case "nc"
+      Print # 2;             "move d7,sr"
+      Print # 2; Space$(24); "bcc " + r$
+    Case "z"
+      Print # 2;             "move d7,sr"
+      Print # 2; Space$(24); "beq " + r$
+    Case "c"
+      Print # 2;             "move d7,sr"
+      Print # 2; Space$(24); "bcs " + r$
+    Default
+      ' unconditional branch
+      Print # 2; "bra " + l$
+    EndSelect
+  Case "ld"
+    print_ld(r$)
+  Case "ldi"
+    Print # 2;             "moveq #0,d1"
+    Print # 2; Space$(24); "moveq #0,d2"
+    Print # 2; Space$(24); "move.w reg_hl.w,d1"
+    Print # 2; Space$(24); "move.w reg_de.w,d2"
+    Print # 2; Space$(24); "lea (a6,d1.l),a0"
+    Print # 2; Space$(24); "lea (a6,d2.l),a1"
+    Print # 2; Space$(24); "move.b (a0)+,(a1)+"
+    Print # 2; Space$(24); "sub.l a6,a0"
+    Print # 2; Space$(24); "sub.l a6,a1"
+    Print # 2; Space$(24); "move.w a1,reg_de.w"
+    Print # 2; Space$(24); "move.w a0,reg_hl.w"
+    Print # 2; Space$(24); "subq.w #1,reg_bc"
+  Case "ldir"
+    Print # 2;             "moveq #0,d1"
+    Print # 2; Space$(24); "moveq #0,d2"
+    Print # 2; Space$(24); "move.w reg_hl.w,d1"
+    Print # 2; Space$(24); "move.w reg_de.w,d2"
+    Print # 2; Space$(24); "move.w reg_bc.w,d0"
+    Print # 2; Space$(24); "lea (a6,d1.l),a0"
+    Print # 2; Space$(24); "lea (a6,d2.l),a1"
+    Print # 2; Space$(24); "subq.w #1,d0"
+    Print # 2; Space$(24); "move.b (a0)+,(a1)+"
+    Print # 2; Space$(24); "dbra d0,*-2"
+    Print # 2; Space$(24); "sub.l a6,a0"
+    Print # 2; Space$(24); "sub.l a6,a1"
+    Print # 2; Space$(24); "move.w a1,reg_de.w"
+    Print # 2; Space$(24); "move.w a0,reg_hl.w"
+    Print # 2; Space$(24); "clr.w reg_bc.w"
+  Case "cpir"
+    Print # 2;             "move.b reg_a.w,d0"
+    Print # 2; Space$(24); "moveq #0,d1"
+    Print # 2; Space$(24); "move.w reg_hl.w,d1"
+    Print # 2; Space$(24); "move.w reg_bc.w,d2"
+    Print # 2; Space$(24); "lea (a6,d1.l),a0"
+    Print # 2; Space$(24); "subq.w #1,d1"
+    Print # 2; Space$(24); "cmp.b (a0)+,d0"
+    Print # 2; Space$(24); "beq.s *+6"
+    Print # 2; Space$(24); "tst.w d1"
+    Print # 2; Space$(24); "bne.s *-8"
+    Print # 2; Space$(24); "sub.l a6,a0"
+    Print # 2; Space$(24); "move.w a0,reg_hl.w"
+    Print # 2; Space$(24); "move.w d2,reg_bc.w"
+  Case "ldd"
+    Print # 2;             "moveq #0,d1"
+    Print # 2; Space$(24); "moveq #0,d2"
+    Print # 2; Space$(24); "move.w reg_hl.w,d1"
+    Print # 2; Space$(24); "move.w reg_de.w,d2"
+    Print # 2; Space$(24); "lea (a6,d1.l),a0"
+    Print # 2; Space$(24); "lea (a6,d2.l),a1"
+    Print # 2; Space$(24); "move.b -(a0),-(a1)"
+    Print # 2; Space$(24); "sub.l a6,a0"
+    Print # 2; Space$(24); "sub.l a6,a1"
+    Print # 2; Space$(24); "move.w a1,reg_de.w"
+    Print # 2; Space$(24); "move.w a0,reg_hl.w"
+    Print # 2; Space$(24); "subq.w #1,reg_bc"
+  Case "lddr"
+    Print # 2;             "moveq #0,d1"
+    Print # 2; Space$(24); "moveq #0,d2"
+    Print # 2; Space$(24); "move.w reg_hl.w,d1"
+    Print # 2; Space$(24); "move.w reg_de.w,d2"
+    Print # 2; Space$(24); "move.w reg_bc.w,d0"
+    Print # 2; Space$(24); "lea (a6,d1.l),a0"
+    Print # 2; Space$(24); "lea (a6,d2.l),a1"
+    Print # 2; Space$(24); "subq.w #1,d0"
+    Print # 2; Space$(24); "move.b -(a0),-(a1)"
+    Print # 2; Space$(24); "dbra d0,*-2"
+    Print # 2; Space$(24); "sub.l a6,a0"
+    Print # 2; Space$(24); "sub.l a6,a1"
+    Print # 2; Space$(24); "move.w a1,reg_de.w"
+    Print # 2; Space$(24); "move.w a0,reg_hl.w"
+    Print # 2; Space$(24); "clr.w reg_bc.w"
+  Case "djnz"
+    If Left$(r$, 1) = "#"
+      r$ = convert_hex_branch_offset(r$)
+    EndIf
+    Print # 2;             "subq.b #1,reg_b.w"
+    Print # 2; Space$(24); "bne " + r$
+  Case "rlca"
+    Print # 2;             "rol.b reg_a.w"
+    Print # 2; Space$(24); "move sr,d7"
+  Case "rla"
+    Print # 2;             "roxl.b reg_a.w"
+    Print # 2; Space$(24); "move sr,d7"
+  Case "scf"
+    Print # 2; "bset #0,ccr"
+  Case "rrca"
+    Print # 2;             "ror.b reg_a.w"
+    Print # 2; Space$(24); "move sr,d7"
+  Case "rra"
+    Print # 2;             "roxr.b reg_a.w"
+    Print # 2; Space$(24); "move sr,d7"
+  Case "cpl"
+    Print # 2;             "not.b reg_a.w"
+    Print # 2; Space$(24); "move sr,d7"
+  Case "ccf"
+    Print # 2; "bclr #0,ccr"
+  Case "di"
+    Print # 2; "; di - Nope, not gonna disable interrupts :)"
+  Case "ei"
+    Print # 2; "; ei - Nope, not gonna enable interrupts :)"
+  Case "out"
+    Print # 2; ";"; l$; r$; " NOT SUPPORTED"
+  Case "in"
+    Print # 2; ";"; l$; r$; " NOT SUPPORTED"
+  Case "rst"
+    Print # 2; ";"; l$; r$; " NOT SUPPORTED"
+  Case "im"
+    Print # 2; ";"; l$; r$; " Well, the dude calls an interrupt here. Probably do something about it?"
+  Default
+    Print # 2; "*****************Wat? -"; l$; "-"; r$; "-"
+  EndSelect
+
+  skip_line:
+  DoEvents
+
+Until EOF(# 1)
+Close # 1
+Close # 2
+
+>Procedure print_unary(orig$, instr$, reg$)
+  ' dec, inc
+  ' On z80 carry is unaffected in these two instructions O_o
+  Local tempreg$
+  If Left$(reg$, 3) = "(ix" Or Left$(reg$, 3) = "(iy"
+    Print # 2;             "move.w reg_" + Mid$(reg$, 2, 2) + ".w,d0"
+    tempreg$ = Mid$(reg$, 5, Len(reg$) - 5)
+    parse_address(tempreg$ , reg$)
+    Print # 2; Space$(24); instr$ + ".b #1," + reg$ + "(a0,d0.l)"
+    Print # 2; Space$(24); "move sr,d6"
+    Print # 2; Space$(24); "and.w #clear_carry_extend_mask,d6"
+    Print # 2; Space$(24); "and.w #get_carry_extend_mask,d7"
+    Print # 2; Space$(24); "or.w d6,d7"
+    Print # 2; Space$(24); "move d7,sr"
+  Return
+  EndIf
+
+  Select Case reg$
+  Case "a"
+  Case "b"
+  Case "c"
+  Case "d"
+  Case "e"
+  Case "h"
+  Case "l"
+  Case "ixh"
+  Case "ixl"
+  Case "iyh"
+  Case "iyl"
+  Case "bc"
+    Print # 2; instr$ + ".w #1,reg_bc.w"
+    Print # 2; Space$(24); "move sr,d6"
+    Print # 2; Space$(24); "and.w #clear_carry_extend_mask,d6"
+    Print # 2; Space$(24); "and.w #get_carry_extend_mask,d7"
+    Print # 2; Space$(24); "or.w d6,d7"
+    Print # 2; Space$(24); "move d7,sr"
+  Return
+  Case "de"
+    Print # 2; instr$ + ".w #1,reg_de.w"
+    Print # 2; Space$(24); "move sr,d6"
+    Print # 2; Space$(24); "and.w #clear_carry_extend_mask,d6"
+    Print # 2; Space$(24); "and.w #get_carry_extend_mask,d7"
+    Print # 2; Space$(24); "or.w d6,d7"
+    Print # 2; Space$(24); "move d7,sr"
+  Return
+  Case "hl"
+    Print # 2; instr$ + ".w #1,reg_hl.w"
+    Print # 2; Space$(24); "move sr,d6"
+    Print # 2; Space$(24); "and.w #clear_carry_extend_mask,d6"
+    Print # 2; Space$(24); "and.w #get_carry_extend_mask,d7"
+    Print # 2; Space$(24); "or.w d6,d7"
+    Print # 2; Space$(24); "move d7,sr"
+  Return
+  Case "sp"
+    Print # 2; instr$ + ".w #1,reg_sp.w"
+    Print # 2; Space$(24); "move sr,d6"
+    Print # 2; Space$(24); "and.w #clear_carry_extend_mask,d6"
+    Print # 2; Space$(24); "and.w #get_carry_extend_mask,d7"
+    Print # 2; Space$(24); "or.w d6,d7"
+    Print # 2; Space$(24); "move d7,sr"
+  Return
+  Case "(hl)"
+    Print # 2;             "move.w reg_hl.w,d0"
+    Print # 2; Space$(24); "lea (a6,d0.l),a0"
+    Print # 2; Space$(24); instr$ + ".b #1,(a0)"
+    Print # 2; Space$(24); "move sr,d6"
+    Print # 2; Space$(24); "and.w #clear_carry_extend_mask,d6"
+    Print # 2; Space$(24); "and.w #get_carry_extend_mask,d7"
+    Print # 2; Space$(24); "or.w d6,d7"
+    Print # 2; Space$(24); "move d7,sr"
+  Return
+  Case "ix"
+    Print # 2; instr$ + ".w #1,reg_ix.w"
+    Print # 2; Space$(24); "move sr,d6"
+    Print # 2; Space$(24); "and.w #clear_carry_extend_mask,d6"
+    Print # 2; Space$(24); "and.w #get_carry_extend_mask,d7"
+    Print # 2; Space$(24); "or.w d6,d7"
+    Print # 2; Space$(24); "move d7,sr"
+  Return
+  Case "iy"
+    Print # 2; instr$ + ".w #1,reg_iy.w"
+    Print # 2; Space$(24); "move sr,d6"
+    Print # 2; Space$(24); "and.w #clear_carry_extend_mask,d6"
+    Print # 2; Space$(24); "and.w #get_carry_extend_mask,d7"
+    Print # 2; Space$(24); "or.w d6,d7"
+    Print # 2; Space$(24); "move d7,sr"
+  Return
+  Default
+    Print # 2; "*****************unknown register for "; orig$; " -"; reg$; "-"
+  Return
+  EndSelect
+
+  Print # 2; instr$ + ".b #1,reg_" + reg$ + ".w"
+  Print # 2; Space$(24); "move sr,d6"
+  Print # 2; Space$(24); "and.w #clear_carry_extend_mask,d6"
+  Print # 2; Space$(24); "and.w #get_carry_extend_mask,d7"
+  Print # 2; Space$(24); "or.w d6,d7"
+  Print # 2; Space$(24); "move d7,sr"
+Return
+
+>Procedure print_two_regs(orig$, instr$, reg1$)
+  ' add,addx,subx
+  ' The exception in this procedure is subx, as we only can perform this instruction on data regs
+  Local reg2$
+  Local comment$
+  Local constant$
+  reg1$ = LTrim$(reg1$)
+  If reg1$ = ""
+    Print # 2; "*****************" + orig$ + " without operand?"
+  Return
+  EndIf
+  ' Not many checks here, hopefully the source will be valid
+  break_by_comma(reg1$, reg2$)
+  reg1$ = Trim$(reg1$)
+  'reg2$ = Trim$(reg2$)
+  break_by_spaces(reg2$, comment$)
+  Select Case reg1$
+  Case "a"
+    ' TODO: add a,(ix+*)
+    ' TODO: add a,(iy+*)
+    If Left$(reg2$, 4) = "(ix+" Or Left$(reg2$, 4) = "(iy+"
+      Print # 2; "**** <instruction> a,(ix/iy+*) unsupported, please add"
+    Return
+    EndIf
+    If reg2$ <> "(hl)"
+      constant$ = reg2$
+      If Val?(constant$) > 0
+        If Left$(constant$, 1) = "#"
+          constant$ = "$" + Right$(constant$, Len(constant$) - 1)
+        EndIf
+        If instr$ <> "subx"
+          Print # 2;             instr$ + "i.b #" + constant$ + ",reg_a.w" + comment$
+          Print # 2; Space$(24); "move sr,d7"
+        Else
+          Print # 2;             "moveq #" + constant$ + ",d0"
+          Print # 2; Space$(24); "move.b reg_a.w,d1"
+          Print # 2; Space$(24); "subx.b d0,d1"
+          Print # 2; Space$(24); "move sr,d7"
+          Print # 2; Space$(24); "move.b d1,reg_a.w"
+        EndIf
+      Return
+      Else
+        ' <instruction> a,a/b/c/d/e/h/l/ixh/ixl/iyh/iyl
+        If instr$ <> "subx"
+          Print # 2;             "move.b reg_" + reg2$ + ".w,d0"
+          Print # 2; Space$(24); instr$; ".b d0,reg_" + reg1$ + ".w"
+          Print # 2; Space$(24); "move sr,d7"
+        Else
+          Print # 2;             "move.b reg_" + reg2$ + ".w,d0"
+          Print # 2; Space$(24); "move.b reg_" + reg1$ + ".w,d1"
+          Print # 2; Space$(24); "subx.b d0,d1"
+          Print # 2; Space$(24); "move sr,d7"
+          Print # 2; Space$(24); "move.b d1,reg_a.w"
+        EndIf
+      Return
+      EndIf
+
+      If instr$ <> "subx"
+        Print # 2;             "move.w reg_hl.w,d0"
+        Print # 2; Space$(24); "lea (a6,d0.l),a0"
+        Print # 2; Space$(24); "move.b (a0),d0"
+        Print # 2; Space$(24); instr$ + ".b d0,reg_a.w"
+        Print # 2; Space$(24); "move sr,d7"
+      Else
+        Print # 2;             "move.w reg_hl.w,d0"
+        Print # 2; Space$(24); "lea (a6,d0.l),a0"
+        Print # 2; Space$(24); "move.b (a0),d0"
+        Print # 2; Space$(24); "move.b reg_a.w,d1"
+        Print # 2; Space$(24); "subx.b d0,d1"
+        Print # 2; Space$(24); "move sr,d7"
+        Print # 2; Space$(24); "move.b d1,reg_a.w"
+      EndIf
+    EndIf
+  Default
+    ' All the other cases are for 2 byte registers
+    If instr$ <> "subx"
+      Print # 2;               "move.w reg_" + reg2$ + ".w,d0"
+      Print # 2; Space$(24);   instr$ + ".w d0,reg_" + reg1$ + ".w"
+      Print # 2; Space$(24);   "move sr,d7"
+    Else
+      Print # 2;               "move.w reg_" + reg2$ + ".w,d0"
+      Print # 2; Space$(24);   "move.w reg_" + reg1$ + ".w,d1"
+      Print # 2; Space$(24);   "subx.w d0,d1"
+      Print # 2; Space$(24);   "move sr,d7"
+      Print # 2; Space$(24);   "move.w d1,reg_" + reg1$ + ".w"
+    EndIf
+  EndSelect
+Return
+
+>Procedure print_one_reg(orig$, instr$, reg$)
+  ' asl, asr, lsl, lsr, ror, rol, roxl, roxr
+  Local r$
+  reg$ = LTrim(reg$)
+  break_by_spaces(reg$, r$)
+  ' TODO: (ix+*),b/c/d/e/h/l
+  ' TODO: (iy+*),b/c/d/e/h/l
+  If reg$ <> "(hl)"
+    'Print # 2; instr$; "reg_"; reg$
+    Print # 2; "move.b reg_"; reg$; ".w,d0"
+    Print # 2; Space$(24) + instr$; " d0"
+    Print # 2; Space$(24) + "move sr,d7"
+    Print # 2; Space$(24) + "move.b d0,reg_" + reg$ + ".w"
+  Else
+    Print # 2;             "move.w reg_hl.w,d0"
+    Print # 2; Space$(24); "lea (a6,d0.l),a0"
+    Print # 2; Space$(24) + instr$; " (a0),reg_" + reg$ + ".w"
+    Print # 2; Space$(24) + "move sr,d7"
+  EndIf
+Return
+
+Procedure print_accumulator(orig$, instr$, reg$, clear_carry_negative As Bool)
+  ' The syntaxes available for the instructions emulated here are:
+  ' CMP < ea > , Dn
+  '
+  ' EOR Dn, < ea >
+  '
+  ' OR Dn, < ea >
+  ' OR < ea > ,Dn
+  '
+  ' AND < ea > ,Dn
+  ' AND Dn, < ea >
+  '
+  ' SUB < ea > ,Dn
+  ' SUB Dn, < ea >
+  '
+  ' So we need to have an exception for cmp since it's not aligned with the others.
+  ' We could just inverse the logic and have an exception for eor.
+  ' Perhaps that would make sense if eor is used less frequent than cmp (which is quite possible)
+
+  Local r$
+  Local constant$
+  Local value As Int
+  reg$ = LTrim$(reg$)
+  If Left$(reg$, 1) = "("
+    If reg$ = "(hl)"
+      ' <instruction> (hl)
+      If instr$ <> "cmp"
+        Print # 2;             "move.w reg_hl.w,d0"
+        Print # 2; Space$(24); "lea (a6,d0.l),a0"
+        Print # 2; Space$(24); "move.b (a0),d0"
+        Print # 2; Space$(24); instr$ + ".b d0,reg_a.w"
+        Print # 2; Space$(24); "move sr,d7"
+        If clear_carry_negative
+          Print # 2; Space$(24); "and.w #clear_carry_extend_negative_mask,d7"
+          Print # 2; Space$(24); "move d7,sr"
+        EndIf
+      Else
+        Print # 2;             "move.w reg_hl.w,d0"
+        Print # 2; Space$(24); "lea (a6,d0.l),a0"
+        Print # 2; Space$(24); "move.b reg_a.w,d0"
+        Print # 2; Space$(24); "cmp.b (a0),d0"
+        Print # 2; Space$(24); "move sr,d7"
+      EndIf
+    Return
+    Else
+      ' <instruction> (ix+*)
+      ' <instruction> (iy+*)
+      constant$ = Mid$(reg$, 5, Len(reg$) - 5)
+      If Left$(constant$, 1) = "#"
+        constant$ = "$" + Left$(constant$, Len(constant$) - 1)
+      EndIf
+      If instr$ <> "cmp"
+        Print # 2;             "move.w reg_" + Mid$(reg$, 2, 2) + ".w,d0"
+        Print # 2; Space$(24); "lea (a6,d0.l),a0"
+        Print # 2; Space$(24); "move.b " + constant$ + "(a0),d0"
+        Print # 2; Space$(24); instr$ + ".b d0,reg_a.w"
+        Print # 2; Space$(24); "move sr,d7"
+        If clear_carry_negative
+          Print # 2; Space$(24); "and.w #clear_carry_extend_negative_mask,d7"
+          Print # 2; Space$(24); "move d7,sr"
+        EndIf
+      Else
+        Print # 2;             "move.w reg_" + Mid$(reg$, 2, 2) + ".w,d0"
+        Print # 2; Space$(24); "lea (a6,d0.l),a0"
+        Print # 2; Space$(24); "move.b reg_a.w,d0"
+        Print # 2; Space$(24); "cmp.b " + constant$ + "(a0),d0"
+        Print # 2; Space$(24); "move sr,d7"
+      EndIf
+    Return
+    EndIf
+  EndIf
+
+  break_by_spaces(reg$, r$)
+
+  If Left$(reg$, 1) = "#"
+    ' It's a hex numerical constant I guess
+    Print # 2; instr$ + "i.b #$" + Right$(reg$, Len(reg$) - 1) + ",reg_a.w"
+    Print # 2; Space$(24); "move sr,d7"
+    If clear_carry_negative
+      Print # 2; Space$(24); "and.w #clear_carry_extend_negative_mask,d7"
+      Print # 2; Space$(24); "move d7,sr"
+    EndIf
+  Return
+  EndIf
+  If Val?(Right$(reg$, Len(reg$) - 1)) <> 0
+    ' A plain decimal
+    Print # 2; instr$ + "i.b #" + reg$ + ",reg_a.w"
+    Print # 2; Space$(24); "move sr,d7"
+    If clear_carry_negative
+      Print # 2; Space$(24); "and.w #clear_carry_extend_negative_mask,d7"
+      Print # 2; Space$(24); "move d7,sr"
+    EndIf
+  Return
+  EndIf
+
+  ' (hl)
+  If reg$ = "(hl)"
+    If instr$ <> "cmp"
+      Print # 2;             "move.w reg_hl.w,d0"
+      Print # 2; Space$(24); "lea (a6,d0.l),a0"
+      Print # 2; Space$(24); instr$ + ".b (a0),reg_a.w"
+      Print # 2; Space$(24); "move sr,d7"
+      If clear_carry_negative
+        Print # 2; Space$(24); "and.w #clear_carry_extend_negative_mask,d7"
+        Print # 2; Space$(24); "move d7,sr"
+      EndIf
+    Else
+      Print # 2;             "move.w reg_hl.w,d0"
+      Print # 2; Space$(24); "lea (a6,d0.l),a0"
+      Print # 2; Space$(24); "move.b reg_a.w,d0"
+      Print # 2; Space$(24); "cmp.b (a0),d0"
+      Print # 2; Space$(24); "move sr,d7"
+    EndIf
+  Return
+  EndIf
+
+  ' b/c/d/e/h/l/a/ixh/ixl/iyh/iyl
+  If reg$ = "b" Or reg$ = "c" Or reg$ = "d" Or reg$ = "e" Or reg$ = "h" Or reg$ = "l" Or reg$ = "a" Or reg$ = "ixh" Or reg$ = "ixl" Or reg$ = "iyh" Or reg$ = "iyl"
+    If instr$ <> "cmp"
+      Print # 2;             "move.b reg_" + reg$ + ".w,d0"
+      Print # 2; Space$(24); instr$ + ".b d0,reg_a.w"
+      Print # 2; Space$(24); "move sr,d7"
+      If clear_carry_negative
+        Print # 2; Space$(24); "and.w #clear_carry_extend_negative_mask,d7"
+        Print # 2; Space$(24); "move d7,sr"
+      EndIf
+    Else
+      Print # 2;             "move.b reg_a.w,d0"
+      Print # 2; Space$(24); "cmp.b reg_" + reg$ + ".w,d0"
+      Print # 2; Space$(24); "move sr,d7"
+    EndIf
+  Return
+  EndIf
+
+  ' Default case, it's a constant
+  If instr$ <> "cmp"
+    Print # 2;             "move.b #" + reg$ + ", d0"
+    Print # 2; Space$(24); instr$ + ".b d0,reg_a.w"
+    Print # 2; Space$(24); "move sr,d7"
+    If clear_carry_negative
+      Print # 2; Space$(24); "and.w #clear_carry_extend_negative_mask,d7"
+      Print # 2; Space$(24); "move d7,sr"
+    EndIf
+  Else
+    Print # 2;             "move.b reg_a.w,d0"
+    Print # 2; Space$(24); "cmp.b #" + reg$ + ",d0"
+    Print # 2; Space$(24); "move sr,d7"
+  EndIf
+
+Return
+
+Procedure print_ld(l$)
+  ' General note: all ld instructions do not affect any status register bits
+  ' General note 2: Obviously very few sanity checks are made for valid register pairs.
+  ' FIXME: ld (#39),hl converts to move.w reg_hl.w,$39 - that's super wrong!
+  Local reg$
+  Local constant$
+  Local ll$, lr$           'lower case variants of l$, r$
+  Local address_val As Int 'for checking odd/even addresses
+  l$ = Trim(l$)
+  break_by_comma(l$, r$)
+  l$ = Trim$(l$)
+  r$ = LTrim$(r$)
+  break_by_spaces(r$, constant$)
+  ll$ = Lower$(l$)
+  lr$ = Lower$(r$)
+  If Left$(l$, 1) = "("
+    If ll$ = "(bc)"
+      ' ld (bc),a
+      Print # 2;             "move.w reg_bc.w,d0"
+      Print # 2; Space$(24); "lea (a6,d0.l),a0"
+      Print # 2; Space$(24); "move.b reg_a.w,(a0)"
+    Return
+    ElseIf ll$ = "(de)"
+      ' ld (de),a
+      Print # 2;             "move.w reg_de.w,d0"
+      Print # 2; Space$(24); "lea (a6,d0.l),a0"
+      Print # 2; Space$(24); "move.b reg_a.w,(a0)"
+    Return
+    ElseIf ll$ = "(hl)"
+      If lr$ = "a" Or lr$ = "b" Or lr$ = "c" Or lr$ = "d" Or lr$ = "e" Or lr$ = "h" Or lr$ = "l"
+        ' ld (hl),<byte register>
+        Print # 2;             "move.w reg_hl.w,d0"
+        Print # 2; Space$(24); "lea (a6,d0.l),a0"
+        Print # 2; Space$(24); "move.b reg_" + lr$ + ".w,(a0)"
+      Return
+      Else
+        'ld (hl),*
+        If Left$(r$, 1) = "#"
+          ' hex value
+          Print # 2;             "move.w reg_hl.w,d0"
+          Print # 2; Space$(24); "lea (a6,d0.l),a0"
+          Print # 2; Space$(24); "move.b #$" + Right$(r$, Len(r$) - 1) + ",(a0)"
+        Return
+        EndIf
+        Print # 2;             "move.w reg_hl.w,d0"
+        Print # 2; Space$(24); "lea (a6,d0.l),a0"
+        Print # 2; Space$(24); "move.b #" + r$ + ",(a0)"
+      Return
+      EndIf
+    EndIf
+    If Left$(ll$, 4) = "(ix+"
+      reg$ = "ix"
+      do_ix_iy:
+      constant$ = Mid$(l$, 5, Len(l$) - 5)
+      If Left$(constant$, 1) = "#"
+        constant$ = "$" + Right$(constant$, Len(constant$) - 1)
+      EndIf
+      If lr$ = "a" Or lr$ = "b" Or lr$ = "c" Or lr$ = "d" Or lr$ = "e" Or lr$ = "h" Or lr$ = "l"
+        ' ld (ix+*),<byte register> / ld (iy+*),<byte register>
+        Print # 2;             "move.w reg_" + reg$ + ".w,d0"
+        Print # 2; Space$(24); "lea (a6,d0.l),a0"
+        Print # 2; Space$(24); "move.b reg_" + lr$ + ".w," + constant$ + "(a0)"
+      Return
+      Else
+        ' ld (ix+*),* / ld (iy+*),*
+        If Left$(r$, 1) = "#"
+          r$ = "$" + Right$(r$, Len(r$) - 1)
+        EndIf
+        Print # 2;             "move.w reg_" + reg$ + ".w,d0"
+        Print # 2; Space$(24); "lea (a6,d0.l),a0"
+        Print # 2; Space$(24); "move.b #" + r$ + "," + constant$ + "(a0)"
+      Return
+      EndIf
+    ElseIf Left$(ll$, 4) = "(iy+"
+      reg$ = "iy"
+      GoTo do_ix_iy
+    EndIf
+    ' ld (**),a/bc/de/hl/sp/ix/iy
+    constant$ = Mid$(l$, 2, Len(l$) - 2)
+    If Left$(constant$, 1) = "#"
+      constant$ = "$" + Right$(constant$, Len(constant$) - 1)
+    EndIf
+    Local constant_start As Int = InStr(constant$, "+")
+    If constant_start > 0
+      ' seems like we have a (label+numeric_constant) situation in our hands
+      ' let's check if the constant is hex
+      ' TODO: this is junk! should be replaced with a call to parse_address once it's beefed up
+      address_val = 0
+      If Left$(constant$, 1) = "#"
+        constant$ = Left$(constant$, constant_start) + "$" + Mid$(constant$, constant_start + 2, Len(constant$) - constant_start - 1)
+        address_val = Val("$" + constant$)
+      EndIf
+      If Left$(constant$, 4) = "ram_"
+        address_val = Val("$" + Mid$(constant$, 5, 4))
+      EndIf
+    ElseIf Left$(constant$, 4) = "ram_"
+      address_val = Val("$" + Mid$(constant$, 5, 4))
+    EndIf
+    ' Special case for a - this is a byte move
+    If lr$ = "a"
+      If address_val = 0
+        Print # 2; "move.b reg_a.w," + constant$
+      Else
+        Print # 2;             "move.w #" + constant$ + ",d0"
+        Print # 2; Space$(24); "move.b reg_a.w,(a6,d0.l)"
+      EndIf
+    Return
+    EndIf
+    ' Check if address is odd
+    ' (the address should be encoded in the label, so check it for odd values)
+    If Btst(address_val, 0)
+      Print # 2;             "move.w #" + constant$ + ",d0"
+      Print # 2; Space$(24); "move.b reg_" + lr$ + ".w,(a6,d0.l)"
+      Print # 2; Space$(24); "move.b 1+reg_" + lr$ + ".w,1(a6,d0.l)"
+    Return
+    Else
+      Print # 2;             "move.w #" + constant$ + ",d0"
+      Print # 2; Space$(24); "move.w reg_" + lr$ + ".w,(a6,d0.l)"
+    Return
+    EndIf
+    '
+  EndIf
+  If ll$ = "a" Or ll$ = "b" Or ll$ = "c" Or ll$ = "d" Or ll$ = "e" Or ll$ = "h" Or ll$ = "l" Or ll$ = "ixl" Or ll$ = "ixy" Or ll$ = "iyl" Or ll$ = "iyh"
+    ' ld a/b/c/d/e/h/l/ixl/ixh/iyl/iyh,a/b/c/d/e/h/l/ixl/ixh/iyl/iyh
+    If lr$ = "a" Or lr$ = "b" Or lr$ = "c" Or lr$ = "d" Or lr$ = "e" Or lr$ = "h" Or lr$ = "l" Or lr$ = "ixl" Or lr$ = "ixy" Or lr$ = "iyl" Or lr$ = "iyh"
+      Print # 2; "move.b reg_" + lr$ + ".w,reg_" + ll$ + ".w"
+    Return
+    EndIf
+    If lr$ = "(bc)" Or lr$ = "(de)" Or lr$ = "(hl)"
+      ' ld a/b/c/d/e,(reg)
+      '(bc) and (de) are normally for accumulator only but pffft not going to syntax check!
+      Print # 2;             "move.w reg_" + Mid$(lr$, 2, 2) + ".w,d0"
+      Print # 2; Space$(24); "lea (a6,d0.l),a0"
+      Print # 2; Space$(24); "move.b (a0),reg_" + ll$ + ".w"
+    Return
+    EndIf
+    ' ld a/b/c/d/e/h/l/ixl/ixh/iyl/iyh,*/(**)
+    If Left$(lr$, 1) = "("
+      If Mid$(lr$, 2, 2) = "ix" Or Mid$(lr$, 2, 2) = "iy"
+        ' ld a/b/c/d/e/h/l/ixl/ixh/iyl/iyh,(ix+*)
+        ' ld a/b/c/d/e/h/l/ixl/ixh/iyl/iyh,(iy+*)
+        constant$ = Mid$(r$, 5, Len(r$) - 5)
+        If Left$(constant$, 1) = "#"
+          constant$ = "$" + Right$(constant$, Len(constant$) - 1)
+        EndIf
+        Print # 2;             "move.w reg_" + Mid$(lr$, 2, 2) + ".w,d0"
+        Print # 2; Space$(24); "lea (a6,d0.l),a0"
+        Print # 2; Space$(24); "move.b " + constant$ + "(a0),reg_" + ll$ + ".w"
+
+      Return
+      EndIf
+      ' ld a/b/c/d/e/h/l/ixl/ixh/iyl/iyh,(**)
+      constant$ = Mid$(r$, 2, Len(r$) - 2)
+      If Left$(constant$, 1) = "#"
+        constant$ = "$" + Right$(constant$, Len(constant$) - 1)
+      EndIf
+      Print # 2; "move.b " + constant$ + ",reg_" + ll$ + ".w"
+    Return
+    EndIf
+    ' ld a/b/c/d/e/h/l/ixl/ixh/iyl/iyh,*
+    constant$ = r$
+    If Left$(constant$, 1) = "#"
+      constant$ = "$" + Right$(constant$, Len(constant$) - 1)
+    EndIf
+    Print # 2; "move.b #" + constant$ + ",reg_" + ll$ + ".w"
+  Return
+  EndIf
+  If ll$ = "bc" Or ll$ = "de" Or ll$ = "hl" Or ll$ = "ix" Or ll$ = "iy" Or ll$ = "sp"
+    If Left$(lr$, 1) = "("
+      ' ld <2 byte reg>,(**)
+      constant$ = Mid$(r$, 2, Len(r$) - 2)
+      address_val = 0
+      If Right$(constant$, 1) = "#"
+        constant$ = Right$(constant$, Len(constant$) - 1)
+        address_val = Val("$" + constant$)
+      ElseIf Left$(constant$, 4) = "ram_"
+        address_val = Val("$" + Mid$(constant$, 5, 4))
+      EndIf
+      ' Check if address is odd
+      ' (the address should be encoded in the label, so check it for odd values)
+      If Btst(address_val, 0)
+        Print # 2;             "move.w #" + constant$ + ",d0"
+        Print # 2; Space$(24); "move.b (a6,d0.l),reg_" + ll$ + ".w"
+        Print # 2; Space$(24); "move.b 1(a6,d0.l),1+reg_" + ll$ + ".w"
+      Return
+      Else
+        Print # 2;             "move.w #" + constant$ + ",d0"
+        Print # 2; Space$(24); "move.w (a6,d0.l),reg_" + ll$ + ".w"
+      Return
+      EndIf
+    EndIf
+    ' ld <2 byte reg>,*
+    constant$ = r$
+    If Left$(constant$, 1) = "#"
+      constant$ = "$" + Right$(constant$, Len(constant$) - 1)
+    EndIf
+    Print # 2; "move.w #" + constant$ + ",reg_" + ll$ + ".w"
+  Return
+  EndIf
+  Print # 2; "*************Wat "`l$`r$
+Return
+
+>Procedure print_bit(orig$, instr$, reg$)
+  ' bset, bclr, btst
+  Local r$, constant$, comment$
+  Local value As Int
+  reg$ = LTrim$(reg$)
+  break_by_comma(reg$, r$)
+  break_by_spaces(r$, comment$)
+  r$ = Trim$(r$)
+  If r$ = "(hl)"
+    Print # 2;             "move.w reg_hl.w,d0"
+    Print # 2; Space$(24); "lea (a6,d0.l),a0"
+    Print # 2; Space$(24); instr$ + reg$ + ",(a0)"; comment$
+    Print # 2; Space$(24); "move sr,d7"
+  Return
+  ElseIf Left$(r$, 3) = "(ix" Or Left$(r$, 3) = "(iy"
+    Print # 2;             "move.w reg_" + Mid$(r$, 2, 2) + ".w,d0"
+
+    r$ = Mid$(r$, 5, Len(r$) - 5)
+    If parse_address(r$ , constant$) <> address_expression
+      Print # 2; Space$(24); "add.w #" + constant$ + ",d0"
+    Else
+      Print # 2; Space$(24); "add.w " + constant$ + ",d0"
+    EndIf
+    Print # 2; Space$(24); "lea (a6,d0.l),a0"
+    Print # 2; Space$(24); instr$ + reg$ + ",(a0)"; comment$
+    Print # 2; Space$(24); "move sr,d7"
+  Return
+  EndIf
+
+  ' Default case, it's a reg
+  Print # 2; instr$ + reg$ + ",reg_"; r$ + ".w"; comment$
+  Print # 2; Space$(24); "move sr,d7"
+
+Return
+>Function parse_address(ByRef src$, ByRef dst$)
+  ' TODO this ideally needs to be iterative in order to catch cases like
+  ' "address+10+#20"
+  ' (probably add support for 20h hex numbers here? could be)
+  If Val?(src$) > 0
+    ' decimal constnat
+    dst$ = src$
+    Return address_decimal
+  ElseIf Left$(src$, 1) = "#"
+    ' hex constant
+    dst$ = Right$(src$, Len(src$) - 1)
+    Return address_hex
+  ElseIf Right$(src$, 1) = "h"
+    ' hex constant
+    dst$ = Left$(src$, Len(src$) - 1)
+    Return address_hex
+  Else
+    ' expression constant
+    dst$ = src$
+    Return address_expression
+  EndIf
+EndFunction
+>Function convert_hex_branch_offset(offset$)
+  ' Lucky us, we have an offset after the address, let's root it out
+  ' Let's assume for now that it's always going to be a positive offset
+  Local unary_index As Int = InStr(offset$, "+")
+  Local constant$ = Mid$(offset$, unary_index + 2, Len(r$) - 1)
+  constant$ = "$" + Right$(constant$, Len(constant$) - 1)
+  offset$ = Left$(offset$, unary_index) + constant$
+  Return offset$
+Return
+
+>Procedure break_by_spaces(ByRef lef$, ByRef rig$)
+  Local a$
+  Local index As Int = 0
+  Local l As Int = Len(lef$)
+  Repeat
+    Inc index
+    a$ = Mid$(lef$, index, 1)
+  Until a$ = " " Or index = l + 1 'Or a$ = Chr$(9)
+  If index <> l + 1
+    rig$ = Right$(lef$, Len(lef$) - index + 1)
+    lef$ = Left$(lef$, index - 1)
+  Else
+    ' TODO: check this for validity!
+    rig$ = ""
+  EndIf
+Return
+
+>Procedure break_by_comma(ByRef lef$, ByRef rig$)
+  Local a$
+  Local index As Int = 0
+  Local l As Int = Len(lef$)
+  Repeat
+    Inc index
+    a$ = Mid$(lef$, index, 1)
+  Until a$ = "," Or index = l + 1
+  If index <> l + 1
+    rig$ = Right$(lef$, Len(lef$) - index)
+    lef$ = Left$(lef$, index - 1)
+  Else
+    lef$ = rig$
+    rig$ = ""
+  EndIf
+Return
+$DatFile
+$FormVersion = 2
+$FileDescription = Description
+$Comments = Author: Not registered   
+$CompanyName = Not registered   
+$LegalCopyright = © 2019 Not registered   
+$LanguageId = 0409
+$FileVersion = %d.%d.%d.%d
+$ProductVersion = %d.%d.%d.%d
+$DatFile
