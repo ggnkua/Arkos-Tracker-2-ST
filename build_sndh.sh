@@ -63,6 +63,8 @@ while [[ $# -gt 0 ]]; do
 		USE_EVENTS=1
 	elif [ "$1" == "SID_EVENTS" ]; then
 		SID_EVENTS=1
+        # this is implied, can't have SID events without events
+		USE_EVENTS=1
 	else
 		echo Invalid parameter passed! "$1"
         usage

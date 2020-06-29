@@ -48,6 +48,8 @@ if not "%1"=="" (
 	) else if /i "%1"=="USE_EVENTS" (
 		set USE_EVENTS=1
 	) else if /i "%1"=="SID_EVENTS" (
+		set USE_EVENTS=1
+        rem this is implied, can't have SID events without events
 		set SID_EVENTS=1
 	) else (
 		echo Invalid parameter passed! "%1"
