@@ -117,6 +117,7 @@ In `example.s` there is sample code to illustrate how to dump and replay a tune.
 ## `USE_SID_EVENTS`
 
 In Arkos Tracker 2, all events starting with F (F0, F1, F2 etc up to FF) are now SID events. The lowest three bits control which channels are SID-enabled. Timers used are ABD (for channels ABC, respectively). The bit pattern is 1111 xABC, which means:
+
      F0 - [unused]
      F1 - set channel C to SID off
      F2 - set channel B to SID off
@@ -134,7 +135,7 @@ In Arkos Tracker 2, all events starting with F (F0, F1, F2 etc up to FF) are now
      FE - set channels A and B to SID on
      FF - all channels SID on
 
-Note that SID voices are _not_ supported inside the trakcer, so the only way to listen to them is to create a SNDH or assemble the tune as a ST prg.
+Note that SID voices are _not_ supported inside the tracker, so the only way to listen to them is to create a SNDH or assemble the tune as an ST prg.
 
 # SNDH
 
@@ -188,3 +189,4 @@ Finally the whole code inside `sid.s` should also be treated as reference. There
 - SID voices source provided by Grazey of the PHF based on code by Abyss and Tao of Cream
 - Some vasm help from @realmml
 - Falcon tips and testing by Evil/DHS and Grazey/PHF
+

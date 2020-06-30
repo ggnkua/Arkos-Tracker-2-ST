@@ -40,8 +40,8 @@ sid_play:
     bgt.s .skip_a
     endif
 
-    clr.l    d0
-    clr.l    d1
+    moveq    #0,d0
+    moveq    #0,d1
     move.b    ((4*8)+2)(a0),d0
     move.b    ((4*1)+2)(a0),d1
     lsl    #8,d1

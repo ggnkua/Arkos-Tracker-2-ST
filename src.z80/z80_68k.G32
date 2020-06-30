@@ -158,8 +158,17 @@ Repeat
   Case "="
     GoTo case_equ
   Case "ifdef"
-'##E#
     Print # 2; "if ^^defined"; r$
+  Case "ifndef"
+    Print # 2; "if !^^defined"; r$
+  Case "else"
+    Print # 2; "else"; r$
+  Case "endif"
+    Print # 2; "endif"; r$
+  Case "macro"
+    Print # 2; "macro"; r$
+  Case "endm"
+    Print # 2; "endm"; r$
   Case "defs"
     GoTo case_ds
   Case "defb"
@@ -221,10 +230,14 @@ Repeat
   Case "defm"
     GoTo case_defm
   Case "defw"
+    case_defw:
     l$ = Lower(LTrim$(r$))
     break_by_spaces(l$, r$)
     reSub l$, "#", "$"
     Print # 2; "dc.w " + l$
+  Case "dw"
+'##E#
+    GoTo case_defw
   Case ".ascii"
     Print # 2; "dc.b "; r$
   Case "nop"
@@ -596,7 +609,7 @@ Repeat
   Case "im"
     Print # 2; ";"; l$; r$; " Well, the dude calls an interrupt here. Probably do something about it?"
   Default
-    Print # 2; "*****************Wat? -"; l$; "-"; r$; "-"
+    Print # 2; "*************Line"`cur_line; ": Wat "`l$`r$
   EndSelect
 
   skip_line:
@@ -1166,7 +1179,7 @@ Procedure print_ld(l$)
     Print # 2; "move.w #" + constant$ + ",reg_" + ll$ + ".w"
   Return
   EndIf
-  Print # 2; "*************Wat "`l$`r$
+  Print # 2; "*************Line"`cur_line; ": Wat "`l$`r$
 Return
 
 >Procedure print_bit(orig$, instr$, reg$)
