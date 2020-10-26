@@ -59,12 +59,16 @@ shift
 while [[ $# -gt 0 ]]; do
     if [ "$1" == "SID_VOICES" ]; then
         SID_VOICES="1"
+        SID_EXT=_SID
 	elif [ "$1" == "USE_EVENTS" ]; then
 		USE_EVENTS=1
+        EVENTS_EXT=_EVENTS
 	elif [ "$1" == "SID_EVENTS" ]; then
 		SID_EVENTS=1
         # this is implied, can't have SID events without events
 		USE_EVENTS=1
+        SID_EXT=_SID
+        SIDEVENTS_EXT=_SIDEVENTS        
 	else
 		echo Invalid parameter passed! "$1"
         usage
@@ -73,4 +77,4 @@ while [[ $# -gt 0 ]]; do
 	shift
 done
 
-bin/rmac_$extension -fr -D_RMAC_=1 -D_VASM_=0 -DSID_VOICES=$SID_VOICES -DUSE_EVENTS=$USE_EVENTS -DUSE_SID_EVENTS=$SID_EVENTS sndh.s -o "$no_path.sndh"
+bin/rmac_$extension -fr -D_RMAC_=1 -D_VASM_=0 -DSID_VOICES=$SID_VOICES -DUSE_EVENTS=$USE_EVENTS -DUSE_SID_EVENTS=$SID_EVENTS no_path_underscore$SID_EXT$EVENTS_EXT$SIDEVENTS_EXT.s -o "$no_path.sndh"

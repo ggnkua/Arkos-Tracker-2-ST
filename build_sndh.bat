@@ -45,12 +45,16 @@ if not "%1"=="" (
 
 	if /i "%1"=="SID_VOICES" (
         set SID_VOICES=1
+        set SID_EXT=_SID
 	) else if /i "%1"=="USE_EVENTS" (
 		set USE_EVENTS=1
+        set EVENTS_EXT=_EVENTS
 	) else if /i "%1"=="SID_EVENTS" (
 		set USE_EVENTS=1
         rem this is implied, can't have SID events without events
 		set SID_EVENTS=1
+        set SID_EXT=_SID
+        set SIDEVENTS_EXT=_SIDEVENTS
 	) else (
 		echo Invalid parameter passed! "%1"
 		goto :USAGE
@@ -60,7 +64,7 @@ if not "%1"=="" (
 	goto :parseloop
 )
 
-bin\rmac -fr -D_RMAC_=1 -D_VASM_=0 -DSID_VOICES=%SID_VOICES% -DUSE_EVENTS=%USE_EVENTS% -DUSE_SID_EVENTS=%SID_EVENTS% sndh.s -o "%filename%.sndh"
+bin\rmac -fr -D_RMAC_=1 -D_VASM_=0 -DSID_VOICES=%SID_VOICES% -DUSE_EVENTS=%USE_EVENTS% -DUSE_SID_EVENTS=%SID_EVENTS% sndh.s -o "%filename%%SID_EXT%%EVENTS_EXT%%SIDEVENTS_EXT%.sndh"
 
 goto GOODBYE
 
@@ -74,4 +78,7 @@ set underscore=
 set SID_VOICES=
 set USE_EVENTS=
 set SID_EVENTS=
+set SID_EXT=
+set EVENTS_EXT=
+set SIDEVENTS_EXT=
 
