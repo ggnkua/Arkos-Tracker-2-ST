@@ -77,4 +77,4 @@ while [[ $# -gt 0 ]]; do
 	shift
 done
 
-bin/rmac_$extension -fr -D_RMAC_=1 -D_VASM_=0 -DSID_VOICES=$SID_VOICES -DUSE_EVENTS=$USE_EVENTS -DUSE_SID_EVENTS=$SID_EVENTS no_path_underscore$SID_EXT$EVENTS_EXT$SIDEVENTS_EXT.s -o "$no_path.sndh"
+bin/rmac_$extension -fr -D_RMAC_=1 -D_VASM_=0 -DSID_VOICES=$SID_VOICES -DUSE_EVENTS=$USE_EVENTS -DUSE_SID_EVENTS=$SID_EVENTS -o "$no_path$SID_EXT$EVENTS_EXT$SIDEVENTS_EXT.sndh" sndh.s

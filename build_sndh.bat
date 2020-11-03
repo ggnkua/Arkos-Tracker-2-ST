@@ -64,7 +64,7 @@ if not "%1"=="" (
 	goto :parseloop
 )
 
-bin\rmac -fr -D_RMAC_=1 -D_VASM_=0 -DSID_VOICES=%SID_VOICES% -DUSE_EVENTS=%USE_EVENTS% -DUSE_SID_EVENTS=%SID_EVENTS% sndh.s -o "%filename%%SID_EXT%%EVENTS_EXT%%SIDEVENTS_EXT%.sndh"
+bin\rmac -fr -D_RMAC_=1 -D_VASM_=0 -DSID_VOICES=%SID_VOICES% -DUSE_EVENTS=%USE_EVENTS% -DUSE_SID_EVENTS=%SID_EVENTS% -o "%filename%%SID_EXT%%EVENTS_EXT%%SIDEVENTS_EXT%.sndh" sndh.s
 
 goto GOODBYE
 
