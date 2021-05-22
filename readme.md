@@ -189,4 +189,6 @@ Finally the whole code inside `sid.s` should also be treated as reference. There
 - SID voices source provided by Grazey of the PHF based on code by Abyss and Tao of Cream
 - Some vasm help from @realmml
 - Falcon tips and testing by Evil/DHS and Grazey/PHF
+- Thanks to @em00k and his nameless friend for pointing out an issue in SID voices
+
 
