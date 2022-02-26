@@ -7,11 +7,15 @@ Get the tracker from http://www.julien-nevo.com/arkostracker/
 - Compose on PC/Mac/Linux with all the comforts of modern UIs and resolutions, then export and play the tune on a ST
 - SID voices support that can be turned on and off using song events, so CPU usage can be controlled easier
 - Fairly fast replay routine:
-  - The vanilla version takes less than 3 scanlines on a plain Atari ST
-  - The moderately optimised version takes about 2 scanlines (on a plain Atari ST)
+  - The vanilla version takes less than 3 scanlines of CPU usage on a plain Atari ST (approximately 1%)
+  - The moderately optimised version takes about 2 scanlines on a plain Atari ST (approximately 0.7%)
   - The "register dump" version takes about 1/2 scanline
 
 # How to export
+
+Before exporting it is vital that the following step is performed inside the tracker:
+
+- Go to Edit->Song properties, and check the "PSG list" field, the frequency should be 2000000Hz. If not, click "edit" and change the tick box to "2000000 Hz (Atari ST)" and save the tune.
 
 To export a track from the tracker for use with these player follow these simple steps: (current for v2 alpha 4)
 
@@ -25,7 +29,6 @@ Song will be auto converted to the proper format for you.
 Alternatively you can do the same from inside the tracker:
 
 - Open the tune you want to export
-- Go to Edit->Song properties, and check the "PSG list" field, the frequency should be 2000000Hz. If not, click "edit" and change the tick box to "2000000 Hz (Atari ST)"
 - (One time only setup) Go to File->Setup and click "source properties". Press the "+" button to create a new profile, name it something like "68000, with comments". Then fill in the fields as follows:
   - Current address declaration: ;
   - Comment declaration: ;
@@ -139,7 +142,7 @@ Note that SID voices are _not_ supported inside the tracker, so the only way to 
 
 # SNDH
 
-Note that in order to create SNDH files you *must* have rmac inside the `bin` folder. The Windows versions are supplied inside the repository. Mac users should get and compile rmac and rln from http://shamusworld.gotdns.org/git/rmac (just CDing to the directories and typing `make` should be all that's needed provided a sane build system)
+~~Note that in order to create SNDH files you *must* have rmac inside the `bin` folder. The Windows versions are supplied inside the repository. Mac users should get and compile rmac and rln from http://shamusworld.gotdns.org/git/rmac (just CDing to the directories and typing `make` should be all that's needed provided a sane build system)~~ rmac and rln are now included inside the repository for all 3 major platforms.
 
 There is a script that automatically creates a SNDH compilant file, in both *.bat* and *bash* flavours, called **build_sndh.bat** and **build_sndh.sh** respectively. Their usage is as follows:
 
