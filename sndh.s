@@ -241,7 +241,7 @@ player:
 	include "sid.s"
 	.endif
 
-    .dc.b "ARKOS-2-SNDH - The tune data ended at the start of this message"
+    .dc.b "ARKOS2-2-SNDH - The tune data ended at the start of this message"
 
 ;http://phf.atari.org
 
