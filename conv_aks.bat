@@ -18,7 +18,7 @@ echo usage: conv_aks source.aks dest_stub
 exit /b
 :PARAMS_OK
 
-bin\SongToAky -adr 0 -spadr ; --sourceProfile 68000 -sppostlbl ":" -reladr -spomt %1 %2.aky.s
+bin\SongToAky --subsong 1 -adr 0 -spadr ; --sourceProfile 68000 -sppostlbl ":" -reladr -spomt %1 %2.aky.s
 bin\SongToEvents -adr 0 -spadr ; --sourceProfile 68000 -sppostlbl ":" -spomt %1 %2.events.words.s
 
 rem Take care of endianess swap. Seems to be required for versions at least 2.0.0a8 and later
