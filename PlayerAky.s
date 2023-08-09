@@ -8,7 +8,7 @@
 ;       By Julien Névo a.k.a. Targhan/Arkos.
 ;       February 2018.
 ;
-; This source was written for the rmac assembler (http://virtualjaguar.kicks-ass.net/builds/)
+; This source was written for the rmac assembler (http://rmac.is-slick.com)
 ; It should be fairly easy to adapt to other assemblers.
 ;
 ; Note that the source makes use of macros, so take a look at their definitions (after these messages end) before reading the code

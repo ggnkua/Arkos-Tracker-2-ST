@@ -8,7 +8,7 @@
 ;       By Julien N^)vo a.k.a. Targhan/Arkos.
 ;       February 2018.
 ;
-; This source was written for the rmac assembler (http://virtualjaguar.kicks-ass.net/builds/)
+; This source was written for the rmac assembler (http://rmac.is-slick.com)
 ; It should be fairly easy to adapt to other assemblers.
 ;
 ; Note that the source makes use of macros, so take a look at their definitions (after these messages end) before reading the code
@@ -1015,10 +1015,3 @@ PLY_AKYst_PsgRegister6: dc.b 0
 PLY_AKYst_PsgRegister11: dc.b 0
 PLY_AKYst_PsgRegister12: dc.b 0
 PLY_AKYst_PsgRegister13: dc.b 0
-        SID_VOICES 0000000000000001  a 
-     UNROLLED_CODE 0000000000000001  a 
-        USE_EVENTS 0000000000000001  a 
-    USE_SID_EVENTS 0000000000000001  a 
-            _RMAC_ 0000000000000001  a 
-            _VASM_ 0000000000000000  a 
-      values_store 0000000000000000  a 
