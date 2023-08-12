@@ -211,7 +211,7 @@ PLY_AKYst_Channel3_RegisterBlock_Process:
 ;Reading the RegisterBlock - Channel 1
 ;----------------------------------------
 
-        move.w #((0 * 256) + 8),d7                              ;d7 high byte = first frequency register, d7 low byte = first volume register.
+        move.w #((0*256)+8),d7                              ;d7 high byte = first frequency register, d7 low byte = first volume register.
         move.w #$f690,d4                                        ;$90 used for both $80 for the PSG, and volume 16!
         
         ;In d3, R7 with default values: fully sound-open but noise-close.
@@ -378,7 +378,7 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolume:
 
         add.w #(2<<8)+1,d7                                      ;Increases the volume register (low byte) and frequency register (high byte).
         ;Closes the sound channel.
-        bset #PLY_AKYst_RRB_SoundChannelBit, d3
+        bset #PLY_AKYst_RRB_SoundChannelBit,d3
         rts
 
 
@@ -614,7 +614,7 @@ PLY_AKYst_RRB_NIS_AfterVolume:
         add.w #$201,d7                                          ;Next volume register (low byte) and frequency registers (high byte)
 
         ;Noise? Was on bit 7, but there has been two shifts. We can't use d1, it may have been modified by the volume AND.
-        btst #7 - 2,d2
+        btst #7-2,d2
         bne.s PLY_AKYst_RRB_NIS_Noise
         rts
 PLY_AKYst_RRB_NIS_Noise:
@@ -643,7 +643,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop:
         addq.w #1,d7                                            ;Increases the volume register.
 
         ;LSP? (Least Significant byte of Period). Was bit 6, but now shifted.
-        btst #6 - 2,d2
+        btst #6-2,d2
         bne.s PLY_AKYst_RRB_NIS_SoftwareOnly_LSP
         bra.s PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP
 PLY_AKYst_RRB_NIS_SoftwareOnly_LSP:
@@ -653,7 +653,7 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_LSP:
 PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSP:
 
         ;MSP AND/OR (Noise and/or new Noise)? (Most Significant byte of Period).
-        btst #7 - 2,d2
+        btst #7-2,d2
         bne.s PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoise
         add.w #2<<8,d7
         rts
