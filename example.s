@@ -547,7 +547,7 @@ tune_events:
   endif ; .if USE_EVENTS
 
 tune:
-    .include "tunes/just_add_cream.aky.s"
+    include "tunes/just_add_cream.aky.s"
 
     if _RMAC_=1
     long                            ;pad to 4 bytes
