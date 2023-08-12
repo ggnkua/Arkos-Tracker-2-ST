@@ -45,12 +45,13 @@ bin\sed -e^
  -e "s/.*endif.*//gI"^
  -e "s/.*  if.*//gI"^
  -e "s/.*else.*//gI"^
- -e"s/.*movex.*//gI"^
+ -e "s/.*movex.*//gI"^
  -e "s/.*readregs.*//gI"^
  -e "s/.*  a   .*//gI"^
  -e "s/.*  t   .*//gI"^
  -e "s/^........................................//gI"^
  -e "s/undefined.*//gI"^
+ -e "s/^ .*a $//gI"^
  -e "/^\s*$/d"^
  Player.lst > %1
 del player.lst
