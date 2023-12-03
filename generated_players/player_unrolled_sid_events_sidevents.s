@@ -228,9 +228,9 @@ PLY_AKYst_RRB_BranchOnNonInitailStateM26:
         jmp PLY_AKYst_IS_JPTableM26(pc,a5.w)
 PLY_AKYst_IS_JPTableM26:
         dc.w PLY_AKYst_RRB_IS_NoSoftwareNoHardwareM26-PLY_AKYst_IS_JPTableM26
-        dc.w PLY_AKYst_RRB_IS_SoftwareOnlyM26        -PLY_AKYst_IS_JPTableM26
-        dc.w PLY_AKYst_RRB_IS_HardwareOnlyM26        -PLY_AKYst_IS_JPTableM26
-        dc.w PLY_AKYst_RRB_IS_SoftwareAndHardwareM26 -PLY_AKYst_IS_JPTableM26
+        dc.w PLY_AKYst_RRB_IS_SoftwareOnlyM26-PLY_AKYst_IS_JPTableM26
+        dc.w PLY_AKYst_RRB_IS_HardwareOnlyM26-PLY_AKYst_IS_JPTableM26
+        dc.w PLY_AKYst_RRB_IS_SoftwareAndHardwareM26-PLY_AKYst_IS_JPTableM26
 PLY_AKYst_RRB_IS_NoSoftwareNoHardwareM26:
         lsr.b #1,d1             
         bcs.s PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoiseM26
@@ -308,21 +308,21 @@ PLY_AKYst_RRB_NonInitialStateM26:
         jmp (a5)
 PLY_AKYst_NIS_JPTableM26:
         dc.w PLY_AKYst_RRB_NIS_NoSoftwareNoHardwareM26-PLY_AKYst_NIS_JPTableM26          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM26        -PLY_AKYst_NIS_JPTableM26          
-        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM26        -PLY_AKYst_NIS_JPTableM26          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM26 -PLY_AKYst_NIS_JPTableM26          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM26-PLY_AKYst_NIS_JPTableM26          
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM26-PLY_AKYst_NIS_JPTableM26          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM26-PLY_AKYst_NIS_JPTableM26          
         dc.w PLY_AKYst_RRB_NIS_NoSoftwareNoHardwareM26-PLY_AKYst_NIS_JPTableM26          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM26        -PLY_AKYst_NIS_JPTableM26          
-        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM26        -PLY_AKYst_NIS_JPTableM26          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM26 -PLY_AKYst_NIS_JPTableM26          
-        dc.w PLY_AKYst_RRB_NIS_ManageLoopM26          -PLY_AKYst_NIS_JPTableM26          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM26        -PLY_AKYst_NIS_JPTableM26          
-        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM26        -PLY_AKYst_NIS_JPTableM26          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM26 -PLY_AKYst_NIS_JPTableM26          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM26-PLY_AKYst_NIS_JPTableM26          
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM26-PLY_AKYst_NIS_JPTableM26          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM26-PLY_AKYst_NIS_JPTableM26          
+        dc.w PLY_AKYst_RRB_NIS_ManageLoopM26-PLY_AKYst_NIS_JPTableM26          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM26-PLY_AKYst_NIS_JPTableM26          
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM26-PLY_AKYst_NIS_JPTableM26          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM26-PLY_AKYst_NIS_JPTableM26          
         dc.w PLY_AKYst_RRB_NIS_NoSoftwareNoHardwareM26-PLY_AKYst_NIS_JPTableM26          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM26        -PLY_AKYst_NIS_JPTableM26          
-        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM26        -PLY_AKYst_NIS_JPTableM26          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM26 -PLY_AKYst_NIS_JPTableM26          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM26-PLY_AKYst_NIS_JPTableM26          
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM26-PLY_AKYst_NIS_JPTableM26          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM26-PLY_AKYst_NIS_JPTableM26          
 PLY_AKYst_RRB_NIS_ManageLoopM26:
         move.l a1,d1
         addq.l #1,d1
@@ -342,9 +342,9 @@ PLY_AKYst_RRB_NIS_ManageLoopM26:
         jmp PLY_AKYst_NIS_JPTable_NoLoopM26(pc,a5.w)
 PLY_AKYst_NIS_JPTable_NoLoopM26:
         dc.w PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_LoopM26-PLY_AKYst_NIS_JPTable_NoLoopM26     
-        dc.w PLY_AKYst_RRB_NIS_SoftwareOnly_LoopM26        -PLY_AKYst_NIS_JPTable_NoLoopM26     
-        dc.w PLY_AKYst_RRB_NIS_HardwareOnly_LoopM26        -PLY_AKYst_NIS_JPTable_NoLoopM26     
-        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardware_LoopM26 -PLY_AKYst_NIS_JPTable_NoLoopM26     
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnly_LoopM26-PLY_AKYst_NIS_JPTable_NoLoopM26     
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnly_LoopM26-PLY_AKYst_NIS_JPTable_NoLoopM26     
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardware_LoopM26-PLY_AKYst_NIS_JPTable_NoLoopM26     
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardwareM26:
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_LoopM26:
         move.b d1,d2                                            
@@ -487,9 +487,9 @@ PLY_AKYst_RRB_BranchOnNonInitailStateM51:
         jmp PLY_AKYst_IS_JPTableM51(pc,a5.w)
 PLY_AKYst_IS_JPTableM51:
         dc.w PLY_AKYst_RRB_IS_NoSoftwareNoHardwareM51-PLY_AKYst_IS_JPTableM51
-        dc.w PLY_AKYst_RRB_IS_SoftwareOnlyM51        -PLY_AKYst_IS_JPTableM51
-        dc.w PLY_AKYst_RRB_IS_HardwareOnlyM51        -PLY_AKYst_IS_JPTableM51
-        dc.w PLY_AKYst_RRB_IS_SoftwareAndHardwareM51 -PLY_AKYst_IS_JPTableM51
+        dc.w PLY_AKYst_RRB_IS_SoftwareOnlyM51-PLY_AKYst_IS_JPTableM51
+        dc.w PLY_AKYst_RRB_IS_HardwareOnlyM51-PLY_AKYst_IS_JPTableM51
+        dc.w PLY_AKYst_RRB_IS_SoftwareAndHardwareM51-PLY_AKYst_IS_JPTableM51
 PLY_AKYst_RRB_IS_NoSoftwareNoHardwareM51:
         lsr.b #1,d1             
         bcs.s PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoiseM51
@@ -567,21 +567,21 @@ PLY_AKYst_RRB_NonInitialStateM51:
         jmp (a5)
 PLY_AKYst_NIS_JPTableM51:
         dc.w PLY_AKYst_RRB_NIS_NoSoftwareNoHardwareM51-PLY_AKYst_NIS_JPTableM51          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM51        -PLY_AKYst_NIS_JPTableM51          
-        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM51        -PLY_AKYst_NIS_JPTableM51          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM51 -PLY_AKYst_NIS_JPTableM51          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM51-PLY_AKYst_NIS_JPTableM51          
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM51-PLY_AKYst_NIS_JPTableM51          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM51-PLY_AKYst_NIS_JPTableM51          
         dc.w PLY_AKYst_RRB_NIS_NoSoftwareNoHardwareM51-PLY_AKYst_NIS_JPTableM51          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM51        -PLY_AKYst_NIS_JPTableM51          
-        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM51        -PLY_AKYst_NIS_JPTableM51          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM51 -PLY_AKYst_NIS_JPTableM51          
-        dc.w PLY_AKYst_RRB_NIS_ManageLoopM51          -PLY_AKYst_NIS_JPTableM51          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM51        -PLY_AKYst_NIS_JPTableM51          
-        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM51        -PLY_AKYst_NIS_JPTableM51          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM51 -PLY_AKYst_NIS_JPTableM51          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM51-PLY_AKYst_NIS_JPTableM51          
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM51-PLY_AKYst_NIS_JPTableM51          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM51-PLY_AKYst_NIS_JPTableM51          
+        dc.w PLY_AKYst_RRB_NIS_ManageLoopM51-PLY_AKYst_NIS_JPTableM51          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM51-PLY_AKYst_NIS_JPTableM51          
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM51-PLY_AKYst_NIS_JPTableM51          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM51-PLY_AKYst_NIS_JPTableM51          
         dc.w PLY_AKYst_RRB_NIS_NoSoftwareNoHardwareM51-PLY_AKYst_NIS_JPTableM51          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM51        -PLY_AKYst_NIS_JPTableM51          
-        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM51        -PLY_AKYst_NIS_JPTableM51          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM51 -PLY_AKYst_NIS_JPTableM51          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM51-PLY_AKYst_NIS_JPTableM51          
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM51-PLY_AKYst_NIS_JPTableM51          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM51-PLY_AKYst_NIS_JPTableM51          
 PLY_AKYst_RRB_NIS_ManageLoopM51:
         move.l a1,d1
         addq.l #1,d1
@@ -601,9 +601,9 @@ PLY_AKYst_RRB_NIS_ManageLoopM51:
         jmp PLY_AKYst_NIS_JPTable_NoLoopM51(pc,a5.w)
 PLY_AKYst_NIS_JPTable_NoLoopM51:
         dc.w PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_LoopM51-PLY_AKYst_NIS_JPTable_NoLoopM51     
-        dc.w PLY_AKYst_RRB_NIS_SoftwareOnly_LoopM51        -PLY_AKYst_NIS_JPTable_NoLoopM51     
-        dc.w PLY_AKYst_RRB_NIS_HardwareOnly_LoopM51        -PLY_AKYst_NIS_JPTable_NoLoopM51     
-        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardware_LoopM51 -PLY_AKYst_NIS_JPTable_NoLoopM51     
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnly_LoopM51-PLY_AKYst_NIS_JPTable_NoLoopM51     
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnly_LoopM51-PLY_AKYst_NIS_JPTable_NoLoopM51     
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardware_LoopM51-PLY_AKYst_NIS_JPTable_NoLoopM51     
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardwareM51:
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_LoopM51:
         move.b d1,d2                                            
@@ -746,9 +746,9 @@ PLY_AKYst_RRB_BranchOnNonInitailStateM76:
         jmp PLY_AKYst_IS_JPTableM76(pc,a5.w)
 PLY_AKYst_IS_JPTableM76:
         dc.w PLY_AKYst_RRB_IS_NoSoftwareNoHardwareM76-PLY_AKYst_IS_JPTableM76
-        dc.w PLY_AKYst_RRB_IS_SoftwareOnlyM76        -PLY_AKYst_IS_JPTableM76
-        dc.w PLY_AKYst_RRB_IS_HardwareOnlyM76        -PLY_AKYst_IS_JPTableM76
-        dc.w PLY_AKYst_RRB_IS_SoftwareAndHardwareM76 -PLY_AKYst_IS_JPTableM76
+        dc.w PLY_AKYst_RRB_IS_SoftwareOnlyM76-PLY_AKYst_IS_JPTableM76
+        dc.w PLY_AKYst_RRB_IS_HardwareOnlyM76-PLY_AKYst_IS_JPTableM76
+        dc.w PLY_AKYst_RRB_IS_SoftwareAndHardwareM76-PLY_AKYst_IS_JPTableM76
 PLY_AKYst_RRB_IS_NoSoftwareNoHardwareM76:
         lsr.b #1,d1             
         bcs.s PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoiseM76
@@ -826,21 +826,21 @@ PLY_AKYst_RRB_NonInitialStateM76:
         jmp (a5)
 PLY_AKYst_NIS_JPTableM76:
         dc.w PLY_AKYst_RRB_NIS_NoSoftwareNoHardwareM76-PLY_AKYst_NIS_JPTableM76          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM76        -PLY_AKYst_NIS_JPTableM76          
-        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM76        -PLY_AKYst_NIS_JPTableM76          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM76 -PLY_AKYst_NIS_JPTableM76          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM76-PLY_AKYst_NIS_JPTableM76          
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM76-PLY_AKYst_NIS_JPTableM76          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM76-PLY_AKYst_NIS_JPTableM76          
         dc.w PLY_AKYst_RRB_NIS_NoSoftwareNoHardwareM76-PLY_AKYst_NIS_JPTableM76          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM76        -PLY_AKYst_NIS_JPTableM76          
-        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM76        -PLY_AKYst_NIS_JPTableM76          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM76 -PLY_AKYst_NIS_JPTableM76          
-        dc.w PLY_AKYst_RRB_NIS_ManageLoopM76          -PLY_AKYst_NIS_JPTableM76          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM76        -PLY_AKYst_NIS_JPTableM76          
-        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM76        -PLY_AKYst_NIS_JPTableM76          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM76 -PLY_AKYst_NIS_JPTableM76          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM76-PLY_AKYst_NIS_JPTableM76          
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM76-PLY_AKYst_NIS_JPTableM76          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM76-PLY_AKYst_NIS_JPTableM76          
+        dc.w PLY_AKYst_RRB_NIS_ManageLoopM76-PLY_AKYst_NIS_JPTableM76          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM76-PLY_AKYst_NIS_JPTableM76          
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM76-PLY_AKYst_NIS_JPTableM76          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM76-PLY_AKYst_NIS_JPTableM76          
         dc.w PLY_AKYst_RRB_NIS_NoSoftwareNoHardwareM76-PLY_AKYst_NIS_JPTableM76          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM76        -PLY_AKYst_NIS_JPTableM76          
-        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM76        -PLY_AKYst_NIS_JPTableM76          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM76 -PLY_AKYst_NIS_JPTableM76          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM76-PLY_AKYst_NIS_JPTableM76          
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM76-PLY_AKYst_NIS_JPTableM76          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM76-PLY_AKYst_NIS_JPTableM76          
 PLY_AKYst_RRB_NIS_ManageLoopM76:
         move.l a1,d1
         addq.l #1,d1
@@ -860,9 +860,9 @@ PLY_AKYst_RRB_NIS_ManageLoopM76:
         jmp PLY_AKYst_NIS_JPTable_NoLoopM76(pc,a5.w)
 PLY_AKYst_NIS_JPTable_NoLoopM76:
         dc.w PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_LoopM76-PLY_AKYst_NIS_JPTable_NoLoopM76     
-        dc.w PLY_AKYst_RRB_NIS_SoftwareOnly_LoopM76        -PLY_AKYst_NIS_JPTable_NoLoopM76     
-        dc.w PLY_AKYst_RRB_NIS_HardwareOnly_LoopM76        -PLY_AKYst_NIS_JPTable_NoLoopM76     
-        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardware_LoopM76 -PLY_AKYst_NIS_JPTable_NoLoopM76     
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnly_LoopM76-PLY_AKYst_NIS_JPTable_NoLoopM76     
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnly_LoopM76-PLY_AKYst_NIS_JPTable_NoLoopM76     
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardware_LoopM76-PLY_AKYst_NIS_JPTable_NoLoopM76     
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardwareM76:
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_LoopM76:
         move.b d1,d2                                            

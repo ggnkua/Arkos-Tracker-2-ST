@@ -53,6 +53,8 @@ bin\sed -e^
  -e "s/undefined.*//gI"^
  -e "s/^ .*a $//gI"^
  -e "/^\s*$/d"^
+ -e "s/ *-PLY_AKYst_NIS_JP/-PLY_AKYst_NIS_JP/"^
+ -e "s/ *-PLY_AKYst_IS/-PLY_AKYst_IS/"^
  Player.lst > %1
 del player.lst
 exit /b

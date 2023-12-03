@@ -37,12 +37,12 @@ echo     .even                                  >> sndh_filenames.s
 echo tune_events_end:                           >> sndh_filenames.s
 echo     .endif                                 >> sndh_filenames.s
 
-echo    dc.b   \'SNDH\'                      > sndh_header.s
-echo    dc.b   \'TITL\',\'$2\',0            >> sndh_header.s
-echo    dc.b   \'COMM\',\'$3\',0            >> sndh_header.s
-echo    dc.b   \'RIPP\',\'Nobody\',0        >> sndh_header.s
-echo    dc.b   \'CONV\',\'Arkos2-2-SNDH\',0 >> sndh_header.s
-echo    dc.b   \'TC$4\',0                   >> sndh_header.s
+echo    dc.b   \"SNDH\"                      > sndh_header.s
+echo    dc.b   \"TITL\",\"$2\",0            >> sndh_header.s
+echo    dc.b   \"COMM\",\"$3\",0            >> sndh_header.s
+echo    dc.b   \"RIPP\",\"Nobody\",0        >> sndh_header.s
+echo    dc.b   \"CONV\",\"Arkos2-2-SNDH\",0 >> sndh_header.s
+echo    dc.b   \"TC$4\",0                   >> sndh_header.s
 
 # Parse the rest of the paramters, if any
 SID_VOICES="0"

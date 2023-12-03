@@ -287,9 +287,9 @@ PLY_AKYst_RRB_BranchOnNonInitailStateM33:
         jmp PLY_AKYst_IS_JPTableM33(pc,a5.w)
 PLY_AKYst_IS_JPTableM33:
         dc.w PLY_AKYst_RRB_IS_NoSoftwareNoHardwareM33-PLY_AKYst_IS_JPTableM33
-        dc.w PLY_AKYst_RRB_IS_SoftwareOnlyM33        -PLY_AKYst_IS_JPTableM33
-        dc.w PLY_AKYst_RRB_IS_HardwareOnlyM33        -PLY_AKYst_IS_JPTableM33
-        dc.w PLY_AKYst_RRB_IS_SoftwareAndHardwareM33 -PLY_AKYst_IS_JPTableM33
+        dc.w PLY_AKYst_RRB_IS_SoftwareOnlyM33-PLY_AKYst_IS_JPTableM33
+        dc.w PLY_AKYst_RRB_IS_HardwareOnlyM33-PLY_AKYst_IS_JPTableM33
+        dc.w PLY_AKYst_RRB_IS_SoftwareAndHardwareM33-PLY_AKYst_IS_JPTableM33
 PLY_AKYst_RRB_IS_NoSoftwareNoHardwareM33:
         lsr.b #1,d1             
         bcs.s PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoiseM33
@@ -387,21 +387,21 @@ PLY_AKYst_RRB_NonInitialStateM33:
         jmp (a5)
 PLY_AKYst_NIS_JPTableM33:
         dc.w PLY_AKYst_RRB_NIS_NoSoftwareNoHardwareM33-PLY_AKYst_NIS_JPTableM33          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM33        -PLY_AKYst_NIS_JPTableM33          
-        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM33        -PLY_AKYst_NIS_JPTableM33          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM33 -PLY_AKYst_NIS_JPTableM33          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM33-PLY_AKYst_NIS_JPTableM33          
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM33-PLY_AKYst_NIS_JPTableM33          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM33-PLY_AKYst_NIS_JPTableM33          
         dc.w PLY_AKYst_RRB_NIS_NoSoftwareNoHardwareM33-PLY_AKYst_NIS_JPTableM33          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM33        -PLY_AKYst_NIS_JPTableM33          
-        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM33        -PLY_AKYst_NIS_JPTableM33          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM33 -PLY_AKYst_NIS_JPTableM33          
-        dc.w PLY_AKYst_RRB_NIS_ManageLoopM33          -PLY_AKYst_NIS_JPTableM33          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM33        -PLY_AKYst_NIS_JPTableM33          
-        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM33        -PLY_AKYst_NIS_JPTableM33          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM33 -PLY_AKYst_NIS_JPTableM33          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM33-PLY_AKYst_NIS_JPTableM33          
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM33-PLY_AKYst_NIS_JPTableM33          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM33-PLY_AKYst_NIS_JPTableM33          
+        dc.w PLY_AKYst_RRB_NIS_ManageLoopM33-PLY_AKYst_NIS_JPTableM33          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM33-PLY_AKYst_NIS_JPTableM33          
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM33-PLY_AKYst_NIS_JPTableM33          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM33-PLY_AKYst_NIS_JPTableM33          
         dc.w PLY_AKYst_RRB_NIS_NoSoftwareNoHardwareM33-PLY_AKYst_NIS_JPTableM33          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM33        -PLY_AKYst_NIS_JPTableM33          
-        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM33        -PLY_AKYst_NIS_JPTableM33          
-        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM33 -PLY_AKYst_NIS_JPTableM33          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnlyM33-PLY_AKYst_NIS_JPTableM33          
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnlyM33-PLY_AKYst_NIS_JPTableM33          
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardwareM33-PLY_AKYst_NIS_JPTableM33          
 PLY_AKYst_RRB_NIS_ManageLoopM33:
         move.l a1,d1
         addq.l #1,d1
@@ -421,9 +421,9 @@ PLY_AKYst_RRB_NIS_ManageLoopM33:
         jmp PLY_AKYst_NIS_JPTable_NoLoopM33(pc,a5.w)
 PLY_AKYst_NIS_JPTable_NoLoopM33:
         dc.w PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_LoopM33-PLY_AKYst_NIS_JPTable_NoLoopM33     
-        dc.w PLY_AKYst_RRB_NIS_SoftwareOnly_LoopM33        -PLY_AKYst_NIS_JPTable_NoLoopM33     
-        dc.w PLY_AKYst_RRB_NIS_HardwareOnly_LoopM33        -PLY_AKYst_NIS_JPTable_NoLoopM33     
-        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardware_LoopM33 -PLY_AKYst_NIS_JPTable_NoLoopM33     
+        dc.w PLY_AKYst_RRB_NIS_SoftwareOnly_LoopM33-PLY_AKYst_NIS_JPTable_NoLoopM33     
+        dc.w PLY_AKYst_RRB_NIS_HardwareOnly_LoopM33-PLY_AKYst_NIS_JPTable_NoLoopM33     
+        dc.w PLY_AKYst_RRB_NIS_SoftwareAndHardware_LoopM33-PLY_AKYst_NIS_JPTable_NoLoopM33     
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardwareM33:
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_LoopM33:
         move.b d1,d2                                            
