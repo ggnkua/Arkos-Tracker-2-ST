@@ -46,7 +46,11 @@ bin\sed -e^
  -e "s/.*  if.*//gI"^
  -e "s/.*else.*//gI"^
  -e "s/.*movex.*//gI"^
- -e "s/.*readregs.*//gI"^
+ -e "s/.*macro readregs.*//gI"^
+ -e "s/.*readregs 8,.,..*//gI"^
+ -e "s/.*readregs 9,.,..*//gI"^
+ -e "s/.*readregs 10,.,..*//gI"^
+ -e "/^readregsout/d"^
  -e "s/.*  a   .*//gI"^
  -e "s/.*  t   .*//gI"^
  -e "s/^........................................//gI"^

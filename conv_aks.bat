@@ -14,7 +14,7 @@ rem ##   #   knightmare.events.words.s
 if '%1'=='' goto :USAGE
 if not '%2'=='' goto :PARAMS_OK
 :USAGE
-echo usage: conv_aks source.aks dest_stub
+echo usage: conv_aks source.aks <export name>
 exit /b
 :PARAMS_OK
 

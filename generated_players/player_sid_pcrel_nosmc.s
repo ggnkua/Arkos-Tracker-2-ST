@@ -272,6 +272,7 @@ PLY_AKYst_Channel3_RegisterBlockLineState_Opcode:   .ds.w 1
 ;       Carry = 0 = initial state, 1 = non-initial state.
 ;----------------------------------------------------------------
 PLY_AKYst_ReadRegisterBlock:
+        readregs 0,0,1
 PLY_AKYst_ReadRegisterBlockM33:
 PLY_AKYst_RRB_BranchOnNonInitailStateM33:
         bne PLY_AKYst_RRB_NonInitialStateM33
@@ -616,6 +617,7 @@ PLY_AKYst_RRB_NIS_S_NOR_NoiseM33:
 PLY_AKYst_RRB_NIS_S_NOR_SetNoiseM33:
         move.b d1,PLY_AKYst_PsgRegister6 - PLY_AKYst_Init(a4)
         rts
+readregs_outM33:
 ;Some stored PSG registers.
 PLY_AKYst_PsgRegister6: dc.b 0
 PLY_AKYst_PsgRegister11: dc.b 0

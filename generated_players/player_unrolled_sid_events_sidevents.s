@@ -242,6 +242,7 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise_EndM26:
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolumeM26:
         move.b d1,4*$8(a3)
         bset #PLY_AKYst_RRB_SoundChannelBit, d3
+        bra readregs_outM26
 PLY_AKYst_RRB_IS_HardwareOnlyM26:
         lsr.b #1,d1
         bcs.s PLY_AKYst_RRB_IS_HO_RetrigM26
@@ -263,6 +264,7 @@ PLY_AKYst_RRB_IS_HO_AfterNoiseM26:
         move.b (a1)+,PLY_AKYst_PsgRegister11+$1
         bset #PLY_AKYst_RRB_SoundChannelBit,d3
         move.b d4,4*$8(a3)
+        bra readregs_outM26
 PLY_AKYst_RRB_IS_SoftwareOnlyM26:
         lsr.b #1,d1
         bcs.s PLY_AKYst_RRB_IS_SoftwareOnly_NoiseM26
@@ -274,6 +276,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoiseM26:
         move.b d1,4*$8(a3)
         move.b (a1)+,4*$0(a3)
         move.b (a1)+,4*($0+1)(a3)
+        bra readregs_outM26
 PLY_AKYst_RRB_IS_SoftwareAndHardwareM26:
         lsr.b #1,d1
         bcs.s PLY_AKYst_RRB_IS_SAH_RetrigM26
@@ -296,6 +299,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoiseM26:
         move.b d4,4*$8(a3)
         move.b (a1)+,PLY_AKYst_PsgRegister11
         move.b (a1)+,PLY_AKYst_PsgRegister11+$1
+        bra readregs_outM26
 PLY_AKYst_RRB_NonInitialStateM26:
         move.b (a1)+,d1
         move.b d1,d2
@@ -358,9 +362,11 @@ PLY_AKYst_RRB_NIS_VolumeM26:
 PLY_AKYst_RRB_NIS_AfterVolumeM26:
         btst #7 - 2,d2
         bne.s PLY_AKYst_RRB_NIS_NoiseM26
+        bra readregs_outM26
 PLY_AKYst_RRB_NIS_NoiseM26:
         move.b (a1)+,PLY_AKYst_PsgRegister6
         bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
+        bra readregs_outM26
 PLY_AKYst_RRB_NIS_SoftwareOnlyM26:
 PLY_AKYst_RRB_NIS_SoftwareOnly_LoopM26:
         move.b d1,d2
@@ -374,17 +380,21 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_LSPM26:
 PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSPM26:
         btst #7 - 2,d2
         bne.s PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoiseM26
+        bra readregs_outM26
 PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoiseM26:
         move.b (a1)+,d1                                         
         move.b d1,4*($0+1)(a3)
         rol.b #1,d1                                             
         bcs.s PLY_AKYst_RRB_NIS_SoftwareOnly_NoisePresentM26
+        bra readregs_outM26
 PLY_AKYst_RRB_NIS_SoftwareOnly_NoisePresentM26:
         bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
         rol.b #1,d1
         bcs.s PLY_AKYst_RRB_NIS_SoftwareOnly_NoiseM26
+        bra readregs_outM26
 PLY_AKYst_RRB_NIS_SoftwareOnly_NoiseM26:
         move.b (a1)+,PLY_AKYst_PsgRegister6
+        bra readregs_outM26
 PLY_AKYst_RRB_NIS_HardwareOnlyM26:
 PLY_AKYst_RRB_NIS_HardwareOnly_LoopM26:
         rol.b #1,d1
@@ -408,6 +418,7 @@ PLY_AKYst_RRB_NIS_HardwareOnly_MSBM26:
 PLY_AKYst_RRB_NIS_HardwareOnly_AfterMSBM26:
         rol.b #1,d1
         bcs.s PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStopM26
+        bra.s readregs_outM26
 PLY_AKYst_RRB_NIS_SoftwareAndHardwareM26:
 PLY_AKYst_RRB_NIS_SoftwareAndHardware_LoopM26:
         move.b d4,4*$8(a3)
@@ -443,6 +454,7 @@ PLY_AKYst_RRB_NIS_SAHH_EnvelopeM26:
 PLY_AKYst_RRB_NIS_SAHH_AfterEnvelopeM26:
         ror.b #1,d1
         bcs.s PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStopM26
+        bra.s readregs_outM26
 PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStopM26:
         move.b (a1)+,d1
         ror.b #1,d1
@@ -454,12 +466,15 @@ PLY_AKYst_RRB_NIS_S_NOR_RetrigM26:
 PLY_AKYst_RRB_NIS_S_NOR_AfterRetrigM26:
         ror.b #1,d1
         bcs.s PLY_AKYst_RRB_NIS_S_NOR_NoiseM26
+        bra.s readregs_outM26
 PLY_AKYst_RRB_NIS_S_NOR_NoiseM26:
         bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
         ror.b #1,d1
         bcs.s PLY_AKYst_RRB_NIS_S_NOR_SetNoiseM26
+        bra.s readregs_outM26
 PLY_AKYst_RRB_NIS_S_NOR_SetNoiseM26:
         move.b d1,PLY_AKYst_PsgRegister6
+readregs_outM26:
 PLY_AKYst_Channel1_RegisterBlock_Return:
         move.w #PLY_AKYst_OPCODE_CZF,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
         move.l a1,PLY_AKYst_Channel1_PtRegisterBlock
@@ -501,6 +516,7 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise_EndM51:
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolumeM51:
         move.b d1,4*$9(a3)
         bset #PLY_AKYst_RRB_SoundChannelBit, d3
+        bra readregs_outM51
 PLY_AKYst_RRB_IS_HardwareOnlyM51:
         lsr.b #1,d1
         bcs.s PLY_AKYst_RRB_IS_HO_RetrigM51
@@ -522,6 +538,7 @@ PLY_AKYst_RRB_IS_HO_AfterNoiseM51:
         move.b (a1)+,PLY_AKYst_PsgRegister11+$1
         bset #PLY_AKYst_RRB_SoundChannelBit,d3
         move.b d4,4*$9(a3)
+        bra readregs_outM51
 PLY_AKYst_RRB_IS_SoftwareOnlyM51:
         lsr.b #1,d1
         bcs.s PLY_AKYst_RRB_IS_SoftwareOnly_NoiseM51
@@ -533,6 +550,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoiseM51:
         move.b d1,4*$9(a3)
         move.b (a1)+,4*$2(a3)
         move.b (a1)+,4*($2+1)(a3)
+        bra readregs_outM51
 PLY_AKYst_RRB_IS_SoftwareAndHardwareM51:
         lsr.b #1,d1
         bcs.s PLY_AKYst_RRB_IS_SAH_RetrigM51
@@ -555,6 +573,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoiseM51:
         move.b d4,4*$9(a3)
         move.b (a1)+,PLY_AKYst_PsgRegister11
         move.b (a1)+,PLY_AKYst_PsgRegister11+$1
+        bra readregs_outM51
 PLY_AKYst_RRB_NonInitialStateM51:
         move.b (a1)+,d1
         move.b d1,d2
@@ -617,9 +636,11 @@ PLY_AKYst_RRB_NIS_VolumeM51:
 PLY_AKYst_RRB_NIS_AfterVolumeM51:
         btst #7 - 2,d2
         bne.s PLY_AKYst_RRB_NIS_NoiseM51
+        bra readregs_outM51
 PLY_AKYst_RRB_NIS_NoiseM51:
         move.b (a1)+,PLY_AKYst_PsgRegister6
         bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
+        bra readregs_outM51
 PLY_AKYst_RRB_NIS_SoftwareOnlyM51:
 PLY_AKYst_RRB_NIS_SoftwareOnly_LoopM51:
         move.b d1,d2
@@ -633,17 +654,21 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_LSPM51:
 PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSPM51:
         btst #7 - 2,d2
         bne.s PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoiseM51
+        bra readregs_outM51
 PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoiseM51:
         move.b (a1)+,d1                                         
         move.b d1,4*($2+1)(a3)
         rol.b #1,d1                                             
         bcs.s PLY_AKYst_RRB_NIS_SoftwareOnly_NoisePresentM51
+        bra readregs_outM51
 PLY_AKYst_RRB_NIS_SoftwareOnly_NoisePresentM51:
         bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
         rol.b #1,d1
         bcs.s PLY_AKYst_RRB_NIS_SoftwareOnly_NoiseM51
+        bra readregs_outM51
 PLY_AKYst_RRB_NIS_SoftwareOnly_NoiseM51:
         move.b (a1)+,PLY_AKYst_PsgRegister6
+        bra readregs_outM51
 PLY_AKYst_RRB_NIS_HardwareOnlyM51:
 PLY_AKYst_RRB_NIS_HardwareOnly_LoopM51:
         rol.b #1,d1
@@ -667,6 +692,7 @@ PLY_AKYst_RRB_NIS_HardwareOnly_MSBM51:
 PLY_AKYst_RRB_NIS_HardwareOnly_AfterMSBM51:
         rol.b #1,d1
         bcs.s PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStopM51
+        bra.s readregs_outM51
 PLY_AKYst_RRB_NIS_SoftwareAndHardwareM51:
 PLY_AKYst_RRB_NIS_SoftwareAndHardware_LoopM51:
         move.b d4,4*$9(a3)
@@ -702,6 +728,7 @@ PLY_AKYst_RRB_NIS_SAHH_EnvelopeM51:
 PLY_AKYst_RRB_NIS_SAHH_AfterEnvelopeM51:
         ror.b #1,d1
         bcs.s PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStopM51
+        bra.s readregs_outM51
 PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStopM51:
         move.b (a1)+,d1
         ror.b #1,d1
@@ -713,12 +740,15 @@ PLY_AKYst_RRB_NIS_S_NOR_RetrigM51:
 PLY_AKYst_RRB_NIS_S_NOR_AfterRetrigM51:
         ror.b #1,d1
         bcs.s PLY_AKYst_RRB_NIS_S_NOR_NoiseM51
+        bra.s readregs_outM51
 PLY_AKYst_RRB_NIS_S_NOR_NoiseM51:
         bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
         ror.b #1,d1
         bcs.s PLY_AKYst_RRB_NIS_S_NOR_SetNoiseM51
+        bra.s readregs_outM51
 PLY_AKYst_RRB_NIS_S_NOR_SetNoiseM51:
         move.b d1,PLY_AKYst_PsgRegister6
+readregs_outM51:
 PLY_AKYst_Channel2_RegisterBlock_Return:
         move.w #PLY_AKYst_OPCODE_CZF,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
         move.l a1,PLY_AKYst_Channel2_PtRegisterBlock
@@ -760,6 +790,7 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise_EndM76:
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolumeM76:
         move.b d1,4*$A(a3)
         bset #PLY_AKYst_RRB_SoundChannelBit, d3
+        bra readregs_outM76
 PLY_AKYst_RRB_IS_HardwareOnlyM76:
         lsr.b #1,d1
         bcs.s PLY_AKYst_RRB_IS_HO_RetrigM76
@@ -781,6 +812,7 @@ PLY_AKYst_RRB_IS_HO_AfterNoiseM76:
         move.b (a1)+,PLY_AKYst_PsgRegister11+$1
         bset #PLY_AKYst_RRB_SoundChannelBit,d3
         move.b d4,4*$A(a3)
+        bra readregs_outM76
 PLY_AKYst_RRB_IS_SoftwareOnlyM76:
         lsr.b #1,d1
         bcs.s PLY_AKYst_RRB_IS_SoftwareOnly_NoiseM76
@@ -792,6 +824,7 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoiseM76:
         move.b d1,4*$A(a3)
         move.b (a1)+,4*$4(a3)
         move.b (a1)+,4*($4+1)(a3)
+        bra readregs_outM76
 PLY_AKYst_RRB_IS_SoftwareAndHardwareM76:
         lsr.b #1,d1
         bcs.s PLY_AKYst_RRB_IS_SAH_RetrigM76
@@ -814,6 +847,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoiseM76:
         move.b d4,4*$A(a3)
         move.b (a1)+,PLY_AKYst_PsgRegister11
         move.b (a1)+,PLY_AKYst_PsgRegister11+$1
+        bra readregs_outM76
 PLY_AKYst_RRB_NonInitialStateM76:
         move.b (a1)+,d1
         move.b d1,d2
@@ -876,9 +910,11 @@ PLY_AKYst_RRB_NIS_VolumeM76:
 PLY_AKYst_RRB_NIS_AfterVolumeM76:
         btst #7 - 2,d2
         bne.s PLY_AKYst_RRB_NIS_NoiseM76
+        bra readregs_outM76
 PLY_AKYst_RRB_NIS_NoiseM76:
         move.b (a1)+,PLY_AKYst_PsgRegister6
         bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
+        bra readregs_outM76
 PLY_AKYst_RRB_NIS_SoftwareOnlyM76:
 PLY_AKYst_RRB_NIS_SoftwareOnly_LoopM76:
         move.b d1,d2
@@ -892,17 +928,21 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_LSPM76:
 PLY_AKYst_RRB_NIS_SoftwareOnly_AfterLSPM76:
         btst #7 - 2,d2
         bne.s PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoiseM76
+        bra readregs_outM76
 PLY_AKYst_RRB_NIS_SoftwareOnly_MSPAndMaybeNoiseM76:
         move.b (a1)+,d1                                         
         move.b d1,4*($4+1)(a3)
         rol.b #1,d1                                             
         bcs.s PLY_AKYst_RRB_NIS_SoftwareOnly_NoisePresentM76
+        bra readregs_outM76
 PLY_AKYst_RRB_NIS_SoftwareOnly_NoisePresentM76:
         bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
         rol.b #1,d1
         bcs.s PLY_AKYst_RRB_NIS_SoftwareOnly_NoiseM76
+        bra readregs_outM76
 PLY_AKYst_RRB_NIS_SoftwareOnly_NoiseM76:
         move.b (a1)+,PLY_AKYst_PsgRegister6
+        bra readregs_outM76
 PLY_AKYst_RRB_NIS_HardwareOnlyM76:
 PLY_AKYst_RRB_NIS_HardwareOnly_LoopM76:
         rol.b #1,d1
@@ -926,6 +966,7 @@ PLY_AKYst_RRB_NIS_HardwareOnly_MSBM76:
 PLY_AKYst_RRB_NIS_HardwareOnly_AfterMSBM76:
         rol.b #1,d1
         bcs.s PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStopM76
+        bra.s readregs_outM76
 PLY_AKYst_RRB_NIS_SoftwareAndHardwareM76:
 PLY_AKYst_RRB_NIS_SoftwareAndHardware_LoopM76:
         move.b d4,4*$A(a3)
@@ -961,6 +1002,7 @@ PLY_AKYst_RRB_NIS_SAHH_EnvelopeM76:
 PLY_AKYst_RRB_NIS_SAHH_AfterEnvelopeM76:
         ror.b #1,d1
         bcs.s PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStopM76
+        bra.s readregs_outM76
 PLY_AKYst_RRB_NIS_Hardware_Shared_NoiseOrRetrig_AndStopM76:
         move.b (a1)+,d1
         ror.b #1,d1
@@ -972,12 +1014,15 @@ PLY_AKYst_RRB_NIS_S_NOR_RetrigM76:
 PLY_AKYst_RRB_NIS_S_NOR_AfterRetrigM76:
         ror.b #1,d1
         bcs.s PLY_AKYst_RRB_NIS_S_NOR_NoiseM76
+        bra.s readregs_outM76
 PLY_AKYst_RRB_NIS_S_NOR_NoiseM76:
         bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
         ror.b #1,d1
         bcs.s PLY_AKYst_RRB_NIS_S_NOR_SetNoiseM76
+        bra.s readregs_outM76
 PLY_AKYst_RRB_NIS_S_NOR_SetNoiseM76:
         move.b d1,PLY_AKYst_PsgRegister6
+readregs_outM76:
 PLY_AKYst_Channel3_RegisterBlock_Return:
         move.w #PLY_AKYst_OPCODE_CZF,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
         move.l a1,PLY_AKYst_Channel3_PtRegisterBlock
@@ -1015,3 +1060,6 @@ PLY_AKYst_PsgRegister6: dc.b 0
 PLY_AKYst_PsgRegister11: dc.b 0
 PLY_AKYst_PsgRegister12: dc.b 0
 PLY_AKYst_PsgRegister13: dc.b 0
+   readregs_outM26 00000000000003A4  t 
+   readregs_outM51 0000000000000620  t 
+   readregs_outM76 000000000000089C  t 
