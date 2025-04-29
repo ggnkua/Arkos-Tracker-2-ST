@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sourceProfile>
+  <name>rmac</name>
+  <readOnly>false</readOnly>
+  <littleEndian>true</littleEndian>
+  <generateComments>true</generateComments>
+  <commentDeclaration>; {x}</commentDeclaration>
+  <addressChangeDeclaration>;org {x}</addressChangeDeclaration>
+  <addressDeclaration>dc.w {x}</addressDeclaration>
+  <byteDeclaration>dc.b {x}</byteDeclaration>
+  <wordDeclaration>dc.w {x}</wordDeclaration>
+  <labelDeclaration>{x}:</labelDeclaration>
+  <stringDeclaration>dc.b &quot;{x}&quot;</stringDeclaration>
+  <binaryFileExtension>bin</binaryFileExtension>
+  <sourceFileExtension>s</sourceFileExtension>
+  <tabulationLength>4</tabulationLength>
+</sourceProfile>

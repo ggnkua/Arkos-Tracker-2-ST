@@ -1,4 +1,4 @@
-# ST version of Arkos tracker 2 player 
+# ST version of Arkos tracker 2 player (Now with Arkos Tracker 3 support!)
 
 Get the tracker from http://www.julien-nevo.com/arkostracker/
 
@@ -21,9 +21,10 @@ To export a track from the tracker for use with these player follow these simple
 
 - Open a command line, type:
 
-`SongToAky -reladr --labelPrefix "Main_" -spbyte "dc.b" -spword "dc.w" -sppostlbl ":" -spomt "your_tune.aks" "your_tune.s"`
+Arkos Tracker 2: `SongToAky -reladr --labelPrefix "Main_" -spbyte "dc.b" -spword "dc.w" -sppostlbl ":" -spomt "your_tune.aks" "your_tune.s"`
+Arkos Tracker 3: `SongToAky --subsong 1 -adr 0 --customSourceProfileFile rmac.xml %1 %2.aky.s` (make sure that `rmac.xml` is in the same path as `songtoaky`)
 
-Song will be auto converted to the proper format for you.
+The song will be auto converted to the proper format for you.
 
 
 Alternatively you can do the same from inside the tracker:
@@ -60,7 +61,8 @@ example.s | (*optional*) Example code on how to call the player in various ways
 example_sndh.s | (*optional*) Example code on how to play a SNDH file
 build.bat | Windows batch script to assemble example.s using the **rmac** assembler (also `build_vasm.bat` for **vasm** assembler)
 sndh.s | Skeleton code for creating a SNDH file
-build_sndh.bat | Windows batch script to generate a SNDH file
+build_sndh.bat | Windows batch script to generate a SNDH file (Arkos Tracker 2)
+build_sndh3.bat | Windows batch script to generate a SNDH file (Arkos Tracker 3)
 build_sndh_prg.bat | Windows batch script to generate a program which plays a SNDH file
 vasm.s | (*optional*) extra macros when you assemble with **vasm** assembler
 
@@ -150,6 +152,8 @@ There is a script that automatically creates a SNDH compilant file, in both *.ba
 
 './build_sndh.sh filename.aks title composer frequency_in_Hz [SID_VOICES] [USE_EVENTS] [SID_EVENTS]'
 
+(Replace `build_sndh` for `build_sndh3` for Arkos Tracker 3)
+
 Where:
 
 - *filename* is the path and filename of the tune to be converted
@@ -193,5 +197,5 @@ Finally the whole code inside `sid.s` should also be treated as reference. There
 - Some vasm help from @realmml
 - Falcon tips and testing by Evil/DHS and Grazey/PHF
 - Thanks to @em00k and his nameless friend for pointing out an issue in SID voices
-
+- Thanks to Florent Flament for some vasm fixes
 
