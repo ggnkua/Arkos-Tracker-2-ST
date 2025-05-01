@@ -29,8 +29,8 @@ case "${unameOut}" in
     *)          extension="linux";SED=sed;;
 esac
 
-bin/SongToAky_$extension -spbig -adr 0 -spadr ";" --sourceProfile 68000 -sppostlbl ":" -reladr -spomt "$1" $2.aky.s
-bin/SongToEvents_$extension -spbig -adr 0 -spadr ";" --sourceProfile 68000 -sppostlbl ":" -spomt "$1" $2.events.words.s
+bin3/SongToAky_$extension -spbig -adr 0 -spadr ";" --sourceProfile 68000 -sppostlbl ":" -reladr -spomt "$1" $2.aky.s
+bin3/SongToEvents_$extension -spbig -adr 0 -spadr ";" --sourceProfile 68000 -sppostlbl ":" -spomt "$1" $2.events.words.s
 
 # Since Arkos Tracker 3 removed the functionality to use relative offsets
 # (i.e. Subsong_0_XXX-Subsong0) we'll just do it by hand here. No problem
