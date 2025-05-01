@@ -34,8 +34,11 @@ bin3/SongToEvents_$extension -adr 0 --customSourceProfileFile bin3/rmac.xml "$1"
 
 # Currently (v3.2.4) Arkos the cli tools seem to be using DOS line endings.
 # So let's just use dos2unix for now
-dos2unix "$2.aky.s"
-dos2unix "$2.events.words.s"
+#dos2unix "$2.aky.s"
+#dos2unix "$2.events.words.s"
+# On second thoughts, let's use sed for this, reduce dependencies and all
+$SED -i -e $'s/\r$//' "$2.aky.s"
+$SED -i -e $'s/\r$//' "$2.events.words.s"
 
 # Since Arkos Tracker 3 removed the functionality to use relative offsets
 # (i.e. Subsong_0_XXX-Subsong0) we'll just do it by hand here. No problem
