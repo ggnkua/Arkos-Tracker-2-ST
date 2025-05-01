@@ -29,16 +29,22 @@ case "${unameOut}" in
     *)          extension="linux";SED=sed;;
 esac
 
-bin3/SongToAky_$extension -spbig -adr 0 -spadr ";" --sourceProfile 68000 -sppostlbl ":" -reladr -spomt "$1" $2.aky.s
-bin3/SongToEvents_$extension -spbig -adr 0 -spadr ";" --sourceProfile 68000 -sppostlbl ":" -spomt "$1" $2.events.words.s
+bin3/SongToAky_$extension --subsong 1 -adr 0 --customSourceProfileFile bin3/rmac.xml "$1" "$2.aky.s"
+bin3/SongToEvents_$extension -adr 0 --customSourceProfileFile bin3/rmac.xml "$1" "$2.events.words.s"
+
+# Currently (v3.2.4) Arkos the cli tools seem to be using DOS line endings.
+# So let's just use dos2unix for now
+dos2unix "$2.aky.s"
+dos2unix "$2.events.words.s"
 
 # Since Arkos Tracker 3 removed the functionality to use relative offsets
 # (i.e. Subsong_0_XXX-Subsong0) we'll just do it by hand here. No problem
 # (incidentally, this is the only thing that was stopping Arkos Tracker 3 tunes from
 # working - if we exclude the new xml source profiles)
-$SED -i -e "/dc.w Subsong/s/$/& - Subsong0/" $2.aky.s
+# (This is a setting while exporting via the GUI though!)
+$SED -i -e "/dc.w Subsong/s/$/& - Subsong0/" "$2.aky.s"
 
 # Convert event values to word size and labels to longwords
-$SED -i -e "s/dc\.b/dc.w/gI" -e "s/dc\.w Events_/dc.l Events_/gI" $2.events.words.s
+$SED -i -e "s/dc\.b/dc.w/gI" -e "s/dc\.w Events_/dc.l Events_/gI" "$2.events.words.s"
 echo
 
