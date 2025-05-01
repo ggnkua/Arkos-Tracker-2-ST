@@ -41,17 +41,19 @@ Alternatively you can do the same from inside the tracker:
 
 - Open the tune you want to export
 - (One time only setup) Go to File->Setup and click "source properties". Press the "+" button to create a new profile, name it something like "68000, with comments". Then fill in the fields as follows:
-  - Current address declaration: ;
-  - Comment declaration: ;
-  - Asm source file extension (without "."): s
-  - Binary source file extension (without "."): bin
-  - Encode comments: Check
-  - Byte declaration: dc.b
-  - Word declaration: dc.w
-  - Labels prefix: (leave blank)
-  - Labels postfix: :
-  - Little endian: check
-  - One mnemonic type per line: check
+  Field                          | Value
+  -------------------------------|---------------
+  Current address declaration    | ;
+  Comment declaration            | ;
+  Asm source file extension (without ".") | s
+  Binary source file extension (without ".") | bin
+  Encode comments                | Check
+  Byte declaration               | dc.b
+  Word declaration               | dc.w
+  Labels prefix                  | (leave blank)
+  Labels postfix                 | :
+  Little endian                  | check
+  One mnemonic type per line     | check
 - Go to File->Export->Export as AKY. Check "source file" and leave ASM labels prefix as "Main".
 - Check "Encode to address" and type "0" in the field.
 - Check "Encode all addresses as relative to the song start: check". *Note* this is present on versions 2.0.0a3 and later! Please update your tracker if this option is not available!
@@ -63,20 +65,25 @@ You can now use the exported .s file directly with the player example source.
 
 - Open the tune you want to export
 - (One time only setup) Go to File->Setup and click "source profile". Select "68000 (read only)" and press the "+" button to create a new profile. Then change the first field as follows:
-  - Current address declaration: ;org {x}
-  - Label declaration: {x}:
+  Field                          | Value
+  -------------------------------|---------------
+  Current address declaration    | ;org {x}
+  Label declaration              | {x}:
 
   The rest should be left the same:
 
-  - Byte declaration: dc.b {x}
-  - Word declaration: dc.w {x}
-  - Address declaration: dc.w {x}
-  - String declaration: db.w "{x}"
-  - Comment declaration: ; {x}
-  - Tabulation size: 4
-  - Source file extension: s
-  - Binary file extension: bin
-  - Check "Encode comments" and "Little endian"
+  Field                          | Value
+  -------------------------------|---------------
+  Byte declaration               | dc.b {x}
+  Word declaration               | dc.w {x}
+  Address declaration            | dc.w {x}
+  String declaration             | db.w "{x}"
+  Comment declaration            | ; {x}
+  Tabulation size                | 4
+  Source file extension          | s
+  Binary file extension          | bin
+  Encode comments                | check
+  Little endian                  | check
 - Go to File->Export->Export as AKY. Check "Source" and leave ASM labels prefix as "Main".
   - Source profile to use: (what you named your profile above)
   - Uncheck "Encode to address"
