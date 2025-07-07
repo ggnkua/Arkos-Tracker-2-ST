@@ -7,6 +7,10 @@
 ; Based on the soruces of "Stabilized AKY music player - V1.0."
 ;       By Julien Névo a.k.a. Targhan/Arkos.
 ;       February 2018.
+; Applied the v1.0.1 bug fix at 7th July 2025, which has the comment:
+;       v1.0.1: BREAKING CHANGE: Previously generated songs (such as done with AT2) are NOT compatible (hardware sounds will sound broken).
+;               - Corrected a bug if using player configuration + hardware-only sound with noise (noise would disappear) (thanks Zik).
+;               - Corrected another bug if using hardware-only sound with odd envelope (thanks Zik again).
 ;
 ; This source was written for the rmac assembler (http://rmac.is-slick.com)
 ; It should be fairly easy to adapt to other assemblers.
@@ -18,7 +22,7 @@
 ;UNROLLED_CODE - if 1, enable unrolled slightly faster YM register reading code
 ;SID_VOICES    - if 1, enable SID voices (takes more CPU time!)
 ;PC_REL_CODE   - if 1, make code PC relative (helps if you move the routine around, like for example SNDH)
-;AVOID_SMC     - if 1, assemble the player without SMC stuff, 
+;AVOID_SMC     - if 1, assemble the player without SMC stuff,
 ;DUMP_SONG     - if 1, produce a YM dump of the tune. DOES NOT WORK WITH SID OR EVENTS YET!
 ;
 ; Note that if you define want to create SNDH files, you should enable PC_REL_CODE and AVOID_SMC as well. SNDH files are meant to be compatible with all platforms
@@ -27,7 +31,7 @@
 ; Stuff TODO:
 ; @ Clean up register usage
 ; @ In PLY_AKYst_RRB_NIS_ManageLoop there is an auto-even of address happening due to the way the data is exported. This can be fixed by a) Exporting all data as words, b) pre-parsing the tune during init, finding odd addresses, even them and patch all affected offsets
-        
+
 ; Macros for sndh or normal player.
 ; In sndh mode the player has to be position independent, and that mostly boils down
 ; to being PC relative. So we define some macros for the instructions that require
@@ -70,7 +74,7 @@ PLY_AKYst_RRB_SoundChannelBit equ 2                             ;Bit to modify t
 ; While the inlined versions have the luxury of knowing which registers to update beforehand,
 ; the subroutine versions don't. The mechanism used is to carry both values in d7:
 ; volume is low byte, frequency is high. These need to be updated after each write,
-; as you'll notice. 
+; as you'll notice.
 ;
     
     if _RMAC_=1
@@ -177,7 +181,7 @@ PLY_AKYst_RRB_IS_HO_AfterRetrig\~:
         lsr.b #1,d1
         bcs.s PLY_AKYst_RRB_IS_HO_Noise\~
         bra.s PLY_AKYst_RRB_IS_HO_AfterNoise\~
-PLY_AKYst_RRB_IS_HO_Noise\~:                                      ;Reads the noise.
+PLY_AKYst_RRB_IS_HO_Noise\~:                                    ;Reads the noise.
         movex.b (a1)+,PLY_AKYst_PsgRegister6
  
         ;Opens the noise channel.
@@ -197,7 +201,7 @@ PLY_AKYst_RRB_IS_HO_AfterNoise\~:
   if \subroutine
     if !(SID_VOICES|DUMP_SONG)
         move.b d7,(a2)
-        move.b d4,(a3)                                     ;(volume to 16).
+        move.b d4,(a3)                                          ;(volume to 16).
     else
         move.w d7,d0
         ext.w d0
@@ -210,7 +214,7 @@ PLY_AKYst_RRB_IS_HO_AfterNoise\~:
   else
     if !(SID_VOICES|DUMP_SONG)
         move.b #\volume,(a2)
-        move.b d4,(a3)                                     ;(volume to 16).
+        move.b d4,(a3)                                          ;(volume to 16).
     else
         move.b d4,4*\volume(a3)
     endif
@@ -375,7 +379,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise\~:
   if \subroutine
     if !(SID_VOICES|DUMP_SONG)
         move.b d7,(a2)
-        move.b d4,(a3)                                     ;(volume to 16).
+        move.b d4,(a3)                                          ;(volume to 16).
     else
         move.w d7,d0
         ext.w d0
@@ -391,7 +395,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise\~:
   else
     if !(SID_VOICES|DUMP_SONG)
         move.b #\volume,(a2)
-        move.b d4,(a3)                                     ;(volume to 16).
+        move.b d4,(a3)                                          ;(volume to 16).
     else
         move.b d4,4*\volume(a3)
     endif
@@ -409,7 +413,7 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise\~:
 ;----------------------------------------------------------------
 PLY_AKYst_RRB_NonInitialState\~:
 
-        ; Code from the start of PLY_AKYst_ReadRegisterBlock copied here so nothing will screw with the zero flag        
+        ; Code from the start of PLY_AKYst_ReadRegisterBlock copied here so nothing will screw with the zero flag
         move.b (a1)+,d1
 
         move.b d1,d2
@@ -673,10 +677,10 @@ PLY_AKYst_RRB_NIS_HardwareOnly\~:
 
 PLY_AKYst_RRB_NIS_HardwareOnly_Loop\~:
 
-        ;Gets the envelope (initially on b2-b4, but currently on b0-b2). It is on 3 bits, must be encoded on 4. Bit 0 must be 0.
-        rol.b #1,d1
+        ;Gets the envelope (initially on b2-b4, but currently on b0-b2). It is on 3 bits, must be encoded on 4. Bit 3 must be 1.
         move.b d1,d2
-        and.b #%1110,d1
+        and.b #%111,d1
+        or.b #%1000,d1                                          ; To get envelope from 8 to 15.
         movex.b d1,PLY_AKYst_PsgRegister13
 
         ;Closes the sound channel.
@@ -686,7 +690,7 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop\~:
   if \subroutine
     if !(SID_VOICES|DUMP_SONG)
         move.b d7,(a2)
-        move.b d4,(a3)                                     ;(16 = hardware volume).
+        move.b d4,(a3)                                          ;(16 = hardware volume).
     else
         move.w d7,d0
         lsr.w #8,d0
@@ -698,15 +702,15 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop\~:
   else
     if !(SID_VOICES|DUMP_SONG)
         move.b #\volume,(a2)
-        move.b d4,(a3)                                     ;(16 = hardware volume).
+        move.b d4,(a3)                                          ;(16 = hardware volume).
     else
         move.b d4,4*\volume(a3)
     endif
   endif
         move.b d2,d1
 
-        ;LSB for hardware period? Currently on b6.
-        rol.b #2,d1
+        ;LSB for hardware period? Currently on b5.
+        rol.b #3,d1
         bcs.s PLY_AKYst_RRB_NIS_HardwareOnly_LSB\~
         bra.s PLY_AKYst_RRB_NIS_HardwareOnly_AfterLSB\~
 PLY_AKYst_RRB_NIS_HardwareOnly_LSB\~:
@@ -740,7 +744,7 @@ PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop\~:
   if \subroutine
     if !(SID_VOICES|DUMP_SONG)
         move.b d7,(a2)
-        move.b d4,(a3)                                     ;(16 = hardware volume).
+        move.b d4,(a3)                                          ;(16 = hardware volume).
     else
         move.w d7,d0
         ext.w d0
@@ -752,7 +756,7 @@ PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop\~:
   else
     if !(SID_VOICES|DUMP_SONG)
         move.b #\volume,(a2)
-        move.b d4,(a3)                                     ;(16 = hardware volume).
+        move.b d4,(a3)                                          ;(16 = hardware volume).
     else
         move.b d4,4*\volume(a3)
     endif
