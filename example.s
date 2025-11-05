@@ -137,9 +137,7 @@ EVENT_CHANNEL_C_MASK equ 8+1
     bne.s .noloopback
     ; loopback
     addq #2,a0
-      move.w (a0),a0
-      lea tune_events(pc),a1
-      add.l a1,a0
+      move.l (a0),a0
     movex.l a0,events_pos
     movex.w (a0),event_counter
     bra.s .event_do_count

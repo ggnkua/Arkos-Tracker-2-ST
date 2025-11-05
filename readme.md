@@ -242,3 +242,4 @@ Finally the whole code inside `sid.s` should also be treated as reference. There
 - Thanks to @em00k and his nameless friend for pointing out an issue in SID voices
 - Thanks to Florent Flament for some vasm fixes
 - Thanks to @shinmai for some vasm fixes
+- Thanks to Doclands/Overlanders for countless discussions and encouragement
