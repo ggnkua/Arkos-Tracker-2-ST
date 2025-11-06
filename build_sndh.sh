@@ -3,7 +3,7 @@ set -e
 
 usage()
 {
-    echo usage: build.sndh filename.aks "title" "composer" frequency_in_Hz [SID_VOICES] [USE_EVENTS] [SID_EVENTS]
+    echo usage: build_sndh.sh filename.aks "title" "composer" frequency_in_Hz [SID_VOICES] [USE_EVENTS] [SID_EVENTS]
     echo '(paramters in brackets are optional)'
     exit 1
 }

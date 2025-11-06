@@ -164,7 +164,7 @@ In `example.s` there is sample code to illustrate how to dump and replay a tune.
 
 ## `USE_SID_EVENTS`
 
-In Arkos Tracker 2, all events starting with F (F0, F1, F2 etc up to FF) are now SID events. The lowest three bits control which channels are SID-enabled. Timers used are ABD (for channels ABC, respectively). The bit pattern is 1111 xABC, which means:
+If this is enabled, then in Arkos Tracker 2/3 all events starting with F (F0, F1, F2 etc up to FF) are now SID events. The lowest three bits control which channels are SID-enabled. Timers used are ABD (for channels ABC, respectively). The bit pattern is 1111 xABC, which means:
 
      F0 - [unused]
      F1 - set channel C to SID off
@@ -185,9 +185,13 @@ In Arkos Tracker 2, all events starting with F (F0, F1, F2 etc up to FF) are now
 
 Note that SID voices are _not_ supported inside the tracker, so the only way to listen to them is to create a SNDH or assemble the tune as an ST prg.
 
+When the tune starts, all SID voices are on.
+
+When the tune loops the state of the SID voices is preserved, so (for example) if the tune has all SID voices off before looping, then this will continue to be the case after loop. Simply include an event command before or after the loop point to set the channels as desired.
+
 # SNDH
 
-~~Note that in order to create SNDH files you *must* have rmac inside the `bin` folder. The Windows versions are supplied inside the repository. Mac users should get and compile rmac and rln from http://shamusworld.gotdns.org/git/rmac (just CDing to the directories and typing `make` should be all that's needed provided a sane build system)~~ rmac and rln are now included inside the repository for all 3 major platforms.
+~~Note that in order to create SNDH files you *must* have rmac inside the `bin` folder. The Windows versions are supplied inside the repository. Mac users should get and compile rmac and rln from https://rmac.is-slick.com (just CDing to the directories and typing `make` should be all that's needed provided a sane build system)~~ rmac and rln are now included inside the repository for all 3 major platforms.
 
 There is a script that automatically creates a SNDH compilant file, in both *.bat* and *bash* flavours, called **build_sndh.bat** and **build_sndh.sh** respectively. Their usage is as follows:
 

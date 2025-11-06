@@ -69,7 +69,7 @@ bin\rmac -fr -D_RMAC_=1 -D_VASM_=0 -DSID_VOICES=%SID_VOICES% -DUSE_EVENTS=%USE_E
 goto GOODBYE
 
 :USAGE
-echo usage: build.sndh filename.aks "title" "composer" frequency_in_Hz [SID_VOICES] [USE_EVENTS] [SID_EVENTS]
+echo usage: build_sndh.bat filename.aks "title" "composer" frequency_in_Hz [SID_VOICES] [USE_EVENTS] [SID_EVENTS]
 echo (paramters in brackets are optional)
 
 :GOODBYE
