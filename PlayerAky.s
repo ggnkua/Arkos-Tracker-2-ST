@@ -922,19 +922,6 @@ PLY_AKYst_Start:
 PLY_AKYst_Init:
     if PC_REL_CODE
         lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
-        if USE_EVENTS=1
-        ;######################################################
-        ;## Patch events data for PC-relativeness
-
-        movem.l a5-a6,-(sp)
-        lea tune_events_end(pc),a5
-        lea Events_Loop(pc),a6 ; loop point in event data
-        move.l (a6),-4(a5)
-        movem.l (sp)+,a5-a6
-
-        ;## Patch events data for PC-relativeness
-        ;######################################################
-        endif ; .if USE_EVENTS=1
     endif ; .if PC_REL_CODE
 
         ;Skips the header.
