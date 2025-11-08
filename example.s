@@ -64,6 +64,30 @@ DUMP_SONG=1                         ;if 1, produce a YM dump of the tune. DOES N
 DUMP_SONG_SKIP_FRAMES_FROM_START=0  ;if dumping, how many frames we should skip from the start
 DUMP_SONG_FRAMES_AMOUNT=50*60       ;if dumping, the number of frames to dump
 
+    if _RMAC_=1
+    if !(^^macdef andx)
+    .macro andx src,dst
+    if PC_REL_CODE
+        and\! \src,\dst - PLY_AKYst_Init(a4)
+    else
+        and\! \src,\dst
+    endif
+    endm
+    endif
+    endif
+
+    if _RMAC_=1
+    if !(^^macdef orxx)
+    .macro orx src,dst
+    if PC_REL_CODE
+        or\! \src,\dst - PLY_AKYst_Init(a4)
+    else
+        or\! \src,\dst
+    endif
+    endm
+    endif
+    endif
+
 ; Include vasm compatible macros if we're assembling under it
     if _VASM_=1
     include "vasm.s"
@@ -78,10 +102,6 @@ DUMP_SONG_FRAMES_AMOUNT=50*60       ;if dumping, the number of frames to dump
       error "You can't use sid events if SID_VOICES is 0"
     endif ; .if USE_EVENTS=0
   endif ; .if USE_SID_EVENTS=1
-
-EVENT_CHANNEL_A_MASK equ 8+4
-EVENT_CHANNEL_B_MASK equ 8+2
-EVENT_CHANNEL_C_MASK equ 8+1
 
 ;
 ; Event parser, in macro form (let's not waste a bsr and rts!)
@@ -174,30 +194,30 @@ EVENT_CHANNEL_C_MASK equ 8+1
     and.b #$f0,d1
     cmp.b #$f0,d1
     bne.s .no_sid_event
-    move.b d0,d1
-; lsl.b #4 below explained:
-; for sid events, d1 is going to be $f0 to $ff
-; we mask this with the channel mask (bit 0, 1 or 2) and keep bit 3 intact too.
-; if we shift this left by 4 places then it's $00 to $f0 with $10 increments.
-; after this transformation, if we test d1 as a byte, the positive values will
-; mean "turn channel off", the negative ones "turn channel on" and 0 value
-; will do nothing.
-    and.b #EVENT_CHANNEL_A_MASK,d1
-    lsl.b #4,d1
-    beq.s .skip_chan_a              ;don't write anything if it's 0 (keep old state)
-    movex.b d1,chan_a_sid_on
-.skip_chan_a:
-    move.b d0,d1
-    and.b #EVENT_CHANNEL_B_MASK,d1
-    lsl.b #4,d1
-    beq.s .skip_chan_b               ;don't write anything if it's 0 (keep old state)
-    movex.b d1,chan_b_sid_on
-.skip_chan_b:
-    move.b d0,d1
-    and.b #EVENT_CHANNEL_C_MASK,d1
-    lsl.b #4,d1
-    beq.s .skip_chan_c              ;don't write anything if it's 0 (keep old state)
-    movex.b d1,chan_c_sid_on
+    ;move.b d0,d1
+    btst #3,d0
+    bne .check_sid_on
+.check_sid_off:
+    btst #2,d0
+    seq d1
+    btst #1,d0
+    seq d2
+    btst #0,d0
+    seq d3
+    andx.b d1,chan_a_sid_on 
+    andx.b d2,chan_b_sid_on 
+    andx.b d3,chan_c_sid_on 
+    bra .no_sid_event
+.check_sid_on:
+    btst #2,d0
+    sne d1
+    btst #1,d0
+    sne d2
+    btst #0,d0
+    sne d3
+    orx.b d1,chan_a_sid_on 
+    orx.b d2,chan_b_sid_on 
+    orx.b d3,chan_c_sid_on 
 .skip_chan_c:
 .no_sid_event:
 .no_event:
@@ -224,9 +244,9 @@ start:
 
     if SID_VOICES & USE_SID_EVENTS
     lea PLY_AKYst_Init(pc),a4       ;base pointer for PC relative stores
-    clrx.b chan_a_sid_on
-    clrx.b chan_b_sid_on
-    clrx.b chan_c_sid_on
+    movex.b #$ff,chan_a_sid_on
+    movex.b #$ff,chan_b_sid_on
+    movex.b #$ff,chan_c_sid_on
     endif ; .if SID_VOICES
     
     if USE_EVENTS
@@ -338,8 +358,23 @@ start:
     beq.s exit
     endif
 
+    moveq #0,d0
+    tst.b chan_a_sid_on
+    beq.s lol1
+    or.w #$f00,d0
+lol1:
+    tst.b chan_b_sid_on
+    beq.s lol2
+    or.w #$f0,d0
+lol2:
+    tst.b chan_c_sid_on
+    beq.s lol3
+    or.w #$f,d0
+lol3:
+    move.w d0,$ffff8240.w
+
     cmp.b #57,$fffffc02.w           ;wait for space keypress
-    bne.s .waitspace
+    bne.s wait_space
 
 exit:
     if !debug

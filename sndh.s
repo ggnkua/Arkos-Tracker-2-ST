@@ -14,6 +14,7 @@ UNROLLED_CODE=1                 ; if 1, enable unrolled slightly faster YM regis
                                 ;   $Fn=sid setting, where n bits are xABC for which voice to use SID
 DUMP_SONG=0                     ; if 1, produce a YM dump of the tune. DOES NOT WORK WITH SID OR EVENTS YET!
 
+
 EVENT_CHANNEL_A_MASK equ 8+4
 EVENT_CHANNEL_B_MASK equ 8+2
 EVENT_CHANNEL_C_MASK equ 8+1
@@ -42,6 +43,22 @@ EVENT_CHANNEL_C_MASK equ 8+1
         move\! \src,\dst
     .endif
     .endm
+
+    .macro andx src,dst
+    if PC_REL_CODE
+        and\! \src,\dst - PLY_AKYst_Init(a4)
+    else
+        and\! \src,\dst
+    endif
+    endm
+
+    .macro orx src,dst
+    if PC_REL_CODE
+        or\! \src,\dst - PLY_AKYst_Init(a4)
+    else
+        or\! \src,\dst
+    endif
+    endm
 
 ;
 ; Event parser, in macro form (let's not waste a bsr and rts!)
@@ -107,30 +124,29 @@ EVENT_CHANNEL_C_MASK equ 8+1
     and.b #$f0,d1
     cmp.b #$f0,d1
     bne.s .no_sid_event
-    move.b d0,d1
-; lsl.b #4 below explained:
-; for sid events, d1 is going to be $f0 to $ff
-; we mask this with the channel mask (bit 0, 1 or 2) and keep bit 3 intact too.
-; if we shift this left by 4 places then it's $00 to $f0 with $10 increments.
-; after this transformation, if we test d1 as a byte, the positive values will
-; mean "turn channel off", the negative ones "turn channel on" and 0 value
-; will do nothing.
-    and.b #EVENT_CHANNEL_A_MASK,d1
-    lsl.b #4,d1
-    beq.s .skip_chan_a              ;don't write anything if it's 0 (keep old state)
-    movex.b d1,chan_a_sid_on
-.skip_chan_a:
-    move.b d0,d1
-    and.b #EVENT_CHANNEL_B_MASK,d1
-    lsl.b #4,d1
-    beq.s .skip_chan_b               ;don't write anything if it's 0 (keep old state)
-    movex.b d1,chan_b_sid_on
-.skip_chan_b:
-    move.b d0,d1
-    and.b #EVENT_CHANNEL_C_MASK,d1
-    lsl.b #4,d1
-    beq.s .skip_chan_c              ;don't write anything if it's 0 (keep old state)
-    movex.b d1,chan_c_sid_on
+    btst #3,d0
+    bne .check_sid_on
+.check_sid_off:
+    btst #2,d0
+    seq d1
+    btst #1,d0
+    seq d2
+    btst #0,d0
+    seq d3
+    andx.b d1,chan_a_sid_on 
+    andx.b d2,chan_b_sid_on 
+    andx.b d3,chan_c_sid_on 
+    bra .no_sid_event
+.check_sid_on:
+    btst #2,d0
+    sne d1
+    btst #1,d0
+    sne d2
+    btst #0,d0
+    sne d3
+    orx.b d1,chan_a_sid_on 
+    orx.b d2,chan_b_sid_on 
+    orx.b d3,chan_c_sid_on 
 .skip_chan_c:
 .no_sid_event:
 .no_event:

@@ -37,7 +37,7 @@ sid_play:
 
     if USE_SID_EVENTS
     tstx.b  chan_a_sid_on
-    bgt.s   .skip_a
+    beq.s   .skip_a
     endif
 
     moveq   #0,d0
@@ -51,7 +51,7 @@ sid_play:
     if USE_SID_EVENTS
 .skip_a:
     tstx.b  chan_b_sid_on
-    bgt.s   .skip_b
+    beq.s   .skip_b
     endif
 
     clr.l   d0
@@ -65,7 +65,7 @@ sid_play:
     if USE_SID_EVENTS
 .skip_b:
     tstx.b  chan_c_sid_on
-    bgt.s   .skip_c
+    beq.s   .skip_c
     endif
 
     clr.l   d0
@@ -109,7 +109,7 @@ spc    equ    2
     if USE_SID_EVENTS
     move.b  #8,(a1)
     tstx.b  chan_a_sid_on
-    bgt.s   .OK1            ;turn sid channel off
+    beq.s   .OK1            ;turn sid channel off
     blt.s   .NORAU0         ;turn sid channel on
     move.b  d1,2(a1)        ;just write value to the PSG and don't touch timer
     bra.s   .channel_b
@@ -131,7 +131,7 @@ spc    equ    2
     if USE_SID_EVENTS
     move.b  #9,(a1)
     tstx.b  chan_b_sid_on
-    bgt.s   .OK2            ;turn sid channel off
+    beq.s   .OK2            ;turn sid channel off
     blt.s   .NORAU1         ;turn sid channel on
     move.b  d1,2(a1)        ;just write value to the PSG and don't touch timer
     bra.s   .channel_c
@@ -153,7 +153,7 @@ spc    equ    2
     if USE_SID_EVENTS
     move.b  #10,(a1)
     tstx.b  chan_c_sid_on
-    bgt.s   .OK3            ;turn sid channel off
+    beq.s   .OK3            ;turn sid channel off
     blt.s   .NORAU2         ;turn sid channel on
     move.b  d1,2(a1)        ;just write value to the PSG and don't touch timer
     bra.s   .NORAU3
