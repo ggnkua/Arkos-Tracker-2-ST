@@ -191,9 +191,9 @@ sndh_init:
 
     .if SID_VOICES & USE_SID_EVENTS
     lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
-    clrx.b chan_a_sid_on
-    clrx.b chan_b_sid_on
-    clrx.b chan_c_sid_on
+    movex.b #-1,chan_a_sid_on
+    movex.b #-1,chan_b_sid_on
+    movex.b #-1,chan_c_sid_on
     .endif ; .if SID_VOICES
 
     .if PC_REL_CODE
