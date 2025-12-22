@@ -223,7 +223,7 @@ If everything went fine then a file called `filename.sndh` should be created and
 
 ## Online
 
-Due to Mac people having problems running the tools on OSX, there is now a small web service that can assist in the creation of SNDH files wihout needing anything installed. Simply use [https://tiddly.mooo.com/arkos2sndh/lol.html](this webpage), it should be easy to understand and use.
+Due to Mac people having problems running the tools on OSX, there is now a small web service that can assist in the creation of SNDH files wihout needing anything installed. Simply use https://tiddly.mooo.com/arkos2sndh/lol.html, it should be easy to understand and use.
 
 # Code maturity
 
