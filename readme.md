@@ -191,6 +191,8 @@ When the tune loops the state of the SID voices is preserved, so (for example) i
 
 # SNDH
 
+## From the command line
+
 ~~Note that in order to create SNDH files you *must* have rmac inside the `bin` folder. The Windows versions are supplied inside the repository. Mac users should get and compile rmac and rln from https://rmac.is-slick.com (just CDing to the directories and typing `make` should be all that's needed provided a sane build system)~~ rmac and rln are now included inside the repository for all 3 major platforms.
 
 There is a script that automatically creates a SNDH compilant file, in both *.bat* and *bash* flavours, called **build_sndh.bat** and **build_sndh.sh** respectively. Their usage is as follows:
@@ -218,6 +220,10 @@ Examples usage:
 'build_sndh.bat "Love Potion Level 4 (Hello) 001 (looped) with events.aks" "Love Potion Level 4 (Hello)" "XiA" 50 SID_VOICES USE_EVENTS'
 
 If everything went fine then a file called `filename.sndh` should be created and can be played by any compliant SNDH player.
+
+## Online
+
+Due to Mac people having problems running the tools on OSX, there is now a small web service that can assist in the creation of SNDH files wihout needing anything installed. Simply use [https://tiddly.mooo.com/arkos2sndh/lol.html](this webpage), it should be easy to understand and use.
 
 # Code maturity
 
