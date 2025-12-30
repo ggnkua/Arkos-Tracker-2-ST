@@ -195,6 +195,8 @@ When the tune loops the state of the SID voices is preserved, so (for example) i
 
 ~~Note that in order to create SNDH files you *must* have rmac inside the `bin` folder. The Windows versions are supplied inside the repository. Mac users should get and compile rmac and rln from https://rmac.is-slick.com (just CDing to the directories and typing `make` should be all that's needed provided a sane build system)~~ rmac and rln are now included inside the repository for all 3 major platforms.
 
+*Note* Subtunes are not supported.
+
 There is a script that automatically creates a SNDH compilant file, in both *.bat* and *bash* flavours, called **build_sndh.bat** and **build_sndh.sh** respectively. Their usage is as follows:
 
 'build_sndh.bat filename.aks title composer frequency_in_Hz [SID_VOICES] [USE_EVENTS] [SID_EVENTS]'
