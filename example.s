@@ -358,24 +358,6 @@ start:
     beq.s exit
     endif
 
-    moveq #0,d0
-    tst.b chan_a_sid_on
-    beq.s lol1
-    or.w #$f00,d0
-lol1:
-    tst.b chan_b_sid_on
-    beq.s lol2
-    or.w #$f0,d0
-lol2:
-    tst.b chan_c_sid_on
-    beq.s lol3
-    or.w #$f,d0
-lol3:
-    move.w d0,$ffff8240.w
-
-    cmp.b #57,$fffffc02.w           ;wait for space keypress
-    bne.s wait_space
-
 exit:
     if !debug
     move sr,-(sp)
