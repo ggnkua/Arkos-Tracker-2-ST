@@ -60,7 +60,7 @@ SID_VOICES=0                        ;if 1, enable SID voices (takes more CPU tim
 USE_EVENTS=0                        ;if 1, include events, and parse them
 USE_SID_EVENTS=0                    ;if 1, use events to control SID.
                                     ;  $Fn=sid setting, where n bits are xABC for which voice to use SID
-DUMP_SONG=1                         ;if 1, produce a YM dump of the tune. DOES NOT WORK WITH SID OR EVENTS YET!
+DUMP_SONG=0                         ;if 1, produce a YM dump of the tune. DOES NOT WORK WITH SID OR EVENTS YET!
 DUMP_SONG_SKIP_FRAMES_FROM_START=0  ;if dumping, how many frames we should skip from the start
 DUMP_SONG_FRAMES_AMOUNT=50*60       ;if dumping, the number of frames to dump
 
