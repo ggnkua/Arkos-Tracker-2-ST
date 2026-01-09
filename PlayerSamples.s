@@ -34,7 +34,32 @@ sample_tester=1
     ;bset    #5,$FFFA07                                 ; Start timer interrupt
     bset    #5,$FFFFFA13.w                                  ; unmask
 
-    move.l vbl,$70.w    ; set our vbl
+    MOVE.B	#0,$ffff8800.w	; CHANNEL A
+	MOVE.B	#0,$ffff8802.w
+	MOVE.B	#1,$ffff8800.w
+	MOVE.B	#0,$ffff8802.w
+
+	MOVE.B	#2,$ffff8800.w	; CHANNEL B
+	MOVE.B	#0,$ffff8802.w
+	MOVE.B	#3,$ffff8800.w
+	MOVE.B	#0,$ffff8802.w
+
+	MOVE.B	#4,$ffff8800.w	; CHANNEL C
+	MOVE.B	#0,$ffff8802.w
+	MOVE.B	#5,$ffff8800.w
+	MOVE.B	#0,$ffff8802.w
+
+	MOVE.B	#7,$ffff8800.w	; SET UP CHANNEL MIXING & PORT 'A' I/O
+	MOVE.B	#$FF,$ffff8802.w
+
+	MOVE.B	#8,$ffff8800.w	; SET ALL VOLUMES TO ZERO
+	MOVE.B	#0,$ffff8802.w
+	MOVE.B	#9,$ffff8800.w
+	MOVE.B	#0,$ffff8802.w
+	MOVE.B	#10,$ffff8800.w
+	MOVE.B	#0,$ffff8802.w
+
+    move.l #vbl,$70.w    ; set our vbl
     move (sp)+,sr
 
     bclr #0,$484.w      ; kill keyclick
@@ -128,22 +153,44 @@ sample_player_play_sample_for_sure:
     move.l a1,a2
     add.w (a2,d1.w),a2          ; point to sample's info
     movem.w (a2)+,d1-d3         ; sample start offset, end offset, loop offset
-    ; NOTE: ugh, if there's more than 32k of samples, the movem.w will sign extend to negative offsets
-    add.l a1,d1
-    add.l a1,d2
-    add.l a1,d3
-    movem.l d1-d3,sample_player_info
+    lea (a1,d1.w),a2
+    lea (a1,d2.w),a3
+    lea (a1,d3.w),a4
+    movem.l a2-a4,sample_player_start_address
+    move.l d1,sample_player_current_sample
+    addq.b #8,d0
+    move.b d0,sample_player_interrupt_channel
     ; TODO some magic LUT here to convert note value to timer frequency
-    ; TODO also, start timer
+    ;move.b #7,$fffffa19.w               ; timer a /200
+    ;move.b  2457600/(200*192*108/60)
+    move.b #1,$fffffa19.w               ; tacr timer a /4
+    move.b #76,$fffffa1f.w              ; ta data (2457600/4/76 ~= 8084Hz)
+
+    bset #5,$FFFFFA07.w                  ; Start timer interrupt
+    bra sample_player_get_event 
 
 sample_player_interrupt_routine:
-
-
+    move.l a0,-(sp)
+    move.l sample_player_current_sample,a0
+sample_player_interrupt_channel = *+3
+    move.b #$8,$ffff8800.w
+    move.b (a0)+,$ffff8802.w
+    bclr #5,$FFFFFA0F.w                     ; start yielding to interrupts (TODO use auto EOI?)
+    cmp.l sample_player_end_address,a0
+    bne.s sample_player_interrupt_noloop
+    move.l sample_player_loop_address,a0
+sample_player_interrupt_noloop:
+    move.l a0,sample_player_current_sample
+    move.l (sp)+,a0 
     rte
 
 sample_player_current_event:    .dc.l 1    
 sample_player_wait_frames:      .dc.w 0
-sample_player_info:             .ds.l 3     ; start address, end address, loop address
+sample_player_start_address:    .ds.l 1     ; do not change the order of thse 3 labels!
+sample_player_end_address:      .ds.l 1     ; 
+sample_player_loop_address:     .ds.l 1     ; 
+
+sample_player_current_sample:   .ds.l 1
 
 sample_player_raw_linear_data:
     .include "m.raw.linear.s"
