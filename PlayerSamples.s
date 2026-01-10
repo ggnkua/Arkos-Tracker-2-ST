@@ -4,8 +4,9 @@ sample_tester=1
     ; just enough code to test the sample player stand alone,
     ; do not expect a masterclass in clean code!
 
-    ; init
+    ; init player
     move.l #sample_player_raw_linear_data,sample_player_current_event
+    move.l #arkos_samples+629,sample_player_current_event
     clr.w sample_player_wait_frames
 
     ; who's super? You're super!
@@ -17,8 +18,29 @@ sample_tester=1
 
     move sr,-(sp)
     move #$2700,sr
-    ; Init MFP
 
+;   test code for STE/TT/Falcon DMA
+;    move.l #SampleDisarkByteRegionStart4,d0
+;    move.l #SampleDisarkByteRegionEnd4,d1
+;    swap d0
+;    move.b d0,$ffff8903.w
+;    rol.l #8,d0
+;    move.b d0,$ffff8905.w
+;    rol.l #8,d0
+;    move.b d0,$ffff8907.w
+;
+;    swap d1
+;    move.b d1,$ffff890f.w
+;    rol.l #8,d1
+;    move.b d1,$ffff8911.w
+;    rol.l #8,d1
+;    move.b d1,$ffff8913.w
+;
+;    move.b #$81,$ffff8921.w
+;    move.b #1,$ffff8901.w
+;
+
+    ; Init MFP
 
     ;move.l  $0134.w,old_timera                         ; Save old routine
     move.l  #sample_player_interrupt_routine,$0134.w    ; Insert new routine
@@ -73,7 +95,7 @@ wait_loop:
 vbl:
     movem.l d0-a6,-(sp)
     move.l sample_player_current_event,a0
-    bsr sample_player_tick_routine
+    bsr.s sample_player_tick_routine
     move.l a0,sample_player_current_event
     movem.l (sp)+,d0-a6
     rte
@@ -98,17 +120,28 @@ vbl:
 sample_player_tick_routine:
 ; Firstly, check if a pause is imposed on us, if true then
 ; decrease wait counter and get out
+    move.w #$fff,$ffff8240.w
     tst.w sample_player_wait_frames
     beq.s sample_player_get_event
+    move.w #$f00,$ffff8240.w
     subq.w #1,sample_player_wait_frames
     rts
 
 ; Let's grab an event!
 sample_player_get_event:
+
+    ;move.l events_log_current,a1    ;;;;;;;;;;;;;;;;;;;;;;
+    ;move.l a0,(a1)+                 ;;;;;;;;;;;;;;;;;;;;;;
+    ;move.l a1,events_log_current    ;;;;;;;;;;;;;;;;;;;;;;
+
+
+    ;move.l a0,a6                ; save pointer for advancing with alignment (main events are 7 bytes, and they contain a dc.w inbetween bytes...)
+    ;move.w a0,d7
+    ;and.w #1,d7
     move.b (a0)+,d0
     
 ; Ooh, what did we get, what did we get?
-    cmp.b #2,d0
+    cmp.b #3,d0
     blo.s sample_player_play_sample
     cmp.b #254,d0
     beq.s sample_player_wait_n_frames
@@ -118,6 +151,10 @@ sample_player_get_event:
     bne.s sample_player_exit    ; currently unsupported command, go away
 
 ; End of song marker, just loop back to where we're told
+    ;add.w d7,d1                 ; align if necessary
+    move.w a0,d0                ; TODO needed ?
+    and.w #1,d0
+    add.w d0,a0
     move.w (a0),a0
     add.l #arkos_samplesloop,a0
     bra.s sample_player_get_event
@@ -128,60 +165,102 @@ sample_player_exit:
     rts
 
 sample_player_wait_n_frames:
+    ;add.w d7,d1                 ; align if necessary
+    move.w a0,d0                ; TODO needed?
+    and.w #1,d0
+    add.w d0,a0
     move.w (a0)+,sample_player_wait_frames
     rts
 
 ; At last, time for this source file to earn its living!
+; (well not really, this is just going to set up some things)
 sample_player_play_sample:
+    addq.b #8,d0
+    move.b d0,sample_player_interrupt_channel   ; tell interrupt routine which channel to use
     moveq #0,d0
     move.b (a0)+,d0             ; get note
     cmp.b #255,d0               
     bne.s sample_player_actually_play_sample
-    addq.l #5,a0                ; broooooo, we got duped! ignore command and continue
+    ;lea 7(a6,d7.w),a0           ; broooooo, we got duped! ignore command and continue
+    addq.l #1,a0                ; broooooo, we got duped! ignore command and continue
+
     bra.s sample_player_get_event
 sample_player_actually_play_sample: ; this is it, we're doing it now for reals!
+    move.w a0,d2 ;for alignment
     moveq #0,d1
     move.b (a0)+,d1             ; get instrument
     cmp.b #255,d1
     bne.s sample_player_play_sample_for_sure
-    addq.l #4,a0                ; oh nooo brooooooo, we got duped again! skip command again
-    bra.s sample_player_get_event
+    ;lea 7(a6,d7.w),a0           ; oh nooo brooooooo, we got duped again! skip command again
+    bra sample_player_get_event
 sample_player_play_sample_for_sure:
-    addq.l #4,a0                ; skip effect values as they're ignored by the z80 player too
-    lea SampleTableIndex,a1     ; everything's relative to this address
+    move.b d1,d6
+    cmp.b #15,d1
+    ble.s zzz
+    illegal
+zzz:
+
+    ;lea 7(a6,d7.w),a0           ; skip effect values as they're ignored by the z80 player too
+    lea SampleTableIndex-2,a2   ; table starts at index 1, ugh
     add.w d1,d1
-    move.l a1,a2
-    add.w (a2,d1.w),a2          ; point to sample's info
+    move.w (a2,d1.w),d1
+    beq sample_player_get_event ; if this is zero, then this event is no sample (broooooo!)
+    add.w d1,a2                 ; point to sample's info
+    addq.l #2,a2                ; compensate for SampleTableIndex-2 above, ugh
+    move.l a2,a1                ; everything's relative to this address
     movem.w (a2)+,d1-d3         ; sample start offset, end offset, loop offset
     lea (a1,d1.w),a2
-    lea (a1,d2.w),a3
+    lea 2(a1,d2.w),a3
     lea (a1,d3.w),a4
+    tst.w d3
+    bne.s sample_player_play_sample_write_addresses
+    clr.l a4                    ; no loop
+sample_player_play_sample_write_addresses:
     movem.l a2-a4,sample_player_start_address
-    move.l d1,sample_player_current_sample
-    addq.b #8,d0
-    move.b d0,sample_player_interrupt_channel
+    move.l a2,sample_player_current_sample
+
+
+    ;move.l #SampleDisarkByteRegionStart2,sample_player_start_address
+    ;move.l #SampleDisarkByteRegionStart4,sample_player_start_address
+    ;move.l #SampleDisarkByteRegionEnd4,sample_player_end_address
+    ;move.l #SampleDisarkByteRegionStart4,sample_player_current_sample
+
     ; TODO some magic LUT here to convert note value to timer frequency
     ;move.b #7,$fffffa19.w               ; timer a /200
     ;move.b  2457600/(200*192*108/60)
     move.b #1,$fffffa19.w               ; tacr timer a /4
-    move.b #76,$fffffa1f.w              ; ta data (2457600/4/76 ~= 8084Hz)
+    ;move.b #76,$fffffa1f.w              ; ta data (2457600/4/76 ~= 8084Hz)
+    move.b #51,$fffffa1f.w              ; ta data (2457600/4/51 ~= 12047Hz)
 
     bset #5,$FFFFFA07.w                  ; Start timer interrupt
     bra sample_player_get_event 
 
+zz:
+; this is it, we're playing some samples!
 sample_player_interrupt_routine:
+    not.w $ffff8240.w
+;    move.l a1,-(sp) ;;;;;;;;;;;;;;;;;;;;;;;;;;
     move.l a0,-(sp)
+    move.l d0,-(sp)
     move.l sample_player_current_sample,a0
+    ;move.l lol,a1
 sample_player_interrupt_channel = *+3
     move.b #$8,$ffff8800.w
+;    move.b (a0),(a1)+ ;;;;;;;;;;;;;;;;;;;;;;;;;;
+;    move.l a1,lol ;;;;;;;;;;;;;;;;;;;;;;;;;;
     move.b (a0)+,$ffff8802.w
     bclr #5,$FFFFFA0F.w                     ; start yielding to interrupts (TODO use auto EOI?)
     cmp.l sample_player_end_address,a0
     bne.s sample_player_interrupt_noloop
-    move.l sample_player_loop_address,a0
+    move.l sample_player_loop_address,d0    ; if loop address=0, then don't loop, we're one shotting
+    bne.s sample_player_interrupt_noloop
+    bclr #5,$FFFFFA07.w                     ; Stop timer interrupt
 sample_player_interrupt_noloop:
     move.l a0,sample_player_current_sample
-    move.l (sp)+,a0 
+    move.l (sp)+,d0
+    move.l (sp)+,a0
+;    move.l (sp)+,a1 ;;;;;;;;;;;;;;;;;;;;;;;;;;
+    not.w $ffff8240.w
     rte
 
 sample_player_current_event:    .dc.l 1    
@@ -189,9 +268,14 @@ sample_player_wait_frames:      .dc.w 0
 sample_player_start_address:    .ds.l 1     ; do not change the order of thse 3 labels!
 sample_player_end_address:      .ds.l 1     ; 
 sample_player_loop_address:     .ds.l 1     ; 
+;lol:dc.l $3f8000 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 sample_player_current_sample:   .ds.l 1
 
+events_log_current: .dc.l events_log        ;;;;;;;;;;;;;;;;;;;;;;
+events_log: .ds.l 2000                      ;;;;;;;;;;;;;;;;;;;;;;
+
+    .even
 sample_player_raw_linear_data:
     .include "m.raw.linear.s"
     .even
