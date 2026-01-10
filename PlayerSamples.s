@@ -18,28 +18,6 @@ sample_tester=1
 
     move sr,-(sp)
     move #$2700,sr
-
-;   test code for STE/TT/Falcon DMA
-;    move.l #SampleDisarkByteRegionStart4,d0
-;    move.l #SampleDisarkByteRegionEnd4,d1
-;    swap d0
-;    move.b d0,$ffff8903.w
-;    rol.l #8,d0
-;    move.b d0,$ffff8905.w
-;    rol.l #8,d0
-;    move.b d0,$ffff8907.w
-;
-;    swap d1
-;    move.b d1,$ffff890f.w
-;    rol.l #8,d1
-;    move.b d1,$ffff8911.w
-;    rol.l #8,d1
-;    move.b d1,$ffff8913.w
-;
-;    move.b #$81,$ffff8921.w
-;    move.b #1,$ffff8901.w
-;
-
     ; Init MFP
 
     ;move.l  $0134.w,old_timera                         ; Save old routine
@@ -120,26 +98,16 @@ vbl:
 sample_player_tick_routine:
 ; Firstly, check if a pause is imposed on us, if true then
 ; decrease wait counter and get out
-    move.w #$fff,$ffff8240.w
+    ;move.w #$fff,$ffff8240.w
     tst.w sample_player_wait_frames
     beq.s sample_player_get_event
-    move.w #$f00,$ffff8240.w
+    ;move.w #$f00,$ffff8240.w
     subq.w #1,sample_player_wait_frames
     rts
 
 ; Let's grab an event!
 sample_player_get_event:
-
-    ;move.l events_log_current,a1    ;;;;;;;;;;;;;;;;;;;;;;
-    ;move.l a0,(a1)+                 ;;;;;;;;;;;;;;;;;;;;;;
-    ;move.l a1,events_log_current    ;;;;;;;;;;;;;;;;;;;;;;
-
-
-    ;move.l a0,a6                ; save pointer for advancing with alignment (main events are 7 bytes, and they contain a dc.w inbetween bytes...)
-    ;move.w a0,d7
-    ;and.w #1,d7
     move.b (a0)+,d0
-    
 ; Ooh, what did we get, what did we get?
     cmp.b #3,d0
     blo.s sample_player_play_sample
@@ -181,9 +149,7 @@ sample_player_play_sample:
     move.b (a0)+,d0             ; get note
     cmp.b #255,d0               
     bne.s sample_player_actually_play_sample
-    ;lea 7(a6,d7.w),a0           ; broooooo, we got duped! ignore command and continue
     addq.l #1,a0                ; broooooo, we got duped! ignore command and continue
-
     bra.s sample_player_get_event
 sample_player_actually_play_sample: ; this is it, we're doing it now for reals!
     move.w a0,d2 ;for alignment
@@ -191,16 +157,8 @@ sample_player_actually_play_sample: ; this is it, we're doing it now for reals!
     move.b (a0)+,d1             ; get instrument
     cmp.b #255,d1
     bne.s sample_player_play_sample_for_sure
-    ;lea 7(a6,d7.w),a0           ; oh nooo brooooooo, we got duped again! skip command again
-    bra sample_player_get_event
+    bra sample_player_get_event ; oh nooo brooooooo, we got duped again! skip command again
 sample_player_play_sample_for_sure:
-    move.b d1,d6
-    cmp.b #15,d1
-    ble.s zzz
-    illegal
-zzz:
-
-    ;lea 7(a6,d7.w),a0           ; skip effect values as they're ignored by the z80 player too
     lea SampleTableIndex-2,a2   ; table starts at index 1, ugh
     add.w d1,d1
     move.w (a2,d1.w),d1
@@ -219,12 +177,6 @@ sample_player_play_sample_write_addresses:
     movem.l a2-a4,sample_player_start_address
     move.l a2,sample_player_current_sample
 
-
-    ;move.l #SampleDisarkByteRegionStart2,sample_player_start_address
-    ;move.l #SampleDisarkByteRegionStart4,sample_player_start_address
-    ;move.l #SampleDisarkByteRegionEnd4,sample_player_end_address
-    ;move.l #SampleDisarkByteRegionStart4,sample_player_current_sample
-
     ; TODO some magic LUT here to convert note value to timer frequency
     ;move.b #7,$fffffa19.w               ; timer a /200
     ;move.b  2457600/(200*192*108/60)
@@ -235,19 +187,14 @@ sample_player_play_sample_write_addresses:
     bset #5,$FFFFFA07.w                  ; Start timer interrupt
     bra sample_player_get_event 
 
-zz:
 ; this is it, we're playing some samples!
 sample_player_interrupt_routine:
-    not.w $ffff8240.w
-;    move.l a1,-(sp) ;;;;;;;;;;;;;;;;;;;;;;;;;;
+    ;not.w $ffff8240.w
     move.l a0,-(sp)
     move.l d0,-(sp)
     move.l sample_player_current_sample,a0
-    ;move.l lol,a1
 sample_player_interrupt_channel = *+3
     move.b #$8,$ffff8800.w
-;    move.b (a0),(a1)+ ;;;;;;;;;;;;;;;;;;;;;;;;;;
-;    move.l a1,lol ;;;;;;;;;;;;;;;;;;;;;;;;;;
     move.b (a0)+,$ffff8802.w
     bclr #5,$FFFFFA0F.w                     ; start yielding to interrupts (TODO use auto EOI?)
     cmp.l sample_player_end_address,a0
@@ -259,21 +206,16 @@ sample_player_interrupt_noloop:
     move.l a0,sample_player_current_sample
     move.l (sp)+,d0
     move.l (sp)+,a0
-;    move.l (sp)+,a1 ;;;;;;;;;;;;;;;;;;;;;;;;;;
-    not.w $ffff8240.w
+    ;not.w $ffff8240.w
     rte
 
 sample_player_current_event:    .dc.l 1    
 sample_player_wait_frames:      .dc.w 0
-sample_player_start_address:    .ds.l 1     ; do not change the order of thse 3 labels!
+sample_player_start_address:    .ds.l 1     ; do not change the order of these 3 labels!
 sample_player_end_address:      .ds.l 1     ; 
 sample_player_loop_address:     .ds.l 1     ; 
-;lol:dc.l $3f8000 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 sample_player_current_sample:   .ds.l 1
-
-events_log_current: .dc.l events_log        ;;;;;;;;;;;;;;;;;;;;;;
-events_log: .ds.l 2000                      ;;;;;;;;;;;;;;;;;;;;;;
 
     .even
 sample_player_raw_linear_data:
