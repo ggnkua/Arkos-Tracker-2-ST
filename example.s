@@ -589,7 +589,9 @@ tune:
 tune_end:
 
   if SAMPLES
+    even
     include "m.raw.linear.s"
+    even
     include "m.samples.s"
   endif
 

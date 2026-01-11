@@ -1306,8 +1306,10 @@ PLY_AKYst_PsgRegister13_End:
 PLY_AKYst_Exit:
 
     if SAMPLES
-        bra sample_player_tick_routine
-    endif
+        move.l sample_player_current_event,a0
+        bsr sample_player_tick_routine
+        move.l a0,sample_player_current_event
+   endif
 
         rts
 

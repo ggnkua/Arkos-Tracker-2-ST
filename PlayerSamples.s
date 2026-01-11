@@ -85,7 +85,6 @@ vbl:
 ; init player
 sample_player_init:
     move.l #arkos_samples,sample_player_current_event
-    move.l #arkos_samples+629,sample_player_current_event
     clr.w sample_player_wait_frames
 
     ; Init MFP
@@ -111,12 +110,13 @@ sample_player_init:
 
 ; If instrument=0 then stop playing sample (if applicable)
 
+aa:
 sample_player_tick_routine:
 ; Firstly, check if a pause is imposed on us, if true then
 ; decrease wait counter and get out
     ;move.w #$fff,$ffff8240.w
     tst.w sample_player_wait_frames
-    beq.s sample_player_get_event
+    bgt.s sample_player_get_event
     ;move.w #$f00,$ffff8240.w
     subq.w #1,sample_player_wait_frames
     rts
@@ -227,12 +227,11 @@ sample_player_interrupt_noloop:
     ;not.w $ffff8240.w
     rte
 
-sample_player_current_event:    .dc.l 1    
-sample_player_wait_frames:      .dc.w 0
+sample_player_current_event:    .ds.l 1    
+sample_player_wait_frames:      .ds.w 1
 sample_player_start_address:    .ds.l 1     ; do not change the order of these 3 labels!
 sample_player_end_address:      .ds.l 1     ; 
 sample_player_loop_address:     .ds.l 1     ; 
-
 sample_player_current_sample:   .ds.l 1
 
     if ^^defined sample_tester
