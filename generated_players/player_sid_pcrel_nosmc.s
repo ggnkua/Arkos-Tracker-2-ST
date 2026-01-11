@@ -16,18 +16,18 @@
 ; It should be fairly easy to adapt to other assemblers.
 ;
 ; Note that the source makes use of macros, so take a look at their definitions (after these messages end) before reading the code
+;
 ; Equates that control code generation:
+;
 ;UNROLLED_CODE - if 1, enable unrolled slightly faster YM register reading code
 ;SID_VOICES    - if 1, enable SID voices (takes more CPU time!)
 ;PC_REL_CODE   - if 1, make code PC relative (helps if you move the routine around, like for example SNDH)
 ;AVOID_SMC     - if 1, assemble the player without SMC stuff,
 ;DUMP_SONG     - if 1, produce a YM dump of the tune. DOES NOT WORK WITH SID OR EVENTS YET!
+;SAMPLES       - if 1, call the sample player before the player exits
 ;
 ; Note that if you define want to create SNDH files, you should enable PC_REL_CODE and AVOID_SMC as well. SNDH files are meant to be compatible with all platforms
 ;
-; Stuff TODO:
-; @ Clean up register usage
-; @ In PLY_AKYst_RRB_NIS_ManageLoop there is an auto-even of address happening due to the way the data is exported. This can be fixed by a) Exporting all data as words, b) pre-parsing the tune during init, finding odd addresses, even them and patch all affected offsets
 ; Macros for sndh or normal player.
 ; In sndh mode the player has to be position independent, and that mostly boils down
 ; to being PC relative. So we define some macros for the instructions that require
@@ -64,7 +64,7 @@ PLY_AKYst_Start:
         ;Hooks for external calls. Can be removed if not needed.
         bra.s PLY_AKYst_Init                                    ;Player + 0.
         bra.s PLY_AKYst_Play                                    ;Player + 2.
-;       Initializes the player.
+;       Initialises the player.
 ;       a0.l=music address
 PLY_AKYst_Init:
         lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
