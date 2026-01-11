@@ -44,6 +44,17 @@ bin3/SongToRawLinear${extension} --customSourceProfileFile bin3/rmac.xml %1 %2.r
 $SED -i -e $'s/\r$//' "$2.aky.s"
 $SED -i -e $'s/\r$//' "$2.events.words.s"
 
+# Arkos Tracker 3 also started bombing the tune source with hundreds of
+# labels (used for converting source if memory serves).
+# This makes the symbol table explode in size and debuggers having a
+# real hard time loading the symbol table. We can't have that as
+# we would like to debug stuff from time to time, so let's trim out
+# those (otherwise) redundant labels
+$SED -i -e "/Subsong0Disark/d" $2.aky.s
+$SED -i -e "/Subsong0Disark/d" $2.events.words.s
+$SED -i -e "/Subsong0Disark/d" $2.samples.s
+$SED -i -e "/Subsong0Disark/d" $2.raw.linear.s
+
 # Since Arkos Tracker 3 removed the functionality to use relative offsets
 # (i.e. Subsong_0_XXX-Subsong0) we'll just do it by hand here. No problem
 # (incidentally, this is the only thing that was stopping Arkos Tracker 3 tunes from

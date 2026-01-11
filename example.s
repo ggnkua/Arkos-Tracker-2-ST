@@ -253,8 +253,15 @@ start:
     move.b $484.w,-(sp)             ;save old keyclick state
     clr.b $484.w                    ;keyclick off, key repeat off
 
-    move.b #7,$ffff8800.w                                   ;let's behave and save I/O port settings
+    move.b #7,$ffff8800.w           ;let's behave and save I/O port settings
     move.b $ffff8800.w,old_io_port_value
+    if SAMPLES
+    move.l  $0134.w,old_timer_a
+    move.b $fffffa0b.w,old_fa0b     ;save MFP
+    move.b $fffffa07.w,old_fa07
+    move.b $fffffa13.w,old_fa13
+    endif
+
     lea tune,a0
     bsr PLY_AKYst_Init              ;init player and tune
     if SID_VOICES
@@ -351,12 +358,22 @@ start:
     beq.s exit
     endif
 
+    cmp.b #57,$fffffc02.w
+    bne.s .waitspace
+
 exit:
     if !debug
     move sr,-(sp)
     move #$2700,sr
     if use_vbl=1
     move.l  old_vbl,$70.w           ;restore vbl
+
+    if SAMPLES
+    move.b old_fa0b,$fffffa0b.w     ;restore MFP
+    move.b old_fa07,$fffffa07.w
+    move.b old_fa13,$fffffa13.w
+    move.l  old_timer_a,$0134.w
+    endif
 
     if SID_VOICES
     bsr sid_exit
@@ -395,7 +412,13 @@ reset_psg: move.l d1,$ffff8800.w    ;(makes gesture of turning an engine key off
 
     rts                             ;bye!
 
-old_io_port_value: ds.b 1
+    if SAMPLES
+old_timer_a:        ds.l 1
+old_fa0b:           ds.b 1
+old_fa07:           ds.b 1
+old_fa13:           ds.b 1
+    endif
+old_io_port_value:  ds.b 1
     even
 
     if !debug
@@ -567,7 +590,7 @@ tune_end:
 
   if SAMPLES
     include "m.raw.linear.s"
-    include "m.samples.s
+    include "m.samples.s"
   endif
 
     bss

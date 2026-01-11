@@ -4,9 +4,9 @@
 ; or do something exotic like play samples in squence as a stand alone thing
 ; (to which you get a salute)
 
-sample_tester=0             ; set this to 1 to test the player stand alone
+;sample_tester=0             ; set this to 1 to test the player stand alone
 
-    if sample_tester
+    if ^^defined sample_tester
     ; just enough code to test the sample player stand alone,
     ; do not expect a masterclass in clean code!
 
@@ -28,14 +28,14 @@ sample_tester=0             ; set this to 1 to test the player stand alone
     ;move.b  $FFFFFA07.w,old_iera                       ; Save old enable register
     ;move.b  $FFFFFA13.w,old_imra                       ; Save old mask register
 
-    move.b  #18,$FFFFFA1F.w                                 ; timer data
-    move.b  #6,$FFFFFA19.w                                  ; tacr, 6=timer/100, 7=timer/200
+    move.b  #18,$FFFFFA1F.w                             ; timer data
+    move.b  #6,$FFFFFA19.w                              ; tacr, 6=timer/100, 7=timer/200
 
-    bclr #5,$FFFFFA0B.w                                     ; Clear timer A pending bit
+    bclr #5,$FFFFFA0B.w                                 ; Clear timer A pending bit
 
     bclr #5,$fffffa07.w                                 ; stop timer a just in case
     ;bset    #5,$FFFA07                                 ; Start timer interrupt
-    bset    #5,$FFFFFA13.w                                  ; unmask
+    bset    #5,$FFFFFA13.w                              ; unmask
 
     MOVE.B	#0,$ffff8800.w	; CHANNEL A
 	MOVE.B	#0,$ffff8802.w
@@ -87,6 +87,12 @@ sample_player_init:
     move.l #arkos_samples,sample_player_current_event
     move.l #arkos_samples+629,sample_player_current_event
     clr.w sample_player_wait_frames
+
+    ; Init MFP
+    move.l  #sample_player_interrupt_routine,$0134.w    ; Insert new routine
+    bclr #5,$fffffa0b.w                                 ; Clear timer A pending bit
+    bclr #5,$fffffa07.w                                 ; stop timer A just in case
+    bset #5,$fffffa13.w                                 ; unmask
     rts
 
 ; a0 points to current "raw linear" event
@@ -229,7 +235,7 @@ sample_player_loop_address:     .ds.l 1     ;
 
 sample_player_current_sample:   .ds.l 1
 
-    if sample_tester
+    if ^^defined sample_tester
     .even
     .include "m.raw.linear.s"
     .even

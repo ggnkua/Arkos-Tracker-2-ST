@@ -31,6 +31,17 @@ rem (incidentally, this is the only thing that was stopping Arkos Tracker 3 tune
 rem working - if we exclude the new xml source profiles)
 bin\sed -i -e "/dc.w Subsong/s/$/& - Subsong0/" %2.aky.s
 
+rem Arkos Tracker 3 also started bombing the tune source with hundreds of
+rem labels (used for converting source if memory serves).
+rem This makes the symbol table explode in size and debuggers having a
+rem real hard time loading the symbol table. We can't have that as
+rem we would like to debug stuff from time to time, so let's trim out
+rem those (otherwise) redundant labels
+bin\sed -i -e "/Subsong0Disark/d" %2.aky.s
+bin\sed -i -e "/Subsong0Disark/d" %2.events.words.s
+bin\sed -i -e "/Subsong0Disark/d" %2.samples.s
+bin\sed -i -e "/Subsong0Disark/d" %2.raw.linear.s
+
 rem Convert event values to word size and labels to longwords
 bin\sed -i -e "s/dc\.b/dc.w/gI" -e "s/dc\.w Events_/dc.l Events_/gI" %2.events.words.s
 
