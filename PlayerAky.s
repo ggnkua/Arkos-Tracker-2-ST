@@ -16,21 +16,18 @@
 ; It should be fairly easy to adapt to other assemblers.
 ;
 ; Note that the source makes use of macros, so take a look at their definitions (after these messages end) before reading the code
-
+;
 ; Equates that control code generation:
-
+;
 ;UNROLLED_CODE - if 1, enable unrolled slightly faster YM register reading code
 ;SID_VOICES    - if 1, enable SID voices (takes more CPU time!)
 ;PC_REL_CODE   - if 1, make code PC relative (helps if you move the routine around, like for example SNDH)
 ;AVOID_SMC     - if 1, assemble the player without SMC stuff,
 ;DUMP_SONG     - if 1, produce a YM dump of the tune. DOES NOT WORK WITH SID OR EVENTS YET!
+;SAMPLES       - if 1, call the sample player before the player exits
 ;
 ; Note that if you define want to create SNDH files, you should enable PC_REL_CODE and AVOID_SMC as well. SNDH files are meant to be compatible with all platforms
 ;
-
-; Stuff TODO:
-; @ Clean up register usage
-; @ In PLY_AKYst_RRB_NIS_ManageLoop there is an auto-even of address happening due to the way the data is exported. This can be fixed by a) Exporting all data as words, b) pre-parsing the tune during init, finding odd addresses, even them and patch all affected offsets
 
 ; Macros for sndh or normal player.
 ; In sndh mode the player has to be position independent, and that mostly boils down
@@ -914,10 +911,8 @@ PLY_AKYst_Start:
         ;Hooks for external calls. Can be removed if not needed.
         bra.s PLY_AKYst_Init                                    ;Player + 0.
         bra.s PLY_AKYst_Play                                    ;Player + 2.
-    
 
-
-;       Initializes the player.
+;       Initialises the player.
 ;       a0.l=music address
 PLY_AKYst_Init:
     if PC_REL_CODE
@@ -940,6 +935,10 @@ PLY_AKYst_Init_SkipHeaderEnd:
         movex.w d0,PLY_AKYst_Channel2_RegisterBlockLineState_Opcode
         movex.w d0,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
         movex.w #1,PLY_AKYst_PatternFrameCounter
+
+    if SAMPLES
+        bsr sample_player_init
+    endif
 
         rts
 
@@ -1053,8 +1052,6 @@ PLY_AKYst_Channel1_RegisterBlock_Process:
         ;Processes the RegisterBlock, whether it is the current one or a new one.
         movex.b d1,PLY_AKYst_Channel1_WaitBeforeNextRegisterBlock
 
-
-
 ;Reading the Track - channel 2.
 ;----------------------------------------
     if !AVOID_SMC
@@ -1092,9 +1089,6 @@ PLY_AKYst_Channel2_PtTrack = *+2
 PLY_AKYst_Channel2_RegisterBlock_Process:
         ;Processes the RegisterBlock, whether it is the current one or a new one.
         movex.b d1,PLY_AKYst_Channel2_WaitBeforeNextRegisterBlock
-
-
-
 
 ;Reading the Track - channel 3.
 ;----------------------------------------
@@ -1135,16 +1129,6 @@ PLY_AKYst_Channel3_RegisterBlock_Process:
         ;Processes the RegisterBlock, whether it is the current one or a new one.
         movex.b d1,PLY_AKYst_Channel3_WaitBeforeNextRegisterBlock
 
-
-
-
-
-
-
-
-
-
-
 ;Reading the RegisterBlock.
 ;----------------------------------------
 
@@ -1161,7 +1145,6 @@ PLY_AKYst_Channel3_RegisterBlock_Process:
         ;Bits 6 and 7 are also set (bits 8 and 9 in the instruction below) - at least bit 6 is crucial to be
         ;set as the Falcon's internal IDE drives might switch off otherwise!
         move.w #%1111100000,d3
-
 
     if !AVOID_SMC
 * SMC - DO NOT OPTIMISE!
@@ -1185,13 +1168,11 @@ PLY_AKYst_Channel1_RegisterBlock_Return:
         movex.w #PLY_AKYst_OPCODE_CZF,PLY_AKYst_Channel1_RegisterBlockLineState_Opcode
         movex.l a1,PLY_AKYst_Channel1_PtRegisterBlock           ;This is new pointer on the RegisterBlock.
 
-
 ;Reading the RegisterBlock - Channel 2
 ;----------------------------------------
 
         ;Shifts the R7 for the next channels.
         lsr.b #1,d3
-        
 
     if !AVOID_SMC
 * SMC - DO NOT OPTIMISE!
@@ -1322,9 +1303,12 @@ PLY_AKYst_PsgRegister13_Change:
 
 PLY_AKYst_PsgRegister13_End:
 
-
-
 PLY_AKYst_Exit:
+
+    if SAMPLES
+        bra sample_player_tick_routine
+    endif
+
         rts
 
     if AVOID_SMC
@@ -1346,9 +1330,6 @@ PLY_AKYst_Channel3_RegisterBlockLineState_Opcode:   .ds.w 1
     even
     endif
 
-
-
-
     if !UNROLLED_CODE
 ;Generic code interpreting the RegisterBlock
 ;IN:    a1 = First byte.
@@ -1364,4 +1345,8 @@ PLY_AKYst_PsgRegister6: dc.b 0
 PLY_AKYst_PsgRegister11: dc.b 0
 PLY_AKYst_PsgRegister12: dc.b 0
 PLY_AKYst_PsgRegister13: dc.b 0
+
+    if SAMPLES
+        include "PlayerSamples.s"
+    .endif
 

@@ -1,13 +1,16 @@
-sample_tester=1
+; Sample player for Arkos Tracker 3
+; Typically this is included from the main Arkos AKY player, so there shouldn't
+; be a need to include this anywhere else, unless you want to test the code 
+; or do something exotic like play samples in squence as a stand alone thing
+; (to which you get a salute)
 
-    .if sample_tester
+sample_tester=0             ; set this to 1 to test the player stand alone
+
+    if sample_tester
     ; just enough code to test the sample player stand alone,
     ; do not expect a masterclass in clean code!
 
-    ; init player
-    move.l #sample_player_raw_linear_data,sample_player_current_event
-    move.l #arkos_samples+629,sample_player_current_event
-    clr.w sample_player_wait_frames
+    bsr sample_player_init
 
     ; who's super? You're super!
     clr.l   -(SP)
@@ -77,7 +80,14 @@ vbl:
     move.l a0,sample_player_current_event
     movem.l (sp)+,d0-a6
     rte
-    .endif
+    endif
+
+; init player
+sample_player_init:
+    move.l #arkos_samples,sample_player_current_event
+    move.l #arkos_samples+629,sample_player_current_event
+    clr.w sample_player_wait_frames
+    rts
 
 ; a0 points to current "raw linear" event
 ;
@@ -182,7 +192,8 @@ sample_player_play_sample_write_addresses:
     ;move.b  2457600/(200*192*108/60)
     move.b #1,$fffffa19.w               ; tacr timer a /4
     ;move.b #76,$fffffa1f.w              ; ta data (2457600/4/76 ~= 8084Hz)
-    move.b #51,$fffffa1f.w              ; ta data (2457600/4/51 ~= 12047Hz)
+    ;move.b #51,$fffffa1f.w              ; ta data (2457600/4/51 ~= 12047Hz)
+    move.b #30,$fffffa1f.w              ; ta data (2457600/4/51 ~= 12047Hz)
 
     bset #5,$FFFFFA07.w                  ; Start timer interrupt
     bra sample_player_get_event 
@@ -201,6 +212,7 @@ sample_player_interrupt_channel = *+3
     bne.s sample_player_interrupt_noloop
     move.l sample_player_loop_address,d0    ; if loop address=0, then don't loop, we're one shotting
     bne.s sample_player_interrupt_noloop
+    move.b #$8,$ffff8802.w                  ; set middle volume to avoid pops when stopping
     bclr #5,$FFFFFA07.w                     ; Stop timer interrupt
 sample_player_interrupt_noloop:
     move.l a0,sample_player_current_sample
@@ -217,8 +229,9 @@ sample_player_loop_address:     .ds.l 1     ;
 
 sample_player_current_sample:   .ds.l 1
 
+    if sample_tester
     .even
-sample_player_raw_linear_data:
     .include "m.raw.linear.s"
     .even
     .include "m.samples.s"
+    endif

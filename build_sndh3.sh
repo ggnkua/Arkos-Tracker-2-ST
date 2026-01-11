@@ -3,7 +3,7 @@ set -e
 
 usage()
 {
-    echo usage: build_sndh3.sh filename.aks "title" "composer" frequency_in_Hz [SID_VOICES] [USE_EVENTS] [SID_EVENTS]
+    echo usage: build_sndh3.sh filename.aks "title" "composer" frequency_in_Hz [SID_VOICES] [USE_EVENTS] [SID_EVENTS] [SAMPLES]
     echo '(paramters in brackets are optional)'
     exit 1
 }
@@ -36,18 +36,23 @@ echo     .include \"$no_path_underscore.events.words.s\" >> sndh_filenames.s
 echo     .even                                  >> sndh_filenames.s
 echo tune_events_end:                           >> sndh_filenames.s
 echo     .endif                                 >> sndh_filenames.s
+echo     .if SAMPLES                            >> sndh_filenames.s
+echo     .include \"%underscore%.raw.linear.s\" >> sndh_filenames.s
+echo     .include \"%underscore%.samples.s\"    >> sndh_filenames.s
+echo     .endif                                 >> sndh_filenames.s
 
 echo    dc.b   \"SNDH\"                      > sndh_header.s
 echo    dc.b   \"TITL\",\"$2\",0            >> sndh_header.s
 echo    dc.b   \"COMM\",\"$3\",0            >> sndh_header.s
 echo    dc.b   \"RIPP\",\"Nobody\",0        >> sndh_header.s
-echo    dc.b   \"CONV\",\"Arkos2-2-SNDH\",0 >> sndh_header.s
+echo    dc.b   \"CONV\",\"Arkos3-2-SNDH\",0 >> sndh_header.s
 echo    dc.b   \"TC$4\",0                   >> sndh_header.s
 
 # Parse the rest of the paramters, if any
 SID_VOICES="0"
 USE_EVENTS="0"
 SID_EVENTS="0"
+SAMPLES="0"
 
 # skip first four parameters
 filename=$1
@@ -68,7 +73,10 @@ while [[ $# -gt 0 ]]; do
         # this is implied, can't have SID events without events
 		USE_EVENTS=1
         SID_EXT=_SID
-        SIDEVENTS_EXT=_SIDEVENTS        
+        SIDEVENTS_EXT=_SIDEVENTS
+    elif [ "$1" == "SAMPLES" ]; then
+        SAMPLES=1
+        SAMPLES_EXT=_SAMPLES
 	else
 		echo Invalid parameter passed! "$1"
         usage
@@ -77,4 +85,4 @@ while [[ $# -gt 0 ]]; do
 	shift
 done
 
-bin/rmac_$extension -fr -D_RMAC_=1 -D_VASM_=0 -DSID_VOICES=$SID_VOICES -DUSE_EVENTS=$USE_EVENTS -DUSE_SID_EVENTS=$SID_EVENTS -o "$no_path$SID_EXT$EVENTS_EXT$SIDEVENTS_EXT.sndh" sndh.s
+bin/rmac_$extension -fr -D_RMAC_=1 -D_VASM_=0 -DSID_VOICES=${SID_VOICES} -DUSE_EVENTS=${USE_EVENTS} -DUSE_SID_EVENTS=${SID_EVENTS} -DSAMPLES=${SAMPLES} -o "$no_path${SID_EXT}${EVENTS_EXT}${SIDEVENTS_EXT}${SAMPLES_EXT}.sndh" sndh.s

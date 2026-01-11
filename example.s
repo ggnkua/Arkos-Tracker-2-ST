@@ -4,14 +4,6 @@
 ; Uses rmac for assembling (probably not a big problem converting to devpac/vasm format)
 ;
 
-;--------------------------------------------------------------
-;-- Pre-processing of events
-;
-; # Export "you_never_can_tell.events.s"
-; # Copy that file to "you_never_can_tell.events.words.s"
-; # The very last dc.w is the loopback label. Change the dc.w to dc.l
-; # Change all dc.b's to dc.w
-;
 ;-- Pre-processing of events
 ;--------------------------------------------------------------
 ;-- Using events to turn on/off SID on channels
@@ -20,7 +12,7 @@
 ;     SID_VOICES=1
 ;     USE_EVENTS=1
 ;     USE_SID_EVENTS=1
-; # In Arkos Tracker 2, all events starting with F (F0, F1, F2 etc up to FF)
+; # In Arkos Tracker 2/3, all events starting with F (F0, F1, F2 etc up to FF)
 ;   are now SID events. The lowest three bits control which channels are SID-
 ;   enabled. Timers used are ABD (for channels ABC, respectively).
 ;   The bit pattern is 1111 xABC, which means:
@@ -60,6 +52,7 @@ SID_VOICES=0                        ;if 1, enable SID voices (takes more CPU tim
 USE_EVENTS=0                        ;if 1, include events, and parse them
 USE_SID_EVENTS=0                    ;if 1, use events to control SID.
                                     ;  $Fn=sid setting, where n bits are xABC for which voice to use SID
+SAMPLES=1                           ;if 1, enable sample player (events and samples need to be exported)
 DUMP_SONG=0                         ;if 1, produce a YM dump of the tune. DOES NOT WORK WITH SID OR EVENTS YET!
 DUMP_SONG_SKIP_FRAMES_FROM_START=0  ;if dumping, how many frames we should skip from the start
 DUMP_SONG_FRAMES_AMOUNT=50*60       ;if dumping, the number of frames to dump
@@ -557,12 +550,12 @@ event_byte: dc.b 0
 event_flag: dc.b 0
   even
 tune_events:
-    include "tunes/knightmare.events.words.s"
+    include "m.events.words.s"
   even
   endif ; .if USE_EVENTS
 
 tune:
-    include "tunes/just_add_cream.aky.s"
+    include "m.aky.s"
 
     if _RMAC_=1
     long                            ;pad to 4 bytes
@@ -572,9 +565,14 @@ tune:
     endif
 tune_end:
 
+  if SAMPLES
+    include "m.raw.linear.s"
+    include "m.samples.s
+  endif
+
     bss
 
-    if DUMP_SONG
+  if DUMP_SONG
 ; Each YM dump frame consists of:
 ; 1 word that specifies wheter we load the hardware envelope values (0=no)
 ; Either: 13 longwords containing YM registers 0-12
@@ -585,4 +583,4 @@ dump_dummy:
     ds.l 1
 dump_buffer:
     ds.w DUMP_SONG_FRAMES_AMOUNT*(14*2+1)
-    endif
+  endif

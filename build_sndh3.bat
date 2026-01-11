@@ -20,6 +20,10 @@ echo     .include "%underscore%.events.words.s" >> sndh_filenames.s
 echo     .even                                  >> sndh_filenames.s
 echo tune_events_end:                           >> sndh_filenames.s
 echo     .endif                                 >> sndh_filenames.s
+echo     .if SAMPLES                            >> sndh_filenames.s
+echo     .include "%underscore%.raw.linear.s"   >> sndh_filenames.s
+echo     .include "%underscore%.samples.s"      >> sndh_filenames.s
+echo     .endif                                 >> sndh_filenames.s
 
 echo    dc.b   "SNDH"                    > sndh_header.s
 echo    dc.b   "TITL","%~2",0           >> sndh_header.s
@@ -32,6 +36,7 @@ rem Parse the rest of the paramters, if any
 set SID_VOICES=0
 set USE_EVENTS=0
 set SID_EVENTS=0
+set SAMPLES=0
 
 rem skip first four parameters
 set filename=%~n1
@@ -55,6 +60,9 @@ if not "%1"=="" (
 		set SID_EVENTS=1
         set SID_EXT=_SID
         set SIDEVENTS_EXT=_SIDEVENTS
+    ) else if /i "%1"=="SAMPLES" (
+        set SAMPLES=1
+        set SAMPLES_EXT=_SAMPLES
 	) else (
 		echo Invalid parameter passed! "%1"
 		goto :USAGE
@@ -64,12 +72,12 @@ if not "%1"=="" (
 	goto :parseloop
 )
 
-bin\rmac -fr -D_RMAC_=1 -D_VASM_=0 -DSID_VOICES=%SID_VOICES% -DUSE_EVENTS=%USE_EVENTS% -DUSE_SID_EVENTS=%SID_EVENTS% -o "%filename%%SID_EXT%%EVENTS_EXT%%SIDEVENTS_EXT%.sndh" sndh.s
+bin\rmac -fr -D_RMAC_=1 -D_VASM_=0 -DSID_VOICES=%SID_VOICES% -DUSE_EVENTS=%USE_EVENTS% -DUSE_SID_EVENTS=%SID_EVENTS% -DSAMPLES=%SAMPLES% -o "%filename%%SID_EXT%%EVENTS_EXT%%SIDEVENTS_EXT%.sndh" sndh.s
 
 goto GOODBYE
 
 :USAGE
-echo usage: build_sndh3.bat filename.aks "title" "composer" frequency_in_Hz [SID_VOICES] [USE_EVENTS] [SID_EVENTS]
+echo usage: build_sndh3.bat filename.aks "title" "composer" frequency_in_Hz [SID_VOICES] [USE_EVENTS] [SID_EVENTS] [SAMPLES]
 echo (paramters in brackets are optional)
 
 :GOODBYE
@@ -81,4 +89,4 @@ set SID_EVENTS=
 set SID_EXT=
 set EVENTS_EXT=
 set SIDEVENTS_EXT=
-
+set SAMPLES=
