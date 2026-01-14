@@ -10,14 +10,14 @@
     ; just enough code to test the sample player stand alone,
     ; do not expect a masterclass in clean code!
 
-    bsr sample_player_init
-
     ; who's super? You're super!
     clr.l   -(SP)
     move.w  #$20,-(SP)
     trap    #1
     addq.l  #6,SP
     ;move.l d0,old_sp
+
+    bsr sample_player_init
 
     move sr,-(sp)
     move #$2700,sr
@@ -37,30 +37,30 @@
     ;bset    #5,$FFFA07                                 ; Start timer interrupt
     bset    #5,$FFFFFA13.w                              ; unmask
 
-    MOVE.B	#0,$ffff8800.w	; CHANNEL A
-	MOVE.B	#0,$ffff8802.w
-	MOVE.B	#1,$ffff8800.w
-	MOVE.B	#0,$ffff8802.w
+    move.b  #0,$ffff8800.w  ; channel a
+    move.b  #0,$ffff8802.w
+    move.b  #1,$ffff8800.w
+    move.b  #0,$ffff8802.w
 
-	MOVE.B	#2,$ffff8800.w	; CHANNEL B
-	MOVE.B	#0,$ffff8802.w
-	MOVE.B	#3,$ffff8800.w
-	MOVE.B	#0,$ffff8802.w
+    move.b  #2,$ffff8800.w  ; channel b
+    move.b  #0,$ffff8802.w
+    move.b  #3,$ffff8800.w
+    move.b  #0,$ffff8802.w
 
-	MOVE.B	#4,$ffff8800.w	; CHANNEL C
-	MOVE.B	#0,$ffff8802.w
-	MOVE.B	#5,$ffff8800.w
-	MOVE.B	#0,$ffff8802.w
+    move.b  #4,$ffff8800.w  ; channel c
+    move.b  #0,$ffff8802.w
+    move.b  #5,$ffff8800.w
+    move.b  #0,$ffff8802.w
 
-	MOVE.B	#7,$ffff8800.w	; SET UP CHANNEL MIXING & PORT 'A' I/O
-	MOVE.B	#$FF,$ffff8802.w
+    move.b  #7,$ffff8800.w  ; set up channel mixing & port 'a' i/o
+    move.b  #$ff,$ffff8802.w
 
-	MOVE.B	#8,$ffff8800.w	; SET ALL VOLUMES TO ZERO
-	MOVE.B	#0,$ffff8802.w
-	MOVE.B	#9,$ffff8800.w
-	MOVE.B	#0,$ffff8802.w
-	MOVE.B	#10,$ffff8800.w
-	MOVE.B	#0,$ffff8802.w
+    move.b  #8,$ffff8800.w  ; set all volumes to zero
+    move.b  #0,$ffff8802.w
+    move.b  #9,$ffff8800.w
+    move.b  #0,$ffff8802.w
+    move.b  #10,$ffff8800.w
+    move.b  #0,$ffff8802.w
 
     move.l #vbl,$70.w    ; set our vbl
     move (sp)+,sr
@@ -85,7 +85,7 @@ vbl:
 ; init player
 sample_player_init:
     move.l #arkos_samples,sample_player_current_event
-    clr.w sample_player_wait_frames
+    move.w #1,sample_player_wait_frames
 
     ; Init MFP
     move.l  #sample_player_interrupt_routine,$0134.w    ; Insert new routine
@@ -115,10 +115,9 @@ sample_player_tick_routine:
 ; Firstly, check if a pause is imposed on us, if true then
 ; decrease wait counter and get out
     ;move.w #$fff,$ffff8240.w
-    tst.w sample_player_wait_frames
-    bgt.s sample_player_get_event
-    ;move.w #$f00,$ffff8240.w
     subq.w #1,sample_player_wait_frames
+    beq.s sample_player_get_event
+    ;move.w #$f00,$ffff8240.w
     rts
 
 ; Let's grab an event!
@@ -135,8 +134,7 @@ sample_player_get_event:
     bne.s sample_player_exit    ; currently unsupported command, go away
 
 ; End of song marker, just loop back to where we're told
-    ;add.w d7,d1                 ; align if necessary
-    move.w a0,d0                ; TODO needed ?
+    move.w a0,d0                ; align if necessary
     and.w #1,d0
     add.w d0,a0
     move.w (a0),a0
@@ -149,8 +147,7 @@ sample_player_exit:
     rts
 
 sample_player_wait_n_frames:
-    ;add.w d7,d1                 ; align if necessary
-    move.w a0,d0                ; TODO needed?
+    move.w a0,d0                ; align if necessary
     and.w #1,d0
     add.w d0,a0
     move.w (a0)+,sample_player_wait_frames
@@ -199,7 +196,8 @@ sample_player_play_sample_write_addresses:
     move.b #1,$fffffa19.w               ; tacr timer a /4
     ;move.b #76,$fffffa1f.w              ; ta data (2457600/4/76 ~= 8084Hz)
     ;move.b #51,$fffffa1f.w              ; ta data (2457600/4/51 ~= 12047Hz)
-    move.b #30,$fffffa1f.w              ; ta data (2457600/4/51 ~= 12047Hz)
+    ;move.b #30,$fffffa1f.w              ; ta data (2457600/4/30 ~= 20480Hz)
+    move.b #25,$fffffa1f.w              ; ta data (2457600/4/25 ~= 24756Hz)
 
     bset #5,$FFFFFA07.w                  ; Start timer interrupt
     bra sample_player_get_event 

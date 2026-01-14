@@ -28856,5 +28856,5 @@ arkos_samplesloop:
 
     dc.b 253    ; Command: end.
 arkos_samplesDisarkWordForceReference1:
-    dc.w arkos_samplesloop    ; Loop here.
+    dc.w arkos_samplesloop-arkos_samples    ; Loop here.
 arkos_samplesDisarkByteRegionEnd0:

@@ -50,6 +50,8 @@ bin\sed -i -e "/Effect/d" %2.raw.linear.s
 bin\sed -i -e "/effects/d" %2.raw.linear.s
 rem fix bug as of Arkos 3.5 tools: an empty label prefix creates a label called ":"
 bin\sed -i -e "s/^:$//" %2.raw.linear.s
+rem fix loop point (which is a .w. Could be a bug in AT3, but let's move on for now)
+bin\sed -i -e "s/dc.w arkos_samplesloop/dc.w arkos_samplesloop-arkos_samples/gI" %2.raw.linear.s
 
 rem Same as above, but for samples. Might not be used eventually (we can convert the dc.ws to dc.ls
 rem and be rid of all the relative pointer nonsense)
