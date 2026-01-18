@@ -22,7 +22,7 @@ debug=0                             ;1=skips installing a timer for replay and i
                                     ;good for debugging the player but plays the tune in turbo mode :)
 showcpu=0
 
-tune_freq = 50                     ;tune frequency in ticks per second
+tune_freq = 50                      ;tune frequency in ticks per second
 
 	pea start(pc)                   ;go to start with supervisor mode on
 	move.w #$26,-(sp)
@@ -39,13 +39,12 @@ start:
   .if USE_EVENTS
     lea tune,a0
     move.w 2(a0),d0
-    lea 2(a0,d0.w),a0                ;point to sndh_init
-    ;lea -events_size(a0),d0         ;point to events struct inside the sndh
+    lea 2(a0,d0.w),a0               ;point to sndh_init
     lea -events_size(a0),a0         ;point to events struct inside the sndh
     move.l a0,events_ptr            ;save address for use by the replay interrupt
   .endif
 
-	bsr tune+0                    ;init player and tune
+	bsr tune+0                      ;init player and tune
 
 	move sr,-(sp)                   ;install our very own timer C
 	move #$2700,sr
@@ -93,7 +92,7 @@ timer_c:
     clr.b event_flag(a0)
     cmp.b #2,event_byte(a0)         ;we have used #2 as our sync event number so we check for that (non-zero event_flag might be a loop point)
     bne.s no_event_yet   
-    move.w #$00f,$ffff8240.w         ;visual signal
+    move.w #$00f,$ffff8240.w        ;visual signal
 no_event_yet:
   .endif
 
@@ -114,7 +113,7 @@ events_ptr: dc.l 0
 	
 	.even
 tune:
-	.incbin "tunes/Love Potion Level 4 (Hello) 001 (looped) with events.sndh"
+	.incbin "mission_complete.sndh"
 tune_end:
 
 	.bss

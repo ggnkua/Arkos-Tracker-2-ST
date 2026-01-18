@@ -402,10 +402,6 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise\~:
         bra readregs_out\~
   endif
 
-
-
-
-
 ;Generic code interpreting the RegisterBlock - Non initial state. See comment about the Initial state for the registers ins/outs.
 ;----------------------------------------------------------------
 PLY_AKYst_RRB_NonInitialState\~:
@@ -1304,11 +1300,10 @@ PLY_AKYst_PsgRegister13_Change:
 PLY_AKYst_PsgRegister13_End:
 
 PLY_AKYst_Exit:
-
     if SAMPLES
-        move.l sample_player_current_event,a0
+        move.l sample_player_current_event(pc),a0
         bsr sample_player_tick_routine
-        move.l a0,sample_player_current_event
+        movex.l a0,sample_player_current_event
    endif
 
         rts

@@ -30,6 +30,7 @@ EVENT_CHANNEL_C_MASK equ 8+1
         clr\! \dst
     .endif
     .endm
+
     .macro tstx dst
     .if PC_REL_CODE
         tst\! \dst - PLY_AKYst_Init(a4)
@@ -37,6 +38,7 @@ EVENT_CHANNEL_C_MASK equ 8+1
         tst\! \dst
     .endif
     .endm
+
     .macro movex src,dst
     .if PC_REL_CODE
         move\! \src,\dst - PLY_AKYst_Init(a4)
