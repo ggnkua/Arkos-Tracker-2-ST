@@ -47,6 +47,30 @@
     endif
     endif
 
+;
+; Macro to stop the sample player interrupt (if samples are enabled)
+; Perhaps this is not needed, if we read instrument 0 in the sample events
+; it should mean that we can safely stop the sample player there
+;
+
+    if _RMAC_=1
+    .macro stop_sample_interrupt register
+    if SAMPLES
+    ; Just stops timer A for now. If we decide to get fancy and use
+    ; multiple timers, or let the user select which timer they would prefer
+    ; then we'll need to revisit this.
+;    if AVOID_SMC
+;    cmp.b #8+\register,sample_player_ym_channel
+;    else
+;    cmp.b #8+\register+8,sample_player_interrupt_channel
+;    endif
+;    bne.s stop_sample_skip\~
+;    bclr #5,$FFFFFA07.w                                         ; Stop timer interrupt
+;stop_sample_skip\~:
+    .endif
+    .endm
+    endif
+
 PLY_AKYst_RRB_NoiseChannelBit equ 5                             ;Bit to modify to set/reset the noise channel.
 PLY_AKYst_RRB_SoundChannelBit equ 2                             ;Bit to modify to set/reset the sound channel.
 
@@ -75,7 +99,7 @@ PLY_AKYst_RRB_SoundChannelBit equ 2                             ;Bit to modify t
 ;
     
     if _RMAC_=1
-	macro readregs volume,frequency,subroutine
+	macro readregs register,frequency,subroutine
 
 ;Generic code interpreting the RegisterBlock
 ;IN:    a1 = First byte.
@@ -152,10 +176,11 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolume\~:
         rts
   else
     if !(SID_VOICES|DUMP_SONG)
-        move.b #\volume,(a2)
+        stop_sample_interrupt \register
+        move.b #\register,(a2)
         move.b d1,(a3)
     else
-        move.b d1,4*\volume(a3)
+        move.b d1,4*\register(a3)
     endif
         ;Closes the sound channel.
         bset #PLY_AKYst_RRB_SoundChannelBit, d3
@@ -210,10 +235,11 @@ PLY_AKYst_RRB_IS_HO_AfterNoise\~:
         rts
   else
     if !(SID_VOICES|DUMP_SONG)
-        move.b #\volume,(a2)
+        stop_sample_interrupt \register
+        move.b #\register,(a2)
         move.b d4,(a3)                                          ;(volume to 16).
     else
-        move.b d4,4*\volume(a3)
+        move.b d4,4*\register(a3)
     endif
         bra readregs_out\~
   endif
@@ -249,10 +275,11 @@ PLY_AKYst_RRB_IS_SoftwareOnly_AfterNoise\~:
         addq.w #1,d7                                            ;Increases the volume register.
   else
     if !(SID_VOICES|DUMP_SONG)
-        move.b #\volume,(a2)
+        stop_sample_interrupt \register
+        move.b #\register,(a2)
         move.b d1,(a3)
     else
-        move.b d1,4*\volume(a3)
+        move.b d1,4*\register(a3)
     endif
   endif
 
@@ -391,10 +418,11 @@ PLY_AKYst_RRB_IS_SAH_AfterNoise\~:
         rts
   else
     if !(SID_VOICES|DUMP_SONG)
-        move.b #\volume,(a2)
+        stop_sample_interrupt \register
+        move.b #\register,(a2)
         move.b d4,(a3)                                          ;(volume to 16).
     else
-        move.b d4,4*\volume(a3)
+        move.b d4,4*\register(a3)
     endif
         ;Copies the hardware period.
         movex.b (a1)+,PLY_AKYst_PsgRegister11
@@ -510,10 +538,11 @@ PLY_AKYst_RRB_NIS_Volume\~:
     endif
   else
     if !(SID_VOICES|DUMP_SONG)
-        move.b #\volume,(a2)
+        stop_sample_interrupt \register
+        move.b #\register,(a2)
         move.b d1,(a3)
     else
-        move.b d1,4*\volume(a3)
+        move.b d1,4*\register(a3)
     endif
   endif
 PLY_AKYst_RRB_NIS_AfterVolume\~:
@@ -565,10 +594,11 @@ PLY_AKYst_RRB_NIS_SoftwareOnly_Loop\~:
         addq.w #1,d7                                            ;Increases the volume register.
   else
     if !(SID_VOICES|DUMP_SONG)
-        move.b #\volume,(a2)
+        stop_sample_interrupt \register
+        move.b #\register,(a2)
         move.b d1,(a3)
     else
-        move.b d1,4*\volume(a3)
+        move.b d1,4*\register(a3)
     endif
   endif
 
@@ -694,10 +724,11 @@ PLY_AKYst_RRB_NIS_HardwareOnly_Loop\~:
         add.w #$201,d7                                          ;Increases the volume register (low byte), frequency register (high byte)
   else
     if !(SID_VOICES|DUMP_SONG)
-        move.b #\volume,(a2)
+        stop_sample_interrupt \register
+        move.b #\register,(a2)
         move.b d4,(a3)                                          ;(16 = hardware volume).
     else
-        move.b d4,4*\volume(a3)
+        move.b d4,4*\register(a3)
     endif
   endif
         move.b d2,d1
@@ -748,10 +779,11 @@ PLY_AKYst_RRB_NIS_SoftwareAndHardware_Loop\~:
         addq.w #1,d7                                            ;Increases the volume register.
   else
     if !(SID_VOICES|DUMP_SONG)
-        move.b #\volume,(a2)
+        stop_sample_interrupt \register
+        move.b #\register,(a2)
         move.b d4,(a3)                                          ;(16 = hardware volume).
     else
-        move.b d4,4*\volume(a3)
+        move.b d4,4*\register(a3)
     endif
   endif
         ;LSB of hardware period?
@@ -955,6 +987,7 @@ PLY_AKYst_Play:
         if PC_REL_CODE
         lea PLY_AKYst_Init(pc),a4                               ;base pointer for PC relative stores
         endif
+        ;bra PLY_AKYst_Exit
 
         if DUMP_SONG
         lea dump_dummy(pc),a2

@@ -16,8 +16,8 @@ SampleDisarkPointerRegionStart0:
     dc.w 0    ; Instrument index 7
     dc.w 0    ; Instrument index 8
     dc.w 0    ; Instrument index 9
-    dc.w Sample_Sample10 - SampleDisarkPointerRegionStart0    ; Instrument index 10
-    dc.w Sample_Sample11 - SampleDisarkPointerRegionStart0    ; Instrument index 11
+    dc.w Sample_Sample10 - SampleDisarkPointerRegionStart0 - SampleDisarkPointerRegionStart0    ; Instrument index 10
+    dc.w Sample_Sample11 - SampleDisarkPointerRegionStart0 - SampleDisarkPointerRegionStart0    ; Instrument index 11
 SampleDisarkPointerRegionEnd0:
 
 ; The data for sample index 10.

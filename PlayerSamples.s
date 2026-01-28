@@ -208,6 +208,7 @@ sample_player_actually_play_sample: ; this is it, we're doing it now for reals!
     move.b (a0)+,d1             ; get instrument
     cmp.b #255,d1
     bne.s sample_player_play_sample_for_sure
+    bclr #5,$FFFFFA07.w         ; instrument #0 - stop sample
     bra sample_player_get_event ; oh nooo brooooooo, we got duped again! skip command again
 sample_player_play_sample_for_sure:
     ;move.b #0,$ffff8802.w
@@ -221,11 +222,7 @@ sample_player_play_sample_for_sure:
     add.w d1,d1
     move.w (a2,d1.w),d1
     beq sample_player_get_event ; if this is zero, then this event is no sample (broooooo!)
-    ;add.w d1,a2                 ; point to sample's info
-    ;addq.l #2,a2                ; compensate for SampleTableIndex-2 above, ugh
-    lea 2(a2,d1.w),a1
-    ;move.l a2,a1                ; everything's relative to this address
-    ;movem.w (a2),d1-d3          ; sample start offset, end offset, loop offset
+    lea 2(a2,d1.w),a1           ; everything's relative to this address
     movem.w (a1),d1-d3          ; sample start offset, end offset, loop offset
     lea 2(a1,d2.w),a2           ; end address
     lea (a1,d3.w),a3            ; loop address
@@ -245,7 +242,6 @@ sample_player_play_sample_write_addresses:
     ;move.b #51,$fffffa1f.w              ; ta data (2457600/4/51 ~= 12047Hz)
     ;move.b #30,$fffffa1f.w              ; ta data (2457600/4/30 ~= 20480Hz)
     move.b #25,$fffffa1f.w              ; ta data (2457600/4/25 ~= 24756Hz)
-
 
     bset #5,$FFFFFA07.w                  ; Start timer interrupt
     bra sample_player_get_event 
