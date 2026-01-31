@@ -255,3 +255,4 @@ Finally the whole code inside `sid.s` should also be treated as reference. There
 - Thanks to Florent Flament for some vasm fixes
 - Thanks to @shinmai for some vasm fixes
 - Thanks to Doclands/Overlanders for countless discussions and encouragement
+- Thanks to Sandor Drieënhuizen aka Zeme/Dawn for huge amounts of work on the upcoming sfx driver and reporting one nasty bug in the register block reading case 0

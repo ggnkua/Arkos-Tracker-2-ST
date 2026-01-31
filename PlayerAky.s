@@ -154,7 +154,7 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise\~:
         movex.b (a1)+,PLY_AKYst_PsgRegister6
 
         ;Opens the noise channel.
-        bclr #PLY_AKYst_RRB_NoiseChannelBit,d4
+        bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise_End\~:
         
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolume\~:
@@ -1171,9 +1171,7 @@ PLY_AKYst_Channel3_RegisterBlock_Process:
         
         ;In d3, R7 with default values: fully sound-open but noise-close.
         ;R7 has been shift twice to the left, it will be shifted back as the channels are treated.
-        ;Bits 6 and 7 are also set (bits 8 and 9 in the instruction below) - at least bit 6 is crucial to be
-        ;set as the Falcon's internal IDE drives might switch off otherwise!
-        move.w #%1111100000,d3
+        move.b #%11100000,d3
 
     if !AVOID_SMC
 * SMC - DO NOT OPTIMISE!
@@ -1254,18 +1252,15 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
         movex.w #PLY_AKYst_OPCODE_CZF,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
         movex.l a1,PLY_AKYst_Channel3_PtRegisterBlock           ;This is new pointer on the RegisterBlock.
 
-        ;Register 7 to d1.
-        move.w d3,d1
-
 ;Almost all the channel specific registers have been sent. Now sends the remaining registers (6, 7, 11, 12, 13).
 
 ;Register 7. Note that managing register 7 before 6/11/12 is done on purpose (the 6/11/12 registers are filled using OUTI).
 
     if !(SID_VOICES|DUMP_SONG)
         move.b #7,(a2)
-        move.b d1,(a3)
+        move.b d3,(a3)
     else
-        move.b d1,(7*4)(a3)
+        move.b d3,(7*4)(a3)
     endif
 
 ;Register 6
@@ -1282,7 +1277,7 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
         move.b PLY_AKYst_PsgRegister11(pc),(a3)
     else
         if !(DUMP_SONG)
-        lea $ffff8800.w,a2                                      ;we're going to write these values immediately to the YM so we might as well load an address register
+        lea $ffff8800.w,a2                                      ;SID voices case - we're going to write these values immediately to the YM so we might as well load an address register
         endif
         move.b #11,(a2)
         move.b PLY_AKYst_PsgRegister11(pc),2(a2)
