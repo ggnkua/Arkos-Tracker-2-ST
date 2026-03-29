@@ -33,6 +33,12 @@
 ; to being PC relative. So we define some macros for the instructions that require
 ; one format or the other, just so both versions of the player can be generated
 ; from the same source
+;
+; Macro to stop the sample player interrupt (if samples are enabled)
+; Perhaps this is not needed, if we read instrument 0 in the sample events
+; it should mean that we can safely stop the sample player there
+;
+    .macro stop_sample_interrupt register
 PLY_AKYst_RRB_NoiseChannelBit equ 5                             ;Bit to modify to set/reset the noise channel.
 PLY_AKYst_RRB_SoundChannelBit equ 2                             ;Bit to modify to set/reset the sound channel.
 ;
@@ -90,6 +96,7 @@ PLY_AKYst_Init_SkipHeaderEnd:
 PLY_AKYst_Play:
         lea $ffff8800.w,a2                                      ;cache YM registers
         lea $ffff8802.w,a3
+        ;bra PLY_AKYst_Exit
 ;Linker.
 ;----------------------------------------
         move.w PLY_AKYst_PatternFrameCounter(pc),d1
@@ -198,9 +205,7 @@ PLY_AKYst_Channel3_RegisterBlock_Process:
         move.w #$f690,d4                                        ;$90 used for both $80 for the PSG, and volume 16!
         ;In d3, R7 with default values: fully sound-open but noise-close.
         ;R7 has been shift twice to the left, it will be shifted back as the channels are treated.
-        ;Bits 6 and 7 are also set (bits 8 and 9 in the instruction below) - at least bit 6 is crucial to be
-        ;set as the Falcon's internal IDE drives might switch off otherwise!
-        move.w #%1111100000,d3
+        move.b #%11100000,d3
         move.l PLY_AKYst_Channel1_PtRegisterBlock(pc),a1
         move.w PLY_AKYst_Channel1_RegisterBlockLineState_Opcode(pc),d1
         bsr PLY_AKYst_ReadRegisterBlock
@@ -227,12 +232,16 @@ PLY_AKYst_Channel2_RegisterBlock_Return:
 PLY_AKYst_Channel3_RegisterBlock_Return:
         move.w #PLY_AKYst_OPCODE_CZF,PLY_AKYst_Channel3_RegisterBlockLineState_Opcode
         move.l a1,PLY_AKYst_Channel3_PtRegisterBlock
-        ;Register 7 to d1.
-        move.w d3,d1
 ;Almost all the channel specific registers have been sent. Now sends the remaining registers (6, 7, 11, 12, 13).
 ;Register 7. Note that managing register 7 before 6/11/12 is done on purpose (the 6/11/12 registers are filled using OUTI).
-        move.b #7,(a2)
-        move.b d1,(a3)
+;Because someone might be writing to bits 6/7 (i.e. PORT A,B IN/OUT control) and we can't rely on any saved values
+;we'll read the actual register from the YM, isolate bits 6/7 and then combine them with our value in d3.
+;(d3's upper bits are guaranteed to be 0 due to the lsrs happening above)
+    move.b #7,(a2)
+    move.b (a2),d0
+    and.b #%11000000,d0
+    or.b d0,d3
+        move.b d3,(a3)
 ;Register 6
         move.b #6,(a2)
         move.b PLY_AKYst_PsgRegister6(pc),(a3)
@@ -301,13 +310,13 @@ PLY_AKYst_RRB_IS_NoSoftwareNoHardwareM33:
         bra.s PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise_EndM33
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoiseM33:
         move.b (a1)+,PLY_AKYst_PsgRegister6
-        bclr #PLY_AKYst_RRB_NoiseChannelBit,d4
+        bclr #PLY_AKYst_RRB_NoiseChannelBit,d3
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadNoise_EndM33:
 PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolumeM33:
         move.b d7,(a2)
         move.b d1,(a3)
         add.w #(2<<8)+1,d7                                      
-        bset #PLY_AKYst_RRB_SoundChannelBit, d3
+        bset #PLY_AKYst_RRB_SoundChannelBit,d3
         rts
 PLY_AKYst_RRB_IS_HardwareOnlyM33:
         lsr.b #1,d1

@@ -172,7 +172,7 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolume\~:
     endif
         add.w #(2<<8)+1,d7                                      ;Increases the volume register (low byte) and frequency register (high byte).
         ;Closes the sound channel.
-        bset #PLY_AKYst_RRB_SoundChannelBit, d3
+        bset #PLY_AKYst_RRB_SoundChannelBit,d3
         rts
   else
     if !(SID_VOICES|DUMP_SONG)
@@ -183,7 +183,7 @@ PLY_AKYst_RRB_NIS_NoSoftwareNoHardware_ReadVolume\~:
         move.b d1,4*\register(a3)
     endif
         ;Closes the sound channel.
-        bset #PLY_AKYst_RRB_SoundChannelBit, d3
+        bset #PLY_AKYst_RRB_SoundChannelBit,d3
         bra readregs_out\~
   endif
 
@@ -1255,9 +1255,16 @@ PLY_AKYst_Channel3_RegisterBlock_Return:
 ;Almost all the channel specific registers have been sent. Now sends the remaining registers (6, 7, 11, 12, 13).
 
 ;Register 7. Note that managing register 7 before 6/11/12 is done on purpose (the 6/11/12 registers are filled using OUTI).
+;Because someone might be writing to bits 6/7 (i.e. PORT A,B IN/OUT control) and we can't rely on any saved values
+;we'll read the actual register from the YM, isolate bits 6/7 and then combine them with our value in d3.
+;(d3's upper bits are guaranteed to be 0 due to the lsrs happening above)
+
+    move.b #7,(a2)
+    move.b (a2),d0
+    and.b #%11000000,d0
+    or.b d0,d3
 
     if !(SID_VOICES|DUMP_SONG)
-        move.b #7,(a2)
         move.b d3,(a3)
     else
         move.b d3,(7*4)(a3)
